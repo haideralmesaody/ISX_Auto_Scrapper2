@@ -1,5 +1,5 @@
 import logging
-from logging.handlers import RotatingFileHandler
+from concurrent_log_handler import ConcurrentRotatingFileHandler
 import uuid
 from app_config import DEBUG  # Import your DEBUG flag from your config
 
@@ -15,12 +15,11 @@ class Logger:
             log_format = '%(asctime)s - %(levelname)s - %(module)s - %(funcName)s - %(lineno)d - %(message)s'
 
             # Handler for regular logs
-            handler = RotatingFileHandler(
-                'stock_analysis.log', maxBytes=1e6, backupCount=5)
+            handler = ConcurrentRotatingFileHandler('stock_analysis.log', maxBytes=1e6, backupCount=5)
             handler.setFormatter(logging.Formatter(log_format))
 
             # Handler for full logs of truncated messages
-            full_handler = RotatingFileHandler(
+            full_handler = ConcurrentRotatingFileHandler(
                 'stock_analysis_full.log', maxBytes=1e6, backupCount=5)
             full_handler.setFormatter(logging.Formatter(log_format))
 

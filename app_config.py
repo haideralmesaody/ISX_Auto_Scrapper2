@@ -23,6 +23,7 @@ EDGE_DRIVER_PATH = os.path.join(current_directory, 'msedgedriver.exe')
 
 # URL Configuration
 BASE_URL = 'http://www.isx-iq.net/isxportal/portal/companyprofilecontainer.html'
+BASE_URL_ASE = 'https://www.ase.com.jo/en/company_historical/'
 DEFAULT_DATE = "06/10/2010"
 
 # Table Configuration
@@ -33,7 +34,7 @@ WEBDRIVER_WAIT_TIME = 10
 
 # Data Fetching Configuration
 DEFAULT_SMA_PERIOD = 10
-DEFAULT_ROW_COUNT = 300
+DEFAULT_ROW_COUNT = 600
 
 # Excel Configuration
 EXCEL_ENGINE = 'openpyxl'
