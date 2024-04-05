@@ -36,7 +36,6 @@ class DataFetcher(QObject):
 
         self.logger = Logger()
         
-
     def fetch_data(self, ticker):
         # Define the GMT+3 timezone
         gmt3 = tz.tzoffset('GMT+3', 3*3600)
@@ -56,7 +55,7 @@ class DataFetcher(QObject):
                 self.logger.log_or_print(f"Data for ticker {ticker} has {len(df_existing)} rows before sorting.", level="INFO")
                 # Ensure the 'Date' column is of datetime type
                 df_existing['Date'] = pd.to_datetime(df_existing['Date']).apply(lambda x: x.date())
-                
+                MAX_ROWS = 1000  # Define the maximum number of rows to fetch
                 # Get the maximum date
                 # Convert to datetime.date
                 max_date = df_existing['Date'].max()
@@ -73,7 +72,6 @@ class DataFetcher(QObject):
                         f"Failed to initialize Edge WebDriver for ticker {ticker}: {str(e)}", level="ERROR", exc_info=True)
                     raise RuntimeError(f"WebDriver initialization failed for {ticker}") from e
 
-
                 try:
                     driver.get(URL)
                 except TimeoutException as e:
@@ -88,10 +86,18 @@ class DataFetcher(QObject):
                 self.dismiss_alert_if_present(driver)
 
                 # Adjust the value of the input field
+                # Ensure the input field is present before adjusting its value
+                from_date_input_selector = "#fromDate"
+                WebDriverWait(driver, WEBDRIVER_WAIT_TIME).until(
+                    EC.presence_of_element_located((By.CSS_SELECTOR, from_date_input_selector))
+                )
                 driver.execute_script(
-                    'document.querySelector("#fromDate").value = "1/1/2010";')
-                WebDriverWait(driver, WEBDRIVER_WAIT_TIME).until(lambda driver: driver.execute_script(
-                    'return document.querySelector("#fromDate").value;') == "1/1/2010")
+                    f'document.querySelector("{from_date_input_selector}").value = "1/1/2010";'
+                )
+                # Verify the value was set correctly
+                assert "1/1/2010" == driver.execute_script(
+                    f'return document.querySelector("{from_date_input_selector}").value;'
+                ), "Failed to set the fromDate input value."
 
                 # Find the button and click it
                 update_button = driver.execute_script(
@@ -99,7 +105,7 @@ class DataFetcher(QObject):
                 update_button.click()
 
                 # Wait for a couple of seconds after pressing the button
-                time.sleep(2)
+                #time.sleep(2)
 
                 # Wait for table to load
                 self.wait_for_table_to_load(driver)
@@ -108,7 +114,7 @@ class DataFetcher(QObject):
                 #loop to get the data frame to temp data frame
                 #flag to check if next page is required
                 next_page = True
-                while next_page:
+                while next_page and len(df) < MAX_ROWS:
                     self.logger.log_or_print(f"Fetching data from page {page_num} for ticker {ticker}.", level="INFO")
                     # Extract data into a temporary DataFrame
                     df_temp = self.extract_data_from_page(df, driver)
@@ -137,6 +143,11 @@ class DataFetcher(QObject):
                         self.logger.log_or_print(f"Max date from existing data frame {max_date} is within the min and max date for the temp data frame", level="INFO")
                         #exit the while loop
                         next_page = False
+                    #check if we fetched 1000 lines, if yes exit the loop
+                    elif len(df) >= MAX_ROWS:
+                        self.logger.log_or_print(f"Data for ticker {ticker} has {len(df)} rows after sorting.", level="INFO")
+                        self.logger.log_or_print(f"Data for ticker {ticker} has 1000 rows, exiting the loop", level="INFO")
+                        break
                     else:
                         self.logger.log_or_print(f"Max date from existing data frame {max_date} is not within the min and max date for the temp data frame", level="INFO")
 
@@ -170,10 +181,18 @@ class DataFetcher(QObject):
                 self.dismiss_alert_if_present(driver)
 
                 # Adjust the value of the input field
+                # Ensure the input field is present before adjusting its value
+                from_date_input_selector = "#fromDate"
+                WebDriverWait(driver, WEBDRIVER_WAIT_TIME).until(
+                    EC.presence_of_element_located((By.CSS_SELECTOR, from_date_input_selector))
+                )
                 driver.execute_script(
-                    'document.querySelector("#fromDate").value = "1/1/2010";')
-                WebDriverWait(driver, WEBDRIVER_WAIT_TIME).until(lambda driver: driver.execute_script(
-                    'return document.querySelector("#fromDate").value;') == "1/1/2010")
+                    f'document.querySelector("{from_date_input_selector}").value = "1/1/2010";'
+                )
+                # Verify the value was set correctly
+                assert "1/1/2010" == driver.execute_script(
+                    f'return document.querySelector("{from_date_input_selector}").value;'
+                ), "Failed to set the fromDate input value."
 
                 # Find the button and click it
                 update_button = driver.execute_script(
@@ -181,7 +200,7 @@ class DataFetcher(QObject):
                 update_button.click()
 
                 # Wait for a couple of seconds after pressing the button
-                time.sleep(2)
+                #time.sleep(2)
 
                 # Wait for table to load
                 self.wait_for_table_to_load(driver)
@@ -298,8 +317,6 @@ class DataFetcher(QObject):
             self.logger.log_or_print(f"Unexpected error during data extraction: {str(e)}", level="ERROR")
             return pd.DataFrame()  # Return an empty DataFrame to indicate failure
 
-
-
     def parse_row_data(self, cols):
         """
         Parses data from table columns into a format suitable for appending to the DataFrame.
@@ -353,10 +370,6 @@ class DataFetcher(QObject):
         except ValueError:
             return 0
 
-
-
-
-
     def navigate_to_next_page(self, driver):
         """Navigate to the next page of data."""
         try:
@@ -390,9 +403,6 @@ class DataFetcher(QObject):
         except NoAlertPresentException:
             self.logger.log_or_print("No alert was present.", level="INFO")
                 
-
-
-        
     def can_navigate_to_next_page(self, driver):
         """
         Checks if the next page button exists and is clickable.
