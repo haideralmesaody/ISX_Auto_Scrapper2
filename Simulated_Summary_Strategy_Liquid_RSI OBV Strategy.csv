@@ -1,0 +1,2 @@
+Ticker,Buy Date,Sell Date,Buy Price,Sell Price,Profit,Profit Percent,Gain Factor,Trade Status,Buy Price Commission,Sell Price Commission,Profit Commission,Profit Percent Commission,Gain Factor Commission,Simulation Status,Trade Iteration Number,1th Iteration
+BNOI,2024-04-14,Open Trade - Last Close Price Used,2.79,3.0,0.2099999999999999,7.526881720430106,1.075268817204301,Open,2.791674,2.9982,0.2065260000000002,7.39792683529668,1.0739792683529668,True,1,1.0739792683529668

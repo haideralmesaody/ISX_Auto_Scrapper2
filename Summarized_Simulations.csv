@@ -1,0 +1,12 @@
+File,Number of Trades Total,Open Trades,Number of Winning Trades,Number of Losing Trades,Winning Trade Percent,Simulation Result,Number of Iterations,Product of Gain Factors - Iteration 1,Number of Trades - Iteration 1,Product of Gain Factors - Iteration 2,Number of Trades - Iteration 2,Product of Gain Factors - Iteration 3,Number of Trades - Iteration 3,Product of Gain Factors - Iteration 4,Number of Trades - Iteration 4,Product of Gain Factors - Iteration 5,Number of Trades - Iteration 5
+Simulated_Summary_Strategy_Liquid_CMF Strategy.csv,60,2,32,28,53.333333333333336,1.704972866407294,5,1.7198037323673965,15,1.9925547323427752,8.0,2.1067096393661595,14.0,1.7487557534427838,17.0,0.9570404745173561,6.0
+Simulated_Summary_Strategy_Liquid_EMA5 PSAR Strategy.csv,103,5,53,50,51.45631067961165,2.020176292812146,5,2.724761946034914,20,1.5359859969776302,21.0,2.3989502589000016,23.0,1.7391937026799809,19.0,1.701989559468202,20.0
+Simulated_Summary_Strategy_Liquid_EMA5 PSAR Strategy2.csv,100,5,51,49,51.0,1.9559415619387326,5,1.9581895652532,22,1.5222237029975576,17.0,2.194082736563362,19.0,2.125341766661387,21.0,1.979870038218155,21.0
+Simulated_Summary_Strategy_Liquid_MACD Strategy.csv,9,1,8,1,88.88888888888889,1.3295599249511727,2,1.4084156284241505,7,1.2507042214781952,2.0,,,,,,
+Simulated_Summary_Strategy_Liquid_OBV Strategy.csv,58,3,30,28,51.724137931034484,1.6973305843061208,5,1.9835399314725242,20,1.8758992350461445,12.0,2.1586094366078035,12.0,1.3132696460137603,8.0,1.1553346723903728,6.0
+Simulated_Summary_Strategy_Liquid_Rolling Std10 Strategy.csv,16,2,13,3,81.25,1.2537587173846625,3,1.3452460047835142,6,1.3071510030804814,7.0,1.108879144289992,3.0,,,,
+Simulated_Summary_Strategy_Liquid_Rolling Std50 Strategy.csv,4,0,3,1,75.0,1.2596113204560464,1,1.2596113204560464,4,,,,,,,,
+Simulated_Summary_Strategy_Liquid_RSI OBV Strategy.csv,1,1,1,0,100.0,1.0739792683529668,1,1.0739792683529668,1,,,,,,,,
+Simulated_Summary_Strategy_Liquid_RSI Strategy.csv,7,1,7,0,100.0,1.273487032823618,3,1.4620961270301915,4,1.2843857030876957,2.0,1.0739792683529668,1.0,,,,
+Simulated_Summary_Strategy_Liquid_RSI Strategy2.csv,13,1,13,0,100.0,1.4320273263471883,3,1.6058378124975554,7,1.4358865658198199,3.0,1.2543576007241897,3.0,,,,
+Simulated_Summary_Strategy_Liquid_RSI14_OBV_RoC Strategy.csv,6,0,4,2,66.66666666666666,1.1490378436128277,2,1.3460937513871587,5,0.9519819358384968,1.0,,,,,,
