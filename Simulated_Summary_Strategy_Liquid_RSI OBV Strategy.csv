@@ -1,2 +1,0 @@
-Ticker,Buy Date,Sell Date,Buy Price,Sell Price,Profit,Profit Percent,Gain Factor,Trade Status,Buy Price Commission,Sell Price Commission,Profit Commission,Profit Percent Commission,Gain Factor Commission,Simulation Status,Trade Iteration Number,1th Iteration
-BMNS,2023-04-16,2023-06-26,0.54,0.65,0.1099999999999999,20.370370370370367,1.2037037037037035,Closed,0.540324,0.64961,0.109286,20.22601254062377,1.2022601254062375,True,1,1.2022601254062375
