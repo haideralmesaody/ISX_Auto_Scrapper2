@@ -31,9 +31,9 @@ If the environment variable is not set, the application will look for
 ## Usage
 1. Make sure the TICKERS.csv file is present in the project directory and contains the list of ticker/stock data to be updated.
 
-2. Run the following command to start the auto scrapper:
+2. Run the following command to start the auto scrapper (replace <mode> with the desired option):
     ```shell
-    python main.py --mode <option>
+
     ```
     Replace `<option>` with one of the modes listed below.
 
