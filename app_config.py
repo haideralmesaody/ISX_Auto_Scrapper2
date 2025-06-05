@@ -19,7 +19,13 @@ logging.basicConfig(**LOGGING_CONFIG)
 current_directory = os.path.dirname(os.path.abspath(__file__))
 
 # Edge Driver Configuration
-EDGE_DRIVER_PATH = os.path.join(current_directory, 'msedgedriver.exe')
+# Read the Edge WebDriver path from the ``EDGE_DRIVER_PATH`` environment
+# variable. Fall back to ``msedgedriver.exe`` in the current directory if the
+# variable is not set.  This allows the driver to be downloaded and configured
+# separately from the repository.
+EDGE_DRIVER_PATH = os.getenv(
+    'EDGE_DRIVER_PATH', os.path.join(current_directory, 'msedgedriver.exe')
+)
 
 # URL Configuration
 BASE_URL = 'http://www.isx-iq.net/isxportal/portal/companyprofilecontainer.html'
