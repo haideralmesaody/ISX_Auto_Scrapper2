@@ -1,0 +1,10 @@
+pandas
+pandas_ta
+numpy
+beautifulsoup4
+selenium
+PyQt5
+matplotlib
+python-dateutil
+pytz
+concurrent-log-handler

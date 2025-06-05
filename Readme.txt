@@ -9,17 +9,17 @@ ISX Auto Scrapper is a command-line tool designed to keep stock data updated by 
     git clone https://github.com/your-username/ISX-Auto-Scrapper.git
     ```
 
-2. Install the required dependencies:
+2. Install the required Python dependencies:
     ```shell
-    npm install
+    pip install -r requirements.txt
     ```
 
 ## Usage
 1. Make sure the TICKERS.csv file is present in the project directory and contains the list of ticker/stock data to be updated.
 
-2. Run the following command to start the auto scrapper:
+2. Run the following command to start the auto scrapper (replace <mode> with the desired option):
     ```shell
-    node index.js
+    python main.py --mode <mode>
     ```
 
 3. The tool will automatically scrape the stock data from the website and update the relevant information in the TICKERS.csv file.
