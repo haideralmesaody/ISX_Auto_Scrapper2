@@ -338,7 +338,23 @@ class DataFetcher(QObject):
         volume = self.parse_int(cols[1].text.strip())
         no_trades = self.parse_int(cols[0].text.strip())
 
-        return [date, open_price, high, low, close, change, change_percent, t_shares, volume, no_trades]
+        # The DataFrame initialized in ``initialize_dataframe`` expects the
+        # following column order:
+        # Date, Close, Open, High, Low, Change, Change%, T.Shares, Volume, No. Trades
+        # Ensure the returned values match this order to avoid column
+        # misalignment when ``row_data`` is appended to the DataFrame.
+        return [
+            date,
+            close,
+            open_price,
+            high,
+            low,
+            change,
+            change_percent,
+            t_shares,
+            volume,
+            no_trades,
+        ]
 
     def parse_float(self, value):
         """
