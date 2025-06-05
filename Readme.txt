@@ -14,6 +14,20 @@ ISX Auto Scrapper is a command-line tool designed to keep stock data updated by 
     pip install -r requirements.txt
     ```
 
+### WebDriver Setup
+
+Download the Microsoft Edge WebDriver that matches your installed browser from
+[the official site](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/).
+Extract the `msedgedriver.exe` file and set the `EDGE_DRIVER_PATH` environment
+variable to its location before running the scripts:
+
+```bash
+export EDGE_DRIVER_PATH=/path/to/msedgedriver.exe
+```
+
+If the environment variable is not set, the application will look for
+`msedgedriver.exe` in the project directory.
+
 ## Usage
 1. Make sure the TICKERS.csv file is present in the project directory and contains the list of ticker/stock data to be updated.
 
