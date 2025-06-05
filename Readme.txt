@@ -14,15 +14,40 @@ ISX Auto Scrapper is a command-line tool designed to keep stock data updated by 
     pip install -r requirements.txt
     ```
 
+### WebDriver Setup
+
+Download the Microsoft Edge WebDriver that matches your installed browser from
+[the official site](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/).
+Extract the `msedgedriver.exe` file and set the `EDGE_DRIVER_PATH` environment
+variable to its location before running the scripts:
+
+```bash
+export EDGE_DRIVER_PATH=/path/to/msedgedriver.exe
+```
+
+If the environment variable is not set, the application will look for
+`msedgedriver.exe` in the project directory.
+
 ## Usage
 1. Make sure the TICKERS.csv file is present in the project directory and contains the list of ticker/stock data to be updated.
 
 2. Run the following command to start the auto scrapper (replace <mode> with the desired option):
     ```shell
-    python main.py --mode <mode>
+
     ```
+    Replace `<option>` with one of the modes listed below.
 
 3. The tool will automatically scrape the stock data from the website and update the relevant information in the TICKERS.csv file.
+
+### Available Modes
+- `single`: Fetch data for a single ticker interactively.
+- `auto`: Process all tickers from `TICKERS.csv` and run the full analysis.
+- `liquidity`: Calculate liquidity scores only.
+- `strategies`: Apply predefined strategies to recent data.
+- `backtest`: Backtest strategies and summarize results.
+- `simulate`: Simulate strategy outcomes.
+- `calculate_num`: Generate numeric indicator files without descriptions.
+- `breakout`, `train_tensor`, `stock_predictor`, `predict_close_price`: Reserved for future features.
 
 ## Contributing
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
