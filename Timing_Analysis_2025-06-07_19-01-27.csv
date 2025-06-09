@@ -1,0 +1,68 @@
+Ticker,Total_Processing_Time_Ms,Navigation_Time_Ms,Page_Load_Time_Ms,Company_Code_Set_Time_Ms,Ajax_Trigger_Time_Ms,Data_Extraction_Time_Ms,Pagination_Time_Ms,Data_Parsing_Time_Ms,Sorting_Time_Ms,Change_Calculation_Time_Ms,CSV_Save_Time_Ms,Deduplication_Time_Ms,File_Operations_Time_Ms,Average_Page_Time_Ms,Slowest_Page_Time_Ms,Fastest_Page_Time_Ms,Ajax_Wait_Time_Ms,Browser_Overhead_Time_Ms,Pages_Processed,Total_Ajax_Calls,Performance_Score,Bottleneck_Function,Optimization_Suggestion
+AAHP,24740.66,9362.05,0.00,0.00,0.00,15365.10,6860.09,0.00,27.54,0.00,75.71,5.90,0.00,160.04,166.22,157.29,4361.86,4047.50,23,23,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+AIPM,0.00,9447.56,0.00,0.00,0.00,63475.86,18577.04,0.00,419.69,0.00,1016.14,0.00,0.00,0.00,172.93,156.78,0.00,0.00,0,0,,,
+AIRP,35229.09,9254.51,0.00,0.00,0.00,25960.21,8625.79,0.00,99.65,0.00,303.19,2.24,0.00,161.81,174.80,156.60,9059.52,7884.20,47,47,GOOD,Navigation,Good performance - minor optimizations possible
+AISP,57504.65,9098.54,0.00,0.00,0.00,48394.81,17371.16,0.00,366.93,0.00,952.69,17.75,0.00,162.28,209.52,156.80,16155.88,13541.69,83,83,GOOD,Pagination,Good performance - minor optimizations possible - Optimize pagination logic or reduce page navigation overhead
+AMAP,26566.52,9210.01,0.00,0.00,0.00,17344.93,5566.14,0.00,45.05,0.00,138.54,4.17,0.00,160.94,167.67,156.79,6095.46,5507.14,32,32,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+AMEF,30913.46,9198.65,0.00,0.00,0.00,21702.41,7190.60,0.00,50.25,0.00,166.59,2.87,0.00,160.26,180.50,156.43,7386.86,6917.65,41,41,GOOD,Navigation,Good performance - minor optimizations possible
+AREB,0.00,60001.05,0.00,0.00,0.00,13056.52,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,3600000.00,0.00,0.00,0,0,,,
+BAIB,13980.89,9207.01,0.00,0.00,0.00,4756.42,1404.56,0.00,1.56,0.00,13.27,0.55,0.00,158.12,159.32,155.56,1589.02,1764.93,9,9,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+BASH,53743.76,9347.33,0.00,0.00,0.00,44382.07,15957.58,0.00,232.08,0.00,715.06,7.69,0.00,158.71,163.33,156.54,14466.68,13017.34,81,81,GOOD,Pagination,Good performance - minor optimizations possible - Optimize pagination logic or reduce page navigation overhead
+BBOB,0.00,9517.73,0.00,0.00,0.00,50482.46,19611.78,0.00,421.96,0.00,1004.72,0.00,0.00,0.00,176.44,156.70,0.00,0.00,0,0,,,
+BCIH,14553.93,9252.29,0.00,0.00,0.00,5289.02,1572.01,0.00,4.19,0.00,17.53,0.74,0.00,159.05,163.82,156.89,1775.69,1931.47,10,10,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+BCOI,0.00,9468.64,0.00,0.00,0.00,63543.55,19350.88,0.00,363.06,0.00,943.96,0.00,0.00,0.00,181.18,156.74,0.00,0.00,0,0,,,
+BEFI,30376.56,9352.61,0.00,0.00,0.00,21007.46,6960.36,0.00,51.28,0.00,171.65,2.12,0.00,161.07,208.58,156.50,7216.22,6622.32,39,39,GOOD,Navigation,Good performance - minor optimizations possible
+BELF,24847.65,9205.63,0.00,0.00,0.00,15628.69,5041.80,0.00,27.80,0.00,103.85,1.55,0.00,159.55,166.14,156.70,5500.90,4966.11,29,29,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+BGUC,0.00,9571.75,0.00,0.00,0.00,50428.10,19385.83,0.00,287.95,0.00,708.50,0.00,0.00,0.00,178.84,156.05,0.00,0.00,0,0,,,
+BIBI,0.00,9381.62,0.00,0.00,0.00,50617.39,19172.07,0.00,378.57,0.00,963.40,0.00,0.00,0.00,242.33,156.76,0.00,0.00,0,0,,,
+BIIB,57358.56,9384.50,0.00,0.00,0.00,47962.36,17964.38,0.00,302.01,0.00,754.35,6.98,0.00,160.70,173.96,156.76,15639.81,13306.52,82,82,GOOD,Pagination,Good performance - minor optimizations possible - Optimize pagination logic or reduce page navigation overhead
+BIME,0.00,9284.91,0.00,0.00,0.00,63736.97,19045.34,0.00,412.48,0.00,951.51,0.00,0.00,0.00,232.53,156.82,0.00,0.00,0,0,,,
+BINT,17875.28,9172.27,0.00,0.00,0.00,8690.59,2767.70,0.00,9.99,0.00,47.90,1.11,0.00,159.99,172.94,156.95,2966.54,2909.77,16,16,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+BLAD,22003.64,9230.48,0.00,0.00,0.00,12760.49,4057.91,0.00,25.33,0.00,81.26,1.62,0.00,159.66,164.96,156.55,4443.18,4163.85,24,24,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+BMFI,0.00,9301.81,0.00,0.00,0.00,50697.68,18997.72,0.00,381.23,0.00,910.52,0.00,0.00,0.00,179.24,155.85,0.00,0.00,0,0,,,
+BMNS,0.00,9273.11,0.00,0.00,0.00,63716.85,19464.56,0.00,383.14,0.00,967.02,0.00,0.00,0.00,180.66,156.25,0.00,0.00,0,0,,,
+BNAI,17192.13,9266.44,0.00,0.00,0.00,7911.13,2922.32,0.00,4.24,0.00,23.03,2.23,0.00,163.07,207.00,157.03,2479.41,2494.46,13,13,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+BNOI,0.00,9105.92,0.00,0.00,0.00,63801.27,18700.00,0.00,460.02,0.00,1027.29,0.00,0.00,0.00,177.85,157.14,0.00,0.00,0,0,,,
+BROI,0.00,9345.54,0.00,0.00,0.00,63514.67,18939.08,0.00,406.53,0.00,978.44,0.00,0.00,0.00,183.57,155.94,0.00,0.00,0,0,,,
+BSUC,54978.18,9576.05,0.00,0.00,0.00,45381.07,15999.99,0.00,326.46,0.00,860.77,4.83,0.00,161.49,172.38,156.01,15334.98,12875.10,79,79,GOOD,Pagination,Good performance - minor optimizations possible - Optimize pagination logic or reduce page navigation overhead
+BTIB,15701.12,9233.93,0.00,0.00,0.00,6457.09,1863.42,0.00,4.39,0.00,21.40,0.51,0.00,165.24,240.20,156.99,2255.19,2322.28,12,12,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+BUND,0.00,9464.26,0.00,0.00,0.00,50566.47,18526.57,0.00,372.64,0.00,884.37,0.00,0.00,0.00,199.08,156.57,0.00,0.00,0,0,,,
+BUOI,26943.10,9247.79,0.00,0.00,0.00,17683.73,6016.40,0.00,36.14,0.00,140.36,1.04,0.00,160.56,167.64,157.19,6031.80,5469.57,32,32,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+HASH,34498.36,9376.16,0.00,0.00,0.00,25112.01,8371.55,0.00,86.84,0.00,268.92,4.47,0.00,161.50,182.42,155.74,8665.29,7725.14,46,46,GOOD,Navigation,Good performance - minor optimizations possible
+HBAG,58807.91,9388.83,0.00,0.00,0.00,49407.64,17915.28,0.00,392.91,0.00,955.79,8.76,0.00,161.38,170.47,157.19,16435.99,13710.36,85,85,GOOD,Pagination,Good performance - minor optimizations possible - Optimize pagination logic or reduce page navigation overhead
+HBAY,0.00,9383.65,0.00,0.00,0.00,55623.65,18834.58,0.00,373.04,0.00,931.40,0.00,0.00,0.00,172.93,156.46,0.00,0.00,0,0,,,
+HISH,50505.72,9518.32,0.00,0.00,0.00,40972.17,14650.25,0.00,237.37,0.00,622.76,2.69,0.00,161.46,181.68,156.41,13659.23,11815.10,72,72,GOOD,Pagination,Good performance - minor optimizations possible - Optimize pagination logic or reduce page navigation overhead
+HKAR,43301.81,9191.95,0.00,0.00,0.00,34097.02,11685.89,0.00,178.72,0.00,470.80,4.89,0.00,160.90,171.04,156.42,11747.65,10021.91,61,61,GOOD,AJAX Wait,Good performance - minor optimizations possible - Reduce AJAX wait times or implement smarter waiting
+HMAN,49677.18,9426.11,0.00,0.00,0.00,40239.04,15195.06,0.00,245.09,0.00,601.81,6.14,0.00,161.37,171.88,155.46,13045.82,11157.15,68,68,GOOD,Pagination,Good performance - minor optimizations possible - Optimize pagination logic or reduce page navigation overhead
+HNTI,56501.30,9335.65,0.00,0.00,0.00,47153.50,16803.62,0.00,374.08,0.00,877.14,9.32,0.00,161.31,176.78,156.27,15850.43,13251.05,82,82,GOOD,Pagination,Good performance - minor optimizations possible - Optimize pagination logic or reduce page navigation overhead
+HTVM,27717.07,9327.84,0.00,0.00,0.00,18377.16,6036.07,0.00,49.62,0.00,181.97,4.31,0.00,160.92,170.42,156.24,6334.42,5782.85,34,34,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+IBPM,27181.85,9332.48,0.00,0.00,0.00,17835.48,5781.09,0.00,49.28,0.00,159.01,3.96,0.00,160.07,169.33,156.86,6254.86,5601.17,33,33,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+IBSD,0.00,9480.78,0.00,0.00,0.00,63358.42,19688.13,0.00,407.02,0.00,978.77,0.00,0.00,0.00,249.27,156.66,0.00,0.00,0,0,,,
+IFCM,41324.38,9418.94,0.00,0.00,0.00,31885.35,10839.68,0.00,199.20,0.00,532.05,9.74,0.00,163.16,232.64,157.53,10804.17,9520.61,57,57,GOOD,Pagination,Good performance - minor optimizations possible - Optimize pagination logic or reduce page navigation overhead
+IHFI,23378.90,9390.20,0.00,0.00,0.00,13974.97,4327.32,0.00,27.24,0.00,92.37,8.61,0.00,162.05,193.82,155.97,4984.60,4548.56,26,26,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+IHLI,47441.70,9302.97,0.00,0.00,0.00,38127.40,13280.45,0.00,225.55,0.00,598.03,3.84,0.00,161.66,190.49,156.91,13012.72,11018.13,67,67,GOOD,Pagination,Good performance - minor optimizations possible - Optimize pagination logic or reduce page navigation overhead
+IIDP,53337.45,9440.97,0.00,0.00,0.00,43884.77,15848.46,0.00,291.24,0.00,794.32,37.44,0.00,161.28,172.76,156.11,14561.43,12363.59,76,76,GOOD,Pagination,Good performance - minor optimizations possible - Optimize pagination logic or reduce page navigation overhead
+IIEW,26610.99,9243.07,0.00,0.00,0.00,17356.89,5634.14,0.00,40.62,0.00,157.71,4.10,0.00,160.96,169.69,156.55,6053.15,5478.20,32,32,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+IITC,54518.79,9349.50,0.00,0.00,0.00,45158.03,16422.57,0.00,342.09,0.00,830.53,11.67,0.00,161.60,175.99,156.00,15054.72,12507.69,77,77,GOOD,Pagination,Good performance - minor optimizations possible - Optimize pagination logic or reduce page navigation overhead
+IKHC,23648.03,9156.84,0.00,0.00,0.00,14479.84,4659.84,0.00,24.71,0.00,93.65,2.32,0.00,159.83,173.85,156.08,5058.44,4652.23,27,27,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+IKLV,0.00,9368.59,0.00,0.00,0.00,55611.39,18797.38,0.00,397.91,0.00,968.70,0.00,0.00,0.00,177.53,156.81,0.00,0.00,0,0,,,
+IMAP,0.00,9521.48,0.00,0.00,0.00,63353.49,19322.35,0.00,432.46,0.00,999.76,0.00,0.00,0.00,170.77,156.82,0.00,0.00,0,0,,,
+IMIB,47177.11,9225.11,0.00,0.00,0.00,37935.84,13424.97,0.00,232.14,0.00,598.29,5.33,0.00,161.61,178.77,155.98,12845.11,10846.15,66,66,GOOD,Pagination,Good performance - minor optimizations possible - Optimize pagination logic or reduce page navigation overhead
+IMOS,54251.23,9402.07,0.00,0.00,0.00,44842.72,16289.79,0.00,299.67,0.00,789.89,17.42,0.00,160.90,176.58,156.20,14970.62,12481.77,77,77,GOOD,Pagination,Good performance - minor optimizations possible - Optimize pagination logic or reduce page navigation overhead
+INCP,0.00,9322.41,0.00,0.00,0.00,50677.64,18497.00,0.00,400.03,0.00,972.60,0.00,0.00,0.00,185.02,156.56,0.00,0.00,0,0,,,
+IRMC,51331.93,9313.90,0.00,0.00,0.00,42004.81,14861.15,0.00,324.60,0.00,763.89,8.57,0.00,161.41,174.45,155.85,14181.40,11878.43,73,73,GOOD,Pagination,Good performance - minor optimizations possible - Optimize pagination logic or reduce page navigation overhead
+NAHF,21624.26,9184.79,0.00,0.00,0.00,12426.36,4007.71,0.00,17.37,0.00,85.60,4.59,0.00,159.92,168.38,157.15,4275.65,4048.55,23,23,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+NAME,37247.63,9342.58,0.00,0.00,0.00,27895.61,9460.58,0.00,130.55,0.00,356.24,2.98,0.00,161.64,187.43,156.75,9629.04,8325.66,50,50,GOOD,AJAX Wait,Good performance - minor optimizations possible - Reduce AJAX wait times or implement smarter waiting
+NDSA,25978.70,9860.10,0.00,0.00,0.00,16106.50,5046.80,0.00,38.59,0.00,144.10,2.81,0.00,163.04,211.73,157.33,5652.60,5233.70,30,30,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+NGIR,28141.42,9020.03,0.00,0.00,0.00,19109.79,6240.56,0.00,59.19,0.00,180.98,2.32,0.00,161.44,180.78,156.87,6689.80,5948.55,35,35,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+SAEI,23426.68,9394.37,0.00,0.00,0.00,14022.79,4480.60,0.00,22.65,0.00,98.36,2.61,0.00,161.30,187.39,156.35,4890.54,4537.54,26,26,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+SBPT,0.00,9613.46,0.00,0.00,0.00,55280.16,19508.22,0.00,409.68,0.00,1022.75,0.00,0.00,0.00,310.77,154.93,0.00,0.00,0,0,,,
+SKTA,0.00,9342.48,0.00,0.00,0.00,63648.26,18874.40,0.00,387.44,0.00,946.36,0.00,0.00,0.00,171.74,155.90,0.00,0.00,0,0,,,
+SMOF,41381.89,8963.03,0.00,0.00,0.00,32400.64,11793.82,0.00,152.20,0.00,441.74,8.42,0.00,162.06,242.74,156.40,10676.19,9346.50,56,56,GOOD,Pagination,Good performance - minor optimizations possible - Optimize pagination logic or reduce page navigation overhead
+SMRI,0.00,9415.83,0.00,0.00,0.00,55594.75,19515.21,0.00,351.07,0.00,898.74,0.00,0.00,0.00,186.76,156.27,0.00,0.00,0,0,,,
+SNUC,34183.32,9325.39,0.00,0.00,0.00,24842.51,8299.86,0.00,103.20,0.00,271.83,3.78,0.00,161.57,179.63,157.07,8631.54,7547.72,45,45,GOOD,Navigation,Good performance - minor optimizations possible
+TASC,0.00,9434.18,0.00,0.00,0.00,50566.44,18805.36,0.00,433.93,0.00,1097.37,0.00,0.00,0.00,263.71,157.02,0.00,0.00,0,0,,,
+TZNI,26180.08,9228.68,0.00,0.00,0.00,16939.96,5533.86,0.00,42.84,0.00,155.59,2.06,0.00,160.97,179.21,156.79,5887.95,5329.10,31,31,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+VAMF,15134.12,9180.05,0.00,0.00,0.00,5941.03,1795.64,0.00,2.92,0.00,33.48,0.00,0.00,160.32,164.83,157.80,2014.02,2108.01,11,11,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+VWIF,15736.36,9326.39,0.00,0.00,0.00,6397.22,1952.99,0.00,3.16,0.00,18.09,1.63,0.00,159.95,171.62,156.42,2168.47,2265.63,12,12,EXCELLENT,Navigation,Performance is excellent - no optimization needed
+VZAF,14128.43,9155.37,0.00,0.00,0.00,4959.65,1468.82,0.00,7.34,0.00,20.93,0.52,0.00,160.28,163.34,156.05,1680.22,1795.24,9,9,EXCELLENT,Navigation,Performance is excellent - no optimization needed

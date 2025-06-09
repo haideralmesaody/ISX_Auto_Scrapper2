@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart.js Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <style>
+        body {
+            background: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .chart-container {
+            width: 800px;
+            height: 400px;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        button {
+            background: #007acc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #005a99;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chart.js Testing</h1>
+    
+    <div>
+        <button onclick="testBasicChart()">Test Basic Chart</button>
+        <button onclick="testTimeChart()">Test Time Chart</button>
+        <button onclick="testWithSampleData()">Test with Sample Data</button>
+        <button onclick="checkLibraries()">Check Libraries</button>
+    </div>
+    
+    <div id="output" style="background: #333; padding: 10px; margin: 10px 0; border-radius: 5px;">
+        Console output will appear here...
+    </div>
+    
+    <div class="chart-container">
+        <canvas id="testChart"></canvas>
+    </div>
+
+    <script>
+        let testChart = null;
+        
+        function log(message) {
+            console.log(message);
+            const output = document.getElementById('output');
+            output.innerHTML += '<div>' + new Date().toLocaleTimeString() + ': ' + message + '</div>';
+            output.scrollTop = output.scrollHeight;
+        }
+        
+        function checkLibraries() {
+            log('=== Library Check ===');
+            log('Chart.js available: ' + (typeof Chart !== 'undefined'));
+            if (typeof Chart !== 'undefined') {
+                log('Chart.js version: ' + Chart.version);
+                log('Available controllers: ' + Object.keys(Chart.registry.controllers.items).join(', '));
+            }
+            
+            const canvas = document.getElementById('testChart');
+            log('Canvas element: ' + !!canvas);
+            if (canvas) {
+                log('Canvas dimensions: ' + canvas.width + 'x' + canvas.height);
+            }
+        }
+        
+        function testBasicChart() {
+            log('=== Testing Basic Chart ===');
+            
+            const canvas = document.getElementById('testChart');
+            const ctx = canvas.getContext('2d');
+            
+            if (testChart) {
+                testChart.destroy();
+            }
+            
+            try {
+                testChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                        datasets: [{
+                            label: 'Test Data',
+                            data: [10, 20, 15, 25, 30],
+                            borderColor: '#00d4ff',
+                            backgroundColor: 'rgba(0, 212, 255, 0.1)',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: { color: '#ffffff' }
+                            }
+                        },
+                        scales: {
+                            x: { ticks: { color: '#a0a0a0' } },
+                            y: { ticks: { color: '#a0a0a0' } }
+                        }
+                    }
+                });
+                log('Basic chart created successfully!');
+            } catch (error) {
+                log('Error creating basic chart: ' + error.message);
+            }
+        }
+        
+        function testTimeChart() {
+            log('=== Testing Time Chart ===');
+            
+            const canvas = document.getElementById('testChart');
+            const ctx = canvas.getContext('2d');
+            
+            if (testChart) {
+                testChart.destroy();
+            }
+            
+            const now = new Date();
+            const timeData = [];
+            for (let i = 0; i < 10; i++) {
+                const date = new Date(now.getTime() - (9 - i) * 24 * 60 * 60 * 1000);
+                timeData.push({
+                    x: date,
+                    y: 10 + Math.random() * 20
+                });
+            }
+            
+            log('Time data sample: ' + JSON.stringify(timeData.slice(0, 2)));
+            
+            try {
+                testChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        datasets: [{
+                            label: 'Time Series',
+                            data: timeData,
+                            borderColor: '#ff6b6b',
+                            backgroundColor: 'rgba(255, 107, 107, 0.1)',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: { color: '#ffffff' }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                type: 'time',
+                                ticks: { color: '#a0a0a0' }
+                            },
+                            y: { ticks: { color: '#a0a0a0' } }
+                        }
+                    }
+                });
+                log('Time chart created successfully!');
+            } catch (error) {
+                log('Error creating time chart: ' + error.message);
+            }
+        }
+        
+        async function testWithSampleData() {
+            log('=== Testing with Sample Stock Data ===');
+            
+            // Generate sample OHLC data
+            const sampleData = [];
+            const startDate = new Date();
+            startDate.setDate(startDate.getDate() - 30);
+            
+            let price = 15;
+            for (let i = 0; i < 30; i++) {
+                const date = new Date(startDate);
+                date.setDate(date.getDate() + i);
+                
+                const change = (Math.random() - 0.5) * 2;
+                price = Math.max(5, price + change);
+                
+                const open = price;
+                const high = price + Math.random() * 2;
+                const low = price - Math.random() * 2;
+                const close = low + Math.random() * (high - low);
+                
+                sampleData.push({
+                    date: date,
+                    open: open,
+                    high: high,
+                    low: Math.max(1, low),
+                    close: close,
+                    volume: Math.floor(Math.random() * 100000) + 10000
+                });
+                
+                price = close;
+            }
+            
+            log('Generated ' + sampleData.length + ' data points');
+            log('Sample data point: ' + JSON.stringify(sampleData[0]));
+            
+            const canvas = document.getElementById('testChart');
+            const ctx = canvas.getContext('2d');
+            
+            if (testChart) {
+                testChart.destroy();
+            }
+            
+            // Test with simple line chart of close prices
+            const lineData = sampleData.map(item => ({
+                x: item.date,
+                y: item.close
+            }));
+            
+            try {
+                testChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        datasets: [{
+                            label: 'Close Price',
+                            data: lineData,
+                            borderColor: '#4ade80',
+                            backgroundColor: 'rgba(74, 222, 128, 0.1)',
+                            borderWidth: 2,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: { color: '#ffffff' }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                type: 'time',
+                                ticks: { color: '#a0a0a0' }
+                            },
+                            y: { 
+                                ticks: { 
+                                    color: '#a0a0a0',
+                                    callback: function(value) {
+                                        return '$' + value.toFixed(2);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+                log('Stock data chart created successfully!');
+            } catch (error) {
+                log('Error creating stock chart: ' + error.message);
+            }
+        }
+        
+        // Run initial checks
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                checkLibraries();
+            }, 500);
+        });
+    </script>
+</body>
+</html> 

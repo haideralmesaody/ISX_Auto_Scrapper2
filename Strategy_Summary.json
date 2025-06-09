@@ -1,0 +1,1432 @@
+{
+  "AAHP": {
+    "file_path": "Strategies_AAHP.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "AAHP"
+  },
+  "AIPM": {
+    "file_path": "Strategies_AIPM.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "AIPM"
+  },
+  "AIRP": {
+    "file_path": "Strategies_AIRP.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "AIRP"
+  },
+  "AISP": {
+    "file_path": "Strategies_AISP.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "AISP"
+  },
+  "AMAP": {
+    "file_path": "Strategies_AMAP.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "AMAP"
+  },
+  "AMEF": {
+    "file_path": "Strategies_AMEF.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "AMEF"
+  },
+  "BAIB": {
+    "file_path": "Strategies_BAIB.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BAIB"
+  },
+  "BASH": {
+    "file_path": "Strategies_BASH.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BASH"
+  },
+  "BBOB": {
+    "file_path": "Strategies_BBOB.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BBOB"
+  },
+  "BCIH": {
+    "file_path": "Strategies_BCIH.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BCIH"
+  },
+  "BCOI": {
+    "file_path": "Strategies_BCOI.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BCOI"
+  },
+  "BEFI": {
+    "file_path": "Strategies_BEFI.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BEFI"
+  },
+  "BELF": {
+    "file_path": "Strategies_BELF.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BELF"
+  },
+  "BGUC": {
+    "file_path": "Strategies_BGUC.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BGUC"
+  },
+  "BIBI": {
+    "file_path": "Strategies_BIBI.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BIBI"
+  },
+  "BIIB": {
+    "file_path": "Strategies_BIIB.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BIIB"
+  },
+  "BIME": {
+    "file_path": "Strategies_BIME.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BIME"
+  },
+  "BINT": {
+    "file_path": "Strategies_BINT.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BINT"
+  },
+  "BLAD": {
+    "file_path": "Strategies_BLAD.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BLAD"
+  },
+  "BMFI": {
+    "file_path": "Strategies_BMFI.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BMFI"
+  },
+  "BMNS": {
+    "file_path": "Strategies_BMNS.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BMNS"
+  },
+  "BNAI": {
+    "file_path": "Strategies_BNAI.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BNAI"
+  },
+  "BNOI": {
+    "file_path": "Strategies_BNOI.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BNOI"
+  },
+  "BROI": {
+    "file_path": "Strategies_BROI.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BROI"
+  },
+  "BSUC": {
+    "file_path": "Strategies_BSUC.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BSUC"
+  },
+  "BTIB": {
+    "file_path": "Strategies_BTIB.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BTIB"
+  },
+  "BUND": {
+    "file_path": "Strategies_BUND.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BUND"
+  },
+  "BUOI": {
+    "file_path": "Strategies_BUOI.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "BUOI"
+  },
+  "HASH": {
+    "file_path": "Strategies_HASH.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "HASH"
+  },
+  "HBAG": {
+    "file_path": "Strategies_HBAG.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "HBAG"
+  },
+  "HBAY": {
+    "file_path": "Strategies_HBAY.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "HBAY"
+  },
+  "HISH": {
+    "file_path": "Strategies_HISH.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "HISH"
+  },
+  "HKAR": {
+    "file_path": "Strategies_HKAR.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "HKAR"
+  },
+  "HMAN": {
+    "file_path": "Strategies_HMAN.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "HMAN"
+  },
+  "HNTI": {
+    "file_path": "Strategies_HNTI.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "HNTI"
+  },
+  "HTVM": {
+    "file_path": "Strategies_HTVM.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "HTVM"
+  },
+  "IBPM": {
+    "file_path": "Strategies_IBPM.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "IBPM"
+  },
+  "IBSD": {
+    "file_path": "Strategies_IBSD.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "IBSD"
+  },
+  "IFCM": {
+    "file_path": "Strategies_IFCM.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "IFCM"
+  },
+  "IHFI": {
+    "file_path": "Strategies_IHFI.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "IHFI"
+  },
+  "IHLI": {
+    "file_path": "Strategies_IHLI.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "IHLI"
+  },
+  "IIDP": {
+    "file_path": "Strategies_IIDP.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "IIDP"
+  },
+  "IIEW": {
+    "file_path": "Strategies_IIEW.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "IIEW"
+  },
+  "IITC": {
+    "file_path": "Strategies_IITC.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "IITC"
+  },
+  "IKHC": {
+    "file_path": "Strategies_IKHC.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "IKHC"
+  },
+  "IKLV": {
+    "file_path": "Strategies_IKLV.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "IKLV"
+  },
+  "IMAP": {
+    "file_path": "Strategies_IMAP.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "IMAP"
+  },
+  "IMIB": {
+    "file_path": "Strategies_IMIB.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "IMIB"
+  },
+  "IMOS": {
+    "file_path": "Strategies_IMOS.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "IMOS"
+  },
+  "INCP": {
+    "file_path": "Strategies_INCP.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "INCP"
+  },
+  "IRMC": {
+    "file_path": "Strategies_IRMC.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "IRMC"
+  },
+  "NAHF": {
+    "file_path": "Strategies_NAHF.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "NAHF"
+  },
+  "NAME": {
+    "file_path": "Strategies_NAME.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "NAME"
+  },
+  "NDSA": {
+    "file_path": "Strategies_NDSA.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "NDSA"
+  },
+  "NGIR": {
+    "file_path": "Strategies_NGIR.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "NGIR"
+  },
+  "SAEI": {
+    "file_path": "Strategies_SAEI.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "SAEI"
+  },
+  "SBPT": {
+    "file_path": "Strategies_SBPT.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "SBPT"
+  },
+  "SKTA": {
+    "file_path": "Strategies_SKTA.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "SKTA"
+  },
+  "SMOF": {
+    "file_path": "Strategies_SMOF.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "SMOF"
+  },
+  "SMRI": {
+    "file_path": "Strategies_SMRI.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "SMRI"
+  },
+  "SNUC": {
+    "file_path": "Strategies_SNUC.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "SNUC"
+  },
+  "TASC": {
+    "file_path": "Strategies_TASC.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "TASC"
+  },
+  "TZNI": {
+    "file_path": "Strategies_TZNI.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "TZNI"
+  },
+  "VAMF": {
+    "file_path": "Strategies_VAMF.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "VAMF"
+  },
+  "VWIF": {
+    "file_path": "Strategies_VWIF.csv",
+    "last_update": "2025-06-09 01:12:22",
+    "signal_levels": [
+      "Strong Buy",
+      "Buy",
+      "Weak Buy",
+      "Hold",
+      "Weak Sell",
+      "Sell",
+      "Strong Sell"
+    ],
+    "strategies": [
+      "RSI",
+      "MACD",
+      "CMF",
+      "OBV",
+      "EMA5_PSAR",
+      "Rolling_Std"
+    ],
+    "ticker": "VWIF"
+  }
+}

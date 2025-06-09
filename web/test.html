@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highcharts Test</title>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/indicators-all.js"></script>
+    <script src="https://code.highcharts.com/modules/annotations-advanced.js"></script>
+    <script src="https://code.highcharts.com/modules/stock-tools.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+</head>
+<body>
+    <h1>Highcharts Test Page</h1>
+    
+    <div id="testChart" style="height: 400px; background: #f0f0f0; border: 1px solid #ccc; margin: 20px;"></div>
+    
+    <script>
+        console.log('Testing Highcharts...');
+        console.log('Highcharts version:', Highcharts.version);
+        
+        // Test the exact sample from the user
+        (async () => {
+            console.log('Creating test chart...');
+            
+            // Sample data instead of fetching from external URL
+            const data = [
+                [1631021400000, 157.26, 159.54, 156.91, 158.91],
+                [1631107800000, 158.91, 160.12, 157.82, 159.69],
+                [1631194200000, 159.69, 161.35, 158.44, 160.77],
+                [1631280600000, 160.77, 162.13, 159.95, 161.50],
+                [1631367000000, 161.50, 163.28, 160.33, 162.83],
+                [1631626200000, 162.83, 164.72, 161.91, 163.44],
+                [1631712600000, 163.44, 165.11, 162.27, 164.22],
+                [1631799000000, 164.22, 166.89, 163.15, 165.33],
+                [1631885400000, 165.33, 167.44, 164.18, 166.27],
+                [1631971800000, 166.27, 168.35, 165.12, 167.18]
+            ];
+
+            try {
+                Highcharts.stockChart('testChart', {
+                    title: {
+                        text: 'Test Chart - Iraqi Stock Data'
+                    },
+                    
+                    yAxis: {
+                        plotBands: [{
+                            color: 'rgba(169, 255, 101, 0.4)',
+                            from: 182.94,
+                            to: 177.57,
+                            zIndex: 3,
+                            label: {
+                                text: 'Resistance Zone'
+                            }
+                        }]
+                    },
+
+                    annotations: [{
+                        type: 'fibonacci',
+                        langKey: 'Fibonacci',
+                        typeOptions: {
+                            points: [{
+                                x: 1631021400000,
+                                y: 157.26
+                            }, {
+                                x: 1633354200000,
+                                y: 157.26
+                            }],
+                            height: 138.27 - 157.26,
+                            xAxis: 0,
+                            yAxis: 0
+                        }
+                    }, {
+                        type: 'crookedLine',
+                        langKey: 'Trendline',
+                        typeOptions: {
+                            points: [{
+                                x: 1636727400000,
+                                y: 147.48
+                            }, {
+                                x: 1642516200000,
+                                y: 182.5
+                            }]
+                        },
+                        shapeOptions: {
+                            stroke: 'orange',
+                            strokeWidth: 2
+                        }
+                    }],
+
+                    series: [{
+                        id: 'main',
+                        type: 'candlestick',
+                        color: '#FF6F6F',
+                        upColor: '#6FB76F',
+                        data,
+                        dataGrouping: {
+                            enabled: false
+                        }
+                    }],
+                    
+                    credits: {
+                        enabled: false
+                    }
+                });
+                
+                console.log('Test chart created successfully!');
+                
+            } catch (error) {
+                console.error('Error creating test chart:', error);
+                document.getElementById('testChart').innerHTML = '<p style="color: red; padding: 20px;">Error: ' + error.message + '</p>';
+            }
+        })();
+        
+        // Test API call
+        async function testAPI() {
+            try {
+                console.log('Testing API call...');
+                const response = await fetch('/api/ticker/TASC?type=price');
+                console.log('API Response status:', response.status);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('API Data length:', data.length);
+                    console.log('Sample API data:', data.slice(0, 3));
+                } else {
+                    console.error('API Error:', response.status, response.statusText);
+                }
+            } catch (error) {
+                console.error('API Call failed:', error);
+            }
+        }
+        
+        // Test API after page loads
+        setTimeout(testAPI, 2000);
+    </script>
+</body>
+</html> 
