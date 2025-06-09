@@ -1,4 +1,4 @@
-# ISX Auto Scrapper
+# ISX Auto Scraper
 
 A comprehensive command-line tool written in Go that automates the complete workflow of gathering, enriching and analysing historical stock data for the Iraq Stock Exchange (ISX).  It is able to:
 
@@ -10,8 +10,16 @@ A comprehensive command-line tool written in Go that automates the complete work
 * **Run comprehensive backtesting with realistic portfolio management, risk controls, and performance analytics.**
 * **Generate detailed trading reports including individual trades, portfolio history, and performance metrics.**
 * Back-test or Monte-Carlo–simulate the included strategies with configurable parameters.
+![Dashboard preview](Logo.png)
+
 
 The project attempts to mirror the feature set of the original Python notebook while taking full advantage of Go's concurrency, static typing and single-binary distribution.
+
+## Table of contents
+- [Getting started](#getting-started)
+- [Repository layout & file overview](#repository-layout--file-overview)
+- [High-level data flow](#high-level-data-flow)
+- [Contributing & future work](#contributing--future-work)
 
 ---
 
@@ -25,7 +33,7 @@ The project attempts to mirror the feature set of the original Python notebook w
 2. **Clone & build**
 ```bash
 # clone
-$ git clone <repo-url> && cd ISX-Auto-Scrapper
+$ git clone <repo-url> && cd ISX-Auto-Scraper
 
 # download dependencies
 $ go mod tidy
@@ -78,7 +86,7 @@ Below is a concise explanation of every first-class Go source file as well as th
 | `strategies.go` | Contains `Strategies` & `StrategyTester` helpers that rate indicator combinations, run back-tests or Monte-Carlo simulations and dump summaries as JSON / CSV. |
 | `go.mod` / `go.sum` | Standard Go dependency manifests. |
 | `*.csv` in repository root | Example raw data, ticker master list and previously calculated indicator / liquidity outputs. |
-| `isx-auto-scrapper.exe`, `isx-scraper.exe` | Pre-built windows binaries for convenience (may be stale). |
+| `isx-auto-scraper.exe`, `isx-scraper.exe` | Pre-built windows binaries for convenience (may be stale). |
 
 > **Note**: The code purposely lives in the **root** package so the compiled binary ships without sub-folders.  If you prefer conventional project structure you can move the files under `cmd/` and `pkg/` without touching any imports.
 
@@ -98,6 +106,11 @@ flowchart TD
 ```
 
 ---
+
+## Further reading
+
+- [Mode Reference Guide](MODE_REFERENCE.md)
+- [Web Dashboard Demo](DASHBOARD_DEMO.md)
 
 ## Contributing & future work
 
