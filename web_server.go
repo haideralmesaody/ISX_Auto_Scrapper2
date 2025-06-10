@@ -203,10 +203,54 @@ func (ws *WebServer) handleRefresh(w http.ResponseWriter, r *http.Request) {
 
 	ws.logger.Info("API: Refreshing data")
 
+	dataFetcher := NewDataFetcher()
+	indicatorsCalculator := NewIndicatorsCalculator()
+	strategies := NewStrategies()
+
+	tickers, err := LoadTickers("TICKERS.csv")
+	if err != nil {
+		ws.logger.Error("Failed to load tickers: %v", err)
+		http.Error(w, "Failed to load tickers", http.StatusInternalServerError)
+		return
+	}
+
+	success := true
+	for _, ticker := range tickers {
+		if err := dataFetcher.FetchData(ticker); err != nil {
+			ws.logger.Error("Failed to fetch data for %s: %v", ticker, err)
+			success = false
+			continue
+		}
+
+		if err := indicatorsCalculator.CalculateAll(ticker); err != nil {
+			ws.logger.Error("Failed to calculate indicators for %s: %v", ticker, err)
+			success = false
+		}
+	}
+
+	if err := strategies.ApplyStrategiesAndSave(); err != nil {
+		ws.logger.Error("Failed to apply strategies: %v", err)
+		success = false
+	} else {
+		if err := strategies.ApplyAlternativeStrategyStates(); err != nil {
+			ws.logger.Error("Failed to apply alternative strategy states: %v", err)
+		}
+		if err := strategies.SummarizeStrategyActions(); err != nil {
+			ws.logger.Error("Failed to summarize strategies: %v", err)
+		}
+	}
+
 	w.Header().Set("Content-Type", "application/json")
+	status := "success"
+	message := "Data refresh completed"
+	if !success {
+		status = "error"
+		message = "Data refresh encountered errors"
+	}
+
 	json.NewEncoder(w).Encode(map[string]string{
-		"status":    "success",
-		"message":   "Data refresh completed",
+		"status":    status,
+		"message":   message,
 		"timestamp": getCurrentTimestamp(),
 	})
 }
