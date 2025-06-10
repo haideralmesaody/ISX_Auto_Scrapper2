@@ -38,6 +38,8 @@ func (ws *WebServer) Start() error {
 	mux.HandleFunc("/api/strategies", ws.handleStrategies)
 	mux.HandleFunc("/api/backtest", ws.handleBacktest)
 	mux.HandleFunc("/api/refresh", ws.handleRefresh)
+	mux.HandleFunc("/api/calculate", ws.handleCalculate)
+	mux.HandleFunc("/api/liquidity", ws.handleLiquidity)
 
 	// CORS middleware
 	corsHandler := func(h http.Handler) http.Handler {
@@ -156,9 +158,33 @@ func (ws *WebServer) handleTickerStrategies(w http.ResponseWriter, symbol string
 }
 
 func (ws *WebServer) handleStrategies(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "POST" {
+		ws.logger.Info("API: Running strategies")
+
+		go func() {
+			strat := NewStrategies()
+			if err := strat.ApplyStrategiesAndSave(); err != nil {
+				ws.logger.Error("Strategy processing failed: %v", err)
+			}
+			if err := strat.ApplyAlternativeStrategyStates(); err != nil {
+				ws.logger.Error("Alternative states failed: %v", err)
+			}
+			if err := strat.SummarizeStrategyActions(); err != nil {
+				ws.logger.Error("Summary generation failed: %v", err)
+			}
+			ws.logger.Info("Strategies processing completed")
+		}()
+
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(map[string]string{
+			"status":  "started",
+			"message": "Strategy processing initiated",
+		})
+		return
+	}
+
 	ws.logger.Info("API: Getting strategies summary")
 
-	// Read Strategy_Summary.json
 	data, err := os.ReadFile("Strategy_Summary.json")
 	if err != nil {
 		http.Error(w, "Strategy summary not found", http.StatusNotFound)
@@ -208,6 +234,72 @@ func (ws *WebServer) handleRefresh(w http.ResponseWriter, r *http.Request) {
 		"status":    "success",
 		"message":   "Data refresh completed",
 		"timestamp": getCurrentTimestamp(),
+	})
+}
+
+func (ws *WebServer) handleCalculate(w http.ResponseWriter, r *http.Request) {
+	if r.Method != "POST" {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	ticker := r.URL.Query().Get("ticker")
+	if ticker == "" {
+		ws.logger.Info("API: Calculating indicators for all tickers")
+	} else {
+		ws.logger.Info("API: Calculating indicators for %s", ticker)
+	}
+
+	go func() {
+		calc := NewIndicatorsCalculator()
+		if ticker != "" {
+			if err := calc.CalculateAll(ticker); err != nil {
+				ws.logger.Error("Indicator calculation failed: %v", err)
+			}
+		} else {
+			tickers, err := LoadTickers("TICKERS.csv")
+			if err != nil {
+				ws.logger.Error("Failed to load tickers: %v", err)
+				return
+			}
+			for _, t := range tickers {
+				if err := calc.CalculateAll(t); err != nil {
+					ws.logger.Error("Failed to calculate for %s: %v", t, err)
+				}
+			}
+		}
+
+		ws.logger.Info("Indicator calculation completed")
+	}()
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{
+		"status":  "started",
+		"message": "Indicator calculation initiated",
+	})
+}
+
+func (ws *WebServer) handleLiquidity(w http.ResponseWriter, r *http.Request) {
+	if r.Method != "POST" {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	ws.logger.Info("API: Calculating liquidity scores")
+
+	go func() {
+		lc := NewLiquidityCalc()
+		if err := lc.CalculateScores(); err != nil {
+			ws.logger.Error("Liquidity calculation failed: %v", err)
+			return
+		}
+		ws.logger.Info("Liquidity scores calculation completed")
+	}()
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{
+		"status":  "started",
+		"message": "Liquidity calculation initiated",
 	})
 }
 
