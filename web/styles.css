@@ -833,6 +833,22 @@ body {
     font-size: 1.1rem;
 }
 
+/* Status Message */
+.status-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: #fff;
+    padding: 0.8rem 1.2rem;
+    border-radius: 4px;
+    display: none;
+    z-index: 1001;
+}
+
+.status-message.show {
+    display: block;
+}
+
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
     width: 8px;

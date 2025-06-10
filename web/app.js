@@ -3012,22 +3012,35 @@ function showLoading(show) {
     }
 }
 
+function showStatus(message, isError = false) {
+    const statusDiv = document.getElementById('statusMessage');
+    if (!statusDiv) return;
+    statusDiv.textContent = message;
+    statusDiv.style.backgroundColor = isError ? 'var(--danger-color)' : 'var(--success-color)';
+    statusDiv.classList.add('show');
+    setTimeout(() => statusDiv.classList.remove('show'), 4000);
+}
+
 function showError(message) {
     console.error(message);
-    // You could add a toast notification here
+    showStatus(message, true);
 }
 
 // Button handlers
 async function refreshData() {
     showLoading(true);
     try {
+        const response = await fetch('/api/refresh', { method: 'POST' });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.message || 'Refresh failed');
+
         await loadTickers();
         await loadStrategiesData();
         if (selectedTicker) {
             await loadTickerData(selectedTicker);
         }
         updateLastUpdate();
-        console.log('Data refreshed successfully');
+        showStatus(data.message || 'Data refreshed');
     } catch (error) {
         console.error('Error refreshing data:', error);
         showError('Failed to refresh data');
@@ -3039,17 +3052,14 @@ async function refreshData() {
 async function runBacktest() {
     showLoading(true);
     try {
-        // This would typically call your Go backend
-        console.log('Running backtest...');
-        
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 3000));
-        
+        const response = await fetch('/api/backtest', { method: 'POST' });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.message || 'Backtest failed');
+
         // Reload strategies data
         await loadStrategiesData();
         updateSignals();
-        
-        console.log('Backtest completed successfully');
+        showStatus(data.message || 'Backtest started');
     } catch (error) {
         console.error('Error running backtest:', error);
         showError('Failed to run backtest');
