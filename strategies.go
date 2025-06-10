@@ -16,12 +16,18 @@ import (
 // Strategies handles trading strategy analysis
 type Strategies struct {
 	logger *Logger
+	config StrategyConfig
 }
 
 // NewStrategies creates a new Strategies instance
 func NewStrategies() *Strategies {
+	cfg, err := loadStrategyConfig("strategy_config.json")
+	if err != nil {
+		cfg = defaultStrategyConfig
+	}
 	return &Strategies{
 		logger: NewLogger(),
+		config: cfg,
 	}
 }
 
@@ -53,6 +59,56 @@ const (
 	Sell       = "Sell"
 	StrongSell = "Strong Sell"
 )
+
+// Levels holds threshold levels for a strategy
+type Levels struct {
+	StrongBuy  float64 `json:"strong_buy"`
+	Buy        float64 `json:"buy"`
+	WeakBuy    float64 `json:"weak_buy"`
+	WeakSell   float64 `json:"weak_sell"`
+	Sell       float64 `json:"sell"`
+	StrongSell float64 `json:"strong_sell"`
+}
+
+// MACDHistLevels defines thresholds for MACD histogram strength
+type MACDHistLevels struct {
+	Strong float64 `json:"strong"`
+	Buy    float64 `json:"buy"`
+}
+
+// StrategyConfig defines tunable strategy thresholds
+type StrategyConfig struct {
+	RSI      Levels         `json:"rsi"`
+	RSI2     Levels         `json:"rsi2"`
+	CMF      Levels         `json:"cmf"`
+	OBVRoC   Levels         `json:"obvroc"`
+	MACDHist MACDHistLevels `json:"macd_hist"`
+}
+
+// defaultStrategyConfig provides sane defaults if no file is found
+var defaultStrategyConfig = StrategyConfig{
+	RSI:      Levels{20, 30, 40, 60, 70, 80},
+	RSI2:     Levels{15, 25, 35, 65, 75, 85},
+	CMF:      Levels{0.2, 0.1, 0.05, -0.05, -0.1, -0.2},
+	OBVRoC:   Levels{10, 5, 2, -2, -5, -10},
+	MACDHist: MACDHistLevels{0.1, 0.05},
+}
+
+// loadStrategyConfig reads configuration from a JSON file
+func loadStrategyConfig(path string) (StrategyConfig, error) {
+	f, err := os.Open(path)
+	if err != nil {
+		return StrategyConfig{}, err
+	}
+	defer f.Close()
+
+	var cfg StrategyConfig
+	dec := json.NewDecoder(f)
+	if err := dec.Decode(&cfg); err != nil {
+		return StrategyConfig{}, err
+	}
+	return cfg, nil
+}
 
 // ApplyStrategiesAndSave applies strategies and saves results
 func (s *Strategies) ApplyStrategiesAndSave() error {
@@ -253,32 +309,32 @@ func (s *Strategies) applyRSIStrategy(data []*StrategyData) {
 		}
 
 		// RSI Strategy: Enhanced with intermediate states
-		if rsi.LessThan(decimal.NewFromInt(20)) {
+		if rsi.LessThan(decimal.NewFromFloat(s.config.RSI.StrongBuy)) {
 			d.RSIStrategy = StrongBuy
-		} else if rsi.LessThan(decimal.NewFromInt(30)) {
+		} else if rsi.LessThan(decimal.NewFromFloat(s.config.RSI.Buy)) {
 			d.RSIStrategy = Buy
-		} else if rsi.LessThan(decimal.NewFromInt(40)) {
+		} else if rsi.LessThan(decimal.NewFromFloat(s.config.RSI.WeakBuy)) {
 			d.RSIStrategy = WeakBuy
-		} else if rsi.GreaterThan(decimal.NewFromInt(80)) {
+		} else if rsi.GreaterThan(decimal.NewFromFloat(s.config.RSI.StrongSell)) {
 			d.RSIStrategy = StrongSell
-		} else if rsi.GreaterThan(decimal.NewFromInt(70)) {
+		} else if rsi.GreaterThan(decimal.NewFromFloat(s.config.RSI.Sell)) {
 			d.RSIStrategy = Sell
-		} else if rsi.GreaterThan(decimal.NewFromInt(60)) {
+		} else if rsi.GreaterThan(decimal.NewFromFloat(s.config.RSI.WeakSell)) {
 			d.RSIStrategy = WeakSell
 		}
 
 		// RSI Strategy2: More conservative thresholds
-		if rsi.LessThan(decimal.NewFromInt(15)) {
+		if rsi.LessThan(decimal.NewFromFloat(s.config.RSI2.StrongBuy)) {
 			d.RSIStrategy2 = StrongBuy
-		} else if rsi.LessThan(decimal.NewFromInt(25)) {
+		} else if rsi.LessThan(decimal.NewFromFloat(s.config.RSI2.Buy)) {
 			d.RSIStrategy2 = Buy
-		} else if rsi.LessThan(decimal.NewFromInt(35)) {
+		} else if rsi.LessThan(decimal.NewFromFloat(s.config.RSI2.WeakBuy)) {
 			d.RSIStrategy2 = WeakBuy
-		} else if rsi.GreaterThan(decimal.NewFromInt(85)) {
+		} else if rsi.GreaterThan(decimal.NewFromFloat(s.config.RSI2.StrongSell)) {
 			d.RSIStrategy2 = StrongSell
-		} else if rsi.GreaterThan(decimal.NewFromInt(75)) {
+		} else if rsi.GreaterThan(decimal.NewFromFloat(s.config.RSI2.Sell)) {
 			d.RSIStrategy2 = Sell
-		} else if rsi.GreaterThan(decimal.NewFromInt(65)) {
+		} else if rsi.GreaterThan(decimal.NewFromFloat(s.config.RSI2.WeakSell)) {
 			d.RSIStrategy2 = WeakSell
 		}
 	}
@@ -300,17 +356,17 @@ func (s *Strategies) applyMACDStrategy(data []*StrategyData) {
 
 		// MACD Strategy: Enhanced with signal strength
 		if macd.GreaterThan(signal) {
-			if histogramAbs.GreaterThan(decimal.NewFromFloat(0.1)) {
+			if histogramAbs.GreaterThan(decimal.NewFromFloat(s.config.MACDHist.Strong)) {
 				d.MACDStrategy = StrongBuy
-			} else if histogramAbs.GreaterThan(decimal.NewFromFloat(0.05)) {
+			} else if histogramAbs.GreaterThan(decimal.NewFromFloat(s.config.MACDHist.Buy)) {
 				d.MACDStrategy = Buy
 			} else {
 				d.MACDStrategy = WeakBuy
 			}
 		} else if macd.LessThan(signal) {
-			if histogramAbs.GreaterThan(decimal.NewFromFloat(0.1)) {
+			if histogramAbs.GreaterThan(decimal.NewFromFloat(s.config.MACDHist.Strong)) {
 				d.MACDStrategy = StrongSell
-			} else if histogramAbs.GreaterThan(decimal.NewFromFloat(0.05)) {
+			} else if histogramAbs.GreaterThan(decimal.NewFromFloat(s.config.MACDHist.Buy)) {
 				d.MACDStrategy = Sell
 			} else {
 				d.MACDStrategy = WeakSell
@@ -350,24 +406,24 @@ func (s *Strategies) applyCMFStrategy(data []*StrategyData) {
 		}
 
 		// CMF Strategy: Enhanced money flow signals
-		if cmf.GreaterThan(decimal.NewFromFloat(0.2)) {
+		if cmf.GreaterThan(decimal.NewFromFloat(s.config.CMF.StrongBuy)) {
 			d.CMFStrategy = StrongBuy
-		} else if cmf.GreaterThan(decimal.NewFromFloat(0.1)) {
+		} else if cmf.GreaterThan(decimal.NewFromFloat(s.config.CMF.Buy)) {
 			d.CMFStrategy = Buy
-		} else if cmf.GreaterThan(decimal.NewFromFloat(0.05)) {
+		} else if cmf.GreaterThan(decimal.NewFromFloat(s.config.CMF.WeakBuy)) {
 			d.CMFStrategy = WeakBuy
-		} else if cmf.LessThan(decimal.NewFromFloat(-0.2)) {
+		} else if cmf.LessThan(decimal.NewFromFloat(s.config.CMF.StrongSell)) {
 			d.CMFStrategy = StrongSell
-		} else if cmf.LessThan(decimal.NewFromFloat(-0.1)) {
+		} else if cmf.LessThan(decimal.NewFromFloat(s.config.CMF.Sell)) {
 			d.CMFStrategy = Sell
-		} else if cmf.LessThan(decimal.NewFromFloat(-0.05)) {
+		} else if cmf.LessThan(decimal.NewFromFloat(s.config.CMF.WeakSell)) {
 			d.CMFStrategy = WeakSell
 		}
 
 		// Combined RSI+CMF Strategy
 		rsi := d.RSI14
 		if !rsi.IsZero() {
-			if cmf.GreaterThan(decimal.NewFromFloat(0.1)) && rsi.LessThan(decimal.NewFromInt(70)) {
+			if cmf.GreaterThan(decimal.NewFromFloat(s.config.CMF.Buy)) && rsi.LessThan(decimal.NewFromInt(70)) {
 				if rsi.LessThan(decimal.NewFromInt(30)) {
 					d.RSICMFStrategy = StrongBuy
 				} else if rsi.LessThan(decimal.NewFromInt(50)) {
@@ -375,7 +431,7 @@ func (s *Strategies) applyCMFStrategy(data []*StrategyData) {
 				} else {
 					d.RSICMFStrategy = WeakBuy
 				}
-			} else if cmf.LessThan(decimal.NewFromFloat(-0.1)) && rsi.GreaterThan(decimal.NewFromInt(30)) {
+			} else if cmf.LessThan(decimal.NewFromFloat(s.config.CMF.Sell)) && rsi.GreaterThan(decimal.NewFromInt(30)) {
 				if rsi.GreaterThan(decimal.NewFromInt(70)) {
 					d.RSICMFStrategy = StrongSell
 				} else if rsi.GreaterThan(decimal.NewFromInt(50)) {
@@ -397,24 +453,24 @@ func (s *Strategies) applyOBVStrategy(data []*StrategyData) {
 		}
 
 		// OBV Strategy: Enhanced volume momentum signals
-		if obvRoc.GreaterThan(decimal.NewFromInt(10)) {
+		if obvRoc.GreaterThan(decimal.NewFromFloat(s.config.OBVRoC.StrongBuy)) {
 			d.OBVStrategy = StrongBuy
-		} else if obvRoc.GreaterThan(decimal.NewFromInt(5)) {
+		} else if obvRoc.GreaterThan(decimal.NewFromFloat(s.config.OBVRoC.Buy)) {
 			d.OBVStrategy = Buy
-		} else if obvRoc.GreaterThan(decimal.NewFromInt(2)) {
+		} else if obvRoc.GreaterThan(decimal.NewFromFloat(s.config.OBVRoC.WeakBuy)) {
 			d.OBVStrategy = WeakBuy
-		} else if obvRoc.LessThan(decimal.NewFromInt(-10)) {
+		} else if obvRoc.LessThan(decimal.NewFromFloat(s.config.OBVRoC.StrongSell)) {
 			d.OBVStrategy = StrongSell
-		} else if obvRoc.LessThan(decimal.NewFromInt(-5)) {
+		} else if obvRoc.LessThan(decimal.NewFromFloat(s.config.OBVRoC.Sell)) {
 			d.OBVStrategy = Sell
-		} else if obvRoc.LessThan(decimal.NewFromInt(-2)) {
+		} else if obvRoc.LessThan(decimal.NewFromFloat(s.config.OBVRoC.WeakSell)) {
 			d.OBVStrategy = WeakSell
 		}
 
 		// Combined RSI+OBV Strategy
 		rsi := d.RSI14
 		if !rsi.IsZero() {
-			if obvRoc.GreaterThan(decimal.NewFromInt(5)) && rsi.LessThan(decimal.NewFromInt(70)) {
+			if obvRoc.GreaterThan(decimal.NewFromFloat(s.config.OBVRoC.Buy)) && rsi.LessThan(decimal.NewFromInt(70)) {
 				if rsi.LessThan(decimal.NewFromInt(30)) {
 					d.RSIOBVStrategy = StrongBuy
 					d.RSI14OBVRoCStrategy = StrongBuy
@@ -425,7 +481,7 @@ func (s *Strategies) applyOBVStrategy(data []*StrategyData) {
 					d.RSIOBVStrategy = WeakBuy
 					d.RSI14OBVRoCStrategy = WeakBuy
 				}
-			} else if obvRoc.LessThan(decimal.NewFromInt(-5)) && rsi.GreaterThan(decimal.NewFromInt(30)) {
+			} else if obvRoc.LessThan(decimal.NewFromFloat(s.config.OBVRoC.Sell)) && rsi.GreaterThan(decimal.NewFromInt(30)) {
 				if rsi.GreaterThan(decimal.NewFromInt(70)) {
 					d.RSIOBVStrategy = StrongSell
 					d.RSI14OBVRoCStrategy = StrongSell
@@ -552,19 +608,105 @@ func (s *Strategies) saveStrategiesData(data []*StrategyData, filePath string) e
 
 // processAlternativeStates processes alternative states for strategies
 func (s *Strategies) processAlternativeStates(filePath string, strategies []string) error {
-	// This is a simplified implementation of the alternative states logic
 	s.logger.Info("Processing alternative states for file: %s", filePath)
-	return nil
+
+	f, err := os.Open(filePath)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	var data []*StrategyData
+	if err := gocsv.UnmarshalFile(f, &data); err != nil {
+		return err
+	}
+
+	for _, row := range data {
+		signals := []*string{
+			&row.RSIStrategy, &row.RSIStrategy2, &row.RSI14OBVRoCStrategy,
+			&row.RSIMACDStrategy, &row.RSICMFStrategy, &row.RSIOBVStrategy,
+			&row.OBVStrategy, &row.MACDStrategy, &row.CMFStrategy,
+			&row.EMA5PSARStrategy, &row.EMA5PSARStrategy2,
+			&row.RollingStd10Strategy, &row.RollingStd50Strategy,
+		}
+
+		buyCount := 0
+		sellCount := 0
+		for _, sig := range signals {
+			if strings.Contains(*sig, "Buy") {
+				buyCount++
+			} else if strings.Contains(*sig, "Sell") {
+				sellCount++
+			}
+		}
+
+		if buyCount >= 3 {
+			for _, sig := range signals {
+				if *sig == Hold {
+					*sig = WeakBuy
+				}
+			}
+		}
+
+		if sellCount >= 3 {
+			for _, sig := range signals {
+				if *sig == Hold {
+					*sig = WeakSell
+				}
+			}
+		}
+	}
+
+	out, err := os.Create(filePath)
+	if err != nil {
+		return err
+	}
+	defer out.Close()
+	return gocsv.MarshalFile(&data, out)
 }
 
 // generateStrategySummary generates a summary for a ticker's strategies
 func (s *Strategies) generateStrategySummary(ticker, filePath string) (map[string]interface{}, error) {
+	f, err := os.Open(filePath)
+	if err != nil {
+		return nil, err
+	}
+	defer f.Close()
+
+	var data []*StrategyData
+	if err := gocsv.UnmarshalFile(f, &data); err != nil {
+		return nil, err
+	}
+
+	stats := make(map[string]map[string]int)
+	for _, d := range data {
+		update := func(name, val string) {
+			if _, ok := stats[name]; !ok {
+				stats[name] = make(map[string]int)
+			}
+			stats[name][val]++
+		}
+
+		update("RSI Strategy", d.RSIStrategy)
+		update("RSI Strategy2", d.RSIStrategy2)
+		update("RSI14_OBV_RoC Strategy", d.RSI14OBVRoCStrategy)
+		update("RSIMACD Strategy", d.RSIMACDStrategy)
+		update("RSICMF Strategy", d.RSICMFStrategy)
+		update("RSI OBV Strategy", d.RSIOBVStrategy)
+		update("OBV Strategy", d.OBVStrategy)
+		update("MACD Strategy", d.MACDStrategy)
+		update("CMF Strategy", d.CMFStrategy)
+		update("EMA5 PSAR Strategy", d.EMA5PSARStrategy)
+		update("EMA5 PSAR Strategy2", d.EMA5PSARStrategy2)
+		update("Rolling Std10 Strategy", d.RollingStd10Strategy)
+		update("Rolling Std50 Strategy", d.RollingStd50Strategy)
+	}
+
 	summary := map[string]interface{}{
-		"ticker":        ticker,
-		"file_path":     filePath,
-		"strategies":    []string{"RSI", "MACD", "CMF", "OBV", "EMA5_PSAR", "Rolling_Std"},
-		"signal_levels": []string{StrongBuy, Buy, WeakBuy, Hold, WeakSell, Sell, StrongSell},
-		"last_update":   time.Now().Format("2006-01-02 15:04:05"),
+		"ticker":      ticker,
+		"file_path":   filePath,
+		"stats":       stats,
+		"last_update": time.Now().Format("2006-01-02 15:04:05"),
 	}
 	return summary, nil
 }

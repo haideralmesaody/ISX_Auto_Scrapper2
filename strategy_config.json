@@ -1,0 +1,38 @@
+{
+  "rsi": {
+    "strong_buy": 20,
+    "buy": 30,
+    "weak_buy": 40,
+    "weak_sell": 60,
+    "sell": 70,
+    "strong_sell": 80
+  },
+  "rsi2": {
+    "strong_buy": 15,
+    "buy": 25,
+    "weak_buy": 35,
+    "weak_sell": 65,
+    "sell": 75,
+    "strong_sell": 85
+  },
+  "cmf": {
+    "strong_buy": 0.2,
+    "buy": 0.1,
+    "weak_buy": 0.05,
+    "weak_sell": -0.05,
+    "sell": -0.1,
+    "strong_sell": -0.2
+  },
+  "obvroc": {
+    "strong_buy": 10,
+    "buy": 5,
+    "weak_buy": 2,
+    "weak_sell": -2,
+    "sell": -5,
+    "strong_sell": -10
+  },
+  "macd_hist": {
+    "strong": 0.1,
+    "buy": 0.05
+  }
+}
