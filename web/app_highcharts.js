@@ -93,6 +93,17 @@ async function selectTicker(event) {
     
     // Create chart using the exact pattern from the Highcharts sample
     await createChart(symbol);
+
+    // Fetch latest strategy signals
+    try {
+        const res = await fetch(`/api/ticker/${symbol}?type=strategies`);
+        if (res.ok) {
+            const data = await res.json();
+            renderStrategySignals(data.signals);
+        }
+    } catch (err) {
+        console.log('Strategy fetch error', err);
+    }
 }
 
 // Update selected ticker information
@@ -291,6 +302,20 @@ async function runStrategies() {
     } finally {
         showLoading(false);
     }
+}
+
+function renderStrategySignals(signals) {
+    const container = document.getElementById('strategyRecommendations');
+    if (!signals) {
+        container.innerHTML = '';
+        return;
+    }
+    let html = '<h4>Latest Signals</h4><ul>';
+    for (const [name, sig] of Object.entries(signals)) {
+        html += `<li>${name}: <strong>${sig}</strong></li>`;
+    }
+    html += '</ul>';
+    container.innerHTML = html;
 }
 
  

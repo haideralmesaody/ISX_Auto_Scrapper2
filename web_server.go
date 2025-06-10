@@ -8,6 +8,8 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/gocarina/gocsv"
 )
 
 // WebServer handles HTTP requests for the dashboard
@@ -118,7 +120,7 @@ func (ws *WebServer) handleTickerData(w http.ResponseWriter, r *http.Request) {
 	case "indicators":
 		ws.handleIndicatorData(w, symbol)
 	case "strategies":
-		ws.handleTickerStrategies(w, symbol)
+		ws.handleTickerStrategies(w, r, symbol)
 	default:
 		http.Error(w, "Invalid data type", http.StatusBadRequest)
 	}
@@ -146,8 +148,9 @@ func (ws *WebServer) handleIndicatorData(w http.ResponseWriter, symbol string) {
 	json.NewEncoder(w).Encode(indicators)
 }
 
-func (ws *WebServer) handleTickerStrategies(w http.ResponseWriter, symbol string) {
-	strategies, err := ws.loadTickerStrategies(symbol)
+func (ws *WebServer) handleTickerStrategies(w http.ResponseWriter, r *http.Request, symbol string) {
+	full := r.URL.Query().Get("full") == "1"
+	strategies, err := ws.loadTickerStrategies(symbol, full)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -544,20 +547,56 @@ func (ws *WebServer) loadIndicatorData(symbol string) (map[string]interface{}, e
 	return indicators, nil
 }
 
-func (ws *WebServer) loadTickerStrategies(symbol string) (map[string]interface{}, error) {
+func (ws *WebServer) loadTickerStrategies(symbol string, full bool) (map[string]interface{}, error) {
 	filename := fmt.Sprintf("Strategies_%s.csv", symbol)
 	if _, err := os.Stat(filename); os.IsNotExist(err) {
 		return nil, fmt.Errorf("strategy data not found for %s", symbol)
 	}
 
-	// For now, return a placeholder
-	return map[string]interface{}{
-		"symbol": symbol,
-		"strategies": []map[string]string{
-			{"name": "OBV Strategy", "signal": "Buy", "strength": "Strong"},
-			{"name": "RSI Strategy", "signal": "Hold", "strength": "Weak"},
-		},
-	}, nil
+	file, err := os.Open(filename)
+	if err != nil {
+		return nil, err
+	}
+	defer file.Close()
+
+	var data []*StrategyData
+	if err := gocsv.UnmarshalFile(file, &data); err != nil {
+		return nil, err
+	}
+
+	if len(data) == 0 {
+		return nil, fmt.Errorf("no strategy data for %s", symbol)
+	}
+
+	last := data[len(data)-1]
+
+	signals := map[string]string{
+		"RSI Strategy":           last.RSIStrategy,
+		"RSI Strategy2":          last.RSIStrategy2,
+		"RSI14_OBV_RoC Strategy": last.RSI14OBVRoCStrategy,
+		"RSIMACD Strategy":       last.RSIMACDStrategy,
+		"RSICMF Strategy":        last.RSICMFStrategy,
+		"RSI OBV Strategy":       last.RSIOBVStrategy,
+		"OBV Strategy":           last.OBVStrategy,
+		"MACD Strategy":          last.MACDStrategy,
+		"CMF Strategy":           last.CMFStrategy,
+		"EMA5 PSAR Strategy":     last.EMA5PSARStrategy,
+		"EMA5 PSAR Strategy2":    last.EMA5PSARStrategy2,
+		"Rolling Std10 Strategy": last.RollingStd10Strategy,
+		"Rolling Std50 Strategy": last.RollingStd50Strategy,
+	}
+
+	result := map[string]interface{}{
+		"ticker":  symbol,
+		"date":    last.Date.Format("2006-01-02"),
+		"signals": signals,
+	}
+
+	if full {
+		result["history"] = data
+	}
+
+	return result, nil
 }
 
 func getCurrentTimestamp() string {
