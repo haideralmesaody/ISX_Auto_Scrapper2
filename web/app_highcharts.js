@@ -19,6 +19,10 @@ document.addEventListener('DOMContentLoaded', async function() {
     debugLog('Highcharts version: ' + Highcharts.version);
     
     // Initialize dashboard
+    document.getElementById('calcBtn').addEventListener('click', runCalculate);
+    document.getElementById('liqBtn').addEventListener('click', runLiquidity);
+    document.getElementById('stratBtn').addEventListener('click', runStrategies);
+
     await initializeDashboard();
 });
 
@@ -247,6 +251,45 @@ function showLoading(show) {
         overlay.classList.add('show');
     } else {
         overlay.classList.remove('show');
+    }
+}
+
+async function runCalculate() {
+    showLoading(true);
+    try {
+        const res = await fetch('/api/calculate', { method: 'POST' });
+        const data = await res.json();
+        debugLog('Calculate: ' + data.status);
+    } catch (err) {
+        debugLog('Calculate error: ' + err.message);
+    } finally {
+        showLoading(false);
+    }
+}
+
+async function runLiquidity() {
+    showLoading(true);
+    try {
+        const res = await fetch('/api/liquidity', { method: 'POST' });
+        const data = await res.json();
+        debugLog('Liquidity: ' + data.status);
+    } catch (err) {
+        debugLog('Liquidity error: ' + err.message);
+    } finally {
+        showLoading(false);
+    }
+}
+
+async function runStrategies() {
+    showLoading(true);
+    try {
+        const res = await fetch('/api/strategies', { method: 'POST' });
+        const data = await res.json();
+        debugLog('Strategies: ' + data.status);
+    } catch (err) {
+        debugLog('Strategies error: ' + err.message);
+    } finally {
+        showLoading(false);
     }
 }
 
