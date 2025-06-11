@@ -14,10 +14,9 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     if (typeof Highcharts === 'undefined') {
         debugLog('ERROR: Highcharts not loaded');
-        return;
+    } else {
+        debugLog('Highcharts version: ' + Highcharts.version);
     }
-    
-    debugLog('Highcharts version: ' + Highcharts.version);
     
     // Initialize dashboard
     document.getElementById('fetchBtn').addEventListener('click', openFetchModal);
