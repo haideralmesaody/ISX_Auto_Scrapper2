@@ -78,22 +78,20 @@ func (df *DataFetcher) FetchDataWithReport(ticker, sector, companyName string) (
 
 	filename := fmt.Sprintf("raw_%s.csv", ticker)
 
-	// Check existing file and count rows
+	// Load existing data if present
+	var existingDataFull []common.StockData
 	pagesBeforeUpdate := 0
 	if _, err := os.Stat(filename); err == nil {
 		df.logger.Info("File '%s' already exists", filename)
 		df.currentReport.Status = "UPDATING"
 
-		// Count existing rows
-		existingData, err := df.loadExistingData(filename)
-		if err != nil {
-			df.currentReport.ErrorMessage = fmt.Sprintf("Failed to load existing data: %v", err)
-		} else {
-			pagesBeforeUpdate = len(existingData)
+		if data, err := df.loadExistingData(filename); err == nil {
+			existingDataFull = data
+			pagesBeforeUpdate = len(existingDataFull)
 			df.currentReport.PagesBeforeUpdate = pagesBeforeUpdate
 
-			if len(existingData) > 0 {
-				lastDate := existingData[len(existingData)-1].Date
+			if len(existingDataFull) > 0 {
+				lastDate := existingDataFull[len(existingDataFull)-1].Date
 				currentDate := time.Now()
 				daysDiff := int(currentDate.Sub(lastDate).Hours() / 24)
 
@@ -102,16 +100,27 @@ func (df *DataFetcher) FetchDataWithReport(ticker, sector, companyName string) (
 					df.currentReport.Status = "UP_TO_DATE"
 					df.currentReport.EndTime = time.Now()
 					df.currentReport.ProcessingDuration = time.Since(df.startTime).String()
-					df.currentReport.TotalRowsInCSV = len(existingData)
+					df.currentReport.TotalRowsInCSV = len(existingDataFull)
 					df.currentReport.DataQualityScore = "EXCELLENT"
 					df.currentReport.Recommendation = "No action needed - data is current"
 					return df.currentReport, nil
 				}
 			}
+		} else {
+			df.currentReport.ErrorMessage = fmt.Sprintf("Failed to load existing data: %v", err)
 		}
 	} else {
 		df.currentReport.Status = "NEW"
 	}
+
+	// Prepare initial stockData slice with existing records minus last 10 rows
+	trimIdx := len(existingDataFull)
+	if trimIdx > 10 {
+		trimIdx -= 10
+	} else {
+		trimIdx = 0
+	}
+	stockData := append([]common.StockData{}, existingDataFull[:trimIdx]...)
 
 	// Setup chrome options for better performance
 	opts := append(chromedp.DefaultExecAllocatorOptions[:],
@@ -181,8 +190,6 @@ func (df *DataFetcher) FetchDataWithReport(ticker, sector, companyName string) (
 	url := fmt.Sprintf("%s?currLanguage=en&companyCode=%s&activeTab=0", common.AppConfig.BaseURL, ticker)
 
 	df.logger.Info("Fetching data from URL %s for ticker %s", url, ticker)
-
-	var stockData []common.StockData
 
 	// Navigate to page and wait for it to fully load
 	navigationStart := time.Now()
@@ -305,15 +312,20 @@ func (df *DataFetcher) FetchDataWithReport(ticker, sector, companyName string) (
 		return nil, fmt.Errorf("no stock data found for ticker %s", ticker)
 	}
 
+	// Merge newly scraped data with original records and clean up
+	mergedData := append(existingDataFull, stockData...)
+	mergedData = df.removeDuplicates(mergedData)
+	mergedData = df.sortAndRecalculateChanges(mergedData)
+
 	// Save data to CSV
-	if err := df.saveDataToCSV(stockData, filename); err != nil {
+	if err := df.saveDataToCSV(mergedData, filename); err != nil {
 		return nil, fmt.Errorf("failed to save data to CSV: %w", err)
 	}
 
-	df.logger.Info("Successfully fetched and saved %d records for ticker %s", len(stockData), ticker)
+	df.logger.Info("Successfully fetched and saved %d records for ticker %s", len(mergedData), ticker)
 	df.currentReport.EndTime = time.Now()
 	df.currentReport.ProcessingDuration = time.Since(df.startTime).String()
-	df.currentReport.TotalRowsInCSV = len(stockData)
+	df.currentReport.TotalRowsInCSV = len(mergedData)
 	df.currentReport.DataQualityScore = "EXCELLENT"
 	df.currentReport.Recommendation = "No action needed - data is current"
 
@@ -327,41 +339,19 @@ func (df *DataFetcher) extractDataFromAllPages(ctx context.Context, stockData *[
 	pageNum := 1
 	maxRows := 2500 // Based on the HTML showing 2,379 total records
 
-	// Load existing CSV data to check for overlaps
+	// Build overlap map from provided records
 	existingData := make(map[string]bool)
-	filename := fmt.Sprintf("raw_%s.csv", ticker)
+	for _, d := range *stockData {
+		dateKey := d.Date.Format("2006-01-02")
+		existingData[dateKey] = true
+	}
 
-	// First check if CSV file exists and load existing dates
-	df.logger.Info("Attempting to load existing CSV file: %s", filename)
-	if existingCSVData, err := df.loadExistingData(filename); err == nil {
-		for _, data := range existingCSVData {
-			dateKey := data.Date.Format("2006-01-02")
-			existingData[dateKey] = true
-		}
-
-		// Log existing CSV data range for analysis
-		if len(existingCSVData) > 0 {
-			firstDate := existingCSVData[0].Date.Format("2006-01-02")
-			lastDate := existingCSVData[len(existingCSVData)-1].Date.Format("2006-01-02")
-			df.logger.Info("Loaded %d existing records from CSV file for overlap detection", len(existingData))
-			df.logger.Info("CSV data range: %s to %s", firstDate, lastDate)
-		} else {
-			df.logger.Info("CSV file exists but contains no data")
-		}
-
-		// Also add any data already in memory
-		for _, data := range *stockData {
-			dateKey := data.Date.Format("2006-01-02")
-			existingData[dateKey] = true
-		}
+	if len(*stockData) > 0 {
+		firstDate := (*stockData)[0].Date.Format("2006-01-02")
+		lastDate := (*stockData)[len(*stockData)-1].Date.Format("2006-01-02")
+		df.logger.Info("Starting with %d existing records in memory. Range: %s to %s", len(*stockData), firstDate, lastDate)
 	} else {
-		// If no CSV file exists, just track in-memory data
-		df.logger.Error("Failed to load existing CSV file %s: %v", filename, err)
-		for _, data := range *stockData {
-			dateKey := data.Date.Format("2006-01-02")
-			existingData[dateKey] = true
-		}
-		df.logger.Info("No existing CSV file found, tracking %d in-memory records for overlap detection", len(existingData))
+		df.logger.Info("No existing data provided, starting fresh")
 	}
 
 	for len(*stockData) < maxRows {
