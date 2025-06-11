@@ -10,6 +10,7 @@ type TickerInfo struct {
 	Symbol      string    `csv:"Ticker" json:"symbol"`
 	Sector      string    `csv:"Sector" json:"sector"`
 	CompanyName string    `csv:"Name" json:"name"`
+	Date        string    `json:"date"`
 	Price       float64   `json:"price"`
 	Change      float64   `json:"change"`
 	Volume      int64     `json:"volume"`

@@ -94,6 +94,7 @@ func (ws *WebServer) handleTickers(w http.ResponseWriter, r *http.Request) {
 	for i, ticker := range tickers {
 		priceData, err := ws.getLastPrice(ticker.Symbol)
 		if err == nil {
+			tickers[i].Date = priceData.Date
 			tickers[i].Price = priceData.Close
 			tickers[i].Volume = priceData.Volume
 			tickers[i].Change = priceData.Change
@@ -455,6 +456,7 @@ type PriceData struct {
 }
 
 type LastPriceData struct {
+	Date      string
 	Open      float64
 	High      float64
 	Low       float64
@@ -583,6 +585,7 @@ func (ws *WebServer) getLastPrice(symbol string) (*LastPriceData, error) {
 
 	// CORRECT column mapping: Date,Close,Open,High,Low,Change,Change%,T.Shares,Volume,No. Trades
 	//                         0    1     2    3    4     5      6       7       8       9
+	date := strings.TrimSpace(parts[0])
 	closeVal, _ := strconv.ParseFloat(strings.TrimSpace(parts[1]), 64)
 	openVal, _ := strconv.ParseFloat(strings.TrimSpace(parts[2]), 64)
 	highVal, _ := strconv.ParseFloat(strings.TrimSpace(parts[3]), 64)
@@ -620,6 +623,7 @@ func (ws *WebServer) getLastPrice(symbol string) (*LastPriceData, error) {
 	}
 
 	return &LastPriceData{
+		Date:      date,
 		Open:      openVal,
 		High:      highVal,
 		Low:       lowVal,
