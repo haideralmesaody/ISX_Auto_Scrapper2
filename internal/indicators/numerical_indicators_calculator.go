@@ -1,22 +1,24 @@
-package main
+package indicators
 
 import (
 	"fmt"
 	"os"
+
+	"isx-auto-scrapper/internal/common"
 )
 
 // NumericalIndicatorsCalculator handles numerical technical indicator calculations (no descriptions)
 // It reuses the existing IndicatorsCalculator methods and only adds the numerical-specific workflow
 type NumericalIndicatorsCalculator struct {
 	indicatorsCalculator *IndicatorsCalculator
-	logger               *Logger
+	logger               *common.Logger
 }
 
 // NewNumericalIndicatorsCalculator creates a new NumericalIndicatorsCalculator instance
 func NewNumericalIndicatorsCalculator() *NumericalIndicatorsCalculator {
 	return &NumericalIndicatorsCalculator{
 		indicatorsCalculator: NewIndicatorsCalculator(),
-		logger:               NewLogger(),
+		logger:               common.NewLogger(),
 	}
 }
 

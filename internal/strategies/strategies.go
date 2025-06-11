@@ -1,4 +1,4 @@
-package main
+package strategies
 
 import (
 	"encoding/json"
@@ -11,11 +11,14 @@ import (
 
 	"github.com/gocarina/gocsv"
 	"github.com/shopspring/decimal"
+
+	"isx-auto-scrapper/internal/common"
+	"isx-auto-scrapper/internal/indicators"
 )
 
 // Strategies handles trading strategy analysis
 type Strategies struct {
-	logger *Logger
+	logger *common.Logger
 	config StrategyConfig
 }
 
@@ -26,14 +29,14 @@ func NewStrategies() *Strategies {
 		cfg = defaultStrategyConfig
 	}
 	return &Strategies{
-		logger: NewLogger(),
+		logger: common.NewLogger(),
 		config: cfg,
 	}
 }
 
 // StrategyData represents stock data with applied strategies
 type StrategyData struct {
-	StockDataWithIndicators
+	indicators.StockDataWithIndicators
 	RSIStrategy          string `csv:"RSI Strategy"`
 	RSIStrategy2         string `csv:"RSI Strategy2"`
 	RSI14OBVRoCStrategy  string `csv:"RSI14_OBV_RoC Strategy"`
@@ -115,7 +118,7 @@ func (s *Strategies) ApplyStrategiesAndSave() error {
 	s.logger.Info("Applying strategies and saving results")
 
 	// Load tickers
-	tickers, err := LoadTickers("TICKERS.csv")
+	tickers, err := common.LoadTickers("TICKERS.csv")
 	if err != nil {
 		return fmt.Errorf("failed to load tickers: %w", err)
 	}
@@ -141,7 +144,7 @@ func (s *Strategies) ApplyStrategiesAndSave() error {
 
 		// Filter to last 12 months
 		oneYearAgo := time.Now().AddDate(-1, 0, 0)
-		var filteredData []*StockDataWithIndicators
+		var filteredData []*indicators.StockDataWithIndicators
 		for _, data := range indicatorData {
 			if data.Date.After(oneYearAgo) {
 				filteredData = append(filteredData, data)
@@ -179,7 +182,7 @@ func (s *Strategies) ApplyAlternativeStrategyStates() error {
 	s.logger.Info("Applying alternative strategy states")
 
 	// Load tickers
-	tickers, err := LoadTickers("TICKERS.csv")
+	tickers, err := common.LoadTickers("TICKERS.csv")
 	if err != nil {
 		return fmt.Errorf("failed to load tickers: %w", err)
 	}
@@ -216,7 +219,7 @@ func (s *Strategies) SummarizeStrategyActions() error {
 	s.logger.Info("Summarizing strategy actions")
 
 	// Load tickers
-	tickers, err := LoadTickers("TICKERS.csv")
+	tickers, err := common.LoadTickers("TICKERS.csv")
 	if err != nil {
 		return fmt.Errorf("failed to load tickers: %w", err)
 	}
@@ -249,14 +252,14 @@ func (s *Strategies) SummarizeStrategyActions() error {
 }
 
 // loadIndicatorData loads indicator data from CSV file
-func (s *Strategies) loadIndicatorData(filePath string) ([]*StockDataWithIndicators, error) {
+func (s *Strategies) loadIndicatorData(filePath string) ([]*indicators.StockDataWithIndicators, error) {
 	file, err := os.Open(filePath)
 	if err != nil {
 		return nil, err
 	}
 	defer file.Close()
 
-	var stockData []*StockDataWithIndicators
+	var stockData []*indicators.StockDataWithIndicators
 	if err := gocsv.UnmarshalFile(file, &stockData); err != nil {
 		return nil, err
 	}
@@ -265,7 +268,7 @@ func (s *Strategies) loadIndicatorData(filePath string) ([]*StockDataWithIndicat
 }
 
 // applyTradingStrategies applies trading strategies to the data with intermediate states
-func (s *Strategies) applyTradingStrategies(data []*StockDataWithIndicators) ([]*StrategyData, error) {
+func (s *Strategies) applyTradingStrategies(data []*indicators.StockDataWithIndicators) ([]*StrategyData, error) {
 	var strategyData []*StrategyData
 
 	for _, stock := range data {
@@ -726,37 +729,37 @@ func (s *Strategies) saveSummaryToFile(summaries map[string]interface{}, filePat
 
 // StrategyTester handles strategy testing and backtesting
 type StrategyTester struct {
-	logger *Logger
+	logger *common.Logger
 }
 
 // NewStrategyTester creates a new StrategyTester instance
 func NewStrategyTester() *StrategyTester {
 	return &StrategyTester{
-		logger: NewLogger(),
+		logger: common.NewLogger(),
 	}
 }
 
 // BacktestEngine represents the main backtesting engine
 type BacktestEngine struct {
-	config           BacktestConfig
-	portfolio        Portfolio
-	trades           []Trade
-	positions        map[string]Position
-	portfolioHistory []Portfolio
+	config           common.BacktestConfig
+	portfolio        common.Portfolio
+	trades           []common.Trade
+	positions        map[string]common.Position
+	portfolioHistory []common.Portfolio
 	tradeCounter     int
-	logger           *Logger
+	logger           *common.Logger
 }
 
 // NewBacktestEngine creates a new backtesting engine
-func NewBacktestEngine(config BacktestConfig) *BacktestEngine {
+func NewBacktestEngine(config common.BacktestConfig) *BacktestEngine {
 	return &BacktestEngine{
 		config:           config,
-		positions:        make(map[string]Position),
-		trades:           make([]Trade, 0),
-		portfolioHistory: make([]Portfolio, 0),
+		positions:        make(map[string]common.Position),
+		trades:           make([]common.Trade, 0),
+		portfolioHistory: make([]common.Portfolio, 0),
 		tradeCounter:     0,
-		logger:           NewLogger(),
-		portfolio: Portfolio{
+		logger:           common.NewLogger(),
+		portfolio: common.Portfolio{
 			Cash:       config.InitialCash,
 			TotalValue: config.InitialCash,
 		},
@@ -775,7 +778,7 @@ func (st *StrategyTester) BacktestAllStrategies() error {
 
 	// Load tickers if not specified in config
 	if len(config.Tickers) == 0 {
-		tickers, err := LoadTickers("TICKERS.csv")
+		tickers, err := common.LoadTickers("TICKERS.csv")
 		if err != nil {
 			return fmt.Errorf("failed to load tickers: %w", err)
 		}
@@ -783,7 +786,7 @@ func (st *StrategyTester) BacktestAllStrategies() error {
 	}
 
 	// Backtest each strategy
-	allResults := make(map[string]*BacktestResult)
+	allResults := make(map[string]*common.BacktestResult)
 
 	for _, strategy := range config.Strategies {
 		st.logger.Info("Backtesting strategy: %s", strategy)
@@ -804,8 +807,8 @@ func (st *StrategyTester) BacktestAllStrategies() error {
 }
 
 // loadBacktestConfig loads the backtesting configuration
-func (st *StrategyTester) loadBacktestConfig() (BacktestConfig, error) {
-	var config BacktestConfig
+func (st *StrategyTester) loadBacktestConfig() (common.BacktestConfig, error) {
+	var config common.BacktestConfig
 
 	file, err := os.Open("backtest_config.json")
 	if err != nil {
@@ -819,7 +822,7 @@ func (st *StrategyTester) loadBacktestConfig() (BacktestConfig, error) {
 }
 
 // backtestSingleStrategy backtests a single strategy across all tickers
-func (st *StrategyTester) backtestSingleStrategy(strategy string, tickers []string, config BacktestConfig) (*BacktestResult, error) {
+func (st *StrategyTester) backtestSingleStrategy(strategy string, tickers []string, config common.BacktestConfig) (*common.BacktestResult, error) {
 	engine := NewBacktestEngine(config)
 
 	// Combine all ticker data into chronological order
@@ -1091,7 +1094,7 @@ func (be *BacktestEngine) enterLongPosition(dataPoint StrategyDataPoint, strateg
 	takeProfit := dataPoint.Close.Mul(decimal.NewFromInt(1).Add(be.config.TakeProfit.Div(decimal.NewFromInt(100))))
 
 	// Create position
-	position := Position{
+	position := common.Position{
 		Ticker:       dataPoint.Ticker,
 		Strategy:     strategy,
 		EntryDate:    dataPoint.Date,
@@ -1127,7 +1130,7 @@ func (be *BacktestEngine) exitPosition(ticker string, dataPoint StrategyDataPoin
 
 	// Create trade record
 	be.tradeCounter++
-	trade := Trade{
+	trade := common.Trade{
 		TradeID:     be.tradeCounter,
 		Ticker:      ticker,
 		Strategy:    position.Strategy,
@@ -1231,9 +1234,9 @@ func (be *BacktestEngine) updatePortfolioMetrics() {
 }
 
 // calculatePerformanceMetrics calculates comprehensive performance metrics
-func (be *BacktestEngine) calculatePerformanceMetrics(strategy string) *BacktestResult {
+func (be *BacktestEngine) calculatePerformanceMetrics(strategy string) *common.BacktestResult {
 	if len(be.trades) == 0 {
-		return &BacktestResult{
+		return &common.BacktestResult{
 			Strategy:      strategy,
 			TotalReturn:   decimal.Zero,
 			WinRate:       decimal.Zero,
@@ -1306,7 +1309,7 @@ func (be *BacktestEngine) calculatePerformanceMetrics(strategy string) *Backtest
 	startDate := be.portfolioHistory[0].Date
 	endDate := be.portfolioHistory[len(be.portfolioHistory)-1].Date
 
-	return &BacktestResult{
+	return &common.BacktestResult{
 		Strategy:      strategy,
 		TotalReturn:   be.portfolio.TotalReturn,
 		WinRate:       winRate,
@@ -1429,7 +1432,7 @@ func (st *StrategyTester) saveDetailedResults(engine *BacktestEngine, strategy s
 }
 
 // saveTradesCSV saves trades to CSV file
-func (st *StrategyTester) saveTradesCSV(trades []Trade, filename string) error {
+func (st *StrategyTester) saveTradesCSV(trades []common.Trade, filename string) error {
 	file, err := os.Create(filename)
 	if err != nil {
 		return err
@@ -1440,7 +1443,7 @@ func (st *StrategyTester) saveTradesCSV(trades []Trade, filename string) error {
 }
 
 // savePortfolioHistoryCSV saves portfolio history to CSV file
-func (st *StrategyTester) savePortfolioHistoryCSV(history []Portfolio, filename string) error {
+func (st *StrategyTester) savePortfolioHistoryCSV(history []common.Portfolio, filename string) error {
 	file, err := os.Create(filename)
 	if err != nil {
 		return err
@@ -1451,9 +1454,9 @@ func (st *StrategyTester) savePortfolioHistoryCSV(history []Portfolio, filename 
 }
 
 // saveBacktestResults saves overall backtest results
-func (st *StrategyTester) saveBacktestResults(results map[string]*BacktestResult) error {
+func (st *StrategyTester) saveBacktestResults(results map[string]*common.BacktestResult) error {
 	// Convert map to slice for CSV output
-	var resultSlice []*BacktestResult
+	var resultSlice []*common.BacktestResult
 	for _, result := range results {
 		resultSlice = append(resultSlice, result)
 	}
@@ -1507,14 +1510,14 @@ func (st *StrategyTester) SummarizeSimulatedStrategyResults() error {
 }
 
 // loadBacktestResults loads backtest results from file
-func (st *StrategyTester) loadBacktestResults() (map[string]*BacktestResult, error) {
+func (st *StrategyTester) loadBacktestResults() (map[string]*common.BacktestResult, error) {
 	file, err := os.Open("backtest_results.json")
 	if err != nil {
 		return nil, err
 	}
 	defer file.Close()
 
-	var results map[string]*BacktestResult
+	var results map[string]*common.BacktestResult
 	decoder := json.NewDecoder(file)
 	err = decoder.Decode(&results)
 
@@ -1522,7 +1525,7 @@ func (st *StrategyTester) loadBacktestResults() (map[string]*BacktestResult, err
 }
 
 // generateBacktestSummary generates a comprehensive summary
-func (st *StrategyTester) generateBacktestSummary(results map[string]*BacktestResult) map[string]interface{} {
+func (st *StrategyTester) generateBacktestSummary(results map[string]*common.BacktestResult) map[string]interface{} {
 	summary := map[string]interface{}{
 		"total_strategies": len(results),
 		"best_strategy":    "",

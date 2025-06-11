@@ -1,4 +1,4 @@
-package main
+package indicators
 
 import (
 	"fmt"
@@ -7,6 +7,8 @@ import (
 
 	"github.com/gocarina/gocsv"
 	"github.com/shopspring/decimal"
+
+	"isx-auto-scrapper/internal/common"
 )
 
 // CSVDate is a custom type for parsing dates from CSV
@@ -45,7 +47,7 @@ type StockDataCSV struct {
 
 // StockDataWithIndicators extends StockData with technical indicators
 type StockDataWithIndicators struct {
-	StockData
+	common.StockData
 
 	// Additional RSI periods not in StockData
 	RSI9  decimal.Decimal `csv:"RSI_9"`
@@ -68,14 +70,14 @@ type StockDataWithIndicators struct {
 
 // IndicatorsCalculator handles technical indicator calculations
 type IndicatorsCalculator struct {
-	logger     *Logger
+	logger     *common.Logger
 	indicators *TechnicalIndicators
 }
 
 // NewIndicatorsCalculator creates a new IndicatorsCalculator instance
 func NewIndicatorsCalculator() *IndicatorsCalculator {
 	return &IndicatorsCalculator{
-		logger:     NewLogger(),
+		logger:     common.NewLogger(),
 		indicators: NewTechnicalIndicators(),
 	}
 }
@@ -194,7 +196,7 @@ func (ic *IndicatorsCalculator) loadStockData(filePath string) ([]*StockDataWith
 	stockData := make([]*StockDataWithIndicators, len(rawData))
 	for i, data := range rawData {
 		stockData[i] = &StockDataWithIndicators{
-			StockData: StockData{
+			StockData: common.StockData{
 				Date:   data.Date.Time,
 				Close:  data.Close,
 				Open:   data.Open,
@@ -203,7 +205,7 @@ func (ic *IndicatorsCalculator) loadStockData(filePath string) ([]*StockDataWith
 				Volume: data.Volume,
 				Change: data.Change,
 				// Parse ChangePercent (remove % and convert)
-				ChangePercent: parsePercentage(data.ChangePercent),
+				ChangePercent: ParsePercentage(data.ChangePercent),
 
 				// Initialize all technical indicator fields
 				SMA10:      decimal.Zero,
@@ -278,7 +280,7 @@ func (ic *IndicatorsCalculator) loadStockData(filePath string) ([]*StockDataWith
 }
 
 // parsePercentage converts percentage string like "2.15%" to decimal
-func parsePercentage(percentStr string) decimal.Decimal {
+func ParsePercentage(percentStr string) decimal.Decimal {
 	if percentStr == "" {
 		return decimal.Zero
 	}
