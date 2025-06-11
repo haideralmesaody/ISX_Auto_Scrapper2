@@ -97,6 +97,11 @@ func (ws *WebServer) handleTickers(w http.ResponseWriter, r *http.Request) {
 			tickers[i].Price = priceData.Close
 			tickers[i].Volume = priceData.Volume
 			tickers[i].Change = priceData.Change
+			tickers[i].Open = priceData.Open
+			tickers[i].High = priceData.High
+			tickers[i].Low = priceData.Low
+			tickers[i].Value = priceData.Value
+			tickers[i].Sparkline = priceData.Sparkline
 		}
 	}
 
@@ -450,9 +455,14 @@ type PriceData struct {
 }
 
 type LastPriceData struct {
-	Close  float64
-	Volume int64
-	Change float64
+	Open      float64
+	High      float64
+	Low       float64
+	Close     float64
+	Volume    int64
+	Value     float64
+	Change    float64
+	Sparkline []float64
 }
 
 func (ws *WebServer) loadTickersList() ([]common.TickerInfo, error) {
@@ -573,22 +583,51 @@ func (ws *WebServer) getLastPrice(symbol string) (*LastPriceData, error) {
 
 	// CORRECT column mapping: Date,Close,Open,High,Low,Change,Change%,T.Shares,Volume,No. Trades
 	//                         0    1     2    3    4     5      6       7       8       9
-	close, _ := strconv.ParseFloat(strings.TrimSpace(parts[1]), 64)
-	volume, _ := strconv.ParseInt(strings.TrimSpace(parts[8]), 10, 64)
+	closeVal, _ := strconv.ParseFloat(strings.TrimSpace(parts[1]), 64)
+	openVal, _ := strconv.ParseFloat(strings.TrimSpace(parts[2]), 64)
+	highVal, _ := strconv.ParseFloat(strings.TrimSpace(parts[3]), 64)
+	lowVal, _ := strconv.ParseFloat(strings.TrimSpace(parts[4]), 64)
+	volumeVal, _ := strconv.ParseInt(strings.TrimSpace(parts[8]), 10, 64)
 
 	var change float64
 	if prevLine != "" {
 		prevParts := strings.Split(prevLine, ",")
 		if len(prevParts) >= 2 {
 			prevClose, _ := strconv.ParseFloat(strings.TrimSpace(prevParts[1]), 64)
-			change = close - prevClose
+			change = closeVal - prevClose
 		}
 	}
 
+	var spark []float64
+	count := 0
+	for i := len(lines) - 1; i >= 0 && count < 10; i-- {
+		l := strings.TrimSpace(lines[i])
+		if l == "" || i == 0 {
+			continue
+		}
+		p := strings.Split(l, ",")
+		if len(p) >= 2 {
+			if c, err := strconv.ParseFloat(strings.TrimSpace(p[1]), 64); err == nil {
+				spark = append(spark, c)
+				count++
+			}
+		}
+	}
+
+	// reverse spark to chronological order
+	for i, j := 0, len(spark)-1; i < j; i, j = i+1, j-1 {
+		spark[i], spark[j] = spark[j], spark[i]
+	}
+
 	return &LastPriceData{
-		Close:  close,
-		Volume: volume,
-		Change: change,
+		Open:      openVal,
+		High:      highVal,
+		Low:       lowVal,
+		Close:     closeVal,
+		Volume:    volumeVal,
+		Value:     closeVal * float64(volumeVal),
+		Change:    change,
+		Sparkline: spark,
 	}, nil
 }
 
