@@ -14,6 +14,7 @@ import (
 	"isx-auto-scrapper/internal/common"
 	"isx-auto-scrapper/internal/indicators"
 	"isx-auto-scrapper/internal/liquidity"
+	"isx-auto-scrapper/internal/report"
 	"isx-auto-scrapper/internal/scraper"
 	"isx-auto-scrapper/internal/strategies"
 )
@@ -50,6 +51,8 @@ func (ws *WebServer) Start() error {
 	mux.HandleFunc("/api/calculate_num", ws.handleCalculateNum)
 	mux.HandleFunc("/api/fetch", ws.handleFetch)
 	mux.HandleFunc("/api/liquidity", ws.handleLiquidity)
+	mux.HandleFunc("/api/daily_report", ws.handleDailyReport)
+	mux.HandleFunc("/api/daily_report_excel", ws.handleDailyReportExcel)
 
 	// CORS middleware
 	corsHandler := func(h http.Handler) http.Handler {
@@ -442,6 +445,35 @@ func (ws *WebServer) handleLiquidity(w http.ResponseWriter, r *http.Request) {
 		"status":  "started",
 		"message": "Liquidity calculation initiated",
 	})
+}
+
+func (ws *WebServer) handleDailyReport(w http.ResponseWriter, r *http.Request) {
+	ws.logger.Info("API: Generating daily report")
+	rep, err := report.GenerateDailyReport(time.Now())
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(rep)
+}
+
+func (ws *WebServer) handleDailyReportExcel(w http.ResponseWriter, r *http.Request) {
+	ws.logger.Info("API: Generating daily report Excel")
+	rep, err := report.GenerateDailyReport(time.Now())
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	tmp := "daily_report.xlsx"
+	if err := report.SaveDailyReportExcel(rep, tmp); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	defer os.Remove(tmp)
+	w.Header().Set("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+	w.Header().Set("Content-Disposition", "attachment; filename=\"daily_report.xlsx\"")
+	http.ServeFile(w, r, tmp)
 }
 
 // Data loading helpers

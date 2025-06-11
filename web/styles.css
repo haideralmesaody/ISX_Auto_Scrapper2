@@ -1396,4 +1396,20 @@ body {
 .sparkline .highcharts-axis,
 .sparkline .highcharts-plot-border {
     display: none !important;
-} 
+}
+
+/* simple table used in daily report */
+.simple-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+.simple-table th, .simple-table td {
+    border: 1px solid var(--border-light);
+    padding: 4px 8px;
+    text-align: right;
+}
+.simple-table th {
+    background: var(--light-cream);
+    text-align: center;
+}

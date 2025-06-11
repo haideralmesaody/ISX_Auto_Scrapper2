@@ -9,6 +9,7 @@ A comprehensive command-line tool written in Go that automates the complete work
 * Compute multi-factor liquidity scores for every listed share.
 * **Run comprehensive backtesting with realistic portfolio management, risk controls, and performance analytics.**
 * **Generate detailed trading reports including individual trades, portfolio history, and performance metrics.**
+* **Create a daily market report with top movers and full trading summary in HTML and Excel.**
 * Back-test or Monte-Carlo–simulate the included strategies with configurable parameters.
 ![Dashboard preview](Logo.png)
 
