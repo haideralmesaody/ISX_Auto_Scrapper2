@@ -55,12 +55,8 @@ async function initializeDashboard() {
         tickersData = await response.json();
         debugLog('Loaded tickers: ' + tickersData.length);
         
-        // Populate dropdown
-        populateTickerDropdown();
-        
-        // Add event listener to dropdown
-        const dropdown = document.getElementById('tickerDropdown');
-        dropdown.addEventListener('change', selectTicker);
+        // Populate ticker table
+        populateTickerTable();
         
         showLoading(false);
         debugLog('Dashboard initialized successfully');
@@ -71,22 +67,50 @@ async function initializeDashboard() {
     }
 }
 
-// Populate ticker dropdown
-function populateTickerDropdown() {
-    const dropdown = document.getElementById('tickerDropdown');
-    dropdown.innerHTML = '<option value="">-- Select a ticker --</option>';
-    
+// Build ticker table with sparkline charts
+function populateTickerTable() {
+    const table = document.getElementById('tickerTable');
+    table.innerHTML = '<tr><th>Symbol</th><th>Price</th><th>Chg</th><th>Vol</th><th>Val</th><th></th></tr>';
+
     tickersData.forEach(ticker => {
-        const option = document.createElement('option');
-        option.value = ticker.symbol;
-        option.textContent = `${ticker.symbol} - ${ticker.name}`;
-        dropdown.appendChild(option);
+        const row = document.createElement('tr');
+        row.classList.add('ticker-row');
+        row.innerHTML = `
+            <td>${ticker.symbol}</td>
+            <td>${ticker.price.toFixed(2)}</td>
+            <td class="${ticker.change >= 0 ? 'positive' : 'negative'}">${ticker.change.toFixed(2)}</td>
+            <td>${ticker.volume}</td>
+            <td>${ticker.value.toFixed(2)}</td>
+            <td><div class="sparkline" id="spark-${ticker.symbol}"></div></td>`;
+        row.addEventListener('click', () => selectTicker(ticker.symbol));
+        table.appendChild(row);
+
+        if (ticker.sparkline && ticker.sparkline.length > 0) {
+            Highcharts.chart(`spark-${ticker.symbol}`, {
+                chart: {
+                    backgroundColor: 'transparent',
+                    borderWidth: 0,
+                    type: 'line',
+                    height: 40,
+                    width: 100,
+                    margin: [2, 0, 2, 0],
+                    style: { overflow: 'visible' },
+                    skipClone: true
+                },
+                title: { text: null },
+                credits: { enabled: false },
+                xAxis: { visible: false },
+                yAxis: { visible: false },
+                tooltip: { enabled: false },
+                legend: { enabled: false },
+                series: [{ data: ticker.sparkline, color: ticker.change >= 0 ? '#4ade80' : '#f87171', lineWidth: 1, marker: { enabled: false } }]
+            });
+        }
     });
 }
 
 // Handle ticker selection
-async function selectTicker(event) {
-    const symbol = event.target.value;
+async function selectTicker(symbol) {
     selectedSymbol = symbol;
     debugLog('Selected ticker: ' + symbol);
     
@@ -141,6 +165,7 @@ function updateSelectedTickerInfo(ticker) {
             <div>
                 <div class="ticker-price">${ticker.price.toFixed(2)} IQD</div>
                 <div class="ticker-change ${changeClass}">${changeSign}${ticker.change.toFixed(2)}%</div>
+                <div class="ticker-ohlc">O:${ticker.open.toFixed(2)} H:${ticker.high.toFixed(2)} L:${ticker.low.toFixed(2)} V:${ticker.volume}</div>
             </div>
         </div>
     `;

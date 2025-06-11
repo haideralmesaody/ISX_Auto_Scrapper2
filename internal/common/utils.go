@@ -7,12 +7,17 @@ import (
 
 // TickerInfo represents complete ticker information
 type TickerInfo struct {
-	Symbol      string  `csv:"Ticker" json:"symbol"`
-	Sector      string  `csv:"Sector" json:"sector"`
-	CompanyName string  `csv:"Name" json:"name"`
-	Price       float64 `json:"price"`
-	Change      float64 `json:"change"`
-	Volume      int64   `json:"volume"`
+	Symbol      string    `csv:"Ticker" json:"symbol"`
+	Sector      string    `csv:"Sector" json:"sector"`
+	CompanyName string    `csv:"Name" json:"name"`
+	Price       float64   `json:"price"`
+	Change      float64   `json:"change"`
+	Volume      int64     `json:"volume"`
+	Open        float64   `json:"open"`
+	High        float64   `json:"high"`
+	Low         float64   `json:"low"`
+	Value       float64   `json:"value"`
+	Sparkline   []float64 `json:"sparkline"`
 }
 
 // LoadTickers loads ticker symbols from CSV file
