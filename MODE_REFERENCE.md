@@ -73,6 +73,8 @@
 - `GET /api/strategies` - Strategy summary data
 - `POST /api/backtest` - Trigger backtesting
 - `POST /api/refresh` - Refresh all data
+- `GET /api/daily_report` - JSON daily market report
+- `GET /api/daily_report_excel` - Download report as Excel
 
 **Web Server Details:**
 - **Technology**: Go HTTP server with CORS enabled
