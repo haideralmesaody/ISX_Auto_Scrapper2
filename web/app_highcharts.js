@@ -18,6 +18,13 @@ document.addEventListener('DOMContentLoaded', async function() {
         debugLog('Highcharts version: ' + Highcharts.version);
     }
     
+    // Tab navigation setup
+    document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+    });
+
+    switchTab('dashboardTab');
+
     // Initialize dashboard
     document.getElementById('fetchBtn').addEventListener('click', openFetchModal);
     document.getElementById('refreshBtn').addEventListener('click', runRefresh);
@@ -413,6 +420,25 @@ function renderStrategySignals(signals) {
     }
     html += '</ul>';
     container.innerHTML = html;
+}
+
+// Switch active tab and toggle visibility
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-button').forEach(btn => {
+        if (btn.dataset.tab === tabId) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
+    document.querySelectorAll('.tab-content').forEach(content => {
+        if (content.id === tabId) {
+            content.classList.add('active');
+        } else {
+            content.classList.remove('active');
+        }
+    });
 }
 
  

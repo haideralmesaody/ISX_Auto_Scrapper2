@@ -53,8 +53,16 @@
             </div>
         </header>
 
-        <!-- Main Content -->
-        <div class="main-content-simple">
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-button" data-tab="dashboardTab">Dashboard</button>
+            <button class="tab-button" data-tab="strategiesTab">Strategies</button>
+            <button class="tab-button" data-tab="backtestTab">Backtest</button>
+        </div>
+
+        <!-- Dashboard Tab -->
+        <div id="dashboardTab" class="tab-content">
+            <div class="main-content-simple">
             <!-- Ticker Selector -->
             <div class="ticker-selector">
                 <div class="ticker-section">
@@ -80,6 +88,24 @@
                 <div class="main-chart-container" style="height: 650px; width: 100%; max-width: 100%;">
                     <div id="container" style="height: 100%; width: 100%;"></div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Strategies Tab -->
+        <div id="strategiesTab" class="tab-content">
+            <div class="main-content-simple">
+                <div>
+                    <select id="strategyTicker"></select>
+                    <select id="strategySelect"></select>
+                </div>
+                <div id="strategyResult"></div>
+            </div>
+        </div>
+
+        <!-- Backtest Tab -->
+        <div id="backtestTab" class="tab-content">
+            <div class="main-content-simple">
+                <p>Backtest results will appear here.</p>
             </div>
         </div>
     </div>
@@ -108,5 +134,6 @@
 
     <!-- Application JavaScript -->
     <script src="app_highcharts.js"></script>
+    <script src="strategies.js"></script>
 </body>
 </html>
