@@ -350,6 +350,7 @@ async function confirmFetch() {
     selectedSymbol = symbol;
     closeFetchModal();
     await runFetch(symbol);
+    await loadIndicatorData(symbol);
 }
 
 async function runFetch(symbol = selectedSymbol) {
@@ -366,6 +367,22 @@ async function runFetch(symbol = selectedSymbol) {
         debugLog('Fetch error: ' + err.message);
     } finally {
         showLoading(false);
+    }
+}
+
+async function loadIndicatorData(symbol = selectedSymbol) {
+    if (!symbol) {
+        return;
+    }
+    try {
+        const res = await fetch(`/api/ticker/${symbol}?type=indicators`);
+        if (res.ok) {
+            const data = await res.json();
+            debugLog('Indicators reloaded for ' + symbol);
+            console.log(data);
+        }
+    } catch (err) {
+        debugLog('Indicator reload error: ' + err.message);
     }
 }
 
