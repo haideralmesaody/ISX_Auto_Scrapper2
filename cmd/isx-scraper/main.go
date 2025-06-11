@@ -8,6 +8,13 @@ import (
 	"time"
 
 	"github.com/spf13/cobra"
+
+	"isx-auto-scrapper/internal/common"
+	"isx-auto-scrapper/internal/indicators"
+	"isx-auto-scrapper/internal/liquidity"
+	"isx-auto-scrapper/internal/scraper"
+	"isx-auto-scrapper/internal/server"
+	"isx-auto-scrapper/internal/strategies"
 )
 
 var (
@@ -31,14 +38,14 @@ Iraq Stock Exchange (ISX) stock data with technical indicators and trading strat
 }
 
 func runApp(cmd *cobra.Command, args []string) {
-	logger := NewLogger()
+	logger := common.NewLogger()
 
 	// Initialize components
-	dataFetcher := NewDataFetcher()
-	indicatorsCalculator := NewIndicatorsCalculator()
-	liquidityCalc := NewLiquidityCalc()
-	strategies := NewStrategies()
-	strategyTester := NewStrategyTester()
+	dataFetcher := scraper.NewDataFetcher()
+	indicatorsCalculator := indicators.NewIndicatorsCalculator()
+	liquidityCalc := liquidity.NewLiquidityCalc()
+	stratService := strategies.NewStrategies()
+	strategyTester := strategies.NewStrategyTester()
 
 	switch mode {
 	case "web":
@@ -50,7 +57,7 @@ func runApp(cmd *cobra.Command, args []string) {
 			}
 		}
 
-		webServer := NewWebServer(port)
+		webServer := server.NewWebServer(port)
 		logger.Info("Starting ISX Auto Scrapper Web Dashboard...")
 		logger.Info("Open your browser and navigate to: http://localhost:%d", port)
 
@@ -71,15 +78,15 @@ func runApp(cmd *cobra.Command, args []string) {
 		}
 
 	case "auto":
-		tickers, err := LoadTickersWithInfo("TICKERS.csv")
+		tickers, err := common.LoadTickersWithInfo("TICKERS.csv")
 		if err != nil {
 			logger.Error("Failed to load tickers: %v", err)
 			os.Exit(1)
 		}
 
 		numTickers := len(tickers)
-		var reports []ProcessingReport
-		var timingReports []TimingReport
+		var reports []common.ProcessingReport
+		var timingReports []common.TimingReport
 
 		logger.Info("Starting auto mode processing for %d tickers", numTickers)
 		overallStartTime := time.Now()
@@ -93,7 +100,7 @@ func runApp(cmd *cobra.Command, args []string) {
 				logger.Error("Failed to fetch data for %s: %v", tickerInfo.Symbol, err)
 				// Create error report
 				if report == nil {
-					report = &ProcessingReport{
+					report = &common.ProcessingReport{
 						Ticker:           tickerInfo.Symbol,
 						Sector:           tickerInfo.Sector,
 						CompanyName:      tickerInfo.CompanyName,
@@ -103,8 +110,8 @@ func runApp(cmd *cobra.Command, args []string) {
 						DataQualityScore: "FAILED",
 					}
 				}
-				dataFetcher.finalizeReport(err)
-				report = dataFetcher.currentReport
+				dataFetcher.FinalizeReport(err)
+				report = dataFetcher.CurrentReport()
 			}
 
 			if report != nil {
@@ -127,7 +134,7 @@ func runApp(cmd *cobra.Command, args []string) {
 
 		// Save processing report
 		reportFilename := fmt.Sprintf("Processing_Report_%s.csv", time.Now().Format("2006-01-02_15-04-05"))
-		if err := SaveProcessingReport(reports, reportFilename); err != nil {
+		if err := scraper.SaveProcessingReport(reports, reportFilename); err != nil {
 			logger.Error("Failed to save processing report: %v", err)
 		} else {
 			logger.Info("Processing report saved to %s", reportFilename)
@@ -135,7 +142,7 @@ func runApp(cmd *cobra.Command, args []string) {
 
 		// Save timing analysis report
 		timingFilename := fmt.Sprintf("Timing_Analysis_%s.csv", time.Now().Format("2006-01-02_15-04-05"))
-		if err := SaveTimingReport(timingReports, timingFilename); err != nil {
+		if err := scraper.SaveTimingReport(timingReports, timingFilename); err != nil {
 			logger.Error("Failed to save timing report: %v", err)
 		} else {
 			logger.Info("Timing analysis report saved to %s", timingFilename)
@@ -200,18 +207,18 @@ func runApp(cmd *cobra.Command, args []string) {
 		if successful > 0 {
 			logger.Info("Running additional analysis...")
 			liquidityCalc.CalculateScores()
-			strategies.ApplyStrategiesAndSave()
-			strategies.ApplyAlternativeStrategyStates()
-			strategies.SummarizeStrategyActions()
+			stratService.ApplyStrategiesAndSave()
+			stratService.ApplyAlternativeStrategyStates()
+			stratService.SummarizeStrategyActions()
 		}
 
 	case "liquidity":
 		liquidityCalc.CalculateScores()
 
 	case "strategies":
-		strategies.ApplyStrategiesAndSave()
-		strategies.ApplyAlternativeStrategyStates()
-		strategies.SummarizeStrategyActions()
+		stratService.ApplyStrategiesAndSave()
+		stratService.ApplyAlternativeStrategyStates()
+		stratService.SummarizeStrategyActions()
 
 	case "simulate":
 		strategyTester.SimulateStrategyResults()
@@ -230,7 +237,7 @@ func runApp(cmd *cobra.Command, args []string) {
 			logger.Info("Indicators calculation completed for %s", ticker)
 		} else {
 			// Calculate indicators for all tickers
-			tickers, err := LoadTickers("TICKERS.csv")
+			tickers, err := common.LoadTickers("TICKERS.csv")
 			if err != nil {
 				logger.Error("Failed to load tickers: %v", err)
 				os.Exit(1)
@@ -247,7 +254,7 @@ func runApp(cmd *cobra.Command, args []string) {
 
 	case "calculate_num":
 		// Use the dedicated NumericalIndicatorsCalculator for numerical calculations
-		numericalIndicatorsCalculator := NewNumericalIndicatorsCalculator()
+		numericalIndicatorsCalculator := indicators.NewNumericalIndicatorsCalculator()
 
 		if len(args) > 0 {
 			// Calculate numerical indicators for a single ticker
@@ -260,7 +267,7 @@ func runApp(cmd *cobra.Command, args []string) {
 			logger.Info("Numerical indicators calculation completed for %s", ticker)
 		} else {
 			// Calculate numerical indicators for all tickers
-			tickers, err := LoadTickers("TICKERS.csv")
+			tickers, err := common.LoadTickers("TICKERS.csv")
 			if err != nil {
 				logger.Error("Failed to load tickers: %v", err)
 				os.Exit(1)

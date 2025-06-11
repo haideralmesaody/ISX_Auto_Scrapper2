@@ -1,4 +1,4 @@
-package main
+package scraper
 
 import (
 	"context"
@@ -14,19 +14,21 @@ import (
 	"github.com/chromedp/cdproto/page"
 	"github.com/chromedp/chromedp"
 	"github.com/shopspring/decimal"
+
+	"isx-auto-scrapper/internal/common"
 )
 
 // DataFetcher handles web scraping of stock data
 type DataFetcher struct {
-	logger *Logger
+	logger *common.Logger
 	// Reporting fields
-	currentReport *ProcessingReport
+	currentReport *common.ProcessingReport
 	startTime     time.Time
 	pagesLoaded   int
 	newRowsCount  int
 
 	// Timing tracking fields
-	timingReport      *TimingReport
+	timingReport      *common.TimingReport
 	pageStartTimes    []time.Time
 	pageDurations     []time.Duration
 	ajaxCallCount     int
@@ -36,7 +38,7 @@ type DataFetcher struct {
 // NewDataFetcher creates a new DataFetcher instance
 func NewDataFetcher() *DataFetcher {
 	return &DataFetcher{
-		logger: NewLogger(),
+		logger: common.NewLogger(),
 	}
 }
 
@@ -47,12 +49,12 @@ func (df *DataFetcher) FetchData(ticker string) error {
 }
 
 // FetchDataWithReport scrapes stock data for a given ticker and tracks detailed statistics
-func (df *DataFetcher) FetchDataWithReport(ticker, sector, companyName string) (*ProcessingReport, error) {
+func (df *DataFetcher) FetchDataWithReport(ticker, sector, companyName string) (*common.ProcessingReport, error) {
 	// Initialize reporting
 	df.startTime = time.Now()
 	df.pagesLoaded = 0
 	df.newRowsCount = 0
-	df.currentReport = &ProcessingReport{
+	df.currentReport = &common.ProcessingReport{
 		Ticker:      ticker,
 		Sector:      sector,
 		CompanyName: companyName,
@@ -61,7 +63,7 @@ func (df *DataFetcher) FetchDataWithReport(ticker, sector, companyName string) (
 	}
 
 	// Initialize timing tracking
-	df.timingReport = &TimingReport{
+	df.timingReport = &common.TimingReport{
 		Ticker:              ticker,
 		TotalProcessingTime: 0,
 		FastestPageTime:     time.Hour, // Initialize to max value
@@ -176,11 +178,11 @@ func (df *DataFetcher) FetchDataWithReport(ticker, sector, companyName string) (
 	})
 
 	// Navigate to the company profile page with Performance tab active
-	url := fmt.Sprintf("%s?currLanguage=en&companyCode=%s&activeTab=0", AppConfig.BaseURL, ticker)
+	url := fmt.Sprintf("%s?currLanguage=en&companyCode=%s&activeTab=0", common.AppConfig.BaseURL, ticker)
 
 	df.logger.Info("Fetching data from URL %s for ticker %s", url, ticker)
 
-	var stockData []StockData
+	var stockData []common.StockData
 
 	// Navigate to page and wait for it to fully load
 	navigationStart := time.Now()
@@ -316,12 +318,12 @@ func (df *DataFetcher) FetchDataWithReport(ticker, sector, companyName string) (
 	df.currentReport.Recommendation = "No action needed - data is current"
 
 	// Finalize report
-	df.finalizeReport(nil)
+	df.FinalizeReport(nil)
 	return df.currentReport, nil
 }
 
 // extractDataFromAllPages extracts data from all pages
-func (df *DataFetcher) extractDataFromAllPages(ctx context.Context, stockData *[]StockData, ticker string) error {
+func (df *DataFetcher) extractDataFromAllPages(ctx context.Context, stockData *[]common.StockData, ticker string) error {
 	pageNum := 1
 	maxRows := 2500 // Based on the HTML showing 2,379 total records
 
@@ -389,7 +391,7 @@ func (df *DataFetcher) extractDataFromAllPages(ctx context.Context, stockData *[
 		// Check for overlap with existing data and filter duplicates
 		overlapCount := 0
 		newDataCount := 0
-		var newRecords []StockData
+		var newRecords []common.StockData
 		var overlappingDates []string
 
 		for _, data := range pageData {
@@ -510,7 +512,7 @@ func (df *DataFetcher) extractDataFromAllPages(ctx context.Context, stockData *[
 }
 
 // extractDataFromCurrentPage extracts data from the current page
-func (df *DataFetcher) extractDataFromCurrentPage(ctx context.Context) ([]StockData, error) {
+func (df *DataFetcher) extractDataFromCurrentPage(ctx context.Context) ([]common.StockData, error) {
 	var rows []map[string]string
 
 	// Wait for data table to be populated before extracting
@@ -564,7 +566,7 @@ func (df *DataFetcher) extractDataFromCurrentPage(ctx context.Context) ([]StockD
 
 	df.logger.Info("Found %d data rows on current page", len(rows))
 
-	var stockData []StockData
+	var stockData []common.StockData
 	for _, row := range rows {
 		if row["date"] == "" {
 			continue
@@ -583,7 +585,7 @@ func (df *DataFetcher) extractDataFromCurrentPage(ctx context.Context) ([]StockD
 }
 
 // extractDataDirectly tries to extract data from any visible tables on the page
-func (df *DataFetcher) extractDataDirectly(ctx context.Context, stockData *[]StockData) error {
+func (df *DataFetcher) extractDataDirectly(ctx context.Context, stockData *[]common.StockData) error {
 	var rows []map[string]string
 
 	err := chromedp.Run(ctx,
@@ -647,41 +649,41 @@ func (df *DataFetcher) extractDataDirectly(ctx context.Context, stockData *[]Sto
 }
 
 // parseRowData parses a single row of data
-func (df *DataFetcher) parseRowData(row map[string]string) (StockData, error) {
+func (df *DataFetcher) parseRowData(row map[string]string) (common.StockData, error) {
 	// Parse date
 	date, err := time.Parse("2/1/2006", row["date"])
 	if err != nil {
-		return StockData{}, fmt.Errorf("failed to parse date %s: %w", row["date"], err)
+		return common.StockData{}, fmt.Errorf("failed to parse date %s: %w", row["date"], err)
 	}
 
 	// Parse decimal values
 	open, err := df.parseDecimal(row["open"])
 	if err != nil {
-		return StockData{}, fmt.Errorf("failed to parse open price: %w", err)
+		return common.StockData{}, fmt.Errorf("failed to parse open price: %w", err)
 	}
 
 	high, err := df.parseDecimal(row["high"])
 	if err != nil {
-		return StockData{}, fmt.Errorf("failed to parse high price: %w", err)
+		return common.StockData{}, fmt.Errorf("failed to parse high price: %w", err)
 	}
 
 	low, err := df.parseDecimal(row["low"])
 	if err != nil {
-		return StockData{}, fmt.Errorf("failed to parse low price: %w", err)
+		return common.StockData{}, fmt.Errorf("failed to parse low price: %w", err)
 	}
 
 	close, err := df.parseDecimal(row["close"])
 	if err != nil {
-		return StockData{}, fmt.Errorf("failed to parse close price: %w", err)
+		return common.StockData{}, fmt.Errorf("failed to parse close price: %w", err)
 	}
 
 	// Parse volume
 	volume, err := df.parseInt(row["volume"])
 	if err != nil {
-		return StockData{}, fmt.Errorf("failed to parse volume: %w", err)
+		return common.StockData{}, fmt.Errorf("failed to parse volume: %w", err)
 	}
 
-	return StockData{
+	return common.StockData{
 		Date:   date,
 		Open:   open,
 		High:   high,
@@ -825,7 +827,7 @@ func (df *DataFetcher) waitForNetworkIdle(ctx context.Context, maxWaitTime time.
 }
 
 // loadExistingData loads existing data from CSV file
-func (df *DataFetcher) loadExistingData(filename string) ([]StockData, error) {
+func (df *DataFetcher) loadExistingData(filename string) ([]common.StockData, error) {
 	file, err := os.Open(filename)
 	if err != nil {
 		return nil, err
@@ -839,10 +841,10 @@ func (df *DataFetcher) loadExistingData(filename string) ([]StockData, error) {
 	}
 
 	if len(records) < 2 {
-		return []StockData{}, nil
+		return []common.StockData{}, nil
 	}
 
-	var stockData []StockData
+	var stockData []common.StockData
 	// Skip header row
 	for i := 1; i < len(records); i++ {
 		record := records[i]
@@ -886,7 +888,7 @@ func (df *DataFetcher) loadExistingData(filename string) ([]StockData, error) {
 			volume, _ = df.parseInt(record[8])
 		}
 
-		stockData = append(stockData, StockData{
+		stockData = append(stockData, common.StockData{
 			Date:   date,
 			Open:   open,
 			High:   high,
@@ -900,7 +902,7 @@ func (df *DataFetcher) loadExistingData(filename string) ([]StockData, error) {
 }
 
 // saveDataToCSV saves stock data to CSV file
-func (df *DataFetcher) saveDataToCSV(stockData []StockData, filename string) error {
+func (df *DataFetcher) saveDataToCSV(stockData []common.StockData, filename string) error {
 	file, err := os.Create(filename)
 	if err != nil {
 		return err
@@ -940,9 +942,9 @@ func (df *DataFetcher) saveDataToCSV(stockData []StockData, filename string) err
 }
 
 // removeDuplicates removes duplicate records based on date
-func (df *DataFetcher) removeDuplicates(stockData []StockData) []StockData {
+func (df *DataFetcher) removeDuplicates(stockData []common.StockData) []common.StockData {
 	seen := make(map[string]bool)
-	var unique []StockData
+	var unique []common.StockData
 
 	for _, data := range stockData {
 		dateKey := data.Date.Format("2006-01-02")
@@ -956,7 +958,7 @@ func (df *DataFetcher) removeDuplicates(stockData []StockData) []StockData {
 }
 
 // sortAndRecalculateChanges sorts data by date and recalculates change/change% values
-func (df *DataFetcher) sortAndRecalculateChanges(stockData []StockData) []StockData {
+func (df *DataFetcher) sortAndRecalculateChanges(stockData []common.StockData) []common.StockData {
 	// Sort by date (oldest first)
 	sort.Slice(stockData, func(i, j int) bool {
 		return stockData[i].Date.Before(stockData[j].Date)
@@ -989,7 +991,7 @@ func (df *DataFetcher) sortAndRecalculateChanges(stockData []StockData) []StockD
 }
 
 // finalizeReport completes the processing report with final statistics
-func (df *DataFetcher) finalizeReport(err error) {
+func (df *DataFetcher) FinalizeReport(err error) {
 	if df.currentReport == nil {
 		return
 	}
@@ -1043,8 +1045,13 @@ func (df *DataFetcher) finalizeReport(err error) {
 	}
 }
 
+// CurrentReport returns the latest processing report
+func (df *DataFetcher) CurrentReport() *common.ProcessingReport {
+	return df.currentReport
+}
+
 // SaveProcessingReport saves a processing report to CSV
-func SaveProcessingReport(reports []ProcessingReport, filename string) error {
+func SaveProcessingReport(reports []common.ProcessingReport, filename string) error {
 	file, err := os.Create(filename)
 	if err != nil {
 		return err
@@ -1188,7 +1195,7 @@ func (df *DataFetcher) finalizeTimingReport() {
 }
 
 // SaveTimingReport saves timing analysis reports to CSV
-func SaveTimingReport(reports []TimingReport, filename string) error {
+func SaveTimingReport(reports []common.TimingReport, filename string) error {
 	file, err := os.Create(filename)
 	if err != nil {
 		return err
@@ -1250,7 +1257,7 @@ func SaveTimingReport(reports []TimingReport, filename string) error {
 }
 
 // GetTimingReport returns the current timing report
-func (df *DataFetcher) GetTimingReport() *TimingReport {
+func (df *DataFetcher) GetTimingReport() *common.TimingReport {
 	return df.timingReport
 }
 

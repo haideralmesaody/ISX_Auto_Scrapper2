@@ -1,4 +1,4 @@
-package main
+package server
 
 import (
 	"encoding/json"
@@ -10,18 +10,24 @@ import (
 	"time"
 
 	"github.com/gocarina/gocsv"
+
+	"isx-auto-scrapper/internal/common"
+	"isx-auto-scrapper/internal/indicators"
+	"isx-auto-scrapper/internal/liquidity"
+	"isx-auto-scrapper/internal/scraper"
+	"isx-auto-scrapper/internal/strategies"
 )
 
 // WebServer handles HTTP requests for the dashboard
 type WebServer struct {
-	logger *Logger
+	logger *common.Logger
 	port   int
 }
 
 // NewWebServer creates a new WebServer instance
 func NewWebServer(port int) *WebServer {
 	return &WebServer{
-		logger: NewLogger(),
+		logger: common.NewLogger(),
 		port:   port,
 	}
 }
@@ -165,7 +171,7 @@ func (ws *WebServer) handleStrategies(w http.ResponseWriter, r *http.Request) {
 		ws.logger.Info("API: Running strategies")
 
 		go func() {
-			strat := NewStrategies()
+			strat := strategies.NewStrategies()
 			if err := strat.ApplyStrategiesAndSave(); err != nil {
 				ws.logger.Error("Strategy processing failed: %v", err)
 			}
@@ -209,7 +215,7 @@ func (ws *WebServer) handleBacktest(w http.ResponseWriter, r *http.Request) {
 	// Run backtesting in background
 	go func() {
 		// You could integrate with your existing backtesting logic here
-		strategyTester := NewStrategyTester()
+		strategyTester := strategies.NewStrategyTester()
 
 		// Run simulation
 		strategyTester.SimulateStrategyResults()
@@ -232,11 +238,11 @@ func (ws *WebServer) handleRefresh(w http.ResponseWriter, r *http.Request) {
 
 	ws.logger.Info("API: Refreshing data")
 
-	dataFetcher := NewDataFetcher()
-	indicatorsCalculator := NewIndicatorsCalculator()
-	strategies := NewStrategies()
+	dataFetcher := scraper.NewDataFetcher()
+	indicatorsCalculator := indicators.NewIndicatorsCalculator()
+	stratSvc := strategies.NewStrategies()
 
-	tickers, err := LoadTickers("TICKERS.csv")
+	tickers, err := common.LoadTickers("TICKERS.csv")
 	if err != nil {
 		ws.logger.Error("Failed to load tickers: %v", err)
 		http.Error(w, "Failed to load tickers", http.StatusInternalServerError)
@@ -257,14 +263,14 @@ func (ws *WebServer) handleRefresh(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	if err := strategies.ApplyStrategiesAndSave(); err != nil {
+	if err := stratSvc.ApplyStrategiesAndSave(); err != nil {
 		ws.logger.Error("Failed to apply strategies: %v", err)
 		success = false
 	} else {
-		if err := strategies.ApplyAlternativeStrategyStates(); err != nil {
+		if err := stratSvc.ApplyAlternativeStrategyStates(); err != nil {
 			ws.logger.Error("Failed to apply alternative strategy states: %v", err)
 		}
-		if err := strategies.SummarizeStrategyActions(); err != nil {
+		if err := stratSvc.SummarizeStrategyActions(); err != nil {
 			ws.logger.Error("Failed to summarize strategies: %v", err)
 		}
 	}
@@ -298,13 +304,13 @@ func (ws *WebServer) handleCalculate(w http.ResponseWriter, r *http.Request) {
 	}
 
 	go func() {
-		calc := NewIndicatorsCalculator()
+		calc := indicators.NewIndicatorsCalculator()
 		if ticker != "" {
 			if err := calc.CalculateAll(ticker); err != nil {
 				ws.logger.Error("Indicator calculation failed: %v", err)
 			}
 		} else {
-			tickers, err := LoadTickers("TICKERS.csv")
+			tickers, err := common.LoadTickers("TICKERS.csv")
 			if err != nil {
 				ws.logger.Error("Failed to load tickers: %v", err)
 				return
@@ -335,7 +341,7 @@ func (ws *WebServer) handleLiquidity(w http.ResponseWriter, r *http.Request) {
 	ws.logger.Info("API: Calculating liquidity scores")
 
 	go func() {
-		lc := NewLiquidityCalc()
+		lc := liquidity.NewLiquidityCalc()
 		if err := lc.CalculateScores(); err != nil {
 			ws.logger.Error("Liquidity calculation failed: %v", err)
 			return
@@ -367,14 +373,14 @@ type LastPriceData struct {
 	Change float64
 }
 
-func (ws *WebServer) loadTickersList() ([]TickerInfo, error) {
+func (ws *WebServer) loadTickersList() ([]common.TickerInfo, error) {
 	content, err := os.ReadFile("TICKERS.csv")
 	if err != nil {
 		return nil, err
 	}
 
 	lines := strings.Split(string(content), "\n")
-	var tickers []TickerInfo
+	var tickers []common.TickerInfo
 
 	for i, line := range lines {
 		if i == 0 || strings.TrimSpace(line) == "" {
@@ -393,7 +399,7 @@ func (ws *WebServer) loadTickersList() ([]TickerInfo, error) {
 				companyName = strings.TrimSpace(parts[2])
 			}
 
-			tickers = append(tickers, TickerInfo{
+			tickers = append(tickers, common.TickerInfo{
 				Symbol:      symbol,
 				Sector:      sector,
 				CompanyName: companyName,
@@ -559,7 +565,7 @@ func (ws *WebServer) loadTickerStrategies(symbol string, full bool) (map[string]
 	}
 	defer file.Close()
 
-	var data []*StrategyData
+	var data []*strategies.StrategyData
 	if err := gocsv.UnmarshalFile(file, &data); err != nil {
 		return nil, err
 	}

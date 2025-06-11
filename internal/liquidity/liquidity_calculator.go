@@ -1,4 +1,4 @@
-package main
+package liquidity
 
 import (
 	"fmt"
@@ -9,6 +9,9 @@ import (
 
 	"github.com/gocarina/gocsv"
 	"github.com/shopspring/decimal"
+
+	"isx-auto-scrapper/internal/common"
+	"isx-auto-scrapper/internal/indicators"
 )
 
 // LiquidityScoreRecord represents a liquidity score record for a ticker
@@ -33,13 +36,13 @@ type LiquidityScoreRecord struct {
 
 // LiquidityCalc handles liquidity score calculations (separate from the stub in data_calculator.go)
 type LiquidityCalc struct {
-	logger *Logger
+	logger *common.Logger
 }
 
 // NewLiquidityCalc creates a new LiquidityCalc instance
 func NewLiquidityCalc() *LiquidityCalc {
 	return &LiquidityCalc{
-		logger: NewLogger(),
+		logger: common.NewLogger(),
 	}
 }
 
@@ -92,7 +95,7 @@ func (lc *LiquidityCalc) loadTickers() ([]string, error) {
 	}
 	defer file.Close()
 
-	var tickers []TickerInfo
+	var tickers []common.TickerInfo
 	if err := gocsv.UnmarshalFile(file, &tickers); err != nil {
 		return nil, err
 	}
@@ -205,7 +208,7 @@ func (lc *LiquidityCalc) loadStockDataForLiquidity(filePath string) ([]*StockDat
 	}
 	defer file.Close()
 
-	var rawData []*StockDataCSV
+	var rawData []*indicators.StockDataCSV
 	if err := gocsv.UnmarshalFile(file, &rawData); err != nil {
 		return nil, err
 	}
@@ -220,7 +223,7 @@ func (lc *LiquidityCalc) loadStockDataForLiquidity(filePath string) ([]*StockDat
 			High:          data.High,
 			Low:           data.Low,
 			Change:        data.Change,
-			ChangePercent: parsePercentage(data.ChangePercent),
+			ChangePercent: indicators.ParsePercentage(data.ChangePercent),
 			Volume:        data.Volume,
 		})
 	}

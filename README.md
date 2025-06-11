@@ -88,7 +88,7 @@ Below is a concise explanation of every first-class Go source file as well as th
 | `*.csv` in repository root | Example raw data, ticker master list and previously calculated indicator / liquidity outputs. |
 | `isx-auto-scraper.exe`, `isx-scraper.exe` | Pre-built windows binaries for convenience (may be stale). |
 
-> **Note**: The code purposely lives in the **root** package so the compiled binary ships without sub-folders.  If you prefer conventional project structure you can move the files under `cmd/` and `pkg/` without touching any imports.
+> **Note**: The Go sources are now organised under `cmd/` and `internal/` following a conventional layout. Earlier versions kept everything in the root package.
 
 ---
 
