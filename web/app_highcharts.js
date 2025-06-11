@@ -20,13 +20,16 @@ document.addEventListener('DOMContentLoaded', async function() {
     debugLog('Highcharts version: ' + Highcharts.version);
     
     // Initialize dashboard
-    document.getElementById('fetchBtn').addEventListener('click', runFetch);
+    document.getElementById('fetchBtn').addEventListener('click', openFetchModal);
     document.getElementById('refreshBtn').addEventListener('click', runRefresh);
     document.getElementById('calcBtn').addEventListener('click', runCalculate);
     document.getElementById('calcNumBtn').addEventListener('click', runCalculateNum);
     document.getElementById('liqBtn').addEventListener('click', runLiquidity);
     document.getElementById('stratBtn').addEventListener('click', runStrategies);
     document.getElementById('backtestBtn').addEventListener('click', runBacktest);
+
+    document.getElementById('fetchCancelBtn').addEventListener('click', closeFetchModal);
+    document.getElementById('fetchConfirmBtn').addEventListener('click', confirmFetch);
 
     await initializeDashboard();
 });
@@ -310,14 +313,47 @@ async function runStrategies() {
     }
 }
 
-async function runFetch() {
-    if (!selectedSymbol) {
+function openFetchModal() {
+    populateFetchDropdown();
+    document.getElementById('fetchModal').classList.add('show');
+}
+
+function closeFetchModal() {
+    document.getElementById('fetchModal').classList.remove('show');
+}
+
+function populateFetchDropdown() {
+    const dd = document.getElementById('fetchTickerDropdown');
+    dd.innerHTML = '<option value="">-- Select a ticker --</option>';
+    tickersData.forEach(t => {
+        const option = document.createElement('option');
+        option.value = t.symbol;
+        option.textContent = `${t.symbol} - ${t.name}`;
+        dd.appendChild(option);
+    });
+    dd.value = selectedSymbol;
+}
+
+async function confirmFetch() {
+    const dd = document.getElementById('fetchTickerDropdown');
+    const symbol = dd.value;
+    if (!symbol) {
+        alert('Please select a ticker to fetch');
+        return;
+    }
+    selectedSymbol = symbol;
+    closeFetchModal();
+    await runFetch(symbol);
+}
+
+async function runFetch(symbol = selectedSymbol) {
+    if (!symbol) {
         alert('Select a ticker first');
         return;
     }
     showLoading(true);
     try {
-        const res = await fetch(`/api/fetch?ticker=${encodeURIComponent(selectedSymbol)}`, { method: 'POST' });
+        const res = await fetch(`/api/fetch?ticker=${encodeURIComponent(symbol)}`, { method: 'POST' });
         const data = await res.json();
         debugLog('Fetch: ' + data.status);
     } catch (err) {

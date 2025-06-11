@@ -90,6 +90,20 @@
         <p>Loading chart data...</p>
     </div>
 
+    <!-- Fetch Ticker Modal -->
+    <div id="fetchModal" class="modal">
+        <div class="modal-content">
+            <h3>Select Ticker to Fetch</h3>
+            <select id="fetchTickerDropdown">
+                <option value="">-- Select a ticker --</option>
+            </select>
+            <div class="modal-actions">
+                <button id="fetchConfirmBtn" class="btn btn-primary">Fetch</button>
+                <button id="fetchCancelBtn" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
     <div id="statusMessage" class="status-message"></div>
 
     <!-- Application JavaScript -->
