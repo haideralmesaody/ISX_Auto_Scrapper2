@@ -18,6 +18,7 @@ The project attempts to mirror the feature set of the original Python notebook w
 ## Table of contents
 - [Getting started](#getting-started)
 - [Repository layout & file overview](#repository-layout--file-overview)
+- [Code structure guide](#code-structure-guide)
 - [High-level data flow](#high-level-data-flow)
 - [Contributing & future work](#contributing--future-work)
 
@@ -72,23 +73,28 @@ Below is a concise explanation of every first-class Go source file as well as th
 
 | file | purpose |
 |------|---------|
-| `main.go` | CLI entry point powered by `spf13/cobra`.  Parses the `--mode` flag and orchestrates the high-level workflow. |
-| `config.go` | Centralised immutable configuration (default URLs, driver paths, scraping time-outs, …).  Exposed through the global `AppConfig` instance. |
-| `logger.go` | Very small wrapper around the standard library `log` package that prints to console **and** appends to `stock_analysis.log`. |
-| `types.go` | All common data structures (price row, processing/timing reports, strategy results, …) with CSV tags for seamless serialisation via `gocarina/gocsv`. |
-| `utils.go` | Generic helpers for working with CSV ticker files (`LoadTickers`, `LoadTickersWithInfo`). |
-| `technical_indicators.go` | Pure-function implementations of every technical indicator used by the project (SMA, EMA, RSI, MACD, Stochastic, CMF, OBV, PSAR, ATR, rolling STD).  No I/O here. |
-| `data_fetcher.go` | The web-scraper.  Uses `chromedp` to drive Microsoft Edge, navigate through pagination, handle pop-ups, wait for AJAX calls and finally export the table into `raw_<TICKER>.csv`.  Generates a detailed `ProcessingReport` and `TimingReport` for every run. |
-| `indicators_calculator.go` | Heart of the analytics layer.  Reads `raw_*.csv`, calculates the full indicator set via `TechnicalIndicators`, detects cross-over events, attaches human readable descriptions, applies trading strategies and writes `indicators_<TICKER>.csv`. |
-| `numerical_indicators_calculator.go` | Thin wrapper around `IndicatorsCalculator` that performs the same maths but **skips** the textual descriptions to keep the resulting `Indicators2_<TICKER>.csv` files lighter. |
-| `liquidity_calculator.go` | Computes an **enhanced liquidity score** per ticker based on average volume, zero-volume days, intraday volatility and several other factors. Results are saved to `liquidity_scores.csv`. |
-| `file_manager.go` | Generates fully-embedded HTML reports: CSS, JavaScript and PNG logo are base64-encoded so the output can be viewed offline. Relies on Go's `html/template` to populate placeholders. |
-| `strategies.go` | Contains `Strategies` & `StrategyTester` helpers that rate indicator combinations, run back-tests or Monte-Carlo simulations and dump summaries as JSON / CSV. |
+| `cmd/isx-scraper/main.go` | Cobra-powered CLI entry point that orchestrates the different modes. |
+| `internal/common/config.go` | Central configuration values exposed via the global `AppConfig`. |
+| `internal/common/logger.go` | Thin logger printing to console **and** `stock_analysis.log`. |
+| `internal/common/types.go` | Shared data structures (prices, reports, strategies). |
+| `internal/common/utils.go` | Helpers for reading ticker lists from CSV. |
+| `internal/indicators/technical_indicators.go` | Pure implementations of SMA, EMA, RSI, MACD and other indicators. |
+| `internal/scraper/data_fetcher.go` | Headless scraper that generates `raw_<TICKER>.csv` plus processing reports. |
+| `internal/indicators/indicators_calculator.go` | Calculates indicators with descriptions and writes `indicators_<TICKER>.csv`. |
+| `internal/indicators/numerical_indicators_calculator.go` | Faster, description-free indicator calculations for `Indicators2_<TICKER>.csv`. |
+| `internal/liquidity/liquidity_calculator.go` | Computes enhanced liquidity scores stored in `liquidity_scores.csv`. |
+| `internal/strategies/strategies.go` | Trading strategies and a simple backtesting engine. |
+| `internal/server/web_server.go` | HTTP dashboard and REST API serving the static files in `web/`. |
+| `web/` | Static HTML/JS/CSS assets for the dashboard. |
 | `go.mod` / `go.sum` | Standard Go dependency manifests. |
-| `*.csv` in repository root | Example raw data, ticker master list and previously calculated indicator / liquidity outputs. |
-| `isx-auto-scraper.exe`, `isx-scraper.exe` | Pre-built windows binaries for convenience (may be stale). |
+| `*.csv` in repository root | Example raw data, ticker master list and previously calculated outputs. |
+| `isx-auto-scraper.exe`, `isx-scraper.exe` | Pre-built Windows binaries for convenience (may be stale). |
 
 > **Note**: The Go sources are now organised under `cmd/` and `internal/` following a conventional layout. Earlier versions kept everything in the root package.
+
+## Code structure guide
+
+For a visual overview of the packages see [CODE_STRUCTURE.md](CODE_STRUCTURE.md).
 
 ---
 
