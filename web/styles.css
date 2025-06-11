@@ -132,11 +132,9 @@ body {
     width: 100%;
 }
 
-
-
 /* --- Dashboard width adjustments --- */
 .main-content-simple > .ticker-selector {
-    flex: 0 0 300px;
+    flex: 0 0 500px;
 }
 
 .main-content-simple > .chart-area-simple {
@@ -156,6 +154,9 @@ body {
     padding: 1.5rem;
     border: 1px solid var(--border-light) !important;
     box-shadow: 0 2px 8px rgba(45, 80, 22, 0.05) !important;
+    resize: horizontal;
+    overflow: auto;
+    min-width: 220px;
 }
 
 .ticker-section h3,
@@ -297,11 +298,14 @@ body {
     overflow-y: auto;
     max-height: 600px;
     margin-bottom: 1rem;
+    resize: vertical;
+    overflow: auto;
 }
 
 #tickerTable {
     width: 100%;
     border-collapse: collapse;
+    font-size: 0.85rem;
 }
 
 #tickerTable th,
@@ -309,7 +313,7 @@ body {
     padding: 0.3rem;
     text-align: left;
     border-bottom: 1px solid var(--border-light);
-    font-size: 0.8rem;
+    white-space: nowrap;
 }
 #tickerTable th[data-col] {
     cursor: pointer;
@@ -320,14 +324,26 @@ body {
     cursor: pointer;
 }
 
+.ticker-row.selected td {
+    background: rgba(139,195,74,0.15);
+}
+
 .sparkline {
-    width: 100px;
-    height: 40px;
+    display: inline-block;
+    width: 70px;
 }
 
 .ticker-ohlc {
     font-size: 0.8rem;
     color: #666;
+}
+
+#tickerTable td.positive {
+    color: #4ade80;
+}
+
+#tickerTable td.negative {
+    color: #f87171;
 }
 
 /* Strategy List */
@@ -382,6 +398,9 @@ body {
     flex: 1;
     width: 100%;
     overflow: visible;
+    position: relative;
+    resize: horizontal;
+    min-width: 400px;
 }
 
 .chart-header-simple {
@@ -1361,4 +1380,20 @@ body {
 .highcharts-background { fill: #ffffff !important; }
 
 /* Subtle grid lines */
-.highcharts-grid-line { stroke: rgba(0,0,0,0.05) !important; } 
+.highcharts-grid-line { stroke: rgba(0,0,0,0.05) !important; }
+
+/* Hide legacy headers only by explicit data-col attribute—this won't affect the current 5-column layout */
+#tickerTable th[data-col="open"],
+#tickerTable th[data-col="high"],
+#tickerTable th[data-col="low"],
+#tickerTable th[data-col="volume"],
+#tickerTable th[data-col="value"] {
+    display: none !important;
+}
+
+.sparkline .highcharts-background,
+.sparkline .highcharts-grid-line,
+.sparkline .highcharts-axis,
+.sparkline .highcharts-plot-border {
+    display: none !important;
+} 

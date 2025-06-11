@@ -5,6 +5,7 @@ let sortColumn = 'symbol';
 let sortAsc = true;
 let currentChart = null;
 let selectedSymbol = '';
+let selectedRow = null;
 
 // Debug function
 function debugLog(message) {
@@ -73,6 +74,81 @@ async function initializeDashboard() {
     }
 }
 
+// Helper formatters
+function formatNumber(n) {
+    if (n === undefined || n === null) return '-';
+    if (n >= 1e9) return (n / 1e9).toFixed(1) + 'B';
+    if (n >= 1e6) return (n / 1e6).toFixed(1) + 'M';
+    if (n >= 1e3) return (n / 1e3).toFixed(1) + 'K';
+    return n.toLocaleString();
+}
+
+function formatPrice(n) {
+    if (n === undefined || n === null) return '-';
+    return n % 1 ? n.toFixed(2) : n.toFixed(0);
+}
+
+// -------------------------------------------------------------
+// Lightweight sparkline generator using inline SVG (no library)
+// -------------------------------------------------------------
+function renderSparkline(containerId, data, isPositive) {
+    const width = 70;
+    const height = 30;
+
+    if (!data || data.length === 0) {
+        const el = document.getElementById(containerId);
+        if (el) el.innerHTML = '';
+        return;
+    }
+
+    const min = Math.min(...data);
+    const max = Math.max(...data);
+    const range = max - min || 1; // protect against div-by-zero
+    const stepX = width / (data.length - 1);
+
+    let d = '';
+    data.forEach((v, i) => {
+        const x = (i * stepX).toFixed(1);
+        const y = (height - ((v - min) / range) * height).toFixed(1);
+        d += (i === 0 ? 'M' : 'L') + x + ' ' + y + ' ';
+    });
+
+    // Build visible dots and larger invisible hit-area circles
+    let dotsSvg = '';
+    data.forEach((v, i) => {
+        const x = (i * stepX).toFixed(1);
+        const y = (height - ((v - min) / range) * height).toFixed(1);
+        const dotId = `${containerId}-dot-${i}`;
+        // visible smaller dot
+        dotsSvg += `<circle id="${dotId}" class="spark-dot" cx="${x}" cy="${y}" r="2" fill="${isPositive ? '#4ade80' : '#f87171'}" />`;
+        // invisible bigger circle for hover / tooltip
+        dotsSvg += `<circle class="spark-hit" data-dot="${dotId}" cx="${x}" cy="${y}" r="8" fill="transparent"><title>${v.toFixed(2)}</title></circle>`;
+    });
+
+    const stroke = isPositive ? '#4ade80' : '#f87171';
+    const svg = `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
+        <path d="${d.trim()}" stroke="${stroke}" stroke-width="1" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+        ${dotsSvg}
+    </svg>`;
+
+    const target = document.getElementById(containerId);
+    if (target) {
+        target.innerHTML = svg;
+        // attach hover events to enlarge dots
+        const svgEl = target.querySelector('svg');
+        if (svgEl) {
+            svgEl.querySelectorAll('.spark-hit').forEach(hit => {
+                const dotId = hit.getAttribute('data-dot');
+                const dot = svgEl.querySelector(`#${CSS.escape(dotId)}`);
+                if (dot) {
+                    hit.addEventListener('mouseenter', () => dot.setAttribute('r', '4'));
+                    hit.addEventListener('mouseleave', () => dot.setAttribute('r', '2'));
+                }
+            });
+        }
+    }
+}
+
 // Build ticker table with sparkline charts
 function populateTickerTable(data = displayedData) {
     const table = document.getElementById('tickerTable');
@@ -84,17 +160,13 @@ function populateTickerTable(data = displayedData) {
             <th data-col="symbol">Symbol</th>
             <th data-col="date">Date</th>
             <th data-col="price">Close</th>
-            <th data-col="open">Open</th>
-            <th data-col="high">High</th>
-            <th data-col="low">Low</th>
             <th data-col="change">Chg%</th>
-            <th data-col="volume">Vol</th>
-            <th data-col="value">Val</th>
             <th></th>
         </tr>`;
     table.appendChild(thead);
 
     const tbody = document.createElement('tbody');
+    table.appendChild(tbody);
 
     data.forEach(ticker => {
         const row = document.createElement('tr');
@@ -102,41 +174,25 @@ function populateTickerTable(data = displayedData) {
         row.innerHTML = `
             <td>${ticker.symbol}</td>
             <td>${ticker.date || ''}</td>
-            <td>${ticker.price.toFixed(2)}</td>
-            <td>${ticker.open.toFixed(2)}</td>
-            <td>${ticker.high.toFixed(2)}</td>
-            <td>${ticker.low.toFixed(2)}</td>
+            <td>${formatPrice(ticker.price)}</td>
             <td class="${ticker.change >= 0 ? 'positive' : 'negative'}">${ticker.change.toFixed(2)}</td>
-            <td>${ticker.volume}</td>
-            <td>${ticker.value.toFixed(2)}</td>
             <td><div class="sparkline" id="spark-${ticker.symbol}"></div></td>`;
-        row.addEventListener('click', () => selectTicker(ticker.symbol));
+        row.addEventListener('click', () => {
+            selectTicker(ticker.symbol);
+            if (selectedRow) selectedRow.classList.remove('selected');
+            row.classList.add('selected');
+            selectedRow = row;
+        });
+        if (ticker.symbol === selectedSymbol) {
+            row.classList.add('selected');
+            selectedRow = row;
+        }
         tbody.appendChild(row);
 
-        if (typeof Highcharts !== 'undefined' && ticker.sparkline && ticker.sparkline.length > 0) {
-            Highcharts.chart(`spark-${ticker.symbol}`, {
-                chart: {
-                    backgroundColor: 'transparent',
-                    borderWidth: 0,
-                    type: 'line',
-                    height: 40,
-                    width: 100,
-                    margin: [2, 0, 2, 0],
-                    style: { overflow: 'visible' },
-                    skipClone: true
-                },
-                title: { text: null },
-                credits: { enabled: false },
-                xAxis: { visible: false },
-                yAxis: { visible: false },
-                tooltip: { enabled: false },
-                legend: { enabled: false },
-                series: [{ data: ticker.sparkline, color: ticker.change >= 0 ? '#4ade80' : '#f87171', lineWidth: 1, marker: { enabled: false } }]
-            });
+        if (ticker.sparkline && ticker.sparkline.length > 0) {
+            renderSparkline(`spark-${ticker.symbol}`, ticker.sparkline, ticker.change >= 0);
         }
     });
-
-    table.appendChild(tbody);
 
     table.querySelectorAll('th[data-col]').forEach(th => {
         th.addEventListener('click', () => sortTickers(th.dataset.col));
