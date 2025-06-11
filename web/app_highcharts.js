@@ -113,7 +113,7 @@ function populateTickerTable(data = displayedData) {
         row.addEventListener('click', () => selectTicker(ticker.symbol));
         tbody.appendChild(row);
 
-        if (ticker.sparkline && ticker.sparkline.length > 0) {
+        if (typeof Highcharts !== 'undefined' && ticker.sparkline && ticker.sparkline.length > 0) {
             Highcharts.chart(`spark-${ticker.symbol}`, {
                 chart: {
                     backgroundColor: 'transparent',
