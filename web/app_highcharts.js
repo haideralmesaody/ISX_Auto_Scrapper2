@@ -1,5 +1,8 @@
 // ISX Auto Scrapper - Simple Highcharts Implementation
 let tickersData = [];
+let displayedData = [];
+let sortColumn = 'symbol';
+let sortAsc = true;
 let currentChart = null;
 let selectedSymbol = '';
 
@@ -53,10 +56,13 @@ async function initializeDashboard() {
         }
         
         tickersData = await response.json();
+        displayedData = [...tickersData];
         debugLog('Loaded tickers: ' + tickersData.length);
-        
+
+        document.getElementById('tickerSearch').addEventListener('input', filterTickers);
+
         // Populate ticker table
-        populateTickerTable();
+        sortAndDisplay();
         
         showLoading(false);
         debugLog('Dashboard initialized successfully');
@@ -68,22 +74,44 @@ async function initializeDashboard() {
 }
 
 // Build ticker table with sparkline charts
-function populateTickerTable() {
+function populateTickerTable(data = displayedData) {
     const table = document.getElementById('tickerTable');
-    table.innerHTML = '<tr><th>Symbol</th><th>Price</th><th>Chg</th><th>Vol</th><th>Val</th><th></th></tr>';
+    table.innerHTML = '';
 
-    tickersData.forEach(ticker => {
+    const thead = document.createElement('thead');
+    thead.innerHTML = `
+        <tr>
+            <th data-col="symbol">Symbol</th>
+            <th data-col="date">Date</th>
+            <th data-col="price">Close</th>
+            <th data-col="open">Open</th>
+            <th data-col="high">High</th>
+            <th data-col="low">Low</th>
+            <th data-col="change">Chg%</th>
+            <th data-col="volume">Vol</th>
+            <th data-col="value">Val</th>
+            <th></th>
+        </tr>`;
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+
+    data.forEach(ticker => {
         const row = document.createElement('tr');
         row.classList.add('ticker-row');
         row.innerHTML = `
             <td>${ticker.symbol}</td>
+            <td>${ticker.date || ''}</td>
             <td>${ticker.price.toFixed(2)}</td>
+            <td>${ticker.open.toFixed(2)}</td>
+            <td>${ticker.high.toFixed(2)}</td>
+            <td>${ticker.low.toFixed(2)}</td>
             <td class="${ticker.change >= 0 ? 'positive' : 'negative'}">${ticker.change.toFixed(2)}</td>
             <td>${ticker.volume}</td>
             <td>${ticker.value.toFixed(2)}</td>
             <td><div class="sparkline" id="spark-${ticker.symbol}"></div></td>`;
         row.addEventListener('click', () => selectTicker(ticker.symbol));
-        table.appendChild(row);
+        tbody.appendChild(row);
 
         if (ticker.sparkline && ticker.sparkline.length > 0) {
             Highcharts.chart(`spark-${ticker.symbol}`, {
@@ -107,6 +135,37 @@ function populateTickerTable() {
             });
         }
     });
+
+    table.appendChild(tbody);
+
+    table.querySelectorAll('th[data-col]').forEach(th => {
+        th.addEventListener('click', () => sortTickers(th.dataset.col));
+    });
+}
+
+function sortTickers(column) {
+    if (sortColumn === column) {
+        sortAsc = !sortAsc;
+    } else {
+        sortColumn = column;
+        sortAsc = true;
+    }
+    sortAndDisplay();
+}
+
+function filterTickers() {
+    const q = document.getElementById('tickerSearch').value.trim().toUpperCase();
+    displayedData = tickersData.filter(t => t.symbol.toUpperCase().startsWith(q));
+    sortAndDisplay();
+}
+
+function sortAndDisplay() {
+    displayedData.sort((a, b) => {
+        if (a[sortColumn] < b[sortColumn]) return sortAsc ? -1 : 1;
+        if (a[sortColumn] > b[sortColumn]) return sortAsc ? 1 : -1;
+        return 0;
+    });
+    populateTickerTable(displayedData);
 }
 
 // Handle ticker selection
