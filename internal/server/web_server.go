@@ -47,6 +47,8 @@ func (ws *WebServer) Start() error {
 	mux.HandleFunc("/api/backtest", ws.handleBacktest)
 	mux.HandleFunc("/api/refresh", ws.handleRefresh)
 	mux.HandleFunc("/api/calculate", ws.handleCalculate)
+	mux.HandleFunc("/api/calculate_num", ws.handleCalculateNum)
+	mux.HandleFunc("/api/fetch", ws.handleFetch)
 	mux.HandleFunc("/api/liquidity", ws.handleLiquidity)
 
 	// CORS middleware
@@ -236,17 +238,25 @@ func (ws *WebServer) handleRefresh(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	ws.logger.Info("API: Refreshing data")
+	tickerParam := r.URL.Query().Get("ticker")
 
 	dataFetcher := scraper.NewDataFetcher()
 	indicatorsCalculator := indicators.NewIndicatorsCalculator()
 	stratSvc := strategies.NewStrategies()
 
-	tickers, err := common.LoadTickers("TICKERS.csv")
-	if err != nil {
-		ws.logger.Error("Failed to load tickers: %v", err)
-		http.Error(w, "Failed to load tickers", http.StatusInternalServerError)
-		return
+	var tickers []string
+	if tickerParam != "" {
+		ws.logger.Info("API: Refreshing data for %s", tickerParam)
+		tickers = []string{tickerParam}
+	} else {
+		ws.logger.Info("API: Refreshing data")
+		var err error
+		tickers, err = common.LoadTickers("TICKERS.csv")
+		if err != nil {
+			ws.logger.Error("Failed to load tickers: %v", err)
+			http.Error(w, "Failed to load tickers", http.StatusInternalServerError)
+			return
+		}
 	}
 
 	success := true
@@ -329,6 +339,78 @@ func (ws *WebServer) handleCalculate(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(map[string]string{
 		"status":  "started",
 		"message": "Indicator calculation initiated",
+	})
+}
+
+func (ws *WebServer) handleCalculateNum(w http.ResponseWriter, r *http.Request) {
+	if r.Method != "POST" {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	ticker := r.URL.Query().Get("ticker")
+	if ticker == "" {
+		ws.logger.Info("API: Calculating numeric indicators for all tickers")
+	} else {
+		ws.logger.Info("API: Calculating numeric indicators for %s", ticker)
+	}
+
+	go func() {
+		calc := indicators.NewNumericalIndicatorsCalculator()
+		if ticker != "" {
+			if err := calc.CalculateAllNums(ticker); err != nil {
+				ws.logger.Error("Numeric indicator calculation failed: %v", err)
+			}
+		} else {
+			tickers, err := common.LoadTickers("TICKERS.csv")
+			if err != nil {
+				ws.logger.Error("Failed to load tickers: %v", err)
+				return
+			}
+			for _, t := range tickers {
+				if err := calc.CalculateAllNums(t); err != nil {
+					ws.logger.Error("Failed to calculate for %s: %v", t, err)
+				}
+			}
+		}
+
+		ws.logger.Info("Numeric indicator calculation completed")
+	}()
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{
+		"status":  "started",
+		"message": "Numeric indicator calculation initiated",
+	})
+}
+
+func (ws *WebServer) handleFetch(w http.ResponseWriter, r *http.Request) {
+	if r.Method != "POST" {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	ticker := r.URL.Query().Get("ticker")
+	if ticker == "" {
+		http.Error(w, "Ticker parameter required", http.StatusBadRequest)
+		return
+	}
+
+	ws.logger.Info("API: Fetching data for %s", ticker)
+
+	go func() {
+		df := scraper.NewDataFetcher()
+		if err := df.FetchData(ticker); err != nil {
+			ws.logger.Error("Failed to fetch data for %s: %v", ticker, err)
+		} else {
+			ws.logger.Info("Data fetch completed for %s", ticker)
+		}
+	}()
+
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(map[string]string{
+		"status":  "started",
+		"message": "Data fetch initiated",
 	})
 }
 
