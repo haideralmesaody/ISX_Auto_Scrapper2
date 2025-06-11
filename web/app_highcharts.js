@@ -1,6 +1,7 @@
 // ISX Auto Scrapper - Simple Highcharts Implementation
 let tickersData = [];
 let currentChart = null;
+let selectedSymbol = '';
 
 // Debug function
 function debugLog(message) {
@@ -19,9 +20,13 @@ document.addEventListener('DOMContentLoaded', async function() {
     debugLog('Highcharts version: ' + Highcharts.version);
     
     // Initialize dashboard
+    document.getElementById('fetchBtn').addEventListener('click', runFetch);
+    document.getElementById('refreshBtn').addEventListener('click', runRefresh);
     document.getElementById('calcBtn').addEventListener('click', runCalculate);
+    document.getElementById('calcNumBtn').addEventListener('click', runCalculateNum);
     document.getElementById('liqBtn').addEventListener('click', runLiquidity);
     document.getElementById('stratBtn').addEventListener('click', runStrategies);
+    document.getElementById('backtestBtn').addEventListener('click', runBacktest);
 
     await initializeDashboard();
 });
@@ -73,6 +78,7 @@ function populateTickerDropdown() {
 // Handle ticker selection
 async function selectTicker(event) {
     const symbol = event.target.value;
+    selectedSymbol = symbol;
     debugLog('Selected ticker: ' + symbol);
     
     if (!symbol) {
@@ -299,6 +305,62 @@ async function runStrategies() {
         debugLog('Strategies: ' + data.status);
     } catch (err) {
         debugLog('Strategies error: ' + err.message);
+    } finally {
+        showLoading(false);
+    }
+}
+
+async function runFetch() {
+    if (!selectedSymbol) {
+        alert('Select a ticker first');
+        return;
+    }
+    showLoading(true);
+    try {
+        const res = await fetch(`/api/fetch?ticker=${encodeURIComponent(selectedSymbol)}`, { method: 'POST' });
+        const data = await res.json();
+        debugLog('Fetch: ' + data.status);
+    } catch (err) {
+        debugLog('Fetch error: ' + err.message);
+    } finally {
+        showLoading(false);
+    }
+}
+
+async function runRefresh() {
+    showLoading(true);
+    try {
+        const res = await fetch('/api/refresh', { method: 'POST' });
+        const data = await res.json();
+        debugLog('Auto: ' + data.status);
+    } catch (err) {
+        debugLog('Auto error: ' + err.message);
+    } finally {
+        showLoading(false);
+    }
+}
+
+async function runCalculateNum() {
+    showLoading(true);
+    try {
+        const res = await fetch('/api/calculate_num', { method: 'POST' });
+        const data = await res.json();
+        debugLog('CalcNum: ' + data.status);
+    } catch (err) {
+        debugLog('CalcNum error: ' + err.message);
+    } finally {
+        showLoading(false);
+    }
+}
+
+async function runBacktest() {
+    showLoading(true);
+    try {
+        const res = await fetch('/api/backtest', { method: 'POST' });
+        const data = await res.json();
+        debugLog('Backtest: ' + data.status);
+    } catch (err) {
+        debugLog('Backtest error: ' + err.message);
     } finally {
         showLoading(false);
     }
