@@ -66,5 +66,11 @@ function attachCharts(data) {
 function renderBar(id, rows, field, yTitle) {
     const categories = rows.map(r => r.ticker);
     const seriesData = rows.map(r => r[field]);
-    Highcharts.chart(id, { chart: { type: 'column' }, title: { text: '' }, xAxis: { categories }, yAxis: { title: { text: yTitle } }, series: [{ data: seriesData, name: yTitle }] });
+    Highcharts.chart(id, {
+        chart: { type: 'column' },
+        title: { text: '' },
+        xAxis: { categories },
+        yAxis: { title: { text: yTitle } },
+        series: [{ data: seriesData, name: yTitle }]
+    });
 }
