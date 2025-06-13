@@ -1,0 +1,3184 @@
+<html><head><script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript" src="/isxportal/scripts/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="/isxportal/scripts/overlib.js"></script>
+<script type="text/javascript">
+var selectedMenuId = "up3";
+</script>
+<script type="text/javascript" src="/isxportal/scripts/isxportalUtility.js"></script>
+<script type="text/javascript">
+function disableEnterKey(e)
+{
+     var key;
+     if(window.event)
+          key = window.event.keyCode; //IE
+     else
+          key = e.which; //firefox
+
+     return (key != 13);
+}</script>
+
+
+
+
+<title>Company Performance</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+
+
+		<link href="/isxportal/css/en.css" rel="styleSheet" type="text/css">
+
+
+
+
+<link rel="Shortcut Icon" href="/isxportal/images/isx.ico">
+
+</head>
+<body>
+<div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
+
+<div class="all">
+<div class="container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+		
+	
+
+<div class="header">
+
+<script type="text/javascript">
+if (window != top) top.location.href = location.href;
+</script>
+
+
+
+<div class="logo"><a href="homePage.html">
+
+
+
+
+		<img src=" /isxportal/images/en/iraqstock-logo.gif">
+
+
+
+
+
+
+
+
+
+
+
+</a></div>
+<div class="toplinks-row">
+<div class="language">
+
+
+	
+		<a href="/isxportal/portal/companyprofilecontainer.html?currLanguage=ar&amp;companyCode=TASC&amp;activeTab=0">
+			<img src="/isxportal/images/en/lan-icon.gif">
+		</a>
+	
+	
+
+
+</div>
+<div class="top-links">&nbsp;<a href="contactus.html">Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="aboutUs.html">About Us</a></div>
+</div>
+<div class="banner-area">
+<!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+		
+	
+
+
+
+
+
+
+
+
+<div id="azk4562"></div>
+<script type="text/javascript">var p="http",d="static";if(document.location.protocol=="https:"){p+="s";d="engine";}var z=document.createElement("script");z.type="text/javascript";z.async=true;z.src=p+"://"+d+".adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s);</script>
+<script type="text/javascript">
+var ados = ados || {};
+ados.run = ados.run || [];
+ados.run.push(function() {
+/* load placement for account: Mubasher, site: Iraq Stock Exchange, size: 468x60 - Full Banner, zone: Header banner (468*60) -EN*/
+ados_add_placement(7172, 53809, "azk4562", 3).setZone(54638);
+ados_load();
+});</script>​
+
+
+
+
+
+	
+-->
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+		
+	
+
+<div class="menu">
+<ul id="topMenuUl">
+<li id="up1"><a href=" homePage.html">Home</a></li>
+<li id="up2"><a href="sectorsDetails.html">Indices</a></li>
+<li id="up3" class="menuon"><a href="companysList.html">Companies</a></li>
+<li id="up6"><a href="companyGuideList.html">Companies Guide </a></li>
+<li id="up4"><a href="storyList.html?activeTab=0">News</a></li>
+<li id="up5"><a href="rules.html">Rules &amp; Instructions</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+		
+	
+
+
+
+
+<script type="text/javascript">
+
+	function writeMarketStatus() {
+		
+		var lang = '1';
+		var status = 'com.edc.isxportal.market.entity.MarketStatus@787ad16c';
+		if (status != null) {
+			status = 'Closed';
+		}
+
+		var elemnt;
+		
+		if (lang == 0 && status != null && status == 'Open') {
+			elemnt = '<a style="float:left;"><img src="/isxportal/images/opened.png"/></a>';
+		} else if(lang == 0 && status != null && status == 'Pre-Open') {
+			elemnt = '<a style="float:left;"><img src="/isxportal/images/pre-opened.png"/></a>';
+		} else if(lang == 1 && status != null && status == 'Open') {
+			elemnt = '<a style="float:right;"><img src="/isxportal/images/en/opened.png"/></a>';
+		} else if(lang == 1 && status != null && status == 'Pre-Open') {
+			elemnt = '<a style="float:right;"><img src="/isxportal/images/en/pre-opened.png"/></a>';
+		} else if(lang == 0 && status != null && status == 'Closed') {
+			elemnt = '<a style="float:left;"><img src="/isxportal/images/closed.png"/></a>';
+		} else if(lang == 0 && status != null && status == 'Pre-Closed') {
+			elemnt = '<a style="float:left;"><img src="/isxportal/images/pre-closed.png"/></a>';
+		} else if(lang == 1 && status != null && status == 'Closed') {
+			elemnt = '<a style="float:right;"><img src="/isxportal/images/en/closed.png"/></a>';
+		} else if(lang == 1 && status != null && status == 'Pre-Closed') {
+			elemnt = '<a style="float:right;"><img src="/isxportal/images/en/pre-closed.png"/></a>';
+		}
+
+
+		$(elemnt).appendTo('#topMenuUl');
+		
+	}
+
+
+	$(document).ready(function() {
+		writeMarketStatus();
+		});
+	
+	
+</script>
+
+
+<a style="float:right;"><img src="/isxportal/images/en/closed.png"></a></ul>
+</div>
+<div class="content">
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+		
+	
+
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<script type="text/javascript">
+
+var priceTickerStop=false;	
+var priceTickerLanguage= 1;
+
+var tickercopyspeed = 1;
+var maximumCompanysNo = 15;
+
+var delayedLabelWidth = 115;
+
+var delta = 8;
+
+var visableWidth = "800px";
+var marqueeheight = "19px";
+
+var marqueeContainer;
+var cross_marquee, ns_marquee;
+
+var actualwidth;
+
+var tickerMarqueeWidth;
+
+
+preLoadPriceTicker();
+
+
+
+// onload function....
+function preLoadPriceTicker() {
+	writeTickerElements();
+
+
+	cross_marquee = document.getElementById ? document
+			.getElementById("iemarquee") : document.all.iemarquee;
+
+
+	setInterval("scrollmarquee()", 1);
+
+			
+	document.getElementById("temp").innerHTML = "";
+	
+	
+
+	loadPriceTicker();
+
+	
+}
+
+
+
+function loadPriceTicker()
+{
+
+		marqueeContainer = document.createElement("span");
+
+		
+
+		//var lastUpdateMessage  = 'Latest Update'+
+			//'&nbsp;GMT';
+
+
+
+		var updateDateTime = '03:00';
+		
+
+		if(updateDateTime == '00:00'){
+			var lastUpdateMessage = 'Latest Update12/06/2025';
+		}
+		else {
+			var lastUpdateMessage = 'Latest Update12/06/2025  03:00&nbsp;';
+		}
+
+		
+		
+		
+			document.getElementById("lastUpdateDivId").innerHTML = lastUpdateMessage;
+			 
+		
+		
+
+
+		
+
+					var divText = createHTMLNode('Ahli','0.76000000','-3.8000');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Ahlia','0.75000000','0.0000');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Aissm','1.65000000','0.0000');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Ameen','1.06000000','0.0000');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Ampy','1.88000000','-1.0500');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Aqaar','4.82000000','-3.6000');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Ashur','0.26000000','-3.7000');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Athathim','1.05000000','0.0000');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Baghdad','3.86000000','-1.5300');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Bagtel','10.80000000','-5.2600');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('BCIH','1.86000000','-8.3700');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Bithor','6.85000000','-1.3000');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('BTRI','0.55000000','-1.7900');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('capital','3.14000000','-0.6300');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Credit','0.78000000','-1.2700');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Eqtisaad','0.26000000','4.0000');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Hilal','2.25000000','-5.8600');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Islam','1.12000000','-1.7500');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Khaleeg','0.33000000','0.0000');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Misk','8.85000000','-0.5600');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Mndwa','2.45000000','-2.0000');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Motahid','0.05000000','0.0000');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Pepsi','4.90000000','-0.4100');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Rocab','30.90000000','0.0000');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('shmax','4.34000000','-0.2300');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('Sumer','0.08000000','0.0000');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('TASC','12.45000000','-1.5800');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+					var divText = createHTMLNode('ZAIN','2.38000000','-4.0300');
+					if (divText != null) {
+					marqueeContainer.appendChild(divText);	
+					marqueeContainer.appendChild(createDelimeterNode());
+									
+					}
+
+		
+
+
+			document.getElementById("temp").innerHTML = "<table  cellspacing='0' cellpadding='0' width='100%'> <TR><TD > "
+					+ marqueeContainer.innerHTML + "</td></tr></table>";
+
+		cross_marquee = document.getElementById ? document
+				.getElementById("iemarquee") : document.all.iemarquee;
+				
+		// document.getElementById("temp").appendChild(marqueeContainer);
+		populate();
+}
+
+function populate() {
+
+	
+	cross_marquee = document.getElementById ? document
+			.getElementById("iemarquee") : document.all.iemarquee;
+			
+	//cross_marquee.style.right = (parseInt(visableWidth) )+ "px";
+	cross_marquee.innerHTML = marqueeContainer.innerHTML;
+
+	actualwidth = document.getElementById ? document.getElementById("temp").innerHTML.length
+			: temp.innerHTML.length;
+
+	cross_marquee.style.width= parseInt(actualwidth)+ "px";
+	if(priceTickerLanguage==0)
+	{
+
+		//IE
+		if (navigator.userAgent.indexOf("MSIE") != -1
+					&& navigator.userAgent.indexOf("Opera") == -1) {
+			cross_marquee.style.right = parseInt(visableWidth)-delayedLabelWidth+ "px";
+			
+
+			}
+			else{
+				cross_marquee.style.right =  parseInt(visableWidth)-delayedLabelWidth+ "px";
+
+			}
+				
+		cross_marquee.style.direction = "rtl";
+		
+	}else
+	{
+
+		cross_marquee.style.direction = "ltr";
+		cross_marquee.style.left =  parseInt(visableWidth)-delayedLabelWidth+ "px";
+	}
+
+	document.getElementById("temp").style.display = "inline";
+	
+	//document.getElementById("temp").style.display = "none";
+	
+}
+
+
+function scrollmarquee() {
+
+	if(priceTickerStop==true)
+		return;
+	
+	if(priceTickerLanguage==0)
+	{
+
+		//IE
+		if (navigator.userAgent.indexOf("MSIE") != -1
+					&& navigator.userAgent.indexOf("Opera") == -1&&priceTickerLanguage==0) {
+
+
+			if (parseInt(cross_marquee.style.right) > ((parseInt(actualwidth)) * -1))
+
+			{
+				cross_marquee.style.right = parseInt(cross_marquee.style.right)
+					- tickercopyspeed + "px";
+			} else {
+			//cross_marquee.style.right = parseInt(visableWidth) + "px";
+			
+			cross_marquee.style.right =  parseInt(visableWidth)-delayedLabelWidth+ "px";
+			}
+
+			}
+			else{
+
+				if (parseInt(cross_marquee.style.right) > ((parseInt(actualwidth)) * -1))
+
+				{
+					cross_marquee.style.right = parseInt(cross_marquee.style.right)
+						- tickercopyspeed + "px";
+				} else {
+				//cross_marquee.style.right = parseInt(visableWidth) + "px";
+				
+				cross_marquee.style.right =  parseInt(visableWidth)-delayedLabelWidth+ "px";
+				}
+
+			}
+				
+
+
+	} else {
+
+			if (parseInt(cross_marquee.style.left) > ((parseInt(actualwidth)) * -1)) {
+				cross_marquee.style.left = parseInt(cross_marquee.style.left)
+						- tickercopyspeed + "px"
+			} else {
+				
+				cross_marquee.style.left =  parseInt(visableWidth)-delayedLabelWidth+ "px";
+			}
+		}
+}
+
+/**
+ *
+ * @param elementsArrayalert
+ *            elementsArray[0] = company name elementsArray[1] = open ppriceTickerLanguagerice
+ *            elementsArray[2] = price change elementsArray[3] = change
+ *            percentage
+ * @return html span element
+ */
+
+
+ function createHTMLNode(tradingName,closePrice,changePercent) {
+
+		var nodeSpan = document.createElement("span");
+		nodeSpan.className ="ticker-companyname";
+		nodeSpan.appendChild(document.createTextNode(" "));
+		nodeSpan.appendChild(document.createTextNode(tradingName));
+			
+		var priceSpan = document.createElement("span");
+		priceSpan.className = setPriceClass(changePercent);
+		priceSpan.appendChild(document.createTextNode(" "));
+		
+		priceSpan.appendChild(document.createTextNode(Math.abs(closePrice).toFixed(2)));
+			
+		priceSpan.appendChild(document.createTextNode(" "));
+		priceSpan.appendChild(setImage(changePercent));
+		priceSpan.appendChild(document.createTextNode(" "));
+
+		priceSpan.appendChild(document.createTextNode(Math.abs(changePercent).toFixed(2) + "%"));
+		
+		priceSpan.appendChild(document.createTextNode(" "));
+		nodeSpan.appendChild(priceSpan);
+
+		return nodeSpan;
+	}
+	
+function createDelimeterNode() {
+	var delimeterSpan = document.createElement("span");
+	delimeterSpan.appendChild(document.createTextNode("|"));
+	
+	return delimeterSpan;
+}
+
+function setPriceClass(val) {
+	if (val > 0)
+		return "ticker-up";
+	else if (val < 0)
+		return "ticker-down";
+	else
+		return "ticker-flat";
+}
+
+function setClass(val) {
+	if (val > 0)
+		return "ticker-up";
+	else if (val < 0)
+		return "ticker-down";
+	else
+		return "ticker-flat";
+}
+
+function setImage(val) {
+
+	var imageNode = document.createElement("img");
+
+	if (val > 0)
+		imageNode.src = "/isxportal/images/ticker-up.gif";
+	else if (val < 0)
+		imageNode.src = "/isxportal/images/ticker-down.gif";
+	else
+		imageNode.src = "/isxportal/images/ticker-flat.gif";
+
+	return imageNode;
+}
+
+
+function writeTickerElements() {
+
+	var tickerControlImagesPath;
+
+	if(priceTickerLanguage==0)
+	{
+		tickerControlImagesPath="/images";
+	}else
+	{
+		tickerControlImagesPath="/images/en";
+	}
+	
+	
+	document.write('<div class="index-row">');
+	document.write('<div class="index-corner1">');
+	document.write('</div>');
+	document.write('<div class="index-mid">');
+
+	document.write('<div class="ticker-control">');
+	document.write('<div class="ticker-controlright"><a ><img onclick="increeseSpeed();" src="/isxportal'+tickerControlImagesPath+'/ticker-right.gif"/></a></div>');
+	document.write('<div class="ticker-controlleft"><a ><img onclick="decreeseSpeed();" src="/isxportal'+tickerControlImagesPath+'/ticker-left.gif"/></a></div>');
+	document.write('</div>');
+
+	document.write('<div class="ticker-prices">');
+
+
+	document.write('<div style="position:absolute; left:0px; width:'
+				+ visableWidth + ';height:' + marqueeheight + ';overflow:hidden">');
+
+	// IE
+	 if (navigator.userAgent.indexOf("MSIE") != -1
+			&& navigator.userAgent.indexOf("Opera") == -1&&priceTickerLanguage==0) {
+		document.write('<div nowrap="nowrap"  id="iemarquee" style="position:absolute;padding-top:3px;" onmouseover="priceTickerStop=true" onmouseout="priceTickerStop=false" ></div>');
+	}
+	else{
+		document.write('<div  id="iemarquee" style="padding-top:3px;position:absolute; "  onmouseover="priceTickerStop=true" onmouseout="priceTickerStop=false" ></div>');
+	}
+
+
+	if(priceTickerLanguage == 'ar') {
+		document.write('</div><div id="lastUpdateDivId" class="ticker-lastdate" style="width: 160px;"> </div></div></div>');
+	}
+	else {
+		document.write('</div><div id="lastUpdateDivId" class="ticker-lastdate" style="width: 197px;"> </div></div></div>');
+	}
+		
+	
+	document.write('<div class="index-corner2"></div></div>');
+
+	var iedom = document.all || document.getElementById;
+	
+	document.write("<span id='temp' style='visibility:hidden;LEFT: 0px; position:absolute; overflow-x:hidden;'></span>");
+	document.getElementById("temp").innerHTML = ""; 
+		
+}
+
+
+
+function increeseSpeed() {
+	if (tickercopyspeed >= 10) {
+		tickercopyspeed = 10;
+	} else {
+		tickercopyspeed = tickercopyspeed + 1;
+	}
+}
+function decreeseSpeed() {
+	if (tickercopyspeed <= 1) {
+		tickercopyspeed = 1;
+	} else {
+		tickercopyspeed = tickercopyspeed - 1;
+	}
+}
+//////////////////////////////////////////////////////////////
+</script><div class="index-row"><div class="index-corner1"></div><div class="index-mid"><div class="ticker-control"><div class="ticker-controlright"><a><img onclick="increeseSpeed();" src="/isxportal/images/en/ticker-right.gif"></a></div><div class="ticker-controlleft"><a><img onclick="decreeseSpeed();" src="/isxportal/images/en/ticker-left.gif"></a></div></div><div class="ticker-prices"><div style="position:absolute; left:0px; width:800px;height:19px;overflow:hidden"><div id="iemarquee" style="padding-top: 3px; position: absolute; width: 4332px; direction: ltr; left: -460px;" onmouseover="priceTickerStop=true" onmouseout="priceTickerStop=false"><span class="ticker-companyname"> Ahli<span class="ticker-down"> 0.76 <img src="/isxportal/images/ticker-down.gif"> 3.80% </span></span><span>|</span><span class="ticker-companyname"> Ahlia<span class="ticker-flat"> 0.75 <img src="/isxportal/images/ticker-flat.gif"> 0.00% </span></span><span>|</span><span class="ticker-companyname"> Aissm<span class="ticker-flat"> 1.65 <img src="/isxportal/images/ticker-flat.gif"> 0.00% </span></span><span>|</span><span class="ticker-companyname"> Ameen<span class="ticker-flat"> 1.06 <img src="/isxportal/images/ticker-flat.gif"> 0.00% </span></span><span>|</span><span class="ticker-companyname"> Ampy<span class="ticker-down"> 1.88 <img src="/isxportal/images/ticker-down.gif"> 1.05% </span></span><span>|</span><span class="ticker-companyname"> Aqaar<span class="ticker-down"> 4.82 <img src="/isxportal/images/ticker-down.gif"> 3.60% </span></span><span>|</span><span class="ticker-companyname"> Ashur<span class="ticker-down"> 0.26 <img src="/isxportal/images/ticker-down.gif"> 3.70% </span></span><span>|</span><span class="ticker-companyname"> Athathim<span class="ticker-flat"> 1.05 <img src="/isxportal/images/ticker-flat.gif"> 0.00% </span></span><span>|</span><span class="ticker-companyname"> Baghdad<span class="ticker-down"> 3.86 <img src="/isxportal/images/ticker-down.gif"> 1.53% </span></span><span>|</span><span class="ticker-companyname"> Bagtel<span class="ticker-down"> 10.80 <img src="/isxportal/images/ticker-down.gif"> 5.26% </span></span><span>|</span><span class="ticker-companyname"> BCIH<span class="ticker-down"> 1.86 <img src="/isxportal/images/ticker-down.gif"> 8.37% </span></span><span>|</span><span class="ticker-companyname"> Bithor<span class="ticker-down"> 6.85 <img src="/isxportal/images/ticker-down.gif"> 1.30% </span></span><span>|</span><span class="ticker-companyname"> BTRI<span class="ticker-down"> 0.55 <img src="/isxportal/images/ticker-down.gif"> 1.79% </span></span><span>|</span><span class="ticker-companyname"> capital<span class="ticker-down"> 3.14 <img src="/isxportal/images/ticker-down.gif"> 0.63% </span></span><span>|</span><span class="ticker-companyname"> Credit<span class="ticker-down"> 0.78 <img src="/isxportal/images/ticker-down.gif"> 1.27% </span></span><span>|</span><span class="ticker-companyname"> Eqtisaad<span class="ticker-up"> 0.26 <img src="/isxportal/images/ticker-up.gif"> 4.00% </span></span><span>|</span><span class="ticker-companyname"> Hilal<span class="ticker-down"> 2.25 <img src="/isxportal/images/ticker-down.gif"> 5.86% </span></span><span>|</span><span class="ticker-companyname"> Islam<span class="ticker-down"> 1.12 <img src="/isxportal/images/ticker-down.gif"> 1.75% </span></span><span>|</span><span class="ticker-companyname"> Khaleeg<span class="ticker-flat"> 0.33 <img src="/isxportal/images/ticker-flat.gif"> 0.00% </span></span><span>|</span><span class="ticker-companyname"> Misk<span class="ticker-down"> 8.85 <img src="/isxportal/images/ticker-down.gif"> 0.56% </span></span><span>|</span><span class="ticker-companyname"> Mndwa<span class="ticker-down"> 2.45 <img src="/isxportal/images/ticker-down.gif"> 2.00% </span></span><span>|</span><span class="ticker-companyname"> Motahid<span class="ticker-flat"> 0.05 <img src="/isxportal/images/ticker-flat.gif"> 0.00% </span></span><span>|</span><span class="ticker-companyname"> Pepsi<span class="ticker-down"> 4.90 <img src="/isxportal/images/ticker-down.gif"> 0.41% </span></span><span>|</span><span class="ticker-companyname"> Rocab<span class="ticker-flat"> 30.90 <img src="/isxportal/images/ticker-flat.gif"> 0.00% </span></span><span>|</span><span class="ticker-companyname"> shmax<span class="ticker-down"> 4.34 <img src="/isxportal/images/ticker-down.gif"> 0.23% </span></span><span>|</span><span class="ticker-companyname"> Sumer<span class="ticker-flat"> 0.08 <img src="/isxportal/images/ticker-flat.gif"> 0.00% </span></span><span>|</span><span class="ticker-companyname"> TASC<span class="ticker-down"> 12.45 <img src="/isxportal/images/ticker-down.gif"> 1.58% </span></span><span>|</span><span class="ticker-companyname"> ZAIN<span class="ticker-down"> 2.38 <img src="/isxportal/images/ticker-down.gif"> 4.03% </span></span><span>|</span></div></div><div id="lastUpdateDivId" class="ticker-lastdate" style="width: 197px;">Latest Update12/06/2025  03:00&nbsp;</div></div></div><div class="index-corner2"></div></div><span id="temp" style="visibility: hidden; left: 0px; position: absolute; overflow-x: hidden; display: inline;"><table cellspacing="0" cellpadding="0" width="100%"> <tbody><tr><td> <span class="ticker-companyname"> Ahli<span class="ticker-down"> 0.76 <img src="/isxportal/images/ticker-down.gif"> 3.80% </span></span><span>|</span><span class="ticker-companyname"> Ahlia<span class="ticker-flat"> 0.75 <img src="/isxportal/images/ticker-flat.gif"> 0.00% </span></span><span>|</span><span class="ticker-companyname"> Aissm<span class="ticker-flat"> 1.65 <img src="/isxportal/images/ticker-flat.gif"> 0.00% </span></span><span>|</span><span class="ticker-companyname"> Ameen<span class="ticker-flat"> 1.06 <img src="/isxportal/images/ticker-flat.gif"> 0.00% </span></span><span>|</span><span class="ticker-companyname"> Ampy<span class="ticker-down"> 1.88 <img src="/isxportal/images/ticker-down.gif"> 1.05% </span></span><span>|</span><span class="ticker-companyname"> Aqaar<span class="ticker-down"> 4.82 <img src="/isxportal/images/ticker-down.gif"> 3.60% </span></span><span>|</span><span class="ticker-companyname"> Ashur<span class="ticker-down"> 0.26 <img src="/isxportal/images/ticker-down.gif"> 3.70% </span></span><span>|</span><span class="ticker-companyname"> Athathim<span class="ticker-flat"> 1.05 <img src="/isxportal/images/ticker-flat.gif"> 0.00% </span></span><span>|</span><span class="ticker-companyname"> Baghdad<span class="ticker-down"> 3.86 <img src="/isxportal/images/ticker-down.gif"> 1.53% </span></span><span>|</span><span class="ticker-companyname"> Bagtel<span class="ticker-down"> 10.80 <img src="/isxportal/images/ticker-down.gif"> 5.26% </span></span><span>|</span><span class="ticker-companyname"> BCIH<span class="ticker-down"> 1.86 <img src="/isxportal/images/ticker-down.gif"> 8.37% </span></span><span>|</span><span class="ticker-companyname"> Bithor<span class="ticker-down"> 6.85 <img src="/isxportal/images/ticker-down.gif"> 1.30% </span></span><span>|</span><span class="ticker-companyname"> BTRI<span class="ticker-down"> 0.55 <img src="/isxportal/images/ticker-down.gif"> 1.79% </span></span><span>|</span><span class="ticker-companyname"> capital<span class="ticker-down"> 3.14 <img src="/isxportal/images/ticker-down.gif"> 0.63% </span></span><span>|</span><span class="ticker-companyname"> Credit<span class="ticker-down"> 0.78 <img src="/isxportal/images/ticker-down.gif"> 1.27% </span></span><span>|</span><span class="ticker-companyname"> Eqtisaad<span class="ticker-up"> 0.26 <img src="/isxportal/images/ticker-up.gif"> 4.00% </span></span><span>|</span><span class="ticker-companyname"> Hilal<span class="ticker-down"> 2.25 <img src="/isxportal/images/ticker-down.gif"> 5.86% </span></span><span>|</span><span class="ticker-companyname"> Islam<span class="ticker-down"> 1.12 <img src="/isxportal/images/ticker-down.gif"> 1.75% </span></span><span>|</span><span class="ticker-companyname"> Khaleeg<span class="ticker-flat"> 0.33 <img src="/isxportal/images/ticker-flat.gif"> 0.00% </span></span><span>|</span><span class="ticker-companyname"> Misk<span class="ticker-down"> 8.85 <img src="/isxportal/images/ticker-down.gif"> 0.56% </span></span><span>|</span><span class="ticker-companyname"> Mndwa<span class="ticker-down"> 2.45 <img src="/isxportal/images/ticker-down.gif"> 2.00% </span></span><span>|</span><span class="ticker-companyname"> Motahid<span class="ticker-flat"> 0.05 <img src="/isxportal/images/ticker-flat.gif"> 0.00% </span></span><span>|</span><span class="ticker-companyname"> Pepsi<span class="ticker-down"> 4.90 <img src="/isxportal/images/ticker-down.gif"> 0.41% </span></span><span>|</span><span class="ticker-companyname"> Rocab<span class="ticker-flat"> 30.90 <img src="/isxportal/images/ticker-flat.gif"> 0.00% </span></span><span>|</span><span class="ticker-companyname"> shmax<span class="ticker-down"> 4.34 <img src="/isxportal/images/ticker-down.gif"> 0.23% </span></span><span>|</span><span class="ticker-companyname"> Sumer<span class="ticker-flat"> 0.08 <img src="/isxportal/images/ticker-flat.gif"> 0.00% </span></span><span>|</span><span class="ticker-companyname"> TASC<span class="ticker-down"> 12.45 <img src="/isxportal/images/ticker-down.gif"> 1.58% </span></span><span>|</span><span class="ticker-companyname"> ZAIN<span class="ticker-down"> 2.38 <img src="/isxportal/images/ticker-down.gif"> 4.03% </span></span><span>|</span></td></tr></tbody></table></span>
+
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+		
+	
+
+
+<script type="text/javascript">
+
+var newsTickerLanguage= 1;
+
+var newsTickerStop=false;	
+
+var newsMarqueeDivObj ;
+var newsmarqueewidth="868px" ;         											//Specify the marquee's height
+var newsmarqueeheight="19px";	 												//Specify the marquee's marquee speed (larger is faster 1-10)
+var newstickercopyspeed = 1;
+
+initializeNewsTicker();
+fillNewsTicker();
+
+function fillNewsTicker()
+{
+	var content="";
+
+	var storyText;
+	
+	
+
+		var isAnnouncement = false;
+
+		var storyId = 16264; 
+
+		var storyHeadLine = 'Eid Al Adha Holiday';
+		
+		if(	isAnnouncement)
+			storyText = "<span><a href='storyDetails.html?storyId="+storyId+"&type=1'>";
+		else
+			storyText = "<span class='ann-color'><a href='storyDetails.html?storyId="+storyId+"&type=2'>" ; 
+		
+		content = content + storyText + storyHeadLine +"</a></span>&nbsp;&nbsp;<span class='ticker-sprat'>|</span>&nbsp;&nbsp;";
+	
+
+		var isAnnouncement = false;
+
+		var storyId = 16164; 
+
+		var storyHeadLine = 'Iraq Stock Exchange will not organize trading session of Thursday and Sunday May.15-.18 ';
+		
+		if(	isAnnouncement)
+			storyText = "<span><a href='storyDetails.html?storyId="+storyId+"&type=1'>";
+		else
+			storyText = "<span class='ann-color'><a href='storyDetails.html?storyId="+storyId+"&type=2'>" ; 
+		
+		content = content + storyText + storyHeadLine +"</a></span>&nbsp;&nbsp;<span class='ticker-sprat'>|</span>&nbsp;&nbsp;";
+	
+
+		var isAnnouncement = false;
+
+		var storyId = 16116; 
+
+		var storyHeadLine = 'Iraq Stock Exchange will not organize trading session of Thursday May.1.25 because of its labor Day';
+		
+		if(	isAnnouncement)
+			storyText = "<span><a href='storyDetails.html?storyId="+storyId+"&type=1'>";
+		else
+			storyText = "<span class='ann-color'><a href='storyDetails.html?storyId="+storyId+"&type=2'>" ; 
+		
+		content = content + storyText + storyHeadLine +"</a></span>&nbsp;&nbsp;<span class='ticker-sprat'>|</span>&nbsp;&nbsp;";
+	
+
+		var isAnnouncement = false;
+
+		var storyId = 16010; 
+
+		var storyHeadLine = 'Iraq Stock Exchange will not organize trading sessions from Sunday March.30.2025  till April 5 2025';
+		
+		if(	isAnnouncement)
+			storyText = "<span><a href='storyDetails.html?storyId="+storyId+"&type=1'>";
+		else
+			storyText = "<span class='ann-color'><a href='storyDetails.html?storyId="+storyId+"&type=2'>" ; 
+		
+		content = content + storyText + storyHeadLine +"</a></span>&nbsp;&nbsp;<span class='ticker-sprat'>|</span>&nbsp;&nbsp;";
+	
+
+		var isAnnouncement = false;
+
+		var storyId = 15986; 
+
+		var storyHeadLine = 'Iraq Stock Exchange will not organize trading sessions from Sunday Marchl.16.2025 ';
+		
+		if(	isAnnouncement)
+			storyText = "<span><a href='storyDetails.html?storyId="+storyId+"&type=1'>";
+		else
+			storyText = "<span class='ann-color'><a href='storyDetails.html?storyId="+storyId+"&type=2'>" ; 
+		
+		content = content + storyText + storyHeadLine +"</a></span>&nbsp;&nbsp;<span class='ticker-sprat'>|</span>&nbsp;&nbsp;";
+	
+
+		var isAnnouncement = false;
+
+		var storyId = 15781; 
+
+		var storyHeadLine = 'Iraq Stock Exchange will be closed on Dec. 25, 2024 (Wednesday) due to a Christmas Holiday';
+		
+		if(	isAnnouncement)
+			storyText = "<span><a href='storyDetails.html?storyId="+storyId+"&type=1'>";
+		else
+			storyText = "<span class='ann-color'><a href='storyDetails.html?storyId="+storyId+"&type=2'>" ; 
+		
+		content = content + storyText + storyHeadLine +"</a></span>&nbsp;&nbsp;<span class='ticker-sprat'>|</span>&nbsp;&nbsp;";
+	
+
+		var isAnnouncement = false;
+
+		var storyId = 15750; 
+
+		var storyHeadLine = 'The last trading session of 2024 and the first trading session of 2025 ';
+		
+		if(	isAnnouncement)
+			storyText = "<span><a href='storyDetails.html?storyId="+storyId+"&type=1'>";
+		else
+			storyText = "<span class='ann-color'><a href='storyDetails.html?storyId="+storyId+"&type=2'>" ; 
+		
+		content = content + storyText + storyHeadLine +"</a></span>&nbsp;&nbsp;<span class='ticker-sprat'>|</span>&nbsp;&nbsp;";
+	
+		
+	var contentWrapped = "";
+
+	//if (navigator.userAgent.indexOf("Firefox") != -1 || navigator.userAgent.indexOf("Safari") != -1)
+	//{
+		contentWrapped = "<table  cellspacing='0' cellpadding='0' width='100%'> <TR><TD nowrap='nowrap' onmouseover='newsTickerStop=true' onmouseout='newsTickerStop=false' > "	+ content + "</td></tr></table>";
+	//}
+
+	// IE
+	/*else if (navigator.userAgent.indexOf("MSIE") != -1	&& navigator.userAgent.indexOf("Opera") == -1)
+	{
+		contentWrapped = "<div nowrap='nowrap' style='width:100%;'><span width='100%'  onmouseover='newsTickerStop=true' onmouseout='newsTickerStop=false' >"	+ content + "</span></div>";
+	}*/
+
+//        pauseTill(20);
+
+    newsMarqueeDivObj = document.getElementById("iemarquee2");
+
+    newsMarqueeDivObj.innerHTML = contentWrapped;
+
+	if(newsTickerLanguage==0)
+	{
+		   newsMarqueeDivObj.style.right = (parseInt(newsmarqueewidth) )- 8 + "px";
+	}else
+	{
+		   newsMarqueeDivObj.style.left = (parseInt(newsmarqueewidth) )- 8  + "px";
+	}
+        
+
+        righttime = setInterval("newsscrollmarquee()",20);
+
+}
+	
+
+function newsscrollmarquee()
+{
+	if(newsTickerStop==true)
+		return;
+
+	var limit = parseInt(newsMarqueeDivObj.offsetWidth)* (-1);
+
+	var newsTickerPosition;
+
+	if(newsTickerLanguage==0)
+	{
+		newsTickerPosition = parseInt(newsMarqueeDivObj.style.right) ;
+		if (newsTickerPosition >  limit )
+    	{
+			newsMarqueeDivObj.style.right = (newsTickerPosition - newstickercopyspeed) +"px" ;    								             //means right = right - 1
+    	}
+    	else
+    	{
+    		newsMarqueeDivObj.style.right = parseInt(newsmarqueewidth) + 8 + "px";                           //reset means right = actual + 8
+    	}
+	}else
+	{
+		newsTickerPosition = parseInt(newsMarqueeDivObj.style.left) ;
+		if (newsTickerPosition >  limit/2)
+    	{
+			newsMarqueeDivObj.style.left = (newsTickerPosition - newstickercopyspeed) +"px" ;    								             //means right = right - 1
+    	}
+    	else
+    	{
+    		newsMarqueeDivObj.style.left = parseInt(newsmarqueewidth) + 8 + "px";                           //reset means right = actual + 8
+    	}
+	}
+	
+
+	
+
+}
+
+
+function initializeNewsTicker()
+{
+
+	document.write("<div class='ticker-row'>");
+	document.write('<div style="position:relative;width:'+newsmarqueewidth+';height:'+newsmarqueeheight+';overflow:hidden; z-index:0;">');
+
+    document.write('<div style="z-index:0;position:absolute;width:'+newsmarqueewidth+';height:'+newsmarqueeheight+';" onmouseover="" onmouseout="">');
+    document.write('<div id="iemarquee2" style="position:absolute;right:0px;left=0px;top:0px; z-index:0;"></div>');
+
+    document.write('</div></div></div>');
+}
+
+</script><div class="ticker-row"><div style="position:relative;width:868px;height:19px;overflow:hidden; z-index:0;"><div style="z-index:0;position:absolute;width:868px;height:19px;" onmouseover="" onmouseout=""><div id="iemarquee2" style="position: absolute; right: 0px; top: 0px; z-index: 0; left: 627px;"><table cellspacing="0" cellpadding="0" width="100%"> <tbody><tr><td nowrap="nowrap" onmouseover="newsTickerStop=true" onmouseout="newsTickerStop=false"> <span class="ann-color"><a href="storyDetails.html?storyId=16264&amp;type=2">Eid Al Adha Holiday</a></span>&nbsp;&nbsp;<span class="ticker-sprat">|</span>&nbsp;&nbsp;<span class="ann-color"><a href="storyDetails.html?storyId=16164&amp;type=2">Iraq Stock Exchange will not organize trading session of Thursday and Sunday May.15-.18 </a></span>&nbsp;&nbsp;<span class="ticker-sprat">|</span>&nbsp;&nbsp;<span class="ann-color"><a href="storyDetails.html?storyId=16116&amp;type=2">Iraq Stock Exchange will not organize trading session of Thursday May.1.25 because of its labor Day</a></span>&nbsp;&nbsp;<span class="ticker-sprat">|</span>&nbsp;&nbsp;<span class="ann-color"><a href="storyDetails.html?storyId=16010&amp;type=2">Iraq Stock Exchange will not organize trading sessions from Sunday March.30.2025  till April 5 2025</a></span>&nbsp;&nbsp;<span class="ticker-sprat">|</span>&nbsp;&nbsp;<span class="ann-color"><a href="storyDetails.html?storyId=15986&amp;type=2">Iraq Stock Exchange will not organize trading sessions from Sunday Marchl.16.2025 </a></span>&nbsp;&nbsp;<span class="ticker-sprat">|</span>&nbsp;&nbsp;<span class="ann-color"><a href="storyDetails.html?storyId=15781&amp;type=2">Iraq Stock Exchange will be closed on Dec. 25, 2024 (Wednesday) due to a Christmas Holiday</a></span>&nbsp;&nbsp;<span class="ticker-sprat">|</span>&nbsp;&nbsp;<span class="ann-color"><a href="storyDetails.html?storyId=15750&amp;type=2">The last trading session of 2024 and the first trading session of 2025 </a></span>&nbsp;&nbsp;<span class="ticker-sprat">|</span>&nbsp;&nbsp;</td></tr></tbody></table></div></div></div></div>
+		
+		
+		
+<div class="layout" onkeypress="return disableEnterKey(event);">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+		
+	
+
+<script type="text/javascript">
+var expanded=true;
+function displayIntroInnerLinks() {
+	var innerMainMenu= '';
+	if(expanded){
+		//innerMainMenu='<li ><a onclick="displayIntroInnerLinks();">Introduction</a></li>';
+			innerMainMenu= '<li class="stay" id="ri1"><a onclick="displayIntroInnerLinks();">Introduction</a></li> <li id="ri1_1"  class="suboff" ><a href="aboutUs.html">About us</a></li>'
+			+'<li class="suboff" id="ri1_2" class="" ><a href="chiefExecutive.html">Chief Executive</a></li>'
+		//alert(expanded);
+		expanded = false;
+
+	}
+	else{
+		//innerMainMenu= '<li class="stay" id="ri1"><a onclick="displayIntroInnerLinks();">Introduction</a></li> <li id="ri1_1"  class="suboff" ><a href="aboutUs.html">About us</a></li>'
+		//	+'<li class="suboff" id="ri1_2" class="" ><a href="chiefExecutive.html">Chief Executive</a></li>'
+		innerMainMenu='<li ><a onclick="displayIntroInnerLinks();">Introduction</a></li>';
+		//	alert(expanded);
+			expanded =true;
+
+	}
+	document.getElementById("subMenuDiv").innerHTML=innerMainMenu;
+}
+
+
+
+
+
+
+var marketExpanded=true;
+function displayMarketInnerLinks() {
+	var innerMarketMenu= '';
+	if(marketExpanded){
+		innerMarketMenu= '<li class="stay" id="ri7"><a onclick="displayMarketInnerLinks();">Market Performance</a></li> <li id="ri7_1"  class="suboff" ><a href="marketPerformance.html?marketType=0">Primary Market</a></li>'
+			+'<li class="suboff" id="ri7_2" class="" ><a href="marketPerformance.html?marketType=1">Secondary Market</a></li>'
+			marketExpanded = false;
+
+	}
+	else{
+		innerMarketMenu='<li ><a onclick="displayMarketInnerLinks();">Market Performance</a></li>';
+		//	alert(expanded);
+			marketExpanded =true;
+
+	}
+	document.getElementById("marketSubMenuDiv").innerHTML=innerMarketMenu;
+}
+</script>
+
+
+<div class="right-part">
+<div class="submenu">
+<div class="submenu-top"></div>
+<div class="submenu-mid">
+<ul style="cursor: pointer;">
+<div id="subMenuDiv">
+<li>
+<a onclick="displayIntroInnerLinks();">Introduction</a>
+</li>
+</div>
+
+<div id="marketSubMenuDiv">
+<li>
+<a onclick="displayMarketInnerLinks();">Market Performance</a>
+</li>
+</div>
+
+
+<li id="ri2"><a href="uploadedFilesList.html">Market Reports</a></li>
+<li id="ri3"><a href="tradetime.html">Trading Time</a></li>
+<li id="ri4"><a href="investorGuidePortalList.html">Investor Guide</a></li>
+<li id="ri5"><a href="newsletter.html">Newsletter</a></li>
+<li id="ri6"><a href="brokerListContainer.html">Brokers</a></li>
+</ul>
+</div>
+<div class="submenu-bottom"></div>
+</div>
+<div class="space-part2"></div>
+
+<div class="adds-right">
+<a href="investorGuidePortalList.html">
+
+
+
+		<img src="/isxportal/images/en/investor-guide.jpg">
+
+
+
+</a></div>
+<div class="adds-shadow"></div>
+
+
+
+<div class="adds-right"><a href="uploadedFilesList.html">
+
+
+
+
+		<img src="/isxportal/images/en/market-report.gif">
+
+
+
+
+</a></div>
+<div class="space-part3"><img src="/isxportal/images/spacer.gif"></div>
+
+
+<div class="adds-right"><a href="newsletter.html">
+
+
+
+
+
+
+		<img src="/isxportal/images/en/newsletter.jpg">
+
+
+
+</a></div>
+<div class="space-part2"></div>
+
+
+<div class="adds-right2"><a href="brokerListContainer.html">
+
+
+
+		<img src="/isxportal/images/en/brokers.gif">
+
+
+
+
+</a></div>
+</div>
+
+
+<div class="iner-part" onkeypress="return disableEnterKey(event);">
+<div class="space-part"><img src="/isxportal/images/spacer.gif"></div>
+
+<div class="mid-part" onkeypress="return disableEnterKey(event);">
+<div class="sub-titlerow">
+<div class="sub-titlecell1">
+<div class="sub-titleall">
+<div class="sub-titleright"><img src="/isxportal/images/spacer.gif"></div>
+<div class="sub-titlemid" id="subTitleDiv">TASC&nbsp;  ( TASC )</div>
+<div class="sub-titleleft"><img src="/isxportal/images/spacer.gif"></div>
+</div>
+
+
+
+
+		<img src="/isxportal/images/en/inertitle-rowleft.gif">
+
+
+
+
+
+
+
+
+</div>
+
+<div class="sub-titlecell2"><img src="/isxportal/images/spacer.gif"></div>
+</div>
+</div>
+
+
+<div class="space-part"><img src="/isxportal/images/spacer.gif"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+		
+	
+
+
+<script type="text/javascript">
+
+var defaulValue= "Enter Symbol"
+function clearSearchBox()
+{if(document.getElementById("txtQuickSearch").value==defaulValue)
+	document.getElementById("txtQuickSearch").value ="";
+}
+
+function doSearch()
+{
+	var companyCode = document.getElementById("txtQuickSearch").value;
+
+	var selectedItem = document.getElementById("chooseCat").value;
+
+	var url = "companyprofilecontainer.html?companyCode="+companyCode+"&activeTab="+selectedItem;
+
+	window.location=url+"&search=1";
+}
+function testForEnter()
+{
+
+	  $('#searchForm').bind('keypress', function(e) {
+	        if(e.keyCode==13){
+		       doSearch();
+	        }
+		});
+}
+
+</script>
+<script type="text/javascript" src="/isxportal/scripts/autoComplete/bsn.AutoSuggest_2.1.3.js"></script>
+<script type="text/javascript" src="/isxportal/scripts/autoComplete/hint-textbox.js"></script>
+<link href="/isxportal/css/autoComplete/autosuggest_inquisitor.css" rel="styleSheet" type="text/css">
+
+<style type="text/css">
+
+div.autosuggest ul li {
+	color: #ccc;
+	padding: 0;
+	margin: 0 4px 4px;
+	text-align: right;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 9px;
+	FONT-FAMILY: tahoma;
+	border-right: #BDE1FE 1px solid;
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 5px;
+	margin: 0px;
+	border-left: #BDE1FE 1px solid;
+	padding-top: 0px;
+	border-bottom: #BDE1FE 1px solid;
+	line-height:25px;
+	width:80px;
+}
+</style>
+
+
+
+<form id="searchForm" name="searchForm" onkeypress="testForEnter();">
+<div class="search-company">
+<div class="search-commid">
+<div class="search-comrow1">
+<div class="search-combox">
+
+<input type="text" id="txtQuickSearch" class="search-comimpact" value="Enter Symbol" onfocus="clearSearchBox();" style="color:#6A6A6A" autocomplete="off">
+</div>
+<div class="search-combox2">
+    <select id="chooseCat" class="search-comimpact2" name="choose ">
+		<option value="0"> choose </option>
+		<option value="0"> Performance</option>
+		<option value="1"> Chart</option>
+		<option value="2"> Basic Info</option>
+		<option value="3"> Announcemnets</option>
+		<option value="4"> News</option>
+		<option value="5"> Financials</option>
+		<option value="6"> Key Ratios</option>
+
+</select>
+  </div>
+  <div class="button-all">
+<input type="button" name="button" id="button" value="Search" onclick="doSearch();">
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+TestAutoComplete1( );
+function TestAutoComplete1( )
+{
+	initHintTextboxes( );
+    var options1 = {
+        script:  "../autoComplete.html?"+document.getElementById("txtQuickSearch").value+"&exchange=ISX",
+        json: true ,
+	    maxresults: 10,
+	    callback: function  (obj) {}
+    };
+    var as = new bsn.AutoSuggest('txtQuickSearch', options1);
+}
+</script>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+		
+	
+
+<script language="javascript" src="/isxportal/scripts/jquery-1.3.2.min.js"></script>
+<script language="javascript" src="/isxportal/scripts/ui.core.js"></script>
+<script language="javascript" src="/isxportal/scripts/ui.datepicker.js"></script>
+<link rel="stylesheet" href="../css/date_picker/jquery-ui-1.7.1.custom.css;jsessionid=0F2B603F52635A5D271A13DB7320D43D" type="text/css">
+<script type="text/javascript">
+
+var dtCh= "/";
+var minYear=1900;
+var maxYear=2100;
+
+function isInteger(s){
+	var i;
+    for (i = 0; i < s.length; i++){
+        var c = s.charAt(i);
+        if (((c < "0") || (c > "9"))) return false;
+    }
+    return true;
+}
+
+function stripCharsInBag(s, bag){
+	var i;
+    var returnString = "";
+    // Search through string's characters one by one.
+    // If character is not in bag, append to returnString.
+    for (i = 0; i < s.length; i++){
+        var c = s.charAt(i);
+        if (bag.indexOf(c) == -1) returnString += c;
+    }
+    return returnString;
+}
+
+function daysInFebruary (year){
+	// February has 29 days in any year evenly divisible by four,
+    // EXCEPT for centurial years which are not also divisible by 400.
+    return (((year % 4 == 0) && ( (!(year % 100 == 0)) || (year % 400 == 0))) ? 29 : 28 );
+}
+function DaysArray(n) {
+	for (var i = 1; i <= n; i++) {
+		this[i] = 31
+		if (i==4 || i==6 || i==9 || i==11) {this[i] = 30}
+		if (i==2) {this[i] = 29}
+   }
+   return this
+}
+
+function isDate(dtStr){
+	var daysInMonth = DaysArray(12)
+	var pos1=dtStr.indexOf(dtCh)
+	var pos2=dtStr.indexOf(dtCh,pos1+1)
+	var strDay=dtStr.substring(0,pos1)
+	var strMonth=dtStr.substring(pos1+1,pos2)
+	var strYear=dtStr.substring(pos2+1)
+	strYr=strYear
+	if (strDay.charAt(0)=="0" && strDay.length>1) strDay=strDay.substring(1)
+	if (strMonth.charAt(0)=="0" && strMonth.length>1) strMonth=strMonth.substring(1)
+	for (var i = 1; i <= 3; i++) {
+		if (strYr.charAt(0)=="0" && strYr.length>1) strYr=strYr.substring(1)
+	}
+	month=parseInt(strMonth)
+	day=parseInt(strDay)
+	year=parseInt(strYr)
+	if (pos1==-1 || pos2==-1){
+		alert("The date format should be : dd/mm/yyyy")
+		return false
+	}
+	if (strMonth.length<1 || month<1 || month>12){
+		alert("Please enter a valid month")
+		return false
+	}
+	if (strDay.length<1 || day<1 || day>31 || (month==2 && day>daysInFebruary(year)) || day > daysInMonth[month]){
+		alert("Please enter a valid day")
+		return false
+	}
+	if (strYear.length != 4 || year==0 || year<minYear || year>maxYear){
+		alert("Please enter a valid 4 digit year between "+minYear+" and "+maxYear)
+		return false
+	}
+	if (dtStr.indexOf(dtCh,pos2+1)!=-1 || isInteger(stripCharsInBag(dtStr, dtCh))==false){
+		alert("Please enter a valid date")
+		return false
+	}
+return true
+}
+
+function submitForm() {
+	var fromDate = document.getElementById("fromDate");
+	var toDate = document.getElementById("toDate");
+	var companyCode = document.getElementById("companyCode");
+
+	var fromDateValue =document.getElementById("fromDate").value;
+	var toDateValue =document.getElementById("toDate").value;
+
+	if(fromDateValue != null && fromDateValue != ''){
+		if (isDate(fromDateValue)==false){
+			return false
+		}
+	}
+
+	if(toDateValue != null && toDateValue != ''){
+		if (isDate(toDateValue)==false){
+			return false
+		}
+	}
+
+	if((fromDateValue != '') && (toDateValue == '')){
+		alert('Select Date period !');
+		return false
+	}
+	else if((fromDateValue == '') && (toDateValue != '')){
+		alert('Select Date period !');
+		return false
+	}
+	else if((fromDateValue == '') && (toDateValue == '')){
+		alert('Select Date period !');
+		return false
+	}
+	else if($("#fromDate").datepicker( 'getDate' )>$("#toDate").datepicker( 'getDate' )){
+		alert("Invalid date period! from date can't be greaer than to date.");
+		return false;
+	}
+	else{
+		doPostAjax('companyperformancehistoryfilter.html','fromDate=' + fromDate.value + '&d-6716032-p=1&toDate=' + toDate.value + '&companyCode=' + companyCode.value,'ajxDspId')
+		changeLinks();
+		}
+
+
+}
+function submitChartForm() {
+
+	var period = document.getElementById("period");
+
+	var companyCode = document.getElementById("companyCode");
+
+	new jQuery.ajax(
+	                 {
+	                    type :"post",
+	                    url : "companychart.html?period=" + period.value,
+	                    data : [],
+	                    success : function(msg) {
+
+	                                    document.getElementById("chart").innerHTML = msg;
+
+	                                    document.getElementById("chartImage").src = "DrawingCompanyChartServlet?"+ Math.random();
+
+
+	                              }
+	                 });
+}
+
+
+var tabsItem= new Array();
+var tabsUrl= new Array();
+var requestMethods = new Array();
+
+	tabsItem[0]='Performance';
+	tabsUrl[0]="companyperformancehistory.html";
+	requestMethods[0] = "post";
+
+	tabsItem[1]='Chart';
+	tabsUrl[1]="companychart.html";
+	requestMethods[1] = "get";
+
+	tabsItem[2]='Profile';
+	tabsUrl[2]="companyprofile.html";
+	requestMethods[2] = "post";
+
+	tabsItem[3]='Announcements';
+	tabsUrl[3]="companyStories.html";
+	requestMethods[3] = "post";
+
+	tabsItem[4]='News';
+	tabsUrl[4]="companyStories.html";
+	requestMethods[4] = "post";
+
+	tabsItem[5]='Financials';
+	tabsUrl[5]="companyFinancials.html";
+	requestMethods[5] = "post";
+
+	tabsItem[6]='Key Ratios';
+	tabsUrl[6]="ratiosList.html";
+	requestMethods[6] = "post";
+
+jQuery(document).ready(function(){
+
+	var divContainer = document.createElement("ul");
+
+	var selectedTab = document.getElementById("activeTab").value;
+
+	 var divTabs = new Array;
+
+    for (var i = 0; i < tabsItem.length; i++)
+    {
+	    var devTabID="TAB"+i;
+
+    	divTabs[i] = document.createElement("li");
+    	divTabs[i].setAttribute('id',devTabID);
+
+    	divTabs[i].onclick = new Function("changeActiveTab('"+devTabID+"','"+tabsUrl[i]+"','" + requestMethods[i]+"')");
+
+		divTabs[i].style.cursor="pointer";
+		var tabAnchor = document.createElement("a");
+		tabAnchor.setAttribute('name', " ");
+    	var tabText = document.createTextNode(tabsItem[i]);
+
+	    tabAnchor.appendChild(tabText);
+    	divTabs[i].appendChild(tabAnchor);
+    	divContainer.appendChild(divTabs[i]);
+
+    	//divContainer.appendChild(lineDiv);
+    }
+
+    var TabsContainer = document.getElementById('TabsContainer');
+    	TabsContainer.appendChild(divContainer);
+
+		var fromDate = new Date();
+
+    	var companyCode = document.getElementById("companyCode").value;
+
+
+		if(selectedTab == "" || selectedTab == null)
+		{
+			selectedTab=0;
+		}
+
+		//set the title of the page to the company name, the subTitleDiv exists in the layout.jsp page
+		var companyName = document.getElementById("companyName"); //a hidden field carrying the company name
+		var subTitleDiv = document.getElementById("subTitleDiv");
+
+		var companyNameValue = document.getElementById("companyName").value;
+
+		var searchFlag = document.getElementById("searchFlag").value;
+
+		if(searchFlag==1 && searchFlag != null&& companyNameValue ==""){
+			subTitleDiv.innerHTML = 'Search Results';
+			TabsContainer.removeChild(divContainer);
+			TabsContainer.className='error-box';
+			TabsContainer.innerHTML='<label class="error-message" dir="rtl">Sorry, No results found for this code.</label>';
+
+		}
+		 if(subTitleDiv != null && companyName != null && companyNameValue !="")
+			subTitleDiv.innerHTML = companyName.value+"&nbsp;  ( "+companyCode+" )";
+
+
+    	changeActiveTab("TAB"+selectedTab , tabsUrl[selectedTab] , requestMethods[selectedTab]);
+
+
+    	//callAjaxPage(tabsUrl[0], requestMethods[0]);
+});
+
+
+    	function changeActiveTab(newActiveTAB,Url, method){
+if(document.getElementById(newActiveTAB)==null)
+	return false;
+
+
+			document.getElementById(newActiveTAB).className="on";
+
+    		//to keep the current tab selected
+    		//the activeTab hidden field value is read at the controller, and is set again to the request (see CompanyProfileContainerController)
+    		var clickedTab = newActiveTAB.substring(3);
+			var activeTabHiddenField = document.getElementById("activeTab");
+
+			activeTabHiddenField.value = clickedTab;
+
+    		for(var i=0;i<tabsItem.length;i++){
+    			var prevActiveTab="TAB"+i;
+
+    			if(newActiveTAB != prevActiveTab){
+    				document.getElementById(prevActiveTab).className="off";
+    			}
+    		}
+    		if(newActiveTAB == "TAB0") {
+    			var code = document.getElementById("companyCode");
+
+    			doPostAjax('companyperformancehistory.html','&d-6716032-p=1&companyCode=' + code.value + '&activeTab=' + clickedTab,'divDisplayTags');
+
+    			////
+    			registerCalendarToButtons();
+    		}
+    		else
+    			callAjaxPage(Url, method, clickedTab);
+    	}
+
+    	function callAjaxPage(Url, method, activeTab)
+    	{
+        	var companyCode = document.getElementById("companyCode");
+       		new jQuery.ajax(
+	                 {
+	                    type : method,
+	                    url : Url+"?companyCode="+companyCode.value  + '&activeTab=' + activeTab + "&random="+Math.random() ,
+	                    data : [] ,
+	                    success : function(msg) {
+	                                    document.getElementById("divDisplayTags").innerHTML = msg;
+
+	                                    registerCalendarToButtons();
+	                              }
+	                        });
+
+    	}
+    	function registerCalendarToButtons() {
+    		$("#fromDate").datepicker({ dateFormat: "dd/mm/yy" });
+    		$("#toDate").datepicker({ dateFormat: "dd/mm/yy" });
+    	}
+
+</script>
+<input type="hidden" value="TASC" id="companyCode" name="companyCode">
+<input type="hidden" value="0" id="activeTab" name="activeTab">
+<input type="hidden" value="TASC" id="companyName" name="companyName">
+<input type="hidden" value="null" id="searchFlag" name="searchFlag">
+<div class="iner-content">
+<div class="comtable-all">
+<div id="TabsContainer" class="comdetails-tabs">
+
+<ul><li id="TAB0" class="on" style="cursor: pointer;"><a name=" ">Performance</a></li><li id="TAB1" class="off" style="cursor: pointer;"><a name=" ">Chart</a></li><li id="TAB2" class="off" style="cursor: pointer;"><a name=" ">Profile</a></li><li id="TAB3" class="off" style="cursor: pointer;"><a name=" ">Announcements</a></li><li id="TAB4" class="off" style="cursor: pointer;"><a name=" ">News</a></li><li id="TAB5" class="off" style="cursor: pointer;"><a name=" ">Financials</a></li><li id="TAB6" class="off" style="cursor: pointer;"><a name=" ">Key Ratios</a></li></ul></div>
+
+<div id="divDisplayTags" name="divDisplayTags" class="com-allrows">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+		
+	
+
+
+
+
+
+<form id="command" name="filterForm" action="companyperformancehistoryfilter.html" method="post">
+	<div class="filterbox">
+				<div class="filtercell1">Period</div>
+					<div class="filtercell3">From</div>
+					<div class="filtercell4"> <input type="text" class="search-comimpact hasDatepicker" name="fromDate" id="fromDate" value="05/02/2013"></div>
+					<div class="filtercell5" onclick="fromTrigger();" style="cursor: pointer;"></div>
+					<div class="filtercell3">To</div>
+					<div class="filtercell4"> <input type="text" class="search-comimpact hasDatepicker" name="toDate" id="toDate" value="12/06/2025"></div>
+					<div class="filtercell5" onclick="toTrigger();" style="cursor: pointer;"></div>
+					
+					<div class="button-all">
+						<input type="button" name="Search" id="button" value="Search" onclick="submitForm();">
+					</div>									
+					
+					
+					<div class="lastupdate">
+						Last Update <label>12/06/2025</label>
+					</div>
+					
+					<input id="companyCodeHiddenField" name="companyCode" type="hidden" value="TASC">
+	</div>
+	<div class="comdetails-space1"><img src="/isxportal/images/spacer.gif"></div>
+	<div id="ajxDspId">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+		
+	
+
+	<div class="com-allrows">
+		
+<table id="dispTable" class="table-allcontent" cellspacing="0">
+<thead>
+<tr>
+<th class="com-titlecell10">No. Trades</th>
+<th class="com-titlecell9">Volume</th>
+<th class="com-titlecell8">T. Shares</th>
+<th class="com-titlecell7">Change %</th>
+<th class="com-titlecell6">Change</th>
+<th class="table-titlecell5">Low</th>
+<th class="table-titlecell4">High</th>
+<th class="table-titlecell3">Open</th>
+<th class="table-titlecell2">Close</th>
+<th class="table-titlecell1">Date</th></tr></thead>
+<tbody>
+<tr class="table-datarow2">
+<td class="com-titledata10">
+					
+					147
+				</td>
+<td class="com-titledata9">
+					
+					403,122,688
+				</td>
+<td class="com-titledata8">
+					
+					32,300,527
+				</td>
+<td class="com-titledata7">
+					
+						
+						
+							<span class="index-down">1.58%</span>
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+						
+							<span class="index-down">0.20</span>
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.44
+				</td>
+<td class="table-titledata4">
+					
+					12.60
+				</td>
+<td class="table-titledata3">
+					
+					12.60
+				</td>
+<td class="table-titledata2">
+					
+					12.45
+				</td>
+<td class="table-titledata1">
+					
+					12/06/2025
+				</td></tr>
+<tr class="table-datarow">
+<td class="com-titledata10">
+					
+					45
+				</td>
+<td class="com-titledata9">
+					
+					52,862,844
+				</td>
+<td class="com-titledata8">
+					
+					4,176,472
+				</td>
+<td class="com-titledata7">
+					
+						
+						
+							<span class="index-down">0.32%</span>
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+						
+							<span class="index-down">0.04</span>
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.60
+				</td>
+<td class="table-titledata4">
+					
+					12.68
+				</td>
+<td class="table-titledata3">
+					
+					12.68
+				</td>
+<td class="table-titledata2">
+					
+					12.65
+				</td>
+<td class="table-titledata1">
+					
+					11/06/2025
+				</td></tr>
+<tr class="table-datarow2">
+<td class="com-titledata10">
+					
+					105
+				</td>
+<td class="com-titledata9">
+					
+					336,994,400
+				</td>
+<td class="com-titledata8">
+					
+					26,606,747
+				</td>
+<td class="com-titledata7">
+					
+						
+							<span class="index-up">1.12%</span>
+						
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+							<span class="index-up">0.14</span>
+						
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.55
+				</td>
+<td class="table-titledata4">
+					
+					12.75
+				</td>
+<td class="table-titledata3">
+					
+					12.55
+				</td>
+<td class="table-titledata2">
+					
+					12.69
+				</td>
+<td class="table-titledata1">
+					
+					05/06/2025
+				</td></tr>
+<tr class="table-datarow">
+<td class="com-titledata10">
+					
+					127
+				</td>
+<td class="com-titledata9">
+					
+					425,486,560
+				</td>
+<td class="com-titledata8">
+					
+					33,878,046
+				</td>
+<td class="com-titledata7">
+					
+						
+						
+							<span class="index-down">0.79%</span>
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+						
+							<span class="index-down">0.10</span>
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.45
+				</td>
+<td class="table-titledata4">
+					
+					12.65
+				</td>
+<td class="table-titledata3">
+					
+					12.65
+				</td>
+<td class="table-titledata2">
+					
+					12.55
+				</td>
+<td class="table-titledata1">
+					
+					04/06/2025
+				</td></tr>
+<tr class="table-datarow2">
+<td class="com-titledata10">
+					
+					171
+				</td>
+<td class="com-titledata9">
+					
+					650,792,064
+				</td>
+<td class="com-titledata8">
+					
+					50,702,335
+				</td>
+<td class="com-titledata7">
+					
+						
+						
+							<span class="index-down">1.94%</span>
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+						
+							<span class="index-down">0.25</span>
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.65
+				</td>
+<td class="table-titledata4">
+					
+					13.00
+				</td>
+<td class="table-titledata3">
+					
+					12.90
+				</td>
+<td class="table-titledata2">
+					
+					12.65
+				</td>
+<td class="table-titledata1">
+					
+					03/06/2025
+				</td></tr>
+<tr class="table-datarow">
+<td class="com-titledata10">
+					
+					246
+				</td>
+<td class="com-titledata9">
+					
+					1,127,440,256
+				</td>
+<td class="com-titledata8">
+					
+					86,749,961
+				</td>
+<td class="com-titledata7">
+					
+						
+						
+							<span class="index-down">2.93%</span>
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+						
+							<span class="index-down">0.39</span>
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.90
+				</td>
+<td class="table-titledata4">
+					
+					13.29
+				</td>
+<td class="table-titledata3">
+					
+					13.29
+				</td>
+<td class="table-titledata2">
+					
+					12.90
+				</td>
+<td class="table-titledata1">
+					
+					02/06/2025
+				</td></tr>
+<tr class="table-datarow2">
+<td class="com-titledata10">
+					
+					105
+				</td>
+<td class="com-titledata9">
+					
+					217,548,560
+				</td>
+<td class="com-titledata8">
+					
+					16,381,083
+				</td>
+<td class="com-titledata7">
+					
+						
+						
+							<span class="index-down">0.82%</span>
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+						
+							<span class="index-down">0.11</span>
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					13.10
+				</td>
+<td class="table-titledata4">
+					
+					13.41
+				</td>
+<td class="table-titledata3">
+					
+					13.40
+				</td>
+<td class="table-titledata2">
+					
+					13.29
+				</td>
+<td class="table-titledata1">
+					
+					01/06/2025
+				</td></tr>
+<tr class="table-datarow">
+<td class="com-titledata10">
+					
+					162
+				</td>
+<td class="com-titledata9">
+					
+					1,181,318,272
+				</td>
+<td class="com-titledata8">
+					
+					89,307,337
+				</td>
+<td class="com-titledata7">
+					
+						
+							<span class="index-up">3.08%</span>
+						
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+							<span class="index-up">0.40</span>
+						
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.80
+				</td>
+<td class="table-titledata4">
+					
+					13.40
+				</td>
+<td class="table-titledata3">
+					
+					13.00
+				</td>
+<td class="table-titledata2">
+					
+					13.40
+				</td>
+<td class="table-titledata1">
+					
+					29/05/2025
+				</td></tr>
+<tr class="table-datarow2">
+<td class="com-titledata10">
+					
+					122
+				</td>
+<td class="com-titledata9">
+					
+					319,882,912
+				</td>
+<td class="com-titledata8">
+					
+					24,463,752
+				</td>
+<td class="com-titledata7">
+					
+						
+						
+							<span class="index-down">2.26%</span>
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+						
+							<span class="index-down">0.30</span>
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.90
+				</td>
+<td class="table-titledata4">
+					
+					13.29
+				</td>
+<td class="table-titledata3">
+					
+					13.29
+				</td>
+<td class="table-titledata2">
+					
+					13.00
+				</td>
+<td class="table-titledata1">
+					
+					28/05/2025
+				</td></tr>
+<tr class="table-datarow">
+<td class="com-titledata10">
+					
+					227
+				</td>
+<td class="com-titledata9">
+					
+					595,705,664
+				</td>
+<td class="com-titledata8">
+					
+					44,485,680
+				</td>
+<td class="com-titledata7">
+					
+						
+							<span class="index-up">2.31%</span>
+						
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+							<span class="index-up">0.30</span>
+						
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					13.07
+				</td>
+<td class="table-titledata4">
+					
+					13.60
+				</td>
+<td class="table-titledata3">
+					
+					13.07
+				</td>
+<td class="table-titledata2">
+					
+					13.30
+				</td>
+<td class="table-titledata1">
+					
+					27/05/2025
+				</td></tr>
+<tr class="table-datarow2">
+<td class="com-titledata10">
+					
+					197
+				</td>
+<td class="com-titledata9">
+					
+					771,441,024
+				</td>
+<td class="com-titledata8">
+					
+					62,313,400
+				</td>
+<td class="com-titledata7">
+					
+						
+						
+						
+							<span class="index-flat">0.00%</span>
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+						
+						
+							<span class="index-flat">0.00</span>
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					11.90
+				</td>
+<td class="table-titledata4">
+					
+					13.00
+				</td>
+<td class="table-titledata3">
+					
+					12.35
+				</td>
+<td class="table-titledata2">
+					
+					13.00
+				</td>
+<td class="table-titledata1">
+					
+					26/05/2025
+				</td></tr>
+<tr class="table-datarow">
+<td class="com-titledata10">
+					
+					137
+				</td>
+<td class="com-titledata9">
+					
+					518,115,520
+				</td>
+<td class="com-titledata8">
+					
+					39,846,497
+				</td>
+<td class="com-titledata7">
+					
+						
+							<span class="index-up">1.17%</span>
+						
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+							<span class="index-up">0.15</span>
+						
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.98
+				</td>
+<td class="table-titledata4">
+					
+					13.10
+				</td>
+<td class="table-titledata3">
+					
+					12.98
+				</td>
+<td class="table-titledata2">
+					
+					13.00
+				</td>
+<td class="table-titledata1">
+					
+					19/05/2025
+				</td></tr>
+<tr class="table-datarow2">
+<td class="com-titledata10">
+					
+					75
+				</td>
+<td class="com-titledata9">
+					
+					299,566,400
+				</td>
+<td class="com-titledata8">
+					
+					23,123,201
+				</td>
+<td class="com-titledata7">
+					
+						
+							<span class="index-up">0.39%</span>
+						
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+							<span class="index-up">0.05</span>
+						
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.85
+				</td>
+<td class="table-titledata4">
+					
+					13.00
+				</td>
+<td class="table-titledata3">
+					
+					12.85
+				</td>
+<td class="table-titledata2">
+					
+					12.98
+				</td>
+<td class="table-titledata1">
+					
+					14/05/2025
+				</td></tr>
+<tr class="table-datarow">
+<td class="com-titledata10">
+					
+					45
+				</td>
+<td class="com-titledata9">
+					
+					123,337,800
+				</td>
+<td class="com-titledata8">
+					
+					9,605,075
+				</td>
+<td class="com-titledata7">
+					
+						
+						
+							<span class="index-down">1.15%</span>
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+						
+							<span class="index-down">0.15</span>
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.77
+				</td>
+<td class="table-titledata4">
+					
+					12.95
+				</td>
+<td class="table-titledata3">
+					
+					12.93
+				</td>
+<td class="table-titledata2">
+					
+					12.85
+				</td>
+<td class="table-titledata1">
+					
+					13/05/2025
+				</td></tr>
+<tr class="table-datarow2">
+<td class="com-titledata10">
+					
+					90
+				</td>
+<td class="com-titledata9">
+					
+					164,963,776
+				</td>
+<td class="com-titledata8">
+					
+					12,717,795
+				</td>
+<td class="com-titledata7">
+					
+						
+							<span class="index-up">1.97%</span>
+						
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+							<span class="index-up">0.25</span>
+						
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.90
+				</td>
+<td class="table-titledata4">
+					
+					13.00
+				</td>
+<td class="table-titledata3">
+					
+					13.00
+				</td>
+<td class="table-titledata2">
+					
+					12.93
+				</td>
+<td class="table-titledata1">
+					
+					12/05/2025
+				</td></tr>
+<tr class="table-datarow">
+<td class="com-titledata10">
+					
+					149
+				</td>
+<td class="com-titledata9">
+					
+					515,046,720
+				</td>
+<td class="com-titledata8">
+					
+					39,709,393
+				</td>
+<td class="com-titledata7">
+					
+						
+							<span class="index-up">3.17%</span>
+						
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+							<span class="index-up">0.40</span>
+						
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.70
+				</td>
+<td class="table-titledata4">
+					
+					13.00
+				</td>
+<td class="table-titledata3">
+					
+					12.70
+				</td>
+<td class="table-titledata2">
+					
+					13.00
+				</td>
+<td class="table-titledata1">
+					
+					11/05/2025
+				</td></tr>
+<tr class="table-datarow2">
+<td class="com-titledata10">
+					
+					130
+				</td>
+<td class="com-titledata9">
+					
+					215,966,688
+				</td>
+<td class="com-titledata8">
+					
+					17,005,931
+				</td>
+<td class="com-titledata7">
+					
+						
+							<span class="index-up">2.67%</span>
+						
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+							<span class="index-up">0.33</span>
+						
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.60
+				</td>
+<td class="table-titledata4">
+					
+					12.80
+				</td>
+<td class="table-titledata3">
+					
+					12.60
+				</td>
+<td class="table-titledata2">
+					
+					12.68
+				</td>
+<td class="table-titledata1">
+					
+					08/05/2025
+				</td></tr>
+<tr class="table-datarow">
+<td class="com-titledata10">
+					
+					144
+				</td>
+<td class="com-titledata9">
+					
+					563,238,144
+				</td>
+<td class="com-titledata8">
+					
+					44,658,321
+				</td>
+<td class="com-titledata7">
+					
+						
+							<span class="index-up">4.56%</span>
+						
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+							<span class="index-up">0.55</span>
+						
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.35
+				</td>
+<td class="table-titledata4">
+					
+					12.70
+				</td>
+<td class="table-titledata3">
+					
+					12.35
+				</td>
+<td class="table-titledata2">
+					
+					12.60
+				</td>
+<td class="table-titledata1">
+					
+					07/05/2025
+				</td></tr>
+<tr class="table-datarow2">
+<td class="com-titledata10">
+					
+					134
+				</td>
+<td class="com-titledata9">
+					
+					199,565,360
+				</td>
+<td class="com-titledata8">
+					
+					16,308,248
+				</td>
+<td class="com-titledata7">
+					
+						
+							<span class="index-up">2.07%</span>
+						
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+							<span class="index-up">0.25</span>
+						
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.05
+				</td>
+<td class="table-titledata4">
+					
+					12.40
+				</td>
+<td class="table-titledata3">
+					
+					12.05
+				</td>
+<td class="table-titledata2">
+					
+					12.35
+				</td>
+<td class="table-titledata1">
+					
+					06/05/2025
+				</td></tr>
+<tr class="table-datarow">
+<td class="com-titledata10">
+					
+					26
+				</td>
+<td class="com-titledata9">
+					
+					41,222,248
+				</td>
+<td class="com-titledata8">
+					
+					3,429,132
+				</td>
+<td class="com-titledata7">
+					
+						
+							<span class="index-up">0.42%</span>
+						
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+							<span class="index-up">0.05</span>
+						
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.00
+				</td>
+<td class="table-titledata4">
+					
+					12.10
+				</td>
+<td class="table-titledata3">
+					
+					12.10
+				</td>
+<td class="table-titledata2">
+					
+					12.05
+				</td>
+<td class="table-titledata1">
+					
+					05/05/2025
+				</td></tr>
+<tr class="table-datarow2">
+<td class="com-titledata10">
+					
+					64
+				</td>
+<td class="com-titledata9">
+					
+					162,692,592
+				</td>
+<td class="com-titledata8">
+					
+					13,514,761
+				</td>
+<td class="com-titledata7">
+					
+						
+							<span class="index-up">0.83%</span>
+						
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+							<span class="index-up">0.10</span>
+						
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					12.00
+				</td>
+<td class="table-titledata4">
+					
+					12.14
+				</td>
+<td class="table-titledata3">
+					
+					12.00
+				</td>
+<td class="table-titledata2">
+					
+					12.10
+				</td>
+<td class="table-titledata1">
+					
+					04/05/2025
+				</td></tr>
+<tr class="table-datarow">
+<td class="com-titledata10">
+					
+					46
+				</td>
+<td class="com-titledata9">
+					
+					96,144,768
+				</td>
+<td class="com-titledata8">
+					
+					8,012,147
+				</td>
+<td class="com-titledata7">
+					
+						
+							<span class="index-up">0.25%</span>
+						
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+							<span class="index-up">0.03</span>
+						
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					11.99
+				</td>
+<td class="table-titledata4">
+					
+					12.00
+				</td>
+<td class="table-titledata3">
+					
+					12.00
+				</td>
+<td class="table-titledata2">
+					
+					12.00
+				</td>
+<td class="table-titledata1">
+					
+					30/04/2025
+				</td></tr>
+<tr class="table-datarow2">
+<td class="com-titledata10">
+					
+					44
+				</td>
+<td class="com-titledata9">
+					
+					95,470,744
+				</td>
+<td class="com-titledata8">
+					
+					7,933,755
+				</td>
+<td class="com-titledata7">
+					
+						
+							<span class="index-up">0.17%</span>
+						
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+							<span class="index-up">0.02</span>
+						
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					11.97
+				</td>
+<td class="table-titledata4">
+					
+					12.10
+				</td>
+<td class="table-titledata3">
+					
+					11.97
+				</td>
+<td class="table-titledata2">
+					
+					12.00
+				</td>
+<td class="table-titledata1">
+					
+					29/04/2025
+				</td></tr>
+<tr class="table-datarow">
+<td class="com-titledata10">
+					
+					35
+				</td>
+<td class="com-titledata9">
+					
+					38,985,420
+				</td>
+<td class="com-titledata8">
+					
+					3,275,861
+				</td>
+<td class="com-titledata7">
+					
+						
+							<span class="index-up">1.87%</span>
+						
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+							<span class="index-up">0.22</span>
+						
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					11.85
+				</td>
+<td class="table-titledata4">
+					
+					11.98
+				</td>
+<td class="table-titledata3">
+					
+					11.98
+				</td>
+<td class="table-titledata2">
+					
+					11.97
+				</td>
+<td class="table-titledata1">
+					
+					28/04/2025
+				</td></tr>
+<tr class="table-datarow2">
+<td class="com-titledata10">
+					
+					83
+				</td>
+<td class="com-titledata9">
+					
+					177,448,032
+				</td>
+<td class="com-titledata8">
+					
+					15,071,968
+				</td>
+<td class="com-titledata7">
+					
+						
+							<span class="index-up">1.10%</span>
+						
+						
+						
+					
+				</td>
+<td class="com-titledata6">
+					
+						
+							<span class="index-up">0.13</span>
+						
+						
+						
+					
+				</td>
+<td class="table-titledata5">
+					
+					11.75
+				</td>
+<td class="table-titledata4">
+					
+					11.98
+				</td>
+<td class="table-titledata3">
+					
+					11.77
+				</td>
+<td class="table-titledata2">
+					
+					11.98
+				</td>
+<td class="table-titledata1">
+					
+					27/04/2025
+				</td></tr></tbody></table><span class="pagebanner" dir="rtl">shown 1-25 from 2,381 result</span><span class="pagelinks"><img src="/isxportal/images/back-olderoff.gif"> <img src="/isxportal/images/previousoff.gif"> <strong>1</strong>, <a href="JavaScript:doAjax('companyperformancehistoryfilter.html','fromDate=1%2F1%2F2010&amp;d-6716032-p=2&amp;1749855791610=&amp;toDate=12%2F06%2F2025&amp;companyCode=TASC','ajxDspId');" title="Go to page 2" onmouseover="window.status='Pagination Links have been Ajaxified!!';return false;" onmouseout="window.status='';return false;">2</a>, <a href="JavaScript:doAjax('companyperformancehistoryfilter.html','fromDate=1%2F1%2F2010&amp;d-6716032-p=3&amp;1749855791610=&amp;toDate=12%2F06%2F2025&amp;companyCode=TASC','ajxDspId');" title="Go to page 3" onmouseover="window.status='Pagination Links have been Ajaxified!!';return false;" onmouseout="window.status='';return false;">3</a>, <a href="JavaScript:doAjax('companyperformancehistoryfilter.html','fromDate=1%2F1%2F2010&amp;d-6716032-p=4&amp;1749855791610=&amp;toDate=12%2F06%2F2025&amp;companyCode=TASC','ajxDspId');" title="Go to page 4" onmouseover="window.status='Pagination Links have been Ajaxified!!';return false;" onmouseout="window.status='';return false;">4</a>, <a href="JavaScript:doAjax('companyperformancehistoryfilter.html','fromDate=1%2F1%2F2010&amp;d-6716032-p=5&amp;1749855791610=&amp;toDate=12%2F06%2F2025&amp;companyCode=TASC','ajxDspId');" title="Go to page 5" onmouseover="window.status='Pagination Links have been Ajaxified!!';return false;" onmouseout="window.status='';return false;">5</a>, <a href="JavaScript:doAjax('companyperformancehistoryfilter.html','fromDate=1%2F1%2F2010&amp;d-6716032-p=6&amp;1749855791610=&amp;toDate=12%2F06%2F2025&amp;companyCode=TASC','ajxDspId');" title="Go to page 6" onmouseover="window.status='Pagination Links have been Ajaxified!!';return false;" onmouseout="window.status='';return false;">6</a>, <a href="JavaScript:doAjax('companyperformancehistoryfilter.html','fromDate=1%2F1%2F2010&amp;d-6716032-p=7&amp;1749855791610=&amp;toDate=12%2F06%2F2025&amp;companyCode=TASC','ajxDspId');" title="Go to page 7" onmouseover="window.status='Pagination Links have been Ajaxified!!';return false;" onmouseout="window.status='';return false;">7</a>, <a href="JavaScript:doAjax('companyperformancehistoryfilter.html','fromDate=1%2F1%2F2010&amp;d-6716032-p=8&amp;1749855791610=&amp;toDate=12%2F06%2F2025&amp;companyCode=TASC','ajxDspId');" title="Go to page 8" onmouseover="window.status='Pagination Links have been Ajaxified!!';return false;" onmouseout="window.status='';return false;">8</a> <a href="JavaScript:doAjax('companyperformancehistoryfilter.html','fromDate=1%2F1%2F2010&amp;d-6716032-p=2&amp;1749855791610=&amp;toDate=12%2F06%2F2025&amp;companyCode=TASC','ajxDspId');" onmouseover="window.status='Pagination Links have been Ajaxified!!';return false;" onmouseout="window.status='';return false;"><img src="/isxportal/images/next.gif"></a>  <a href="JavaScript:doAjax('companyperformancehistoryfilter.html','fromDate=1%2F1%2F2010&amp;d-6716032-p=96&amp;1749855791610=&amp;toDate=12%2F06%2F2025&amp;companyCode=TASC','ajxDspId');" onmouseover="window.status='Pagination Links have been Ajaxified!!';return false;" onmouseout="window.status='';return false;"><img src="/isxportal/images/next-newer.gif"></a></span>
+	</div>
+</div>
+</form>
+
+
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+		
+	
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17886478-1']);
+  _gaq.push(['_setDomainName', 'none']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<div class="bottom-all">
+<div class="bottom-space"></div>
+<div class="bottom-space2"></div>
+<div class="bottom-links"><span class="links"><a href="homePage.html">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="contactus.html">Contact Us </a>&nbsp;&nbsp;
+| &nbsp;&nbsp;<a href="aboutUs.html">About Us
+</a> &nbsp;&nbsp;|&nbsp;&nbsp;<a href="sitemap.html">Site Map</a>&nbsp;&nbsp;|&nbsp;
+&nbsp;<a href="copyright.html"> Copyrights</a>&nbsp;&nbsp;|
+&nbsp;<a target="_blank" href="http://www.arab-exchanges.org"> Arab Federation Of Exchanges</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="disclaimer.html"> Disclaimer</a></span><br>
+<span class="copyright">Copyrights Iraqi Stock Exchange © 2009 </span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all ui-helper-hidden-accessible"></div></body></html>

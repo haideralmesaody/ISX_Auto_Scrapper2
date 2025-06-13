@@ -1,8 +1,8 @@
 // ISX Auto Scrapper - Simple Highcharts Implementation
 let tickersData = [];
 let displayedData = [];
-let sortColumn = 'symbol';
-let sortAsc = true;
+let sortColumn = 'date';
+let sortAsc = false;
 let currentChart = null;
 let selectedSymbol = '';
 let selectedRow = null;
@@ -57,13 +57,10 @@ async function initializeDashboard() {
         }
         
         tickersData = await response.json();
-        displayedData = [...tickersData];
-        debugLog('Loaded tickers: ' + tickersData.length);
-
+        displayedData = applyDefaultSort([...tickersData]);
+        populateTickerTable(displayedData);
+        
         document.getElementById('tickerSearch').addEventListener('input', filterTickers);
-
-        // Populate ticker table
-        sortAndDisplay();
         
         showLoading(false);
         debugLog('Dashboard initialized successfully');
@@ -216,11 +213,7 @@ function filterTickers() {
 }
 
 function sortAndDisplay() {
-    displayedData.sort((a, b) => {
-        if (a[sortColumn] < b[sortColumn]) return sortAsc ? -1 : 1;
-        if (a[sortColumn] > b[sortColumn]) return sortAsc ? 1 : -1;
-        return 0;
-    });
+    displayedData = applyDefaultSort(displayedData);
     populateTickerTable(displayedData);
 }
 
@@ -300,101 +293,77 @@ async function createChart(symbol) {
             currentChart = null;
         }
         
-        // Fetch data using the exact pattern from the sample
-        const data = await fetch(`/api/ticker/${symbol}?type=price`)
-            .then(response => response.json());
-        
+        // Fetch price data
+        const data = await fetch(`/api/ticker/${symbol}?type=price`).then(r=>r.json());
         debugLog('Loaded data points: ' + data.length);
-        
-        // Convert data to OHLC format for candlestick
-        const ohlcData = data.map(item => {
+        if(!Array.isArray(data) || data.length===0) throw new Error('No data');
+
+        const ohlcData = [];
+        const volumeData = [];
+        data.forEach(item=>{
             const ts = item.timestamp ? item.timestamp : Date.parse(item.date);
-            return [ts, item.open, item.high, item.low, item.close];
+            ohlcData.push([ts, item.open, item.high, item.low, item.close]);
+            volumeData.push([ts, item.volume || 0]);
         });
         
-        // Build yAxis configuration dynamically
-        const yAxisConfig = {};
-        
-        // before creating chart, build annotations array
-        const annotationsConfig = [];
-        
-        // Create chart using the exact configuration from the sample
         currentChart = Highcharts.stockChart('container', {
-            yAxis: yAxisConfig,
-            annotations: annotationsConfig,
+            yAxis: [{
+                labels: { align: 'right', x: -3 },
+                title: { text: 'Price' },
+                height: '70%',
+                lineWidth: 1,
+                resize: { enabled:true }
+            }, {
+                labels: { align: 'right', x: -3 },
+                title: { text: 'Volume' },
+                top: '75%',
+                height: '25%',
+                offset: 0,
+                lineWidth: 1
+            }],
             series: [{
                 id: 'main',
                 type: 'candlestick',
                 color: '#FF6F6F',
                 upColor: '#6FB76F',
                 data: ohlcData,
-                dataGrouping: {
-                    enabled: false
-                }
+                dataGrouping: { enabled:false }
+            }, {
+                id: 'volume',
+                type: 'column',
+                name: 'Volume',
+                data: volumeData,
+                yAxis: 1,
+                color: 'rgba(0, 0, 150, 0.3)',
+                dataGrouping: { enabled:false }
             }],
-            
-            // Add stock tools
             stockTools: {
                 gui: {
                     enabled: true,
-                    buttons: ['indicators', 'separator', 'simpleShapes', 'lines', 
-                             'crookedLines', 'measure', 'advanced', 'toggleAnnotations', 
-                             'separator', 'verticalLabels', 'flags', 'separator', 
-                             'zoomChange', 'fullScreen', 'typeChange', 'separator', 
-                             'currentPriceIndicator']
+                    buttons: ['indicators', 'separator', 'simpleShapes', 'lines', 'crookedLines', 'measure', 'advanced', 'toggleAnnotations', 'separator', 'verticalLabels', 'flags', 'separator', 'zoomChange', 'fullScreen', 'typeChange', 'separator', 'currentPriceIndicator']
                 }
             },
-            
-            // Basic configuration
-            title: {
-                text: `${symbol} - Iraqi Stock Exchange`
-            },
-            
-            rangeSelector: {
-                selected: 1
-            },
-            
-            navigator: {
-                enabled: true
-            },
-            
-            scrollbar: {
-                enabled: true
-            },
-            
-            credits: {
-                enabled: false
-            },
-            
+            title: { text: `${symbol} - Iraqi Stock Exchange` },
+            rangeSelector: { selected: 1 },
+            navigator: { enabled:true },
+            scrollbar: { enabled:true },
+            credits: { enabled:false },
             colors: ['#2d5016', '#6b9b37', '#FF6F6F', '#8bc34a', '#4a7c23'],
-            chart: { backgroundColor: 'rgba(0,0,0,0)' },
+            chart: { backgroundColor:'rgba(0,0,0,0)' }
         });
-        
+
         debugLog('Chart created successfully');
-        // Ensure StockTools toolbar is expanded
-        setTimeout(() => {
-            const wrapper = document.querySelector('.highcharts-stocktools-wrapper');
-            if (wrapper) {
-                wrapper.setAttribute('aria-hidden', 'false');
-                const toggleBtn = wrapper.querySelector('.highcharts-toggle-toolbar');
-                if (toggleBtn && toggleBtn.classList.contains('highcharts-arrow-left')) {
-                    toggleBtn.click();
-                }
-            }
-        }, 100);
-        
+        // Expand StockTools toolbar
+        setTimeout(()=>{
+            const wrapper=document.querySelector('.highcharts-stocktools-wrapper');
+            if(wrapper){wrapper.setAttribute('aria-hidden','false');const btn=wrapper.querySelector('.highcharts-toggle-toolbar');if(btn&&btn.classList.contains('highcharts-arrow-left'))btn.click();}
+        },100);
+
         showLoading(false);
-        
-    } catch (error) {
+    } catch(error) {
         debugLog('Error creating chart: ' + error.message);
         showLoading(false);
-        
-        // Show error message
-        document.getElementById('container').innerHTML = 
-            '<div style="text-align: center; padding: 50px; color: #e74c3c;">' +
-            '<h3>Error loading chart</h3>' +
-            '<p>' + error.message + '</p>' +
-            '</div>';
+        document.getElementById('container').innerHTML = `<div style="text-align:center; padding:50px; color:#e74c3c;"><h3>Error loading chart</h3><p>${error.message}</p></div>`;
     }
 }
 
@@ -595,6 +564,28 @@ function switchTab(tabId) {
         } else {
             content.classList.remove('active');
         }
+    });
+}
+
+// Safe date parser: returns a numeric timestamp, or -Infinity on failure
+function dateValue(d) {
+    const t = Date.parse(d);
+    return Number.isFinite(t) ? t : -Infinity;
+}
+
+function applyDefaultSort(arr) {
+    return arr.sort((a, b) => {
+        // 1) date descending
+        const tA = dateValue(a.date);
+        const tB = dateValue(b.date);
+        if (tA !== tB) return tB - tA;
+
+        // 2) symbol ascending
+        const symCmp = a.symbol.localeCompare(b.symbol);
+        if (symCmp !== 0) return symCmp;
+
+        // 3) change % descending
+        return b.change - a.change;
     });
 }
 

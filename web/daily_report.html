@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ISX Auto Scrapper – Daily Report</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Highcharts Stock bundle for candlestick charts -->
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/drag-panes.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/annotations-advanced.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/price-indicator.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/full-screen.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/stock-tools.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/indicators-all.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <link rel="stylesheet" href="https://code.highcharts.com/css/stocktools/gui.css">
+    <link rel="stylesheet" href="https://code.highcharts.com/css/annotations/popup.css">
+</head>
+<body class="dashboard">
+    <!-- Header reused from dashboard -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="Logo.png" class="brand-logo" alt="Iraqi Investor logo" />
+                <div class="logo-text">
+                    <h1>ISX Auto Scrapper</h1>
+                    <p class="subtitle">Daily Market Report</p>
+                </div>
+            </div>
+            <div class="header-controls">
+                <a href="dashboard.html" class="btn btn-primary">← Back to Dashboard</a>
+                <a id="downloadReport" class="btn btn-secondary" href="#">Download&nbsp;Excel</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main report content will be injected here -->
+    <main id="reportContent" class="report-content">
+        <p style="padding:1rem;">Loading daily report…</p>
+    </main>
+
+    <script src="report.js"></script>
+</body>
+</html> 

@@ -2,148 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISX Auto Scrapper - Iraqi Investor</title>
-    
-    <!-- Highcharts Stock with all modules -->
-    <script src="https://code.highcharts.com/stock/highstock.js"></script>
-    <script src="https://code.highcharts.com/stock/modules/drag-panes.js"></script>
-    <script src="https://code.highcharts.com/stock/modules/annotations-advanced.js"></script>
-    <script src="https://code.highcharts.com/stock/modules/price-indicator.js"></script>
-    <script src="https://code.highcharts.com/stock/modules/full-screen.js"></script>
-    <script src="https://code.highcharts.com/stock/modules/stock-tools.js"></script>
-    
-    <!-- Highcharts Technical Indicators -->
-    <script src="https://code.highcharts.com/stock/indicators/indicators-all.js"></script>
-    
-    <!-- Export and accessibility -->
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
-    <!-- Highcharts StockTools CSS (toolbar icons) -->
-    <link rel="stylesheet" href="https://code.highcharts.com/css/stocktools/gui.css">
-    <link rel="stylesheet" href="https://code.highcharts.com/css/annotations/popup.css">
-
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles.css">
+    <meta http-equiv="refresh" content="0; url=dashboard.html">
+    <title>Redirecting to Dashboard...</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 10vh; }
+        a.btn { display: inline-block; margin: 1rem; padding: 0.7rem 1.5rem; background: #0099cc; color: #fff; border-radius: 8px; text-decoration: none; font-weight: bold; }
+        a.btn:hover { background: #0077aa; }
+    </style>
 </head>
 <body>
-    <div class="dashboard">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <div class="logo">
-                    <img src="logo.png" alt="Iraqi Investor" class="brand-logo">
-                    <div class="logo-text">
-                        <h1>ISX Auto Scrapper</h1>
-                        <p class="subtitle">Iraqi Stock Exchange Analysis Dashboard</p>
-                    </div>
-                </div>
-                <div class="header-controls">
-                    <button id="fetchBtn" class="btn btn-secondary">Fetch Ticker</button>
-                    <button id="refreshBtn" class="btn btn-secondary">Run Auto</button>
-                    <button id="calcBtn" class="btn btn-primary">Run Indicators</button>
-                    <button id="calcNumBtn" class="btn btn-secondary">Run Num Ind</button>
-                    <button id="liqBtn" class="btn btn-secondary">Run Liquidity</button>
-                    <button id="stratBtn" class="btn btn-primary">Run Strategies</button>
-                    <button id="backtestBtn" class="btn btn-secondary">Run Backtest</button>
-                    <a href="strategies.html" class="btn btn-link">Strategy Testing</a>
-                </div>
-            </div>
-        </header>
-
-        <!-- Tab Navigation -->
-        <div class="tab-navigation">
-            <button class="tab-button" data-tab="dashboardTab">Dashboard</button>
-            <button class="tab-button" data-tab="strategiesTab">Strategies</button>
-            <button class="tab-button" data-tab="backtestTab">Backtest</button>
-            <button class="tab-button" data-tab="reportTab">Daily Report</button>
-        </div>
-
-        <!-- Dashboard Tab -->
-        <div id="dashboardTab" class="tab-content">
-            <div class="main-content-simple">
-            <!-- Ticker Selector -->
-            <div class="ticker-selector">
-                <div class="ticker-section">
-                    <h3>Select Ticker</h3>
-                    <div class="search-box">
-                        <input type="text" id="tickerSearch" placeholder="Search ticker...">
-                    </div>
-                    <div class="ticker-panel">
-                        <table id="tickerTable"></table>
-                    </div>
-                    <div class="selected-ticker-info" id="selectedTickerInfo"></div>
-                    <div id="strategyRecommendations" class="strategy-recs"></div>
-                </div>
-            </div>
-
-            <!-- Single Chart Area -->
-            <div class="chart-area-simple">
-                <div class="chart-header-simple">
-                    <h2 id="chartTitle">Select a ticker to view chart</h2>
-                </div>
-                
-                <!-- Main Chart Container -->
-                <div class="main-chart-container" style="height: 650px; width: 100%; max-width: 100%;">
-                    <div id="container" style="height: 100%; width: 100%;"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Strategies Tab -->
-        <div id="strategiesTab" class="tab-content">
-            <div class="main-content-simple">
-                <div>
-                    <select id="strategyTicker"></select>
-                    <select id="strategySelect"></select>
-                </div>
-                <div id="strategyResult"></div>
-            </div>
-        </div>
-
-        <!-- Backtest Tab -->
-        <div id="backtestTab" class="tab-content">
-            <div class="main-content-simple">
-                <p>Backtest results will appear here.</p>
-            </div>
-        </div>
-
-        <!-- Daily Report Tab -->
-        <div id="reportTab" class="tab-content">
-            <div class="main-content-simple" id="reportContent">
-                <p>Daily report will load here.</p>
-                <button id="downloadReport" class="btn btn-secondary">Download Excel</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Loading Overlay -->
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="spinner"></div>
-        <p>Loading chart data...</p>
-    </div>
-
-    <!-- Fetch Ticker Modal -->
-    <div id="fetchModal" class="modal">
-        <div class="modal-content">
-            <h3>Select Ticker to Fetch</h3>
-            <select id="fetchTickerDropdown">
-                <option value="">-- Select a ticker --</option>
-            </select>
-            <div class="modal-actions">
-                <button id="fetchConfirmBtn" class="btn btn-primary">Fetch</button>
-                <button id="fetchCancelBtn" class="btn btn-secondary">Cancel</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="statusMessage" class="status-message"></div>
-
-    <!-- Application JavaScript -->
-    <script src="app_highcharts.js"></script>
-    <script src="strategies.js"></script>
-    <script src="report.js"></script>
+    <h1>Redirecting to Dashboard...</h1>
+    <p>If you are not redirected automatically, <a href="dashboard.html" class="btn">Go to Dashboard</a></p>
+    <p>Or, <a href="daily_report.html" class="btn">View Daily Report</a></p>
 </body>
 </html>

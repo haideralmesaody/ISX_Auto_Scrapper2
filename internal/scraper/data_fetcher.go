@@ -157,7 +157,7 @@ func (df *DataFetcher) FetchDataWithReport(ticker, sector, companyName string) (
 	defer cancel()
 
 	// Set timeout
-	ctx, cancel = context.WithTimeout(ctx, 60*time.Second) // Increased from 45 to 60 seconds due to optimizations working well
+	ctx, cancel = context.WithTimeout(ctx, 1100*time.Second) // Increased from 45 to 60 seconds due to optimizations working well
 	defer cancel()
 
 	// Set up JavaScript dialog handler IMMEDIATELY before any navigation
@@ -331,6 +331,16 @@ func (df *DataFetcher) FetchDataWithReport(ticker, sector, companyName string) (
 
 	// Finalize report
 	df.FinalizeReport(nil)
+
+	// Clean up the temporary CSV that was written after each page
+	if _, statErr := os.Stat(tempFilename); statErr == nil {
+		if remErr := os.Remove(tempFilename); remErr != nil {
+			df.logger.Info("Could not delete temp file %s: %v", tempFilename, remErr)
+		} else {
+			df.logger.Info("Deleted temporary file %s after successful scrape", tempFilename)
+		}
+	}
+
 	return df.currentReport, nil
 }
 
@@ -339,12 +349,14 @@ func (df *DataFetcher) extractDataFromAllPages(ctx context.Context, stockData *[
 	pageNum := 1
 	maxRows := 2500 // Based on the HTML showing 2,379 total records
 
-	// Build overlap map from provided records
+	// Build overlap map from provided records (only non-empty when an existing CSV had rows)
 	existingData := make(map[string]bool)
 	for _, d := range *stockData {
 		dateKey := d.Date.Format("2006-01-02")
 		existingData[dateKey] = true
 	}
+	// If we started with an empty CSV, we will skip the overlap-stop logic later
+	skipOverlapStop := len(existingData) == 0
 
 	if len(*stockData) > 0 {
 		firstDate := (*stockData)[0].Date.Format("2006-01-02")
@@ -407,10 +419,10 @@ func (df *DataFetcher) extractDataFromAllPages(ctx context.Context, stockData *[
 		*stockData = append(*stockData, newRecords...)
 		df.logger.Info("Extracted %d records from page %d, total so far: %d", len(newRecords), pageNum, len(*stockData))
 
-		// If we have any overlap with existing CSV data, this means we've reached data we already have
-		// So we should stop pagination to avoid unnecessary processing
-		if overlapCount > 0 {
-			df.logger.Info("Overlap detected with existing data (%d overlapping records), stopping pagination", overlapCount)
+		// Stop paginating only if the page contributed NO new records at all.
+		// A small overlap is normal because some dates repeat on consecutive pages.
+		if !skipOverlapStop && newDataCount == 0 {
+			df.logger.Info("Page %d produced only overlapping dates (CSV already had these). Stopping pagination as full history is reached", pageNum)
 			break
 		}
 
@@ -673,6 +685,12 @@ func (df *DataFetcher) parseRowData(row map[string]string) (common.StockData, er
 		return common.StockData{}, fmt.Errorf("failed to parse volume: %w", err)
 	}
 
+	// Parse number of trades
+	trades, err := df.parseInt(row["trades"])
+	if err != nil {
+		return common.StockData{}, fmt.Errorf("failed to parse trades: %w", err)
+	}
+
 	return common.StockData{
 		Date:   date,
 		Open:   open,
@@ -680,6 +698,7 @@ func (df *DataFetcher) parseRowData(row map[string]string) (common.StockData, er
 		Low:    low,
 		Close:  close,
 		Volume: volume,
+		Trades: trades,
 	}, nil
 }
 
@@ -878,6 +897,11 @@ func (df *DataFetcher) loadExistingData(filename string) ([]common.StockData, er
 			volume, _ = df.parseInt(record[8])
 		}
 
+		trades := int64(0)
+		if len(record) > 9 {
+			trades, _ = df.parseInt(record[9])
+		}
+
 		stockData = append(stockData, common.StockData{
 			Date:   date,
 			Open:   open,
@@ -885,6 +909,7 @@ func (df *DataFetcher) loadExistingData(filename string) ([]common.StockData, er
 			Low:    low,
 			Close:  close,
 			Volume: volume,
+			Trades: trades,
 		})
 	}
 
@@ -920,7 +945,7 @@ func (df *DataFetcher) saveDataToCSV(stockData []common.StockData, filename stri
 			data.ChangePercent.StringFixed(2) + "%", // Format as percentage with 2 decimal places
 			"",                                      // T.Shares - not available in our data
 			strconv.FormatInt(data.Volume, 10),
-			"", // No. Trades - not available in our data
+			strconv.FormatInt(data.Trades, 10),
 		}
 
 		if err := writer.Write(record); err != nil {

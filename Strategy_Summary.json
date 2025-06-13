@@ -1,1432 +1,5576 @@
 {
   "AAHP": {
     "file_path": "Strategies_AAHP.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 4,
+        "Weak Buy": 14,
+        "Weak Sell": 25
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 4,
+        "Weak Buy": 14,
+        "Weak Sell": 25
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 4,
+        "Weak Buy": 14,
+        "Weak Sell": 25
+      },
+      "MACD Strategy": {
+        "Buy": 6,
+        "Hold": 2,
+        "Strong Buy": 4,
+        "Weak Buy": 25,
+        "Weak Sell": 6
+      },
+      "OBV Strategy": {
+        "Strong Buy": 32,
+        "Strong Sell": 8,
+        "Weak Sell": 3
+      },
+      "RSI OBV Strategy": {
+        "Buy": 1,
+        "Hold": 4,
+        "Sell": 5,
+        "Weak Buy": 13,
+        "Weak Sell": 20
+      },
+      "RSI Strategy": {
+        "Sell": 16,
+        "Strong Sell": 5,
+        "Weak Buy": 5,
+        "Weak Sell": 17
+      },
+      "RSI Strategy2": {
+        "Sell": 12,
+        "Strong Sell": 5,
+        "Weak Buy": 10,
+        "Weak Sell": 16
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 1,
+        "Hold": 4,
+        "Sell": 5,
+        "Weak Buy": 13,
+        "Weak Sell": 20
+      },
+      "RSICMF Strategy": {
+        "Hold": 4,
+        "Weak Buy": 14,
+        "Weak Sell": 25
+      },
+      "RSIMACD Strategy": {
+        "Hold": 4,
+        "Sell": 2,
+        "Weak Buy": 16,
+        "Weak Sell": 21
+      },
+      "Rolling Std10 Strategy": {
+        "Hold": 4,
+        "Sell": 6,
+        "Strong Sell": 2,
+        "Weak Buy": 12,
+        "Weak Sell": 19
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 4,
+        "Sell": 6,
+        "Strong Sell": 9,
+        "Weak Buy": 11,
+        "Weak Sell": 13
+      }
+    },
     "ticker": "AAHP"
   },
   "AIPM": {
     "file_path": "Strategies_AIPM.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 45,
+        "Weak Buy": 36,
+        "Weak Sell": 39
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 45,
+        "Weak Buy": 36,
+        "Weak Sell": 39
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 45,
+        "Weak Buy": 36,
+        "Weak Sell": 39
+      },
+      "MACD Strategy": {
+        "Buy": 18,
+        "Sell": 22,
+        "Strong Buy": 3,
+        "Weak Buy": 33,
+        "Weak Sell": 44
+      },
+      "OBV Strategy": {
+        "Buy": 3,
+        "Hold": 42,
+        "Sell": 10,
+        "Strong Buy": 10,
+        "Weak Buy": 11,
+        "Weak Sell": 44
+      },
+      "RSI OBV Strategy": {
+        "Hold": 45,
+        "Weak Buy": 36,
+        "Weak Sell": 39
+      },
+      "RSI Strategy": {
+        "Buy": 3,
+        "Hold": 39,
+        "Sell": 4,
+        "Strong Buy": 12,
+        "Strong Sell": 18,
+        "Weak Buy": 25,
+        "Weak Sell": 19
+      },
+      "RSI Strategy2": {
+        "Buy": 4,
+        "Hold": 44,
+        "Sell": 5,
+        "Strong Buy": 10,
+        "Strong Sell": 16,
+        "Weak Buy": 23,
+        "Weak Sell": 18
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 45,
+        "Weak Buy": 36,
+        "Weak Sell": 39
+      },
+      "RSICMF Strategy": {
+        "Hold": 45,
+        "Weak Buy": 36,
+        "Weak Sell": 39
+      },
+      "RSIMACD Strategy": {
+        "Buy": 12,
+        "Hold": 18,
+        "Sell": 12,
+        "Weak Buy": 32,
+        "Weak Sell": 46
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 3,
+        "Hold": 7,
+        "Sell": 7,
+        "Strong Buy": 1,
+        "Strong Sell": 2,
+        "Weak Buy": 63,
+        "Weak Sell": 37
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 20,
+        "Sell": 3,
+        "Strong Sell": 5,
+        "Weak Buy": 49,
+        "Weak Sell": 43
+      }
+    },
     "ticker": "AIPM"
   },
   "AIRP": {
     "file_path": "Strategies_AIRP.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 23
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 23
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 23
+      },
+      "MACD Strategy": {
+        "Hold": 23
+      },
+      "OBV Strategy": {
+        "Hold": 10,
+        "Strong Sell": 13
+      },
+      "RSI OBV Strategy": {
+        "Hold": 23
+      },
+      "RSI Strategy": {
+        "Buy": 3,
+        "Hold": 20
+      },
+      "RSI Strategy2": {
+        "Buy": 3,
+        "Hold": 20
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 23
+      },
+      "RSICMF Strategy": {
+        "Hold": 23
+      },
+      "RSIMACD Strategy": {
+        "Hold": 23
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 1,
+        "Hold": 12,
+        "Strong Buy": 1,
+        "Weak Buy": 9
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 23
+      }
+    },
     "ticker": "AIRP"
   },
   "AISP": {
     "file_path": "Strategies_AISP.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 15,
+        "Weak Buy": 130,
+        "Weak Sell": 26
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 15,
+        "Weak Buy": 130,
+        "Weak Sell": 26
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 15,
+        "Weak Buy": 130,
+        "Weak Sell": 26
+      },
+      "MACD Strategy": {
+        "Buy": 5,
+        "Hold": 14,
+        "Sell": 10,
+        "Strong Buy": 7,
+        "Weak Buy": 72,
+        "Weak Sell": 63
+      },
+      "OBV Strategy": {
+        "Buy": 15,
+        "Hold": 10,
+        "Sell": 11,
+        "Strong Buy": 12,
+        "Strong Sell": 77,
+        "Weak Buy": 32,
+        "Weak Sell": 14
+      },
+      "RSI OBV Strategy": {
+        "Buy": 11,
+        "Hold": 15,
+        "Sell": 8,
+        "Weak Buy": 103,
+        "Weak Sell": 34
+      },
+      "RSI Strategy": {
+        "Buy": 35,
+        "Hold": 14,
+        "Sell": 3,
+        "Strong Buy": 25,
+        "Strong Sell": 5,
+        "Weak Buy": 66,
+        "Weak Sell": 23
+      },
+      "RSI Strategy2": {
+        "Buy": 34,
+        "Hold": 14,
+        "Sell": 2,
+        "Strong Buy": 7,
+        "Strong Sell": 5,
+        "Weak Buy": 87,
+        "Weak Sell": 22
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 11,
+        "Hold": 15,
+        "Sell": 8,
+        "Weak Buy": 103,
+        "Weak Sell": 34
+      },
+      "RSICMF Strategy": {
+        "Hold": 15,
+        "Weak Buy": 130,
+        "Weak Sell": 26
+      },
+      "RSIMACD Strategy": {
+        "Buy": 46,
+        "Hold": 15,
+        "Sell": 2,
+        "Weak Buy": 69,
+        "Weak Sell": 39
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 6,
+        "Hold": 11,
+        "Sell": 9,
+        "Strong Buy": 5,
+        "Weak Buy": 107,
+        "Weak Sell": 33
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 7,
+        "Hold": 15,
+        "Strong Buy": 6,
+        "Weak Buy": 119,
+        "Weak Sell": 24
+      }
+    },
     "ticker": "AISP"
   },
   "AMAP": {
     "file_path": "Strategies_AMAP.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 4
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 4
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 4
+      },
+      "MACD Strategy": {
+        "Weak Sell": 4
+      },
+      "OBV Strategy": {
+        "Hold": 4
+      },
+      "RSI OBV Strategy": {
+        "Hold": 4
+      },
+      "RSI Strategy": {
+        "Hold": 4
+      },
+      "RSI Strategy2": {
+        "Hold": 4
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 4
+      },
+      "RSICMF Strategy": {
+        "Hold": 4
+      },
+      "RSIMACD Strategy": {
+        "Weak Sell": 4
+      },
+      "Rolling Std10 Strategy": {
+        "Hold": 3,
+        "Weak Buy": 1
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 4
+      }
+    },
     "ticker": "AMAP"
   },
   "AMEF": {
     "file_path": "Strategies_AMEF.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 25,
+        "Weak Buy": 14,
+        "Weak Sell": 9
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 25,
+        "Weak Buy": 14,
+        "Weak Sell": 9
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 25,
+        "Weak Buy": 14,
+        "Weak Sell": 9
+      },
+      "MACD Strategy": {
+        "Weak Buy": 36,
+        "Weak Sell": 12
+      },
+      "OBV Strategy": {
+        "Hold": 25,
+        "Strong Buy": 3,
+        "Strong Sell": 10,
+        "Weak Buy": 8,
+        "Weak Sell": 2
+      },
+      "RSI OBV Strategy": {
+        "Buy": 2,
+        "Hold": 25,
+        "Sell": 4,
+        "Weak Buy": 9,
+        "Weak Sell": 8
+      },
+      "RSI Strategy": {
+        "Hold": 24,
+        "Sell": 2,
+        "Strong Buy": 5,
+        "Strong Sell": 2,
+        "Weak Buy": 7,
+        "Weak Sell": 8
+      },
+      "RSI Strategy2": {
+        "Buy": 3,
+        "Hold": 24,
+        "Sell": 3,
+        "Strong Buy": 2,
+        "Strong Sell": 1,
+        "Weak Buy": 7,
+        "Weak Sell": 8
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 2,
+        "Hold": 25,
+        "Sell": 4,
+        "Weak Buy": 9,
+        "Weak Sell": 8
+      },
+      "RSICMF Strategy": {
+        "Hold": 25,
+        "Weak Buy": 14,
+        "Weak Sell": 9
+      },
+      "RSIMACD Strategy": {
+        "Buy": 4,
+        "Hold": 13,
+        "Weak Buy": 23,
+        "Weak Sell": 8
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 2,
+        "Hold": 16,
+        "Strong Buy": 2,
+        "Strong Sell": 1,
+        "Weak Buy": 12,
+        "Weak Sell": 15
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 21,
+        "Weak Buy": 18,
+        "Weak Sell": 9
+      }
+    },
     "ticker": "AMEF"
   },
   "BAIB": {
     "file_path": "Strategies_BAIB.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 7
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 7
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 7
+      },
+      "MACD Strategy": {
+        "Weak Sell": 7
+      },
+      "OBV Strategy": {
+        "Hold": 7
+      },
+      "RSI OBV Strategy": {
+        "Hold": 7
+      },
+      "RSI Strategy": {
+        "Hold": 7
+      },
+      "RSI Strategy2": {
+        "Hold": 7
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 7
+      },
+      "RSICMF Strategy": {
+        "Hold": 7
+      },
+      "RSIMACD Strategy": {
+        "Hold": 7
+      },
+      "Rolling Std10 Strategy": {
+        "Hold": 5,
+        "Weak Buy": 2
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 3,
+        "Hold": 3,
+        "Strong Buy": 1
+      }
+    },
     "ticker": "BAIB"
   },
   "BASH": {
     "file_path": "Strategies_BASH.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 31,
+        "Weak Buy": 93,
+        "Weak Sell": 49
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 31,
+        "Weak Buy": 93,
+        "Weak Sell": 49
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 31,
+        "Weak Buy": 93,
+        "Weak Sell": 49
+      },
+      "MACD Strategy": {
+        "Hold": 16,
+        "Weak Buy": 68,
+        "Weak Sell": 89
+      },
+      "OBV Strategy": {
+        "Buy": 9,
+        "Hold": 16,
+        "Sell": 9,
+        "Strong Buy": 37,
+        "Strong Sell": 93,
+        "Weak Buy": 9
+      },
+      "RSI OBV Strategy": {
+        "Buy": 5,
+        "Hold": 31,
+        "Sell": 8,
+        "Weak Buy": 55,
+        "Weak Sell": 74
+      },
+      "RSI Strategy": {
+        "Buy": 14,
+        "Hold": 28,
+        "Sell": 6,
+        "Weak Buy": 74,
+        "Weak Sell": 51
+      },
+      "RSI Strategy2": {
+        "Buy": 5,
+        "Hold": 28,
+        "Weak Buy": 89,
+        "Weak Sell": 51
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 5,
+        "Hold": 31,
+        "Sell": 8,
+        "Weak Buy": 55,
+        "Weak Sell": 74
+      },
+      "RSICMF Strategy": {
+        "Hold": 31,
+        "Weak Buy": 93,
+        "Weak Sell": 49
+      },
+      "RSIMACD Strategy": {
+        "Buy": 5,
+        "Hold": 26,
+        "Sell": 4,
+        "Weak Buy": 70,
+        "Weak Sell": 68
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 13,
+        "Hold": 20,
+        "Sell": 5,
+        "Strong Buy": 5,
+        "Strong Sell": 2,
+        "Weak Buy": 79,
+        "Weak Sell": 49
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 5,
+        "Hold": 23,
+        "Strong Buy": 11,
+        "Strong Sell": 3,
+        "Weak Buy": 80,
+        "Weak Sell": 51
+      }
+    },
     "ticker": "BASH"
   },
   "BBOB": {
     "file_path": "Strategies_BBOB.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 17,
+        "Weak Buy": 116,
+        "Weak Sell": 82
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 17,
+        "Weak Buy": 116,
+        "Weak Sell": 82
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 17,
+        "Weak Buy": 116,
+        "Weak Sell": 82
+      },
+      "MACD Strategy": {
+        "Buy": 9,
+        "Sell": 11,
+        "Weak Buy": 115,
+        "Weak Sell": 80
+      },
+      "OBV Strategy": {
+        "Buy": 13,
+        "Hold": 15,
+        "Sell": 25,
+        "Strong Buy": 69,
+        "Strong Sell": 33,
+        "Weak Buy": 37,
+        "Weak Sell": 23
+      },
+      "RSI OBV Strategy": {
+        "Buy": 6,
+        "Hold": 17,
+        "Sell": 2,
+        "Strong Buy": 3,
+        "Weak Buy": 78,
+        "Weak Sell": 109
+      },
+      "RSI Strategy": {
+        "Buy": 18,
+        "Hold": 13,
+        "Sell": 19,
+        "Strong Buy": 1,
+        "Strong Sell": 31,
+        "Weak Buy": 89,
+        "Weak Sell": 44
+      },
+      "RSI Strategy2": {
+        "Buy": 7,
+        "Hold": 17,
+        "Sell": 18,
+        "Strong Sell": 21,
+        "Weak Buy": 98,
+        "Weak Sell": 54
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 6,
+        "Hold": 17,
+        "Sell": 2,
+        "Strong Buy": 3,
+        "Weak Buy": 78,
+        "Weak Sell": 109
+      },
+      "RSICMF Strategy": {
+        "Hold": 17,
+        "Weak Buy": 116,
+        "Weak Sell": 82
+      },
+      "RSIMACD Strategy": {
+        "Buy": 34,
+        "Sell": 24,
+        "Weak Buy": 59,
+        "Weak Sell": 98
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 9,
+        "Hold": 5,
+        "Sell": 10,
+        "Strong Buy": 2,
+        "Strong Sell": 1,
+        "Weak Buy": 95,
+        "Weak Sell": 93
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 3,
+        "Hold": 12,
+        "Sell": 12,
+        "Strong Sell": 18,
+        "Weak Buy": 100,
+        "Weak Sell": 70
+      }
+    },
     "ticker": "BBOB"
   },
   "BCIH": {
     "file_path": "Strategies_BCIH.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 28
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 28
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 28
+      },
+      "MACD Strategy": {
+        "Weak Buy": 15,
+        "Weak Sell": 13
+      },
+      "OBV Strategy": {
+        "Hold": 17,
+        "Strong Sell": 11
+      },
+      "RSI OBV Strategy": {
+        "Hold": 28
+      },
+      "RSI Strategy": {
+        "Hold": 28
+      },
+      "RSI Strategy2": {
+        "Hold": 28
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 28
+      },
+      "RSICMF Strategy": {
+        "Hold": 28
+      },
+      "RSIMACD Strategy": {
+        "Hold": 28
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 1,
+        "Hold": 20,
+        "Strong Buy": 2,
+        "Weak Buy": 5
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 4,
+        "Hold": 18,
+        "Strong Buy": 5,
+        "Weak Buy": 1
+      }
+    },
     "ticker": "BCIH"
   },
   "BCOI": {
     "file_path": "Strategies_BCOI.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 61,
+        "Weak Buy": 51,
+        "Weak Sell": 59
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 61,
+        "Weak Buy": 51,
+        "Weak Sell": 59
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 61,
+        "Weak Buy": 51,
+        "Weak Sell": 59
+      },
+      "MACD Strategy": {
+        "Hold": 14,
+        "Weak Buy": 55,
+        "Weak Sell": 102
+      },
+      "OBV Strategy": {
+        "Buy": 1,
+        "Hold": 53,
+        "Sell": 1,
+        "Strong Buy": 35,
+        "Strong Sell": 26,
+        "Weak Buy": 37,
+        "Weak Sell": 18
+      },
+      "RSI OBV Strategy": {
+        "Buy": 2,
+        "Hold": 61,
+        "Sell": 15,
+        "Strong Buy": 2,
+        "Weak Buy": 45,
+        "Weak Sell": 46
+      },
+      "RSI Strategy": {
+        "Buy": 13,
+        "Hold": 51,
+        "Sell": 12,
+        "Strong Buy": 2,
+        "Strong Sell": 3,
+        "Weak Buy": 42,
+        "Weak Sell": 48
+      },
+      "RSI Strategy2": {
+        "Buy": 6,
+        "Hold": 56,
+        "Sell": 5,
+        "Strong Sell": 3,
+        "Weak Buy": 51,
+        "Weak Sell": 50
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 2,
+        "Hold": 61,
+        "Sell": 15,
+        "Strong Buy": 2,
+        "Weak Buy": 45,
+        "Weak Sell": 46
+      },
+      "RSICMF Strategy": {
+        "Hold": 61,
+        "Weak Buy": 51,
+        "Weak Sell": 59
+      },
+      "RSIMACD Strategy": {
+        "Buy": 2,
+        "Hold": 17,
+        "Sell": 25,
+        "Weak Buy": 57,
+        "Weak Sell": 70
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 5,
+        "Hold": 31,
+        "Sell": 5,
+        "Strong Buy": 2,
+        "Strong Sell": 5,
+        "Weak Buy": 63,
+        "Weak Sell": 60
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 44,
+        "Strong Buy": 3,
+        "Strong Sell": 3,
+        "Weak Buy": 57,
+        "Weak Sell": 64
+      }
+    },
     "ticker": "BCOI"
   },
   "BEFI": {
     "file_path": "Strategies_BEFI.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 27,
+        "Weak Buy": 45,
+        "Weak Sell": 70
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 27,
+        "Weak Buy": 45,
+        "Weak Sell": 70
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 27,
+        "Weak Buy": 45,
+        "Weak Sell": 70
+      },
+      "MACD Strategy": {
+        "Hold": 18,
+        "Weak Buy": 42,
+        "Weak Sell": 82
+      },
+      "OBV Strategy": {
+        "Buy": 9,
+        "Hold": 19,
+        "Sell": 13,
+        "Strong Buy": 16,
+        "Strong Sell": 36,
+        "Weak Buy": 16,
+        "Weak Sell": 33
+      },
+      "RSI OBV Strategy": {
+        "Buy": 2,
+        "Hold": 27,
+        "Sell": 12,
+        "Weak Buy": 39,
+        "Weak Sell": 62
+      },
+      "RSI Strategy": {
+        "Buy": 6,
+        "Hold": 27,
+        "Sell": 6,
+        "Strong Buy": 1,
+        "Strong Sell": 6,
+        "Weak Buy": 47,
+        "Weak Sell": 49
+      },
+      "RSI Strategy2": {
+        "Buy": 4,
+        "Hold": 27,
+        "Sell": 5,
+        "Strong Sell": 2,
+        "Weak Buy": 39,
+        "Weak Sell": 65
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 2,
+        "Hold": 27,
+        "Sell": 12,
+        "Weak Buy": 39,
+        "Weak Sell": 62
+      },
+      "RSICMF Strategy": {
+        "Hold": 27,
+        "Weak Buy": 45,
+        "Weak Sell": 70
+      },
+      "RSIMACD Strategy": {
+        "Buy": 9,
+        "Hold": 18,
+        "Sell": 7,
+        "Weak Buy": 29,
+        "Weak Sell": 79
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 4,
+        "Hold": 20,
+        "Sell": 6,
+        "Strong Buy": 2,
+        "Strong Sell": 1,
+        "Weak Buy": 65,
+        "Weak Sell": 44
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 2,
+        "Hold": 26,
+        "Sell": 2,
+        "Strong Buy": 2,
+        "Strong Sell": 7,
+        "Weak Buy": 45,
+        "Weak Sell": 58
+      }
+    },
     "ticker": "BEFI"
   },
   "BELF": {
     "file_path": "Strategies_BELF.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 14,
+        "Weak Sell": 9
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 14,
+        "Weak Sell": 9
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 14,
+        "Weak Sell": 9
+      },
+      "MACD Strategy": {
+        "Hold": 14,
+        "Weak Sell": 9
+      },
+      "OBV Strategy": {
+        "Hold": 10,
+        "Strong Buy": 6,
+        "Strong Sell": 7
+      },
+      "RSI OBV Strategy": {
+        "Hold": 14,
+        "Sell": 1,
+        "Weak Sell": 8
+      },
+      "RSI Strategy": {
+        "Hold": 14,
+        "Sell": 2,
+        "Weak Buy": 2,
+        "Weak Sell": 5
+      },
+      "RSI Strategy2": {
+        "Hold": 14,
+        "Sell": 2,
+        "Weak Sell": 7
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 14,
+        "Sell": 1,
+        "Weak Sell": 8
+      },
+      "RSICMF Strategy": {
+        "Hold": 14,
+        "Weak Sell": 9
+      },
+      "RSIMACD Strategy": {
+        "Hold": 14,
+        "Weak Sell": 9
+      },
+      "Rolling Std10 Strategy": {
+        "Hold": 9,
+        "Sell": 2,
+        "Weak Buy": 6,
+        "Weak Sell": 6
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 14,
+        "Weak Sell": 9
+      }
+    },
     "ticker": "BELF"
   },
   "BGUC": {
     "file_path": "Strategies_BGUC.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 35,
+        "Weak Buy": 77,
+        "Weak Sell": 61
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 35,
+        "Weak Buy": 77,
+        "Weak Sell": 61
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 35,
+        "Weak Buy": 77,
+        "Weak Sell": 61
+      },
+      "MACD Strategy": {
+        "Hold": 17,
+        "Weak Buy": 46,
+        "Weak Sell": 110
+      },
+      "OBV Strategy": {
+        "Buy": 6,
+        "Hold": 11,
+        "Sell": 9,
+        "Strong Buy": 65,
+        "Strong Sell": 72,
+        "Weak Buy": 5,
+        "Weak Sell": 5
+      },
+      "RSI OBV Strategy": {
+        "Buy": 14,
+        "Hold": 35,
+        "Sell": 9,
+        "Strong Buy": 3,
+        "Strong Sell": 5,
+        "Weak Buy": 45,
+        "Weak Sell": 62
+      },
+      "RSI Strategy": {
+        "Buy": 17,
+        "Hold": 32,
+        "Sell": 25,
+        "Strong Buy": 2,
+        "Strong Sell": 4,
+        "Weak Buy": 60,
+        "Weak Sell": 33
+      },
+      "RSI Strategy2": {
+        "Buy": 9,
+        "Hold": 32,
+        "Sell": 11,
+        "Strong Sell": 2,
+        "Weak Buy": 69,
+        "Weak Sell": 50
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 14,
+        "Hold": 35,
+        "Sell": 9,
+        "Strong Buy": 3,
+        "Strong Sell": 5,
+        "Weak Buy": 45,
+        "Weak Sell": 62
+      },
+      "RSICMF Strategy": {
+        "Hold": 35,
+        "Weak Buy": 77,
+        "Weak Sell": 61
+      },
+      "RSIMACD Strategy": {
+        "Buy": 6,
+        "Hold": 33,
+        "Sell": 12,
+        "Weak Buy": 38,
+        "Weak Sell": 84
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 10,
+        "Hold": 19,
+        "Sell": 6,
+        "Strong Buy": 4,
+        "Strong Sell": 3,
+        "Weak Buy": 82,
+        "Weak Sell": 49
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 11,
+        "Hold": 21,
+        "Sell": 3,
+        "Strong Buy": 1,
+        "Strong Sell": 7,
+        "Weak Buy": 76,
+        "Weak Sell": 54
+      }
+    },
     "ticker": "BGUC"
   },
   "BIBI": {
     "file_path": "Strategies_BIBI.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 30,
+        "Weak Buy": 74,
+        "Weak Sell": 20
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 30,
+        "Weak Buy": 74,
+        "Weak Sell": 20
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 30,
+        "Weak Buy": 74,
+        "Weak Sell": 20
+      },
+      "MACD Strategy": {
+        "Hold": 16,
+        "Weak Buy": 41,
+        "Weak Sell": 67
+      },
+      "OBV Strategy": {
+        "Buy": 2,
+        "Hold": 17,
+        "Sell": 3,
+        "Strong Buy": 37,
+        "Strong Sell": 25,
+        "Weak Buy": 30,
+        "Weak Sell": 10
+      },
+      "RSI OBV Strategy": {
+        "Buy": 13,
+        "Hold": 30,
+        "Sell": 7,
+        "Strong Buy": 4,
+        "Weak Buy": 51,
+        "Weak Sell": 19
+      },
+      "RSI Strategy": {
+        "Buy": 16,
+        "Hold": 29,
+        "Sell": 7,
+        "Strong Buy": 20,
+        "Strong Sell": 2,
+        "Weak Buy": 32,
+        "Weak Sell": 18
+      },
+      "RSI Strategy2": {
+        "Buy": 20,
+        "Hold": 30,
+        "Sell": 4,
+        "Strong Buy": 8,
+        "Weak Buy": 41,
+        "Weak Sell": 21
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 13,
+        "Hold": 30,
+        "Sell": 7,
+        "Strong Buy": 4,
+        "Weak Buy": 51,
+        "Weak Sell": 19
+      },
+      "RSICMF Strategy": {
+        "Hold": 30,
+        "Weak Buy": 74,
+        "Weak Sell": 20
+      },
+      "RSIMACD Strategy": {
+        "Buy": 5,
+        "Hold": 22,
+        "Sell": 6,
+        "Weak Buy": 58,
+        "Weak Sell": 33
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 4,
+        "Hold": 22,
+        "Sell": 4,
+        "Strong Buy": 4,
+        "Strong Sell": 2,
+        "Weak Buy": 73,
+        "Weak Sell": 15
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 23,
+        "Sell": 4,
+        "Strong Sell": 2,
+        "Weak Buy": 79,
+        "Weak Sell": 16
+      }
+    },
     "ticker": "BIBI"
   },
   "BIIB": {
     "file_path": "Strategies_BIIB.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 19,
+        "Weak Buy": 98,
+        "Weak Sell": 95
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 19,
+        "Weak Buy": 98,
+        "Weak Sell": 95
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 19,
+        "Weak Buy": 98,
+        "Weak Sell": 95
+      },
+      "MACD Strategy": {
+        "Hold": 1,
+        "Weak Buy": 99,
+        "Weak Sell": 112
+      },
+      "OBV Strategy": {
+        "Buy": 6,
+        "Hold": 12,
+        "Sell": 23,
+        "Strong Buy": 36,
+        "Strong Sell": 89,
+        "Weak Buy": 28,
+        "Weak Sell": 18
+      },
+      "RSI OBV Strategy": {
+        "Buy": 1,
+        "Hold": 19,
+        "Sell": 25,
+        "Strong Sell": 1,
+        "Weak Buy": 61,
+        "Weak Sell": 105
+      },
+      "RSI Strategy": {
+        "Buy": 21,
+        "Hold": 14,
+        "Sell": 14,
+        "Strong Buy": 14,
+        "Strong Sell": 19,
+        "Weak Buy": 60,
+        "Weak Sell": 70
+      },
+      "RSI Strategy2": {
+        "Buy": 15,
+        "Hold": 15,
+        "Sell": 14,
+        "Strong Buy": 9,
+        "Strong Sell": 9,
+        "Weak Buy": 74,
+        "Weak Sell": 76
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 1,
+        "Hold": 19,
+        "Sell": 25,
+        "Strong Sell": 1,
+        "Weak Buy": 61,
+        "Weak Sell": 105
+      },
+      "RSICMF Strategy": {
+        "Hold": 19,
+        "Weak Buy": 98,
+        "Weak Sell": 95
+      },
+      "RSIMACD Strategy": {
+        "Buy": 14,
+        "Hold": 5,
+        "Sell": 15,
+        "Weak Buy": 89,
+        "Weak Sell": 89
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 9,
+        "Hold": 8,
+        "Sell": 6,
+        "Strong Buy": 2,
+        "Strong Sell": 4,
+        "Weak Buy": 96,
+        "Weak Sell": 87
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 9,
+        "Hold": 17,
+        "Sell": 11,
+        "Strong Buy": 5,
+        "Strong Sell": 11,
+        "Weak Buy": 84,
+        "Weak Sell": 75
+      }
+    },
     "ticker": "BIIB"
   },
   "BIME": {
     "file_path": "Strategies_BIME.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 107,
+        "Weak Buy": 17,
+        "Weak Sell": 24
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 107,
+        "Weak Buy": 17,
+        "Weak Sell": 24
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 107,
+        "Weak Buy": 17,
+        "Weak Sell": 24
+      },
+      "MACD Strategy": {
+        "Hold": 36,
+        "Weak Buy": 74,
+        "Weak Sell": 38
+      },
+      "OBV Strategy": {
+        "Buy": 5,
+        "Hold": 98,
+        "Sell": 9,
+        "Strong Buy": 1,
+        "Strong Sell": 28,
+        "Weak Buy": 7
+      },
+      "RSI OBV Strategy": {
+        "Buy": 1,
+        "Hold": 107,
+        "Sell": 7,
+        "Weak Buy": 13,
+        "Weak Sell": 20
+      },
+      "RSI Strategy": {
+        "Buy": 7,
+        "Hold": 105,
+        "Weak Buy": 12,
+        "Weak Sell": 24
+      },
+      "RSI Strategy2": {
+        "Hold": 105,
+        "Weak Buy": 19,
+        "Weak Sell": 24
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 1,
+        "Hold": 107,
+        "Sell": 7,
+        "Weak Buy": 13,
+        "Weak Sell": 20
+      },
+      "RSICMF Strategy": {
+        "Hold": 107,
+        "Weak Buy": 17,
+        "Weak Sell": 24
+      },
+      "RSIMACD Strategy": {
+        "Buy": 4,
+        "Hold": 55,
+        "Sell": 1,
+        "Weak Buy": 56,
+        "Weak Sell": 32
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 11,
+        "Hold": 87,
+        "Sell": 4,
+        "Strong Buy": 1,
+        "Strong Sell": 2,
+        "Weak Buy": 20,
+        "Weak Sell": 23
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 16,
+        "Hold": 84,
+        "Strong Buy": 3,
+        "Weak Buy": 24,
+        "Weak Sell": 21
+      }
+    },
     "ticker": "BIME"
   },
   "BINT": {
     "file_path": "Strategies_BINT.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 19,
+        "Weak Buy": 40,
+        "Weak Sell": 24
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 19,
+        "Weak Buy": 40,
+        "Weak Sell": 24
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 19,
+        "Weak Buy": 40,
+        "Weak Sell": 24
+      },
+      "MACD Strategy": {
+        "Weak Buy": 31,
+        "Weak Sell": 52
+      },
+      "OBV Strategy": {
+        "Buy": 26,
+        "Hold": 9,
+        "Strong Buy": 1,
+        "Strong Sell": 26,
+        "Weak Buy": 11,
+        "Weak Sell": 10
+      },
+      "RSI OBV Strategy": {
+        "Buy": 10,
+        "Hold": 19,
+        "Sell": 8,
+        "Strong Buy": 5,
+        "Weak Buy": 25,
+        "Weak Sell": 16
+      },
+      "RSI Strategy": {
+        "Buy": 7,
+        "Hold": 18,
+        "Strong Buy": 1,
+        "Weak Buy": 33,
+        "Weak Sell": 24
+      },
+      "RSI Strategy2": {
+        "Buy": 3,
+        "Hold": 18,
+        "Strong Buy": 1,
+        "Weak Buy": 36,
+        "Weak Sell": 25
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 10,
+        "Hold": 19,
+        "Sell": 8,
+        "Strong Buy": 5,
+        "Weak Buy": 25,
+        "Weak Sell": 16
+      },
+      "RSICMF Strategy": {
+        "Hold": 19,
+        "Weak Buy": 40,
+        "Weak Sell": 24
+      },
+      "RSIMACD Strategy": {
+        "Buy": 17,
+        "Hold": 10,
+        "Sell": 6,
+        "Weak Buy": 20,
+        "Weak Sell": 30
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 2,
+        "Hold": 13,
+        "Sell": 2,
+        "Strong Buy": 4,
+        "Strong Sell": 1,
+        "Weak Buy": 39,
+        "Weak Sell": 22
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 2,
+        "Hold": 19,
+        "Strong Buy": 6,
+        "Weak Buy": 38,
+        "Weak Sell": 18
+      }
+    },
     "ticker": "BINT"
   },
   "BLAD": {
     "file_path": "Strategies_BLAD.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 32,
+        "Weak Buy": 23,
+        "Weak Sell": 16
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 32,
+        "Weak Buy": 23,
+        "Weak Sell": 16
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 32,
+        "Weak Buy": 23,
+        "Weak Sell": 16
+      },
+      "MACD Strategy": {
+        "Hold": 18,
+        "Weak Buy": 26,
+        "Weak Sell": 27
+      },
+      "OBV Strategy": {
+        "Hold": 17,
+        "Sell": 3,
+        "Strong Buy": 7,
+        "Strong Sell": 25,
+        "Weak Buy": 4,
+        "Weak Sell": 15
+      },
+      "RSI OBV Strategy": {
+        "Buy": 3,
+        "Hold": 32,
+        "Sell": 1,
+        "Weak Buy": 18,
+        "Weak Sell": 17
+      },
+      "RSI Strategy": {
+        "Buy": 7,
+        "Hold": 32,
+        "Weak Buy": 23,
+        "Weak Sell": 9
+      },
+      "RSI Strategy2": {
+        "Buy": 1,
+        "Hold": 32,
+        "Weak Buy": 29,
+        "Weak Sell": 9
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 3,
+        "Hold": 32,
+        "Sell": 1,
+        "Weak Buy": 18,
+        "Weak Sell": 17
+      },
+      "RSICMF Strategy": {
+        "Hold": 32,
+        "Weak Buy": 23,
+        "Weak Sell": 16
+      },
+      "RSIMACD Strategy": {
+        "Buy": 11,
+        "Hold": 24,
+        "Weak Buy": 17,
+        "Weak Sell": 19
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 7,
+        "Hold": 25,
+        "Strong Buy": 4,
+        "Weak Buy": 23,
+        "Weak Sell": 12
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 3,
+        "Hold": 27,
+        "Weak Buy": 25,
+        "Weak Sell": 16
+      }
+    },
     "ticker": "BLAD"
   },
   "BMFI": {
     "file_path": "Strategies_BMFI.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 56,
+        "Weak Buy": 73,
+        "Weak Sell": 43
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 56,
+        "Weak Buy": 73,
+        "Weak Sell": 43
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 56,
+        "Weak Buy": 73,
+        "Weak Sell": 43
+      },
+      "MACD Strategy": {
+        "Hold": 14,
+        "Weak Buy": 66,
+        "Weak Sell": 92
+      },
+      "OBV Strategy": {
+        "Buy": 15,
+        "Hold": 42,
+        "Sell": 29,
+        "Strong Buy": 29,
+        "Strong Sell": 11,
+        "Weak Buy": 12,
+        "Weak Sell": 34
+      },
+      "RSI OBV Strategy": {
+        "Buy": 9,
+        "Hold": 56,
+        "Sell": 3,
+        "Strong Sell": 2,
+        "Weak Buy": 54,
+        "Weak Sell": 48
+      },
+      "RSI Strategy": {
+        "Buy": 2,
+        "Hold": 55,
+        "Sell": 4,
+        "Weak Buy": 77,
+        "Weak Sell": 34
+      },
+      "RSI Strategy2": {
+        "Hold": 55,
+        "Sell": 1,
+        "Weak Buy": 79,
+        "Weak Sell": 37
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 9,
+        "Hold": 56,
+        "Sell": 3,
+        "Strong Sell": 2,
+        "Weak Buy": 54,
+        "Weak Sell": 48
+      },
+      "RSICMF Strategy": {
+        "Hold": 56,
+        "Weak Buy": 73,
+        "Weak Sell": 43
+      },
+      "RSIMACD Strategy": {
+        "Buy": 4,
+        "Hold": 42,
+        "Sell": 4,
+        "Weak Buy": 53,
+        "Weak Sell": 69
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 13,
+        "Hold": 38,
+        "Sell": 7,
+        "Strong Buy": 4,
+        "Strong Sell": 2,
+        "Weak Buy": 62,
+        "Weak Sell": 46
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 10,
+        "Hold": 29,
+        "Strong Buy": 4,
+        "Strong Sell": 1,
+        "Weak Buy": 73,
+        "Weak Sell": 55
+      }
+    },
     "ticker": "BMFI"
   },
   "BMNS": {
     "file_path": "Strategies_BMNS.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 9,
+        "Weak Buy": 78,
+        "Weak Sell": 131
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 9,
+        "Weak Buy": 78,
+        "Weak Sell": 131
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 9,
+        "Weak Buy": 78,
+        "Weak Sell": 131
+      },
+      "MACD Strategy": {
+        "Sell": 8,
+        "Weak Buy": 124,
+        "Weak Sell": 86
+      },
+      "OBV Strategy": {
+        "Buy": 34,
+        "Hold": 8,
+        "Sell": 9,
+        "Strong Buy": 32,
+        "Strong Sell": 16,
+        "Weak Buy": 54,
+        "Weak Sell": 65
+      },
+      "RSI OBV Strategy": {
+        "Buy": 1,
+        "Hold": 9,
+        "Sell": 10,
+        "Strong Sell": 2,
+        "Weak Buy": 74,
+        "Weak Sell": 122
+      },
+      "RSI Strategy": {
+        "Buy": 3,
+        "Hold": 5,
+        "Sell": 43,
+        "Strong Buy": 14,
+        "Strong Sell": 29,
+        "Weak Buy": 43,
+        "Weak Sell": 81
+      },
+      "RSI Strategy2": {
+        "Buy": 2,
+        "Hold": 9,
+        "Sell": 27,
+        "Strong Buy": 13,
+        "Strong Sell": 18,
+        "Weak Buy": 50,
+        "Weak Sell": 99
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 1,
+        "Hold": 9,
+        "Sell": 10,
+        "Strong Sell": 2,
+        "Weak Buy": 74,
+        "Weak Sell": 122
+      },
+      "RSICMF Strategy": {
+        "Hold": 9,
+        "Weak Buy": 78,
+        "Weak Sell": 131
+      },
+      "RSIMACD Strategy": {
+        "Buy": 13,
+        "Sell": 42,
+        "Weak Buy": 66,
+        "Weak Sell": 97
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 5,
+        "Hold": 1,
+        "Sell": 13,
+        "Strong Buy": 1,
+        "Strong Sell": 5,
+        "Weak Buy": 72,
+        "Weak Sell": 121
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 5,
+        "Hold": 5,
+        "Sell": 20,
+        "Strong Buy": 6,
+        "Strong Sell": 22,
+        "Weak Buy": 44,
+        "Weak Sell": 116
+      }
+    },
     "ticker": "BMNS"
   },
   "BNAI": {
     "file_path": "Strategies_BNAI.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 2,
+        "Weak Buy": 7
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 2,
+        "Weak Buy": 7
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 2,
+        "Weak Buy": 7
+      },
+      "MACD Strategy": {
+        "Weak Buy": 9
+      },
+      "OBV Strategy": {
+        "Hold": 2,
+        "Weak Buy": 7
+      },
+      "RSI OBV Strategy": {
+        "Hold": 2,
+        "Weak Buy": 7
+      },
+      "RSI Strategy": {
+        "Buy": 1,
+        "Sell": 7,
+        "Weak Buy": 1
+      },
+      "RSI Strategy2": {
+        "Buy": 1,
+        "Weak Buy": 1,
+        "Weak Sell": 7
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 2,
+        "Weak Buy": 7
+      },
+      "RSICMF Strategy": {
+        "Hold": 2,
+        "Weak Buy": 7
+      },
+      "RSIMACD Strategy": {
+        "Buy": 1,
+        "Hold": 2,
+        "Weak Buy": 6
+      },
+      "Rolling Std10 Strategy": {
+        "Hold": 2,
+        "Weak Buy": 7
+      },
+      "Rolling Std50 Strategy": {
+        "Weak Buy": 9
+      }
+    },
     "ticker": "BNAI"
   },
   "BNOI": {
     "file_path": "Strategies_BNOI.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 19,
+        "Weak Buy": 76,
+        "Weak Sell": 76
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 19,
+        "Weak Buy": 76,
+        "Weak Sell": 76
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 19,
+        "Weak Buy": 76,
+        "Weak Sell": 76
+      },
+      "MACD Strategy": {
+        "Buy": 3,
+        "Hold": 15,
+        "Sell": 8,
+        "Weak Buy": 72,
+        "Weak Sell": 73
+      },
+      "OBV Strategy": {
+        "Buy": 16,
+        "Hold": 12,
+        "Sell": 15,
+        "Strong Buy": 69,
+        "Strong Sell": 31,
+        "Weak Buy": 10,
+        "Weak Sell": 18
+      },
+      "RSI OBV Strategy": {
+        "Buy": 6,
+        "Hold": 19,
+        "Sell": 7,
+        "Strong Buy": 1,
+        "Strong Sell": 5,
+        "Weak Buy": 60,
+        "Weak Sell": 73
+      },
+      "RSI Strategy": {
+        "Buy": 11,
+        "Hold": 17,
+        "Sell": 25,
+        "Strong Buy": 2,
+        "Strong Sell": 18,
+        "Weak Buy": 38,
+        "Weak Sell": 60
+      },
+      "RSI Strategy2": {
+        "Buy": 4,
+        "Hold": 17,
+        "Sell": 22,
+        "Strong Sell": 5,
+        "Weak Buy": 58,
+        "Weak Sell": 65
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 6,
+        "Hold": 19,
+        "Sell": 7,
+        "Strong Buy": 1,
+        "Strong Sell": 5,
+        "Weak Buy": 60,
+        "Weak Sell": 73
+      },
+      "RSICMF Strategy": {
+        "Hold": 19,
+        "Weak Buy": 76,
+        "Weak Sell": 76
+      },
+      "RSIMACD Strategy": {
+        "Buy": 9,
+        "Hold": 16,
+        "Sell": 34,
+        "Weak Buy": 49,
+        "Weak Sell": 63
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 4,
+        "Hold": 14,
+        "Sell": 9,
+        "Strong Buy": 2,
+        "Strong Sell": 3,
+        "Weak Buy": 57,
+        "Weak Sell": 82
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 5,
+        "Hold": 19,
+        "Sell": 2,
+        "Strong Buy": 3,
+        "Strong Sell": 8,
+        "Weak Buy": 48,
+        "Weak Sell": 86
+      }
+    },
     "ticker": "BNOI"
   },
   "BROI": {
     "file_path": "Strategies_BROI.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 27,
+        "Weak Buy": 99,
+        "Weak Sell": 18
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 27,
+        "Weak Buy": 99,
+        "Weak Sell": 18
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 27,
+        "Weak Buy": 99,
+        "Weak Sell": 18
+      },
+      "MACD Strategy": {
+        "Hold": 15,
+        "Weak Buy": 71,
+        "Weak Sell": 58
+      },
+      "OBV Strategy": {
+        "Buy": 3,
+        "Hold": 15,
+        "Sell": 13,
+        "Strong Buy": 30,
+        "Strong Sell": 27,
+        "Weak Buy": 42,
+        "Weak Sell": 14
+      },
+      "RSI OBV Strategy": {
+        "Buy": 5,
+        "Hold": 27,
+        "Sell": 8,
+        "Weak Buy": 85,
+        "Weak Sell": 19
+      },
+      "RSI Strategy": {
+        "Buy": 22,
+        "Hold": 26,
+        "Sell": 2,
+        "Strong Buy": 1,
+        "Weak Buy": 79,
+        "Weak Sell": 14
+      },
+      "RSI Strategy2": {
+        "Buy": 9,
+        "Hold": 26,
+        "Weak Buy": 91,
+        "Weak Sell": 18
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 5,
+        "Hold": 27,
+        "Sell": 8,
+        "Weak Buy": 85,
+        "Weak Sell": 19
+      },
+      "RSICMF Strategy": {
+        "Hold": 27,
+        "Weak Buy": 99,
+        "Weak Sell": 18
+      },
+      "RSIMACD Strategy": {
+        "Buy": 16,
+        "Hold": 22,
+        "Sell": 3,
+        "Weak Buy": 66,
+        "Weak Sell": 37
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 10,
+        "Hold": 15,
+        "Sell": 5,
+        "Strong Buy": 2,
+        "Strong Sell": 1,
+        "Weak Buy": 89,
+        "Weak Sell": 22
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 13,
+        "Hold": 15,
+        "Strong Buy": 5,
+        "Weak Buy": 95,
+        "Weak Sell": 16
+      }
+    },
     "ticker": "BROI"
   },
   "BSUC": {
     "file_path": "Strategies_BSUC.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 50,
+        "Weak Buy": 39,
+        "Weak Sell": 32
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 50,
+        "Weak Buy": 39,
+        "Weak Sell": 32
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 50,
+        "Weak Buy": 39,
+        "Weak Sell": 32
+      },
+      "MACD Strategy": {
+        "Hold": 25,
+        "Weak Buy": 36,
+        "Weak Sell": 60
+      },
+      "OBV Strategy": {
+        "Buy": 1,
+        "Hold": 39,
+        "Strong Buy": 30,
+        "Strong Sell": 37,
+        "Weak Buy": 14
+      },
+      "RSI OBV Strategy": {
+        "Buy": 2,
+        "Hold": 50,
+        "Sell": 8,
+        "Weak Buy": 35,
+        "Weak Sell": 26
+      },
+      "RSI Strategy": {
+        "Buy": 3,
+        "Hold": 48,
+        "Weak Buy": 31,
+        "Weak Sell": 39
+      },
+      "RSI Strategy2": {
+        "Hold": 48,
+        "Weak Buy": 35,
+        "Weak Sell": 38
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 2,
+        "Hold": 50,
+        "Sell": 8,
+        "Weak Buy": 35,
+        "Weak Sell": 26
+      },
+      "RSICMF Strategy": {
+        "Hold": 50,
+        "Weak Buy": 39,
+        "Weak Sell": 32
+      },
+      "RSIMACD Strategy": {
+        "Buy": 2,
+        "Hold": 39,
+        "Sell": 3,
+        "Weak Buy": 30,
+        "Weak Sell": 47
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 7,
+        "Hold": 48,
+        "Sell": 6,
+        "Strong Sell": 3,
+        "Weak Buy": 27,
+        "Weak Sell": 30
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 8,
+        "Hold": 47,
+        "Weak Buy": 31,
+        "Weak Sell": 35
+      }
+    },
     "ticker": "BSUC"
   },
   "BTIB": {
     "file_path": "Strategies_BTIB.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 7,
+        "Weak Buy": 13,
+        "Weak Sell": 35
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 7,
+        "Weak Buy": 13,
+        "Weak Sell": 35
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 7,
+        "Weak Buy": 13,
+        "Weak Sell": 35
+      },
+      "MACD Strategy": {
+        "Weak Buy": 25,
+        "Weak Sell": 30
+      },
+      "OBV Strategy": {
+        "Buy": 1,
+        "Hold": 7,
+        "Strong Buy": 17,
+        "Strong Sell": 12,
+        "Weak Buy": 1,
+        "Weak Sell": 17
+      },
+      "RSI OBV Strategy": {
+        "Hold": 7,
+        "Sell": 4,
+        "Strong Sell": 2,
+        "Weak Buy": 8,
+        "Weak Sell": 34
+      },
+      "RSI Strategy": {
+        "Hold": 3,
+        "Sell": 4,
+        "Strong Buy": 1,
+        "Strong Sell": 11,
+        "Weak Buy": 12,
+        "Weak Sell": 24
+      },
+      "RSI Strategy2": {
+        "Hold": 7,
+        "Sell": 2,
+        "Strong Buy": 1,
+        "Strong Sell": 11,
+        "Weak Buy": 12,
+        "Weak Sell": 22
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 7,
+        "Sell": 4,
+        "Strong Sell": 2,
+        "Weak Buy": 8,
+        "Weak Sell": 34
+      },
+      "RSICMF Strategy": {
+        "Hold": 7,
+        "Weak Buy": 13,
+        "Weak Sell": 35
+      },
+      "RSIMACD Strategy": {
+        "Buy": 1,
+        "Sell": 7,
+        "Weak Buy": 11,
+        "Weak Sell": 36
+      },
+      "Rolling Std10 Strategy": {
+        "Hold": 1,
+        "Sell": 3,
+        "Strong Buy": 1,
+        "Strong Sell": 2,
+        "Weak Buy": 22,
+        "Weak Sell": 26
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 7,
+        "Sell": 4,
+        "Strong Sell": 6,
+        "Weak Buy": 13,
+        "Weak Sell": 25
+      }
+    },
     "ticker": "BTIB"
   },
   "BUND": {
     "file_path": "Strategies_BUND.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 12,
+        "Weak Buy": 21
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 12,
+        "Weak Buy": 21
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 12,
+        "Weak Buy": 21
+      },
+      "MACD Strategy": {
+        "Weak Buy": 14,
+        "Weak Sell": 19
+      },
+      "OBV Strategy": {
+        "Buy": 8,
+        "Hold": 10,
+        "Strong Buy": 9,
+        "Weak Buy": 4,
+        "Weak Sell": 2
+      },
+      "RSI OBV Strategy": {
+        "Buy": 2,
+        "Hold": 12,
+        "Weak Buy": 19
+      },
+      "RSI Strategy": {
+        "Hold": 12,
+        "Weak Buy": 20,
+        "Weak Sell": 1
+      },
+      "RSI Strategy2": {
+        "Hold": 12,
+        "Weak Buy": 20,
+        "Weak Sell": 1
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 2,
+        "Hold": 12,
+        "Weak Buy": 19
+      },
+      "RSICMF Strategy": {
+        "Hold": 12,
+        "Weak Buy": 21
+      },
+      "RSIMACD Strategy": {
+        "Hold": 12,
+        "Weak Buy": 14,
+        "Weak Sell": 7
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 4,
+        "Hold": 5,
+        "Sell": 1,
+        "Strong Buy": 1,
+        "Weak Buy": 22
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 12,
+        "Weak Buy": 21
+      }
+    },
     "ticker": "BUND"
   },
   "BUOI": {
     "file_path": "Strategies_BUOI.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 22,
+        "Weak Sell": 1
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 22,
+        "Weak Sell": 1
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 22,
+        "Weak Sell": 1
+      },
+      "MACD Strategy": {
+        "Hold": 22,
+        "Weak Sell": 1
+      },
+      "OBV Strategy": {
+        "Hold": 16,
+        "Strong Sell": 7
+      },
+      "RSI OBV Strategy": {
+        "Hold": 22,
+        "Weak Sell": 1
+      },
+      "RSI Strategy": {
+        "Hold": 22,
+        "Weak Sell": 1
+      },
+      "RSI Strategy2": {
+        "Hold": 22,
+        "Weak Sell": 1
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 22,
+        "Weak Sell": 1
+      },
+      "RSICMF Strategy": {
+        "Hold": 22,
+        "Weak Sell": 1
+      },
+      "RSIMACD Strategy": {
+        "Hold": 22,
+        "Weak Sell": 1
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 2,
+        "Hold": 17,
+        "Strong Buy": 1,
+        "Weak Buy": 2,
+        "Weak Sell": 1
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 22,
+        "Weak Sell": 1
+      }
+    },
     "ticker": "BUOI"
   },
   "HASH": {
     "file_path": "Strategies_HASH.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 15,
+        "Weak Buy": 16,
+        "Weak Sell": 39
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 15,
+        "Weak Buy": 16,
+        "Weak Sell": 39
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 15,
+        "Weak Buy": 16,
+        "Weak Sell": 39
+      },
+      "MACD Strategy": {
+        "Buy": 6,
+        "Sell": 5,
+        "Strong Buy": 19,
+        "Strong Sell": 25,
+        "Weak Buy": 6,
+        "Weak Sell": 9
+      },
+      "OBV Strategy": {
+        "Hold": 15,
+        "Strong Buy": 19,
+        "Strong Sell": 1,
+        "Weak Buy": 8,
+        "Weak Sell": 27
+      },
+      "RSI OBV Strategy": {
+        "Hold": 15,
+        "Weak Buy": 16,
+        "Weak Sell": 39
+      },
+      "RSI Strategy": {
+        "Hold": 13,
+        "Sell": 10,
+        "Strong Sell": 3,
+        "Weak Buy": 9,
+        "Weak Sell": 35
+      },
+      "RSI Strategy2": {
+        "Hold": 15,
+        "Sell": 4,
+        "Strong Sell": 1,
+        "Weak Buy": 10,
+        "Weak Sell": 40
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 15,
+        "Weak Buy": 16,
+        "Weak Sell": 39
+      },
+      "RSICMF Strategy": {
+        "Hold": 15,
+        "Weak Buy": 16,
+        "Weak Sell": 39
+      },
+      "RSIMACD Strategy": {
+        "Buy": 1,
+        "Sell": 19,
+        "Weak Buy": 17,
+        "Weak Sell": 33
+      },
+      "Rolling Std10 Strategy": {
+        "Hold": 5,
+        "Sell": 2,
+        "Strong Buy": 2,
+        "Strong Sell": 1,
+        "Weak Buy": 17,
+        "Weak Sell": 43
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 1,
+        "Hold": 13,
+        "Sell": 8,
+        "Strong Sell": 1,
+        "Weak Buy": 5,
+        "Weak Sell": 42
+      }
+    },
     "ticker": "HASH"
   },
   "HBAG": {
     "file_path": "Strategies_HBAG.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 41,
+        "Weak Buy": 50,
+        "Weak Sell": 50
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 41,
+        "Weak Buy": 50,
+        "Weak Sell": 50
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 41,
+        "Weak Buy": 50,
+        "Weak Sell": 50
+      },
+      "MACD Strategy": {
+        "Buy": 16,
+        "Sell": 6,
+        "Strong Buy": 2,
+        "Strong Sell": 10,
+        "Weak Buy": 71,
+        "Weak Sell": 36
+      },
+      "OBV Strategy": {
+        "Buy": 7,
+        "Hold": 36,
+        "Sell": 8,
+        "Strong Buy": 11,
+        "Strong Sell": 7,
+        "Weak Buy": 41,
+        "Weak Sell": 31
+      },
+      "RSI OBV Strategy": {
+        "Buy": 1,
+        "Hold": 41,
+        "Sell": 10,
+        "Strong Buy": 1,
+        "Strong Sell": 1,
+        "Weak Buy": 45,
+        "Weak Sell": 42
+      },
+      "RSI Strategy": {
+        "Buy": 7,
+        "Hold": 35,
+        "Sell": 16,
+        "Strong Buy": 6,
+        "Strong Sell": 6,
+        "Weak Buy": 36,
+        "Weak Sell": 35
+      },
+      "RSI Strategy2": {
+        "Buy": 4,
+        "Hold": 39,
+        "Sell": 8,
+        "Strong Buy": 5,
+        "Strong Sell": 3,
+        "Weak Buy": 39,
+        "Weak Sell": 43
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 1,
+        "Hold": 41,
+        "Sell": 10,
+        "Strong Buy": 1,
+        "Strong Sell": 1,
+        "Weak Buy": 45,
+        "Weak Sell": 42
+      },
+      "RSICMF Strategy": {
+        "Hold": 41,
+        "Weak Buy": 50,
+        "Weak Sell": 50
+      },
+      "RSIMACD Strategy": {
+        "Buy": 15,
+        "Hold": 10,
+        "Sell": 11,
+        "Weak Buy": 57,
+        "Weak Sell": 48
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 1,
+        "Hold": 12,
+        "Sell": 4,
+        "Strong Buy": 3,
+        "Strong Sell": 4,
+        "Weak Buy": 51,
+        "Weak Sell": 66
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 19,
+        "Sell": 2,
+        "Strong Buy": 2,
+        "Strong Sell": 14,
+        "Weak Buy": 53,
+        "Weak Sell": 51
+      }
+    },
     "ticker": "HBAG"
   },
   "HBAY": {
     "file_path": "Strategies_HBAY.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 33,
+        "Weak Buy": 33,
+        "Weak Sell": 4
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 33,
+        "Weak Buy": 33,
+        "Weak Sell": 4
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 33,
+        "Weak Buy": 33,
+        "Weak Sell": 4
+      },
+      "MACD Strategy": {
+        "Buy": 3,
+        "Sell": 3,
+        "Strong Buy": 24,
+        "Strong Sell": 37,
+        "Weak Buy": 2,
+        "Weak Sell": 1
+      },
+      "OBV Strategy": {
+        "Hold": 33,
+        "Weak Buy": 33,
+        "Weak Sell": 4
+      },
+      "RSI OBV Strategy": {
+        "Hold": 33,
+        "Weak Buy": 33,
+        "Weak Sell": 4
+      },
+      "RSI Strategy": {
+        "Buy": 10,
+        "Hold": 29,
+        "Sell": 3,
+        "Strong Buy": 9,
+        "Strong Sell": 1,
+        "Weak Buy": 12,
+        "Weak Sell": 6
+      },
+      "RSI Strategy2": {
+        "Buy": 1,
+        "Hold": 31,
+        "Sell": 2,
+        "Strong Buy": 8,
+        "Weak Buy": 22,
+        "Weak Sell": 6
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 33,
+        "Weak Buy": 33,
+        "Weak Sell": 4
+      },
+      "RSICMF Strategy": {
+        "Hold": 33,
+        "Weak Buy": 33,
+        "Weak Sell": 4
+      },
+      "RSIMACD Strategy": {
+        "Buy": 7,
+        "Hold": 1,
+        "Sell": 1,
+        "Weak Buy": 38,
+        "Weak Sell": 23
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 2,
+        "Hold": 11,
+        "Sell": 1,
+        "Strong Buy": 1,
+        "Strong Sell": 2,
+        "Weak Buy": 41,
+        "Weak Sell": 12
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 5,
+        "Hold": 15,
+        "Strong Buy": 2,
+        "Weak Buy": 44,
+        "Weak Sell": 4
+      }
+    },
     "ticker": "HBAY"
   },
   "HISH": {
     "file_path": "Strategies_HISH.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 25,
+        "Weak Buy": 107,
+        "Weak Sell": 52
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 25,
+        "Weak Buy": 107,
+        "Weak Sell": 52
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 25,
+        "Weak Buy": 107,
+        "Weak Sell": 52
+      },
+      "MACD Strategy": {
+        "Buy": 17,
+        "Hold": 1,
+        "Sell": 27,
+        "Weak Buy": 66,
+        "Weak Sell": 73
+      },
+      "OBV Strategy": {
+        "Buy": 14,
+        "Hold": 6,
+        "Sell": 24,
+        "Strong Buy": 24,
+        "Strong Sell": 34,
+        "Weak Buy": 49,
+        "Weak Sell": 33
+      },
+      "RSI OBV Strategy": {
+        "Buy": 8,
+        "Hold": 25,
+        "Sell": 4,
+        "Strong Sell": 4,
+        "Weak Buy": 91,
+        "Weak Sell": 52
+      },
+      "RSI Strategy": {
+        "Buy": 19,
+        "Hold": 17,
+        "Sell": 16,
+        "Strong Buy": 29,
+        "Strong Sell": 13,
+        "Weak Buy": 54,
+        "Weak Sell": 36
+      },
+      "RSI Strategy2": {
+        "Buy": 15,
+        "Hold": 20,
+        "Sell": 12,
+        "Strong Buy": 19,
+        "Strong Sell": 6,
+        "Weak Buy": 71,
+        "Weak Sell": 41
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 8,
+        "Hold": 25,
+        "Sell": 4,
+        "Strong Sell": 4,
+        "Weak Buy": 91,
+        "Weak Sell": 52
+      },
+      "RSICMF Strategy": {
+        "Hold": 25,
+        "Weak Buy": 107,
+        "Weak Sell": 52
+      },
+      "RSIMACD Strategy": {
+        "Buy": 22,
+        "Hold": 11,
+        "Sell": 21,
+        "Weak Buy": 75,
+        "Weak Sell": 55
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 8,
+        "Hold": 14,
+        "Sell": 9,
+        "Strong Buy": 4,
+        "Strong Sell": 2,
+        "Weak Buy": 102,
+        "Weak Sell": 45
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 8,
+        "Hold": 18,
+        "Sell": 5,
+        "Strong Buy": 2,
+        "Strong Sell": 9,
+        "Weak Buy": 84,
+        "Weak Sell": 58
+      }
+    },
     "ticker": "HISH"
   },
   "HKAR": {
     "file_path": "Strategies_HKAR.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 22,
+        "Weak Buy": 44,
+        "Weak Sell": 16
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 22,
+        "Weak Buy": 44,
+        "Weak Sell": 16
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 22,
+        "Weak Buy": 44,
+        "Weak Sell": 16
+      },
+      "MACD Strategy": {
+        "Buy": 6,
+        "Weak Buy": 26,
+        "Weak Sell": 50
+      },
+      "OBV Strategy": {
+        "Buy": 7,
+        "Hold": 22,
+        "Strong Buy": 10,
+        "Weak Buy": 29,
+        "Weak Sell": 14
+      },
+      "RSI OBV Strategy": {
+        "Buy": 1,
+        "Hold": 22,
+        "Weak Buy": 43,
+        "Weak Sell": 16
+      },
+      "RSI Strategy": {
+        "Buy": 9,
+        "Hold": 17,
+        "Sell": 3,
+        "Strong Buy": 12,
+        "Strong Sell": 9,
+        "Weak Buy": 23,
+        "Weak Sell": 9
+      },
+      "RSI Strategy2": {
+        "Buy": 11,
+        "Hold": 20,
+        "Sell": 3,
+        "Strong Buy": 5,
+        "Strong Sell": 7,
+        "Weak Buy": 28,
+        "Weak Sell": 8
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 1,
+        "Hold": 22,
+        "Weak Buy": 43,
+        "Weak Sell": 16
+      },
+      "RSICMF Strategy": {
+        "Hold": 22,
+        "Weak Buy": 44,
+        "Weak Sell": 16
+      },
+      "RSIMACD Strategy": {
+        "Buy": 8,
+        "Hold": 8,
+        "Sell": 4,
+        "Weak Buy": 28,
+        "Weak Sell": 34
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 5,
+        "Hold": 9,
+        "Sell": 5,
+        "Strong Buy": 2,
+        "Weak Buy": 46,
+        "Weak Sell": 15
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 6,
+        "Hold": 15,
+        "Sell": 3,
+        "Strong Buy": 2,
+        "Strong Sell": 3,
+        "Weak Buy": 37,
+        "Weak Sell": 16
+      }
+    },
     "ticker": "HKAR"
   },
   "HMAN": {
     "file_path": "Strategies_HMAN.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 46,
+        "Weak Buy": 36,
+        "Weak Sell": 12
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 46,
+        "Weak Buy": 36,
+        "Weak Sell": 12
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 46,
+        "Weak Buy": 36,
+        "Weak Sell": 12
+      },
+      "MACD Strategy": {
+        "Buy": 8,
+        "Sell": 7,
+        "Strong Buy": 30,
+        "Strong Sell": 31,
+        "Weak Buy": 8,
+        "Weak Sell": 10
+      },
+      "OBV Strategy": {
+        "Hold": 46,
+        "Weak Buy": 32,
+        "Weak Sell": 16
+      },
+      "RSI OBV Strategy": {
+        "Hold": 46,
+        "Weak Buy": 36,
+        "Weak Sell": 12
+      },
+      "RSI Strategy": {
+        "Buy": 14,
+        "Hold": 46,
+        "Strong Buy": 3,
+        "Strong Sell": 5,
+        "Weak Buy": 11,
+        "Weak Sell": 15
+      },
+      "RSI Strategy2": {
+        "Buy": 13,
+        "Hold": 46,
+        "Strong Buy": 1,
+        "Strong Sell": 5,
+        "Weak Buy": 16,
+        "Weak Sell": 13
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 46,
+        "Weak Buy": 36,
+        "Weak Sell": 12
+      },
+      "RSICMF Strategy": {
+        "Hold": 46,
+        "Weak Buy": 36,
+        "Weak Sell": 12
+      },
+      "RSIMACD Strategy": {
+        "Buy": 3,
+        "Hold": 43,
+        "Sell": 6,
+        "Weak Buy": 29,
+        "Weak Sell": 13
+      },
+      "Rolling Std10 Strategy": {
+        "Hold": 28,
+        "Sell": 1,
+        "Strong Buy": 4,
+        "Strong Sell": 5,
+        "Weak Buy": 44,
+        "Weak Sell": 12
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 1,
+        "Hold": 34,
+        "Sell": 3,
+        "Strong Sell": 6,
+        "Weak Buy": 36,
+        "Weak Sell": 14
+      }
+    },
     "ticker": "HMAN"
   },
   "HNTI": {
     "file_path": "Strategies_HNTI.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 28,
+        "Weak Buy": 32,
+        "Weak Sell": 35
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 28,
+        "Weak Buy": 32,
+        "Weak Sell": 35
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 28,
+        "Weak Buy": 32,
+        "Weak Sell": 35
+      },
+      "MACD Strategy": {
+        "Buy": 14,
+        "Sell": 8,
+        "Strong Buy": 13,
+        "Strong Sell": 8,
+        "Weak Buy": 35,
+        "Weak Sell": 17
+      },
+      "OBV Strategy": {
+        "Hold": 26,
+        "Sell": 2,
+        "Strong Sell": 8,
+        "Weak Buy": 39,
+        "Weak Sell": 20
+      },
+      "RSI OBV Strategy": {
+        "Hold": 28,
+        "Sell": 3,
+        "Strong Sell": 7,
+        "Weak Buy": 32,
+        "Weak Sell": 25
+      },
+      "RSI Strategy": {
+        "Buy": 5,
+        "Hold": 16,
+        "Sell": 20,
+        "Strong Buy": 9,
+        "Strong Sell": 5,
+        "Weak Buy": 21,
+        "Weak Sell": 19
+      },
+      "RSI Strategy2": {
+        "Buy": 5,
+        "Hold": 23,
+        "Sell": 14,
+        "Strong Buy": 8,
+        "Strong Sell": 1,
+        "Weak Buy": 18,
+        "Weak Sell": 26
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 28,
+        "Sell": 3,
+        "Strong Sell": 7,
+        "Weak Buy": 32,
+        "Weak Sell": 25
+      },
+      "RSICMF Strategy": {
+        "Hold": 28,
+        "Weak Buy": 32,
+        "Weak Sell": 35
+      },
+      "RSIMACD Strategy": {
+        "Buy": 13,
+        "Hold": 12,
+        "Sell": 5,
+        "Weak Buy": 29,
+        "Weak Sell": 36
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 1,
+        "Hold": 8,
+        "Sell": 4,
+        "Strong Buy": 1,
+        "Strong Sell": 2,
+        "Weak Buy": 37,
+        "Weak Sell": 42
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 6,
+        "Hold": 12,
+        "Sell": 3,
+        "Strong Buy": 1,
+        "Strong Sell": 3,
+        "Weak Buy": 34,
+        "Weak Sell": 36
+      }
+    },
     "ticker": "HNTI"
   },
   "HTVM": {
     "file_path": "Strategies_HTVM.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 8,
+        "Weak Buy": 2
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 8,
+        "Weak Buy": 2
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 8,
+        "Weak Buy": 2
+      },
+      "MACD Strategy": {
+        "Strong Sell": 10
+      },
+      "OBV Strategy": {
+        "Hold": 1,
+        "Weak Sell": 9
+      },
+      "RSI OBV Strategy": {
+        "Hold": 8,
+        "Weak Buy": 2
+      },
+      "RSI Strategy": {
+        "Hold": 8,
+        "Strong Buy": 1,
+        "Weak Buy": 1
+      },
+      "RSI Strategy2": {
+        "Buy": 1,
+        "Hold": 8,
+        "Weak Buy": 1
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 8,
+        "Weak Buy": 2
+      },
+      "RSICMF Strategy": {
+        "Hold": 8,
+        "Weak Buy": 2
+      },
+      "RSIMACD Strategy": {
+        "Hold": 7,
+        "Weak Buy": 1,
+        "Weak Sell": 2
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 1,
+        "Weak Buy": 9
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 6,
+        "Weak Buy": 4
+      }
+    },
     "ticker": "HTVM"
   },
   "IBPM": {
     "file_path": "Strategies_IBPM.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 18,
+        "Weak Buy": 16,
+        "Weak Sell": 1
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 18,
+        "Weak Buy": 16,
+        "Weak Sell": 1
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 18,
+        "Weak Buy": 16,
+        "Weak Sell": 1
+      },
+      "MACD Strategy": {
+        "Buy": 2,
+        "Weak Buy": 31,
+        "Weak Sell": 2
+      },
+      "OBV Strategy": {
+        "Buy": 1,
+        "Hold": 17,
+        "Weak Buy": 15,
+        "Weak Sell": 2
+      },
+      "RSI OBV Strategy": {
+        "Hold": 18,
+        "Weak Buy": 16,
+        "Weak Sell": 1
+      },
+      "RSI Strategy": {
+        "Buy": 1,
+        "Hold": 17,
+        "Sell": 1,
+        "Weak Buy": 10,
+        "Weak Sell": 6
+      },
+      "RSI Strategy2": {
+        "Hold": 17,
+        "Weak Buy": 14,
+        "Weak Sell": 4
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 18,
+        "Weak Buy": 16,
+        "Weak Sell": 1
+      },
+      "RSICMF Strategy": {
+        "Hold": 18,
+        "Weak Buy": 16,
+        "Weak Sell": 1
+      },
+      "RSIMACD Strategy": {
+        "Buy": 6,
+        "Hold": 1,
+        "Sell": 1,
+        "Weak Buy": 27
+      },
+      "Rolling Std10 Strategy": {
+        "Hold": 12,
+        "Sell": 1,
+        "Strong Sell": 3,
+        "Weak Buy": 16,
+        "Weak Sell": 3
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 7,
+        "Weak Buy": 16,
+        "Weak Sell": 12
+      }
+    },
     "ticker": "IBPM"
   },
   "IBSD": {
     "file_path": "Strategies_IBSD.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 58,
+        "Weak Buy": 57,
+        "Weak Sell": 102
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 58,
+        "Weak Buy": 57,
+        "Weak Sell": 102
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 58,
+        "Weak Buy": 57,
+        "Weak Sell": 102
+      },
+      "MACD Strategy": {
+        "Hold": 4,
+        "Sell": 1,
+        "Weak Buy": 114,
+        "Weak Sell": 98
+      },
+      "OBV Strategy": {
+        "Hold": 58,
+        "Sell": 9,
+        "Weak Buy": 47,
+        "Weak Sell": 103
+      },
+      "RSI OBV Strategy": {
+        "Hold": 58,
+        "Weak Buy": 54,
+        "Weak Sell": 105
+      },
+      "RSI Strategy": {
+        "Buy": 18,
+        "Hold": 42,
+        "Sell": 28,
+        "Strong Buy": 2,
+        "Strong Sell": 15,
+        "Weak Buy": 44,
+        "Weak Sell": 68
+      },
+      "RSI Strategy2": {
+        "Buy": 9,
+        "Hold": 53,
+        "Sell": 20,
+        "Strong Sell": 6,
+        "Weak Buy": 50,
+        "Weak Sell": 79
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 58,
+        "Weak Buy": 54,
+        "Weak Sell": 105
+      },
+      "RSICMF Strategy": {
+        "Hold": 58,
+        "Weak Buy": 57,
+        "Weak Sell": 102
+      },
+      "RSIMACD Strategy": {
+        "Buy": 16,
+        "Hold": 7,
+        "Sell": 24,
+        "Weak Buy": 74,
+        "Weak Sell": 96
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 9,
+        "Hold": 22,
+        "Sell": 8,
+        "Strong Buy": 2,
+        "Weak Buy": 75,
+        "Weak Sell": 101
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 3,
+        "Hold": 37,
+        "Sell": 15,
+        "Strong Sell": 9,
+        "Weak Buy": 67,
+        "Weak Sell": 86
+      }
+    },
     "ticker": "IBSD"
   },
   "IFCM": {
     "file_path": "Strategies_IFCM.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 67,
+        "Weak Buy": 105,
+        "Weak Sell": 9
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 67,
+        "Weak Buy": 105,
+        "Weak Sell": 9
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 67,
+        "Weak Buy": 105,
+        "Weak Sell": 9
+      },
+      "MACD Strategy": {
+        "Weak Buy": 93,
+        "Weak Sell": 88
+      },
+      "OBV Strategy": {
+        "Hold": 67,
+        "Weak Buy": 105,
+        "Weak Sell": 9
+      },
+      "RSI OBV Strategy": {
+        "Hold": 67,
+        "Weak Buy": 105,
+        "Weak Sell": 9
+      },
+      "RSI Strategy": {
+        "Buy": 23,
+        "Hold": 62,
+        "Sell": 1,
+        "Strong Buy": 18,
+        "Weak Buy": 60,
+        "Weak Sell": 17
+      },
+      "RSI Strategy2": {
+        "Buy": 18,
+        "Hold": 67,
+        "Strong Buy": 7,
+        "Weak Buy": 80,
+        "Weak Sell": 9
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 67,
+        "Weak Buy": 105,
+        "Weak Sell": 9
+      },
+      "RSICMF Strategy": {
+        "Hold": 67,
+        "Weak Buy": 105,
+        "Weak Sell": 9
+      },
+      "RSIMACD Strategy": {
+        "Buy": 29,
+        "Hold": 2,
+        "Sell": 5,
+        "Weak Buy": 100,
+        "Weak Sell": 45
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 8,
+        "Hold": 25,
+        "Sell": 4,
+        "Strong Buy": 1,
+        "Strong Sell": 4,
+        "Weak Buy": 112,
+        "Weak Sell": 27
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 12,
+        "Hold": 34,
+        "Strong Buy": 8,
+        "Weak Buy": 111,
+        "Weak Sell": 16
+      }
+    },
     "ticker": "IFCM"
   },
   "IHFI": {
     "file_path": "Strategies_IHFI.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 10,
+        "Weak Buy": 102,
+        "Weak Sell": 6
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 10,
+        "Weak Buy": 102,
+        "Weak Sell": 6
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 10,
+        "Weak Buy": 102,
+        "Weak Sell": 6
+      },
+      "MACD Strategy": {
+        "Sell": 3,
+        "Weak Buy": 63,
+        "Weak Sell": 52
+      },
+      "OBV Strategy": {
+        "Buy": 12,
+        "Hold": 3,
+        "Sell": 16,
+        "Strong Buy": 7,
+        "Strong Sell": 43,
+        "Weak Buy": 24,
+        "Weak Sell": 13
+      },
+      "RSI OBV Strategy": {
+        "Buy": 3,
+        "Hold": 10,
+        "Sell": 11,
+        "Weak Buy": 74,
+        "Weak Sell": 20
+      },
+      "RSI Strategy": {
+        "Buy": 19,
+        "Hold": 8,
+        "Strong Buy": 16,
+        "Strong Sell": 2,
+        "Weak Buy": 64,
+        "Weak Sell": 9
+      },
+      "RSI Strategy2": {
+        "Buy": 11,
+        "Hold": 10,
+        "Strong Buy": 10,
+        "Strong Sell": 2,
+        "Weak Buy": 77,
+        "Weak Sell": 8
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 3,
+        "Hold": 10,
+        "Sell": 11,
+        "Weak Buy": 74,
+        "Weak Sell": 20
+      },
+      "RSICMF Strategy": {
+        "Hold": 10,
+        "Weak Buy": 102,
+        "Weak Sell": 6
+      },
+      "RSIMACD Strategy": {
+        "Buy": 26,
+        "Hold": 7,
+        "Weak Buy": 65,
+        "Weak Sell": 20
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 8,
+        "Hold": 2,
+        "Sell": 2,
+        "Strong Buy": 2,
+        "Weak Buy": 83,
+        "Weak Sell": 21
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 13,
+        "Strong Buy": 5,
+        "Weak Buy": 98,
+        "Weak Sell": 2
+      }
+    },
     "ticker": "IHFI"
   },
   "IHLI": {
     "file_path": "Strategies_IHLI.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 6,
+        "Weak Buy": 13,
+        "Weak Sell": 33
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 6,
+        "Weak Buy": 13,
+        "Weak Sell": 33
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 6,
+        "Weak Buy": 13,
+        "Weak Sell": 33
+      },
+      "MACD Strategy": {
+        "Buy": 9,
+        "Sell": 2,
+        "Strong Buy": 7,
+        "Weak Buy": 7,
+        "Weak Sell": 27
+      },
+      "OBV Strategy": {
+        "Buy": 10,
+        "Hold": 3,
+        "Weak Buy": 13,
+        "Weak Sell": 26
+      },
+      "RSI OBV Strategy": {
+        "Buy": 2,
+        "Hold": 6,
+        "Strong Buy": 3,
+        "Weak Buy": 8,
+        "Weak Sell": 33
+      },
+      "RSI Strategy": {
+        "Buy": 6,
+        "Hold": 6,
+        "Sell": 1,
+        "Strong Sell": 26,
+        "Weak Buy": 7,
+        "Weak Sell": 6
+      },
+      "RSI Strategy2": {
+        "Buy": 3,
+        "Hold": 6,
+        "Sell": 7,
+        "Strong Sell": 19,
+        "Weak Buy": 10,
+        "Weak Sell": 7
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 2,
+        "Hold": 6,
+        "Strong Buy": 3,
+        "Weak Buy": 8,
+        "Weak Sell": 33
+      },
+      "RSICMF Strategy": {
+        "Hold": 6,
+        "Weak Buy": 13,
+        "Weak Sell": 33
+      },
+      "RSIMACD Strategy": {
+        "Hold": 3,
+        "Sell": 12,
+        "Weak Buy": 6,
+        "Weak Sell": 31
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 3,
+        "Hold": 2,
+        "Sell": 2,
+        "Strong Sell": 5,
+        "Weak Buy": 18,
+        "Weak Sell": 22
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 3,
+        "Sell": 2,
+        "Strong Sell": 6,
+        "Weak Sell": 41
+      }
+    },
     "ticker": "IHLI"
   },
   "IIDP": {
     "file_path": "Strategies_IIDP.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 37,
+        "Weak Buy": 72,
+        "Weak Sell": 46
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 37,
+        "Weak Buy": 72,
+        "Weak Sell": 46
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 37,
+        "Weak Buy": 72,
+        "Weak Sell": 46
+      },
+      "MACD Strategy": {
+        "Buy": 16,
+        "Sell": 10,
+        "Strong Buy": 14,
+        "Strong Sell": 20,
+        "Weak Buy": 50,
+        "Weak Sell": 45
+      },
+      "OBV Strategy": {
+        "Buy": 4,
+        "Hold": 37,
+        "Strong Buy": 20,
+        "Weak Buy": 71,
+        "Weak Sell": 23
+      },
+      "RSI OBV Strategy": {
+        "Hold": 37,
+        "Weak Buy": 72,
+        "Weak Sell": 46
+      },
+      "RSI Strategy": {
+        "Buy": 23,
+        "Hold": 23,
+        "Sell": 9,
+        "Strong Buy": 2,
+        "Strong Sell": 23,
+        "Weak Buy": 55,
+        "Weak Sell": 20
+      },
+      "RSI Strategy2": {
+        "Buy": 8,
+        "Hold": 35,
+        "Sell": 12,
+        "Strong Sell": 15,
+        "Weak Buy": 66,
+        "Weak Sell": 19
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 37,
+        "Weak Buy": 72,
+        "Weak Sell": 46
+      },
+      "RSICMF Strategy": {
+        "Hold": 37,
+        "Weak Buy": 72,
+        "Weak Sell": 46
+      },
+      "RSIMACD Strategy": {
+        "Buy": 17,
+        "Hold": 6,
+        "Sell": 12,
+        "Weak Buy": 55,
+        "Weak Sell": 65
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 7,
+        "Hold": 11,
+        "Sell": 7,
+        "Strong Buy": 1,
+        "Strong Sell": 5,
+        "Weak Buy": 76,
+        "Weak Sell": 48
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 8,
+        "Hold": 22,
+        "Sell": 6,
+        "Strong Buy": 3,
+        "Strong Sell": 14,
+        "Weak Buy": 69,
+        "Weak Sell": 33
+      }
+    },
     "ticker": "IIDP"
   },
   "IIEW": {
     "file_path": "Strategies_IIEW.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 3,
+        "Weak Buy": 37,
+        "Weak Sell": 33
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 3,
+        "Weak Buy": 37,
+        "Weak Sell": 33
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 3,
+        "Weak Buy": 37,
+        "Weak Sell": 33
+      },
+      "MACD Strategy": {
+        "Buy": 7,
+        "Sell": 8,
+        "Strong Buy": 19,
+        "Strong Sell": 31,
+        "Weak Buy": 7,
+        "Weak Sell": 1
+      },
+      "OBV Strategy": {
+        "Buy": 1,
+        "Hold": 3,
+        "Sell": 15,
+        "Strong Buy": 25,
+        "Strong Sell": 17,
+        "Weak Buy": 9,
+        "Weak Sell": 3
+      },
+      "RSI OBV Strategy": {
+        "Buy": 8,
+        "Hold": 3,
+        "Sell": 7,
+        "Strong Buy": 1,
+        "Strong Sell": 4,
+        "Weak Buy": 21,
+        "Weak Sell": 29
+      },
+      "RSI Strategy": {
+        "Buy": 5,
+        "Hold": 3,
+        "Sell": 4,
+        "Strong Buy": 7,
+        "Strong Sell": 13,
+        "Weak Buy": 24,
+        "Weak Sell": 17
+      },
+      "RSI Strategy2": {
+        "Buy": 3,
+        "Hold": 3,
+        "Sell": 6,
+        "Strong Buy": 6,
+        "Strong Sell": 10,
+        "Weak Buy": 27,
+        "Weak Sell": 18
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 8,
+        "Hold": 3,
+        "Sell": 7,
+        "Strong Buy": 1,
+        "Strong Sell": 4,
+        "Weak Buy": 21,
+        "Weak Sell": 29
+      },
+      "RSICMF Strategy": {
+        "Hold": 3,
+        "Weak Buy": 37,
+        "Weak Sell": 33
+      },
+      "RSIMACD Strategy": {
+        "Buy": 9,
+        "Sell": 9,
+        "Weak Buy": 17,
+        "Weak Sell": 38
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 2,
+        "Hold": 3,
+        "Sell": 5,
+        "Strong Buy": 1,
+        "Weak Buy": 34,
+        "Weak Sell": 28
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 3,
+        "Sell": 4,
+        "Strong Buy": 8,
+        "Strong Sell": 5,
+        "Weak Buy": 22,
+        "Weak Sell": 31
+      }
+    },
     "ticker": "IIEW"
   },
   "IITC": {
     "file_path": "Strategies_IITC.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 23,
+        "Weak Buy": 58,
+        "Weak Sell": 47
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 23,
+        "Weak Buy": 58,
+        "Weak Sell": 47
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 23,
+        "Weak Buy": 58,
+        "Weak Sell": 47
+      },
+      "MACD Strategy": {
+        "Buy": 22,
+        "Sell": 9,
+        "Strong Buy": 13,
+        "Strong Sell": 24,
+        "Weak Buy": 29,
+        "Weak Sell": 31
+      },
+      "OBV Strategy": {
+        "Buy": 1,
+        "Hold": 22,
+        "Sell": 4,
+        "Strong Buy": 5,
+        "Weak Buy": 59,
+        "Weak Sell": 37
+      },
+      "RSI OBV Strategy": {
+        "Buy": 1,
+        "Hold": 23,
+        "Weak Buy": 57,
+        "Weak Sell": 47
+      },
+      "RSI Strategy": {
+        "Buy": 9,
+        "Hold": 16,
+        "Sell": 9,
+        "Strong Buy": 19,
+        "Strong Sell": 24,
+        "Weak Buy": 26,
+        "Weak Sell": 25
+      },
+      "RSI Strategy2": {
+        "Buy": 9,
+        "Hold": 21,
+        "Sell": 17,
+        "Strong Buy": 12,
+        "Strong Sell": 9,
+        "Weak Buy": 33,
+        "Weak Sell": 27
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 1,
+        "Hold": 23,
+        "Weak Buy": 57,
+        "Weak Sell": 47
+      },
+      "RSICMF Strategy": {
+        "Hold": 23,
+        "Weak Buy": 58,
+        "Weak Sell": 47
+      },
+      "RSIMACD Strategy": {
+        "Buy": 2,
+        "Hold": 2,
+        "Sell": 15,
+        "Weak Buy": 61,
+        "Weak Sell": 48
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 7,
+        "Hold": 15,
+        "Sell": 6,
+        "Strong Sell": 3,
+        "Weak Buy": 41,
+        "Weak Sell": 56
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 14,
+        "Sell": 7,
+        "Strong Sell": 1,
+        "Weak Buy": 61,
+        "Weak Sell": 45
+      }
+    },
     "ticker": "IITC"
   },
   "IKHC": {
     "file_path": "Strategies_IKHC.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 21,
+        "Weak Buy": 19,
+        "Weak Sell": 11
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 21,
+        "Weak Buy": 19,
+        "Weak Sell": 11
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 21,
+        "Weak Buy": 19,
+        "Weak Sell": 11
+      },
+      "MACD Strategy": {
+        "Sell": 11,
+        "Strong Sell": 3,
+        "Weak Buy": 12,
+        "Weak Sell": 25
+      },
+      "OBV Strategy": {
+        "Hold": 21,
+        "Weak Buy": 19,
+        "Weak Sell": 11
+      },
+      "RSI OBV Strategy": {
+        "Hold": 21,
+        "Weak Buy": 19,
+        "Weak Sell": 11
+      },
+      "RSI Strategy": {
+        "Buy": 14,
+        "Hold": 17,
+        "Sell": 1,
+        "Strong Buy": 2,
+        "Weak Buy": 3,
+        "Weak Sell": 14
+      },
+      "RSI Strategy2": {
+        "Buy": 12,
+        "Hold": 17,
+        "Sell": 1,
+        "Strong Buy": 2,
+        "Weak Buy": 5,
+        "Weak Sell": 14
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 21,
+        "Weak Buy": 19,
+        "Weak Sell": 11
+      },
+      "RSICMF Strategy": {
+        "Hold": 21,
+        "Weak Buy": 19,
+        "Weak Sell": 11
+      },
+      "RSIMACD Strategy": {
+        "Hold": 19,
+        "Sell": 2,
+        "Weak Buy": 20,
+        "Weak Sell": 10
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 2,
+        "Hold": 2,
+        "Sell": 2,
+        "Strong Buy": 3,
+        "Weak Buy": 33,
+        "Weak Sell": 9
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 7,
+        "Hold": 9,
+        "Weak Buy": 24,
+        "Weak Sell": 11
+      }
+    },
     "ticker": "IKHC"
   },
   "IKLV": {
     "file_path": "Strategies_IKLV.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 48,
+        "Weak Buy": 50,
+        "Weak Sell": 58
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 48,
+        "Weak Buy": 50,
+        "Weak Sell": 58
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 48,
+        "Weak Buy": 50,
+        "Weak Sell": 58
+      },
+      "MACD Strategy": {
+        "Buy": 8,
+        "Sell": 13,
+        "Strong Buy": 5,
+        "Strong Sell": 1,
+        "Weak Buy": 53,
+        "Weak Sell": 76
+      },
+      "OBV Strategy": {
+        "Hold": 45,
+        "Weak Buy": 67,
+        "Weak Sell": 44
+      },
+      "RSI OBV Strategy": {
+        "Hold": 48,
+        "Weak Buy": 50,
+        "Weak Sell": 58
+      },
+      "RSI Strategy": {
+        "Buy": 8,
+        "Hold": 43,
+        "Sell": 13,
+        "Strong Buy": 5,
+        "Strong Sell": 14,
+        "Weak Buy": 40,
+        "Weak Sell": 33
+      },
+      "RSI Strategy2": {
+        "Buy": 3,
+        "Hold": 46,
+        "Sell": 13,
+        "Strong Buy": 5,
+        "Strong Sell": 11,
+        "Weak Buy": 44,
+        "Weak Sell": 34
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 48,
+        "Weak Buy": 50,
+        "Weak Sell": 58
+      },
+      "RSICMF Strategy": {
+        "Hold": 48,
+        "Weak Buy": 50,
+        "Weak Sell": 58
+      },
+      "RSIMACD Strategy": {
+        "Buy": 13,
+        "Hold": 11,
+        "Sell": 22,
+        "Weak Buy": 36,
+        "Weak Sell": 74
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 3,
+        "Hold": 16,
+        "Sell": 12,
+        "Strong Sell": 9,
+        "Weak Buy": 74,
+        "Weak Sell": 42
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 2,
+        "Hold": 20,
+        "Sell": 5,
+        "Strong Sell": 9,
+        "Weak Buy": 71,
+        "Weak Sell": 49
+      }
+    },
     "ticker": "IKLV"
   },
   "IMAP": {
     "file_path": "Strategies_IMAP.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 23,
+        "Weak Buy": 90,
+        "Weak Sell": 87
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 23,
+        "Weak Buy": 90,
+        "Weak Sell": 87
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 23,
+        "Weak Buy": 90,
+        "Weak Sell": 87
+      },
+      "MACD Strategy": {
+        "Hold": 1,
+        "Sell": 2,
+        "Weak Buy": 106,
+        "Weak Sell": 91
+      },
+      "OBV Strategy": {
+        "Buy": 17,
+        "Hold": 12,
+        "Sell": 20,
+        "Strong Buy": 66,
+        "Strong Sell": 34,
+        "Weak Buy": 30,
+        "Weak Sell": 21
+      },
+      "RSI OBV Strategy": {
+        "Buy": 7,
+        "Hold": 23,
+        "Sell": 5,
+        "Strong Sell": 2,
+        "Weak Buy": 78,
+        "Weak Sell": 85
+      },
+      "RSI Strategy": {
+        "Buy": 7,
+        "Hold": 20,
+        "Sell": 17,
+        "Strong Buy": 3,
+        "Strong Sell": 15,
+        "Weak Buy": 76,
+        "Weak Sell": 62
+      },
+      "RSI Strategy2": {
+        "Buy": 7,
+        "Hold": 20,
+        "Sell": 20,
+        "Strong Sell": 2,
+        "Weak Buy": 80,
+        "Weak Sell": 71
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 7,
+        "Hold": 23,
+        "Sell": 5,
+        "Strong Sell": 2,
+        "Weak Buy": 78,
+        "Weak Sell": 85
+      },
+      "RSICMF Strategy": {
+        "Hold": 23,
+        "Weak Buy": 90,
+        "Weak Sell": 87
+      },
+      "RSIMACD Strategy": {
+        "Buy": 17,
+        "Hold": 9,
+        "Sell": 19,
+        "Weak Buy": 62,
+        "Weak Sell": 93
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 2,
+        "Hold": 8,
+        "Sell": 5,
+        "Strong Buy": 3,
+        "Strong Sell": 6,
+        "Weak Buy": 95,
+        "Weak Sell": 81
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 11,
+        "Sell": 15,
+        "Strong Sell": 16,
+        "Weak Buy": 71,
+        "Weak Sell": 87
+      }
+    },
     "ticker": "IMAP"
   },
   "IMIB": {
     "file_path": "Strategies_IMIB.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 9,
+        "Weak Buy": 43,
+        "Weak Sell": 23
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 9,
+        "Weak Buy": 43,
+        "Weak Sell": 23
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 9,
+        "Weak Buy": 43,
+        "Weak Sell": 23
+      },
+      "MACD Strategy": {
+        "Buy": 3,
+        "Sell": 9,
+        "Weak Buy": 36,
+        "Weak Sell": 27
+      },
+      "OBV Strategy": {
+        "Buy": 10,
+        "Hold": 9,
+        "Strong Buy": 2,
+        "Strong Sell": 5,
+        "Weak Buy": 28,
+        "Weak Sell": 21
+      },
+      "RSI OBV Strategy": {
+        "Buy": 5,
+        "Hold": 9,
+        "Sell": 1,
+        "Strong Sell": 4,
+        "Weak Buy": 37,
+        "Weak Sell": 19
+      },
+      "RSI Strategy": {
+        "Buy": 8,
+        "Hold": 9,
+        "Sell": 9,
+        "Weak Buy": 29,
+        "Weak Sell": 20
+      },
+      "RSI Strategy2": {
+        "Buy": 4,
+        "Hold": 9,
+        "Sell": 4,
+        "Weak Buy": 35,
+        "Weak Sell": 23
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 5,
+        "Hold": 9,
+        "Sell": 1,
+        "Strong Sell": 4,
+        "Weak Buy": 37,
+        "Weak Sell": 19
+      },
+      "RSICMF Strategy": {
+        "Hold": 9,
+        "Weak Buy": 43,
+        "Weak Sell": 23
+      },
+      "RSIMACD Strategy": {
+        "Buy": 7,
+        "Sell": 4,
+        "Weak Buy": 31,
+        "Weak Sell": 33
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 3,
+        "Hold": 3,
+        "Sell": 2,
+        "Strong Buy": 1,
+        "Strong Sell": 1,
+        "Weak Buy": 34,
+        "Weak Sell": 31
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 1,
+        "Sell": 4,
+        "Strong Sell": 4,
+        "Weak Buy": 40,
+        "Weak Sell": 26
+      }
+    },
     "ticker": "IMIB"
   },
   "IMOS": {
     "file_path": "Strategies_IMOS.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 67,
+        "Weak Buy": 53,
+        "Weak Sell": 13
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 67,
+        "Weak Buy": 53,
+        "Weak Sell": 13
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 67,
+        "Weak Buy": 53,
+        "Weak Sell": 13
+      },
+      "MACD Strategy": {
+        "Buy": 16,
+        "Hold": 1,
+        "Sell": 11,
+        "Weak Buy": 59,
+        "Weak Sell": 46
+      },
+      "OBV Strategy": {
+        "Hold": 63,
+        "Weak Buy": 52,
+        "Weak Sell": 18
+      },
+      "RSI OBV Strategy": {
+        "Hold": 67,
+        "Weak Buy": 53,
+        "Weak Sell": 13
+      },
+      "RSI Strategy": {
+        "Buy": 1,
+        "Hold": 61,
+        "Sell": 5,
+        "Strong Buy": 24,
+        "Weak Buy": 28,
+        "Weak Sell": 14
+      },
+      "RSI Strategy2": {
+        "Buy": 5,
+        "Hold": 64,
+        "Strong Buy": 19,
+        "Weak Buy": 30,
+        "Weak Sell": 15
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 67,
+        "Weak Buy": 53,
+        "Weak Sell": 13
+      },
+      "RSICMF Strategy": {
+        "Hold": 67,
+        "Weak Buy": 53,
+        "Weak Sell": 13
+      },
+      "RSIMACD Strategy": {
+        "Buy": 33,
+        "Hold": 1,
+        "Sell": 8,
+        "Weak Buy": 54,
+        "Weak Sell": 37
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 2,
+        "Hold": 28,
+        "Sell": 2,
+        "Strong Buy": 3,
+        "Strong Sell": 2,
+        "Weak Buy": 65,
+        "Weak Sell": 31
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 1,
+        "Hold": 40,
+        "Sell": 1,
+        "Strong Buy": 1,
+        "Strong Sell": 3,
+        "Weak Buy": 65,
+        "Weak Sell": 22
+      }
+    },
     "ticker": "IMOS"
   },
   "INCP": {
     "file_path": "Strategies_INCP.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 5,
+        "Weak Buy": 28,
+        "Weak Sell": 1
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 5,
+        "Weak Buy": 28,
+        "Weak Sell": 1
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 5,
+        "Weak Buy": 28,
+        "Weak Sell": 1
+      },
+      "MACD Strategy": {
+        "Weak Buy": 20,
+        "Weak Sell": 14
+      },
+      "OBV Strategy": {
+        "Hold": 5,
+        "Weak Buy": 28,
+        "Weak Sell": 1
+      },
+      "RSI OBV Strategy": {
+        "Hold": 5,
+        "Weak Buy": 28,
+        "Weak Sell": 1
+      },
+      "RSI Strategy": {
+        "Buy": 2,
+        "Hold": 2,
+        "Strong Buy": 8,
+        "Weak Buy": 18,
+        "Weak Sell": 4
+      },
+      "RSI Strategy2": {
+        "Buy": 6,
+        "Hold": 5,
+        "Strong Buy": 4,
+        "Weak Buy": 18,
+        "Weak Sell": 1
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 5,
+        "Weak Buy": 28,
+        "Weak Sell": 1
+      },
+      "RSICMF Strategy": {
+        "Hold": 5,
+        "Weak Buy": 28,
+        "Weak Sell": 1
+      },
+      "RSIMACD Strategy": {
+        "Buy": 14,
+        "Weak Buy": 16,
+        "Weak Sell": 4
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 1,
+        "Sell": 1,
+        "Strong Buy": 1,
+        "Weak Buy": 23,
+        "Weak Sell": 8
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 5,
+        "Weak Buy": 29
+      }
+    },
     "ticker": "INCP"
   },
   "IRMC": {
     "file_path": "Strategies_IRMC.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 31,
+        "Weak Buy": 69,
+        "Weak Sell": 33
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 31,
+        "Weak Buy": 69,
+        "Weak Sell": 33
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 31,
+        "Weak Buy": 69,
+        "Weak Sell": 33
+      },
+      "MACD Strategy": {
+        "Buy": 5,
+        "Weak Buy": 50,
+        "Weak Sell": 78
+      },
+      "OBV Strategy": {
+        "Hold": 31,
+        "Weak Buy": 69,
+        "Weak Sell": 33
+      },
+      "RSI OBV Strategy": {
+        "Hold": 31,
+        "Weak Buy": 69,
+        "Weak Sell": 33
+      },
+      "RSI Strategy": {
+        "Buy": 25,
+        "Hold": 24,
+        "Sell": 7,
+        "Strong Buy": 12,
+        "Strong Sell": 6,
+        "Weak Buy": 30,
+        "Weak Sell": 29
+      },
+      "RSI Strategy2": {
+        "Buy": 14,
+        "Hold": 31,
+        "Sell": 2,
+        "Strong Buy": 6,
+        "Strong Sell": 5,
+        "Weak Buy": 48,
+        "Weak Sell": 27
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 31,
+        "Weak Buy": 69,
+        "Weak Sell": 33
+      },
+      "RSICMF Strategy": {
+        "Hold": 31,
+        "Weak Buy": 69,
+        "Weak Sell": 33
+      },
+      "RSIMACD Strategy": {
+        "Buy": 17,
+        "Hold": 1,
+        "Sell": 9,
+        "Weak Buy": 58,
+        "Weak Sell": 48
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 6,
+        "Hold": 9,
+        "Strong Buy": 3,
+        "Strong Sell": 3,
+        "Weak Buy": 80,
+        "Weak Sell": 32
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 5,
+        "Hold": 13,
+        "Sell": 7,
+        "Strong Buy": 2,
+        "Strong Sell": 4,
+        "Weak Buy": 77,
+        "Weak Sell": 25
+      }
+    },
     "ticker": "IRMC"
   },
   "NAHF": {
     "file_path": "Strategies_NAHF.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Weak Sell": 10
+      },
+      "EMA5 PSAR Strategy": {
+        "Weak Sell": 10
+      },
+      "EMA5 PSAR Strategy2": {
+        "Weak Sell": 10
+      },
+      "MACD Strategy": {
+        "Buy": 3,
+        "Weak Buy": 7
+      },
+      "OBV Strategy": {
+        "Weak Sell": 10
+      },
+      "RSI OBV Strategy": {
+        "Weak Sell": 10
+      },
+      "RSI Strategy": {
+        "Sell": 6,
+        "Strong Sell": 2,
+        "Weak Sell": 2
+      },
+      "RSI Strategy2": {
+        "Sell": 6,
+        "Weak Sell": 4
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Weak Sell": 10
+      },
+      "RSICMF Strategy": {
+        "Weak Sell": 10
+      },
+      "RSIMACD Strategy": {
+        "Weak Buy": 2,
+        "Weak Sell": 8
+      },
+      "Rolling Std10 Strategy": {
+        "Strong Sell": 1,
+        "Weak Sell": 9
+      },
+      "Rolling Std50 Strategy": {
+        "Sell": 1,
+        "Strong Sell": 6,
+        "Weak Sell": 3
+      }
+    },
     "ticker": "NAHF"
   },
   "NAME": {
     "file_path": "Strategies_NAME.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 37,
+        "Weak Buy": 22,
+        "Weak Sell": 37
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 37,
+        "Weak Buy": 22,
+        "Weak Sell": 37
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 37,
+        "Weak Buy": 22,
+        "Weak Sell": 37
+      },
+      "MACD Strategy": {
+        "Weak Buy": 45,
+        "Weak Sell": 51
+      },
+      "OBV Strategy": {
+        "Buy": 10,
+        "Hold": 37,
+        "Weak Buy": 12,
+        "Weak Sell": 37
+      },
+      "RSI OBV Strategy": {
+        "Buy": 6,
+        "Hold": 37,
+        "Strong Buy": 2,
+        "Weak Buy": 14,
+        "Weak Sell": 37
+      },
+      "RSI Strategy": {
+        "Buy": 5,
+        "Hold": 31,
+        "Sell": 11,
+        "Strong Sell": 2,
+        "Weak Buy": 24,
+        "Weak Sell": 23
+      },
+      "RSI Strategy2": {
+        "Buy": 3,
+        "Hold": 36,
+        "Sell": 5,
+        "Strong Sell": 1,
+        "Weak Buy": 21,
+        "Weak Sell": 30
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 6,
+        "Hold": 37,
+        "Strong Buy": 2,
+        "Weak Buy": 14,
+        "Weak Sell": 37
+      },
+      "RSICMF Strategy": {
+        "Hold": 37,
+        "Weak Buy": 22,
+        "Weak Sell": 37
+      },
+      "RSIMACD Strategy": {
+        "Buy": 2,
+        "Sell": 9,
+        "Weak Buy": 36,
+        "Weak Sell": 49
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 4,
+        "Hold": 16,
+        "Sell": 3,
+        "Strong Buy": 1,
+        "Strong Sell": 3,
+        "Weak Buy": 33,
+        "Weak Sell": 36
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 22,
+        "Sell": 6,
+        "Strong Sell": 11,
+        "Weak Buy": 15,
+        "Weak Sell": 42
+      }
+    },
     "ticker": "NAME"
   },
   "NDSA": {
     "file_path": "Strategies_NDSA.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 6,
+        "Weak Buy": 42,
+        "Weak Sell": 17
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 6,
+        "Weak Buy": 42,
+        "Weak Sell": 17
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 6,
+        "Weak Buy": 42,
+        "Weak Sell": 17
+      },
+      "MACD Strategy": {
+        "Weak Buy": 14,
+        "Weak Sell": 51
+      },
+      "OBV Strategy": {
+        "Buy": 10,
+        "Hold": 6,
+        "Strong Buy": 10,
+        "Strong Sell": 20,
+        "Weak Buy": 18,
+        "Weak Sell": 1
+      },
+      "RSI OBV Strategy": {
+        "Buy": 10,
+        "Hold": 6,
+        "Sell": 2,
+        "Weak Buy": 27,
+        "Weak Sell": 20
+      },
+      "RSI Strategy": {
+        "Buy": 6,
+        "Hold": 6,
+        "Weak Buy": 31,
+        "Weak Sell": 22
+      },
+      "RSI Strategy2": {
+        "Buy": 2,
+        "Hold": 6,
+        "Weak Buy": 40,
+        "Weak Sell": 17
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 10,
+        "Hold": 6,
+        "Sell": 2,
+        "Weak Buy": 27,
+        "Weak Sell": 20
+      },
+      "RSICMF Strategy": {
+        "Hold": 6,
+        "Weak Buy": 42,
+        "Weak Sell": 17
+      },
+      "RSIMACD Strategy": {
+        "Buy": 4,
+        "Sell": 8,
+        "Weak Buy": 16,
+        "Weak Sell": 37
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 2,
+        "Hold": 2,
+        "Weak Buy": 38,
+        "Weak Sell": 23
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 12,
+        "Hold": 1,
+        "Strong Buy": 1,
+        "Weak Buy": 32,
+        "Weak Sell": 19
+      }
+    },
     "ticker": "NDSA"
   },
   "NGIR": {
     "file_path": "Strategies_NGIR.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 29,
+        "Weak Buy": 3,
+        "Weak Sell": 27
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 29,
+        "Weak Buy": 3,
+        "Weak Sell": 27
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 29,
+        "Weak Buy": 3,
+        "Weak Sell": 27
+      },
+      "MACD Strategy": {
+        "Weak Buy": 28,
+        "Weak Sell": 31
+      },
+      "OBV Strategy": {
+        "Hold": 24,
+        "Weak Buy": 15,
+        "Weak Sell": 20
+      },
+      "RSI OBV Strategy": {
+        "Hold": 29,
+        "Weak Buy": 3,
+        "Weak Sell": 27
+      },
+      "RSI Strategy": {
+        "Buy": 1,
+        "Hold": 27,
+        "Sell": 7,
+        "Weak Buy": 6,
+        "Weak Sell": 18
+      },
+      "RSI Strategy2": {
+        "Buy": 1,
+        "Hold": 28,
+        "Sell": 2,
+        "Weak Buy": 3,
+        "Weak Sell": 25
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 29,
+        "Weak Buy": 3,
+        "Weak Sell": 27
+      },
+      "RSICMF Strategy": {
+        "Hold": 29,
+        "Weak Buy": 3,
+        "Weak Sell": 27
+      },
+      "RSIMACD Strategy": {
+        "Buy": 1,
+        "Hold": 15,
+        "Sell": 12,
+        "Weak Buy": 7,
+        "Weak Sell": 24
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 1,
+        "Hold": 10,
+        "Sell": 4,
+        "Strong Sell": 1,
+        "Weak Buy": 10,
+        "Weak Sell": 33
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 13,
+        "Sell": 4,
+        "Strong Sell": 12,
+        "Weak Buy": 3,
+        "Weak Sell": 27
+      }
+    },
     "ticker": "NGIR"
   },
   "SAEI": {
     "file_path": "Strategies_SAEI.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 20,
+        "Weak Buy": 65,
+        "Weak Sell": 21
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 20,
+        "Weak Buy": 65,
+        "Weak Sell": 21
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 20,
+        "Weak Buy": 65,
+        "Weak Sell": 21
+      },
+      "MACD Strategy": {
+        "Buy": 5,
+        "Sell": 2,
+        "Strong Buy": 3,
+        "Weak Buy": 35,
+        "Weak Sell": 61
+      },
+      "OBV Strategy": {
+        "Buy": 9,
+        "Hold": 19,
+        "Sell": 1,
+        "Strong Buy": 1,
+        "Weak Buy": 48,
+        "Weak Sell": 28
+      },
+      "RSI OBV Strategy": {
+        "Buy": 3,
+        "Hold": 20,
+        "Sell": 1,
+        "Weak Buy": 62,
+        "Weak Sell": 20
+      },
+      "RSI Strategy": {
+        "Buy": 22,
+        "Hold": 14,
+        "Sell": 2,
+        "Strong Buy": 6,
+        "Weak Buy": 35,
+        "Weak Sell": 27
+      },
+      "RSI Strategy2": {
+        "Buy": 4,
+        "Hold": 18,
+        "Sell": 1,
+        "Strong Buy": 5,
+        "Weak Buy": 56,
+        "Weak Sell": 22
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 3,
+        "Hold": 20,
+        "Sell": 1,
+        "Weak Buy": 62,
+        "Weak Sell": 20
+      },
+      "RSICMF Strategy": {
+        "Hold": 20,
+        "Weak Buy": 65,
+        "Weak Sell": 21
+      },
+      "RSIMACD Strategy": {
+        "Buy": 21,
+        "Sell": 7,
+        "Weak Buy": 43,
+        "Weak Sell": 35
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 8,
+        "Hold": 9,
+        "Sell": 2,
+        "Strong Buy": 1,
+        "Strong Sell": 3,
+        "Weak Buy": 63,
+        "Weak Sell": 20
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 2,
+        "Hold": 9,
+        "Strong Buy": 5,
+        "Strong Sell": 1,
+        "Weak Buy": 63,
+        "Weak Sell": 26
+      }
+    },
     "ticker": "SAEI"
   },
   "SBPT": {
     "file_path": "Strategies_SBPT.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 4,
+        "Weak Buy": 119,
+        "Weak Sell": 78
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 4,
+        "Weak Buy": 119,
+        "Weak Sell": 78
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 4,
+        "Weak Buy": 119,
+        "Weak Sell": 78
+      },
+      "MACD Strategy": {
+        "Buy": 9,
+        "Sell": 12,
+        "Strong Buy": 82,
+        "Strong Sell": 69,
+        "Weak Buy": 12,
+        "Weak Sell": 17
+      },
+      "OBV Strategy": {
+        "Buy": 24,
+        "Hold": 3,
+        "Sell": 9,
+        "Strong Buy": 61,
+        "Strong Sell": 71,
+        "Weak Buy": 18,
+        "Weak Sell": 15
+      },
+      "RSI OBV Strategy": {
+        "Buy": 9,
+        "Hold": 4,
+        "Sell": 15,
+        "Strong Buy": 6,
+        "Weak Buy": 91,
+        "Weak Sell": 76
+      },
+      "RSI Strategy": {
+        "Buy": 16,
+        "Hold": 3,
+        "Sell": 18,
+        "Strong Buy": 27,
+        "Strong Sell": 17,
+        "Weak Buy": 58,
+        "Weak Sell": 62
+      },
+      "RSI Strategy2": {
+        "Buy": 21,
+        "Hold": 3,
+        "Sell": 5,
+        "Strong Buy": 14,
+        "Strong Sell": 13,
+        "Weak Buy": 69,
+        "Weak Sell": 76
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 9,
+        "Hold": 4,
+        "Sell": 15,
+        "Strong Buy": 6,
+        "Weak Buy": 91,
+        "Weak Sell": 76
+      },
+      "RSICMF Strategy": {
+        "Hold": 4,
+        "Weak Buy": 119,
+        "Weak Sell": 78
+      },
+      "RSIMACD Strategy": {
+        "Buy": 19,
+        "Hold": 1,
+        "Sell": 40,
+        "Strong Buy": 18,
+        "Strong Sell": 2,
+        "Weak Buy": 60,
+        "Weak Sell": 61
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 4,
+        "Hold": 1,
+        "Sell": 10,
+        "Strong Buy": 2,
+        "Strong Sell": 7,
+        "Weak Buy": 112,
+        "Weak Sell": 65
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 5,
+        "Hold": 1,
+        "Sell": 15,
+        "Strong Buy": 7,
+        "Strong Sell": 8,
+        "Weak Buy": 57,
+        "Weak Sell": 108
+      }
+    },
     "ticker": "SBPT"
   },
   "SKTA": {
     "file_path": "Strategies_SKTA.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 61,
+        "Weak Buy": 45,
+        "Weak Sell": 32
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 61,
+        "Weak Buy": 45,
+        "Weak Sell": 32
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 61,
+        "Weak Buy": 45,
+        "Weak Sell": 32
+      },
+      "MACD Strategy": {
+        "Buy": 6,
+        "Sell": 2,
+        "Weak Buy": 67,
+        "Weak Sell": 63
+      },
+      "OBV Strategy": {
+        "Buy": 2,
+        "Hold": 54,
+        "Weak Buy": 46,
+        "Weak Sell": 36
+      },
+      "RSI OBV Strategy": {
+        "Buy": 2,
+        "Hold": 61,
+        "Weak Buy": 43,
+        "Weak Sell": 32
+      },
+      "RSI Strategy": {
+        "Hold": 56,
+        "Sell": 5,
+        "Strong Buy": 1,
+        "Weak Buy": 44,
+        "Weak Sell": 32
+      },
+      "RSI Strategy2": {
+        "Buy": 1,
+        "Hold": 61,
+        "Weak Buy": 44,
+        "Weak Sell": 32
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 2,
+        "Hold": 61,
+        "Weak Buy": 43,
+        "Weak Sell": 32
+      },
+      "RSICMF Strategy": {
+        "Hold": 61,
+        "Weak Buy": 45,
+        "Weak Sell": 32
+      },
+      "RSIMACD Strategy": {
+        "Buy": 21,
+        "Sell": 16,
+        "Weak Buy": 48,
+        "Weak Sell": 53
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 1,
+        "Hold": 23,
+        "Sell": 3,
+        "Strong Sell": 2,
+        "Weak Buy": 65,
+        "Weak Sell": 44
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 2,
+        "Hold": 21,
+        "Sell": 2,
+        "Weak Buy": 62,
+        "Weak Sell": 51
+      }
+    },
     "ticker": "SKTA"
   },
   "SMOF": {
     "file_path": "Strategies_SMOF.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Weak Buy": 59,
+        "Weak Sell": 15
+      },
+      "EMA5 PSAR Strategy": {
+        "Weak Buy": 59,
+        "Weak Sell": 15
+      },
+      "EMA5 PSAR Strategy2": {
+        "Weak Buy": 59,
+        "Weak Sell": 15
+      },
+      "MACD Strategy": {
+        "Buy": 9,
+        "Sell": 6,
+        "Strong Buy": 13,
+        "Strong Sell": 9,
+        "Weak Buy": 25,
+        "Weak Sell": 12
+      },
+      "OBV Strategy": {
+        "Buy": 1,
+        "Sell": 1,
+        "Strong Buy": 25,
+        "Strong Sell": 44,
+        "Weak Sell": 3
+      },
+      "RSI OBV Strategy": {
+        "Buy": 4,
+        "Sell": 4,
+        "Weak Buy": 35,
+        "Weak Sell": 31
+      },
+      "RSI Strategy": {
+        "Buy": 4,
+        "Sell": 2,
+        "Strong Buy": 12,
+        "Strong Sell": 4,
+        "Weak Buy": 40,
+        "Weak Sell": 12
+      },
+      "RSI Strategy2": {
+        "Buy": 3,
+        "Sell": 2,
+        "Strong Buy": 12,
+        "Strong Sell": 2,
+        "Weak Buy": 43,
+        "Weak Sell": 12
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 4,
+        "Sell": 4,
+        "Weak Buy": 35,
+        "Weak Sell": 31
+      },
+      "RSICMF Strategy": {
+        "Weak Buy": 59,
+        "Weak Sell": 15
+      },
+      "RSIMACD Strategy": {
+        "Buy": 20,
+        "Sell": 2,
+        "Weak Buy": 36,
+        "Weak Sell": 16
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 4,
+        "Strong Buy": 1,
+        "Strong Sell": 1,
+        "Weak Buy": 44,
+        "Weak Sell": 24
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 6,
+        "Strong Buy": 5,
+        "Weak Buy": 50,
+        "Weak Sell": 13
+      }
+    },
     "ticker": "SMOF"
   },
   "SMRI": {
     "file_path": "Strategies_SMRI.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 45,
+        "Weak Buy": 122,
+        "Weak Sell": 24
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 45,
+        "Weak Buy": 122,
+        "Weak Sell": 24
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 45,
+        "Weak Buy": 122,
+        "Weak Sell": 24
+      },
+      "MACD Strategy": {
+        "Buy": 28,
+        "Sell": 26,
+        "Strong Buy": 2,
+        "Strong Sell": 1,
+        "Weak Buy": 75,
+        "Weak Sell": 59
+      },
+      "OBV Strategy": {
+        "Hold": 45,
+        "Weak Buy": 123,
+        "Weak Sell": 23
+      },
+      "RSI OBV Strategy": {
+        "Hold": 45,
+        "Weak Buy": 122,
+        "Weak Sell": 24
+      },
+      "RSI Strategy": {
+        "Buy": 31,
+        "Hold": 34,
+        "Sell": 3,
+        "Strong Buy": 15,
+        "Weak Buy": 77,
+        "Weak Sell": 31
+      },
+      "RSI Strategy2": {
+        "Buy": 28,
+        "Hold": 43,
+        "Sell": 1,
+        "Strong Buy": 5,
+        "Weak Buy": 91,
+        "Weak Sell": 23
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 45,
+        "Weak Buy": 122,
+        "Weak Sell": 24
+      },
+      "RSICMF Strategy": {
+        "Hold": 45,
+        "Weak Buy": 122,
+        "Weak Sell": 24
+      },
+      "RSIMACD Strategy": {
+        "Buy": 44,
+        "Hold": 1,
+        "Sell": 6,
+        "Weak Buy": 102,
+        "Weak Sell": 38
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 8,
+        "Hold": 19,
+        "Sell": 6,
+        "Strong Buy": 1,
+        "Strong Sell": 4,
+        "Weak Buy": 118,
+        "Weak Sell": 35
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 4,
+        "Hold": 15,
+        "Sell": 6,
+        "Strong Buy": 5,
+        "Strong Sell": 4,
+        "Weak Buy": 124,
+        "Weak Sell": 33
+      }
+    },
     "ticker": "SMRI"
   },
   "SNUC": {
     "file_path": "Strategies_SNUC.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 22,
+        "Weak Buy": 5,
+        "Weak Sell": 14
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 22,
+        "Weak Buy": 5,
+        "Weak Sell": 14
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 22,
+        "Weak Buy": 5,
+        "Weak Sell": 14
+      },
+      "MACD Strategy": {
+        "Weak Buy": 16,
+        "Weak Sell": 25
+      },
+      "OBV Strategy": {
+        "Hold": 22,
+        "Weak Buy": 5,
+        "Weak Sell": 14
+      },
+      "RSI OBV Strategy": {
+        "Hold": 22,
+        "Weak Buy": 5,
+        "Weak Sell": 14
+      },
+      "RSI Strategy": {
+        "Buy": 1,
+        "Hold": 20,
+        "Sell": 2,
+        "Strong Buy": 1,
+        "Weak Buy": 5,
+        "Weak Sell": 12
+      },
+      "RSI Strategy2": {
+        "Buy": 2,
+        "Hold": 22,
+        "Sell": 1,
+        "Weak Buy": 3,
+        "Weak Sell": 13
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 22,
+        "Weak Buy": 5,
+        "Weak Sell": 14
+      },
+      "RSICMF Strategy": {
+        "Hold": 22,
+        "Weak Buy": 5,
+        "Weak Sell": 14
+      },
+      "RSIMACD Strategy": {
+        "Buy": 2,
+        "Sell": 8,
+        "Weak Buy": 12,
+        "Weak Sell": 19
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 1,
+        "Hold": 7,
+        "Sell": 2,
+        "Strong Sell": 2,
+        "Weak Buy": 17,
+        "Weak Sell": 12
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 17,
+        "Sell": 2,
+        "Strong Sell": 1,
+        "Weak Buy": 5,
+        "Weak Sell": 16
+      }
+    },
     "ticker": "SNUC"
   },
   "TASC": {
     "file_path": "Strategies_TASC.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 42,
+        "Weak Buy": 56,
+        "Weak Sell": 111
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 42,
+        "Weak Buy": 56,
+        "Weak Sell": 111
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 42,
+        "Weak Buy": 56,
+        "Weak Sell": 111
+      },
+      "MACD Strategy": {
+        "Buy": 51,
+        "Hold": 1,
+        "Sell": 31,
+        "Strong Buy": 1,
+        "Strong Sell": 6,
+        "Weak Buy": 56,
+        "Weak Sell": 63
+      },
+      "OBV Strategy": {
+        "Buy": 2,
+        "Hold": 42,
+        "Weak Buy": 90,
+        "Weak Sell": 75
+      },
+      "RSI OBV Strategy": {
+        "Buy": 1,
+        "Hold": 42,
+        "Weak Buy": 55,
+        "Weak Sell": 111
+      },
+      "RSI Strategy": {
+        "Buy": 13,
+        "Hold": 25,
+        "Sell": 27,
+        "Strong Buy": 13,
+        "Strong Sell": 38,
+        "Weak Buy": 32,
+        "Weak Sell": 61
+      },
+      "RSI Strategy2": {
+        "Buy": 16,
+        "Hold": 35,
+        "Sell": 19,
+        "Strong Buy": 4,
+        "Strong Sell": 29,
+        "Weak Buy": 34,
+        "Weak Sell": 72
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Buy": 1,
+        "Hold": 42,
+        "Weak Buy": 55,
+        "Weak Sell": 111
+      },
+      "RSICMF Strategy": {
+        "Hold": 42,
+        "Weak Buy": 56,
+        "Weak Sell": 111
+      },
+      "RSIMACD Strategy": {
+        "Buy": 10,
+        "Hold": 4,
+        "Sell": 22,
+        "Weak Buy": 59,
+        "Weak Sell": 114
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 8,
+        "Hold": 14,
+        "Sell": 17,
+        "Strong Buy": 1,
+        "Strong Sell": 2,
+        "Weak Buy": 70,
+        "Weak Sell": 97
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 6,
+        "Hold": 31,
+        "Sell": 13,
+        "Strong Buy": 3,
+        "Strong Sell": 20,
+        "Weak Buy": 45,
+        "Weak Sell": 91
+      }
+    },
     "ticker": "TASC"
   },
   "TZNI": {
     "file_path": "Strategies_TZNI.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 47,
+        "Weak Buy": 54,
+        "Weak Sell": 10
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 47,
+        "Weak Buy": 54,
+        "Weak Sell": 10
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 47,
+        "Weak Buy": 54,
+        "Weak Sell": 10
+      },
+      "MACD Strategy": {
+        "Weak Buy": 61,
+        "Weak Sell": 50
+      },
+      "OBV Strategy": {
+        "Hold": 47,
+        "Weak Buy": 54,
+        "Weak Sell": 10
+      },
+      "RSI OBV Strategy": {
+        "Hold": 47,
+        "Weak Buy": 54,
+        "Weak Sell": 10
+      },
+      "RSI Strategy": {
+        "Buy": 8,
+        "Hold": 43,
+        "Strong Buy": 7,
+        "Strong Sell": 1,
+        "Weak Buy": 36,
+        "Weak Sell": 16
+      },
+      "RSI Strategy2": {
+        "Buy": 10,
+        "Hold": 46,
+        "Strong Buy": 2,
+        "Strong Sell": 1,
+        "Weak Buy": 38,
+        "Weak Sell": 14
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 47,
+        "Weak Buy": 54,
+        "Weak Sell": 10
+      },
+      "RSICMF Strategy": {
+        "Hold": 47,
+        "Weak Buy": 54,
+        "Weak Sell": 10
+      },
+      "RSIMACD Strategy": {
+        "Buy": 7,
+        "Hold": 11,
+        "Sell": 3,
+        "Weak Buy": 60,
+        "Weak Sell": 30
+      },
+      "Rolling Std10 Strategy": {
+        "Buy": 5,
+        "Hold": 28,
+        "Sell": 1,
+        "Strong Buy": 2,
+        "Strong Sell": 1,
+        "Weak Buy": 45,
+        "Weak Sell": 29
+      },
+      "Rolling Std50 Strategy": {
+        "Buy": 3,
+        "Hold": 27,
+        "Sell": 3,
+        "Strong Buy": 6,
+        "Strong Sell": 4,
+        "Weak Buy": 62,
+        "Weak Sell": 6
+      }
+    },
     "ticker": "TZNI"
   },
   "VAMF": {
     "file_path": "Strategies_VAMF.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 9,
+        "Weak Sell": 5
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 9,
+        "Weak Sell": 5
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 9,
+        "Weak Sell": 5
+      },
+      "MACD Strategy": {
+        "Weak Sell": 14
+      },
+      "OBV Strategy": {
+        "Hold": 9,
+        "Weak Sell": 5
+      },
+      "RSI OBV Strategy": {
+        "Hold": 9,
+        "Weak Sell": 5
+      },
+      "RSI Strategy": {
+        "Hold": 9,
+        "Weak Sell": 5
+      },
+      "RSI Strategy2": {
+        "Hold": 9,
+        "Weak Sell": 5
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 9,
+        "Weak Sell": 5
+      },
+      "RSICMF Strategy": {
+        "Hold": 9,
+        "Weak Sell": 5
+      },
+      "RSIMACD Strategy": {
+        "Hold": 9,
+        "Weak Sell": 5
+      },
+      "Rolling Std10 Strategy": {
+        "Hold": 9,
+        "Strong Sell": 2,
+        "Weak Sell": 3
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 9,
+        "Weak Sell": 5
+      }
+    },
     "ticker": "VAMF"
   },
   "VWIF": {
     "file_path": "Strategies_VWIF.csv",
-    "last_update": "2025-06-09 01:12:22",
-    "signal_levels": [
-      "Strong Buy",
-      "Buy",
-      "Weak Buy",
-      "Hold",
-      "Weak Sell",
-      "Sell",
-      "Strong Sell"
-    ],
-    "strategies": [
-      "RSI",
-      "MACD",
-      "CMF",
-      "OBV",
-      "EMA5_PSAR",
-      "Rolling_Std"
-    ],
+    "last_update": "2025-06-14 02:05:36",
+    "stats": {
+      "CMF Strategy": {
+        "Hold": 8,
+        "Weak Buy": 3,
+        "Weak Sell": 2
+      },
+      "EMA5 PSAR Strategy": {
+        "Hold": 8,
+        "Weak Buy": 3,
+        "Weak Sell": 2
+      },
+      "EMA5 PSAR Strategy2": {
+        "Hold": 8,
+        "Weak Buy": 3,
+        "Weak Sell": 2
+      },
+      "MACD Strategy": {
+        "Weak Buy": 7,
+        "Weak Sell": 6
+      },
+      "OBV Strategy": {
+        "Hold": 2,
+        "Weak Buy": 1,
+        "Weak Sell": 10
+      },
+      "RSI OBV Strategy": {
+        "Hold": 8,
+        "Weak Buy": 3,
+        "Weak Sell": 2
+      },
+      "RSI Strategy": {
+        "Buy": 1,
+        "Hold": 8,
+        "Strong Buy": 2,
+        "Weak Buy": 1,
+        "Weak Sell": 1
+      },
+      "RSI Strategy2": {
+        "Buy": 1,
+        "Hold": 8,
+        "Strong Buy": 1,
+        "Weak Buy": 2,
+        "Weak Sell": 1
+      },
+      "RSI14_OBV_RoC Strategy": {
+        "Hold": 8,
+        "Weak Buy": 3,
+        "Weak Sell": 2
+      },
+      "RSICMF Strategy": {
+        "Hold": 8,
+        "Weak Buy": 3,
+        "Weak Sell": 2
+      },
+      "RSIMACD Strategy": {
+        "Buy": 5,
+        "Hold": 3,
+        "Weak Buy": 4,
+        "Weak Sell": 1
+      },
+      "Rolling Std10 Strategy": {
+        "Hold": 2,
+        "Weak Buy": 5,
+        "Weak Sell": 6
+      },
+      "Rolling Std50 Strategy": {
+        "Hold": 5,
+        "Weak Buy": 6,
+        "Weak Sell": 2
+      }
+    },
     "ticker": "VWIF"
   }
 }

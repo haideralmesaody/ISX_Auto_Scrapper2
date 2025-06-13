@@ -14,6 +14,7 @@ type StockData struct {
 	Low    decimal.Decimal `csv:"Low"`
 	Close  decimal.Decimal `csv:"Close"`
 	Volume int64           `csv:"Volume"`
+	Trades int64           `csv:"Trades"`
 
 	// Price change calculations
 	Change        decimal.Decimal `csv:"Change"`
