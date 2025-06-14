@@ -36,6 +36,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const dl = document.getElementById('downloadReport');
     if (dl) dl.addEventListener('click', () => { window.location = '/api/daily_report_excel'; });
 
+    const pdfBtn = document.getElementById('downloadPdf');
+    if (pdfBtn) {
+        pdfBtn.addEventListener('click', () => {
+            const el = document.getElementById('reportContent');
+            if(!el){ return; }
+            const opt = {
+                margin:       [0.3, 0.2], // top/bottom, left/right (inches)
+                filename:     `ISX_Daily_Report_${currentReportDate || ''}.pdf`,
+                image:        { type: 'jpeg', quality: 0.95 },
+                html2canvas:  { scale: 2, useCORS:true, scrollY: 0 },
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
+                pagebreak:    { mode: ['css','legacy'] }
+            };
+            html2pdf().set(opt).from(el).save();
+        });
+    }
+
     setupRowInteractions();
 });
 
@@ -53,14 +70,14 @@ function buildTopTable(rows, metric = 'volume') {
     let cellRenderer = () => '';
     if (metric === 'volume') {
         colLabel = 'Volume';
-        cellRenderer = r => fmtInt(r.volume);
+        cellRenderer = r => fmtAbbrev(r.volume);
     } else if (metric === 'value') {
         colLabel = 'Value';
-        cellRenderer = r => fmtFloat(r.value);
+        cellRenderer = r => fmtAbbrev(r.value);
     }
 
     // Build table header
-    let headerHtml = '<tr><th>Ticker</th><th>Name</th><th>Close</th><th>Change%</th>';
+    let headerHtml = '<tr><th>Ticker</th><th>Close</th><th>Change%</th>';
     if (metric !== 'none') {
         headerHtml += `<th>${colLabel}</th>`;
     }
@@ -70,7 +87,7 @@ function buildTopTable(rows, metric = 'volume') {
     rows.forEach(r => {
         const changeClass = r.change_pct >= 0 ? 'positive' : 'negative';
         const changeSign = r.change_pct >= 0 ? '+' : '';
-        html += `<tr data-ticker="${r.ticker}"><td>${r.ticker}</td><td>${r.name}</td><td>${fmtFloat(r.close)}</td><td class="${changeClass}">${changeSign}${fmtFloat(r.change_pct)}</td>`;
+        html += `<tr data-ticker="${r.ticker}"><td>${r.ticker}</td><td>${fmtFloat(r.close)}</td><td class="${changeClass}">${changeSign}${fmtFloat(r.change_pct)}</td>`;
         if (metric !== 'none') {
             html += `<td>${cellRenderer(r)}</td>`;
         }
@@ -80,7 +97,10 @@ function buildTopTable(rows, metric = 'volume') {
     return html;
 }
 
+let currentReportDate = '';
+
 function renderReport(data) {
+    currentReportDate = data.date;
     const container = document.getElementById('reportContent');
     if (!container) return;
 
@@ -100,11 +120,11 @@ function renderReport(data) {
             <h2>Daily Report – ${data.date}</h2>
         </div>
         ${topCardsHtml}
-        <section class="report-section">
+        <section class="report-section pagebreak">
             <h3>Traded Companies</h3>
             ${buildCompanyTable(tradedSorted)}
         </section>
-        <section class="report-section">
+        <section class="report-section pagebreak">
             <h3>Non-Traded Companies</h3>
             ${buildNonTradedTable(nonSorted)}
         </section>`;
@@ -114,8 +134,8 @@ function renderReport(data) {
 
     drawTopPie('chart-volume', 'Volume Share', data.top_volume, 'volume');
     drawTopPie('chart-value', 'Value Share', data.top_value, 'value');
-    drawTopPie('chart-gainers', 'Gain %', data.top_gain, 'change_pct');
-    drawTopPie('chart-losers', 'Loss %', data.top_loss, 'change_pct');
+    drawChangeBar('chart-gainers', data.top_gain);
+    drawChangeBar('chart-losers', data.top_loss);
 }
 
 function buildCompanyTable(rows) {
@@ -153,6 +173,16 @@ function fmtFloat(val) {
 function fmtInt(val) {
     if (val === null || val === undefined) return '-';
     return Number(val).toLocaleString('en-US');
+}
+
+// -------- Abbreviated number helper --------
+function fmtAbbrev(n){
+    if(n===null||n===undefined) return '-';
+    const abs=Math.abs(Number(n));
+    if(abs>=1e9) return (n/1e9).toFixed(1).replace(/\.0$/,'')+'B';
+    if(abs>=1e6) return (n/1e6).toFixed(1).replace(/\.0$/,'')+'M';
+    if(abs>=1e3) return (n/1e3).toFixed(1).replace(/\.0$/,'')+'K';
+    return n.toString();
 }
 
 // ---------------- Sparkline util (inline SVG) ----------------
@@ -247,13 +277,49 @@ function drawTopPie(container, title, rows, metric){
             pie: {
                 allowPointSelect: false,
                 cursor: 'pointer',
-                dataLabels: { enabled: false }
+                dataLabels: {
+                    enabled: true,
+                    useHTML: true,
+                    distance: 12,
+                    formatter: function(){
+                        return `<span style="color:${this.point.color};font-size:10px;">${this.point.name}</span>`;
+                    },
+                    style:{ textOutline:'none' }
+                }
             }
         },
         credits: { enabled:false },
         exporting: { enabled:false },
         stockTools: { gui: { enabled:false } },
         series: [{ name: title, colorByPoint: true, data: seriesData }]
+    });
+}
+
+// ----------- Bar chart for gainers / losers -----------
+function drawChangeBar(container, rows){
+    if(!window.Highcharts || !Array.isArray(rows) || rows.length===0) return;
+    const categories = rows.map(r=>r.ticker);
+    const seriesData = rows.map(r=>({
+        y: Number(r.change_pct),
+        color: r.change_pct>=0 ? '#4ade80' : '#f87171'
+    }));
+    const maxAbs = Math.max(...seriesData.map(p=>Math.abs(p.y)));
+    Highcharts.chart(container, {
+        chart: { type: 'bar', height: 220, backgroundColor:'transparent' },
+        title: { text:null },
+        xAxis: { categories, title:null, gridLineWidth:0 },
+        yAxis: {
+            max: maxAbs,
+            min: -maxAbs,
+            title: { text:'Change %' },
+            labels: { formatter(){ return this.value + '%'; } }
+        },
+        tooltip: { pointFormat: '<b>{point.y:.2f}%</b>' },
+        plotOptions:{ bar:{ dataLabels:{ enabled:true, formatter(){ return this.y.toFixed(2)+'%'; } } } },
+        exporting:{ enabled:false },
+        credits:{ enabled:false },
+        stockTools:{ gui:{ enabled:false } },
+        series:[{ name:'Change %', data:seriesData, showInLegend:false }]
     });
 }
 

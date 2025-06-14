@@ -33,6 +33,7 @@
             <div class="header-controls">
                 <a href="dashboard.html" class="btn btn-primary">← Back to Dashboard</a>
                 <a id="downloadReport" class="btn btn-secondary" href="#">Download&nbsp;Excel</a>
+                <a id="downloadPdf" class="btn btn-secondary" href="#">Download&nbsp;PDF</a>
             </div>
         </div>
     </header>
@@ -42,6 +43,8 @@
         <p style="padding:1rem;">Loading daily report…</p>
     </main>
 
+    <!-- html2pdf library for client-side PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="report.js"></script>
 </body>
 </html> 
