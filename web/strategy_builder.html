@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strategy Builder – ISX Auto Scrapper</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        /* lightweight page-specific tweaks */
+        .builder-container{max-width:1200px;margin:2rem auto;padding:1rem;background:#fff;border-radius:12px;border:1px solid var(--border-light);box-shadow:0 2px 8px rgba(0,0,0,.05)}
+        .rules-table{width:100%;border-collapse:collapse;margin-bottom:1rem}
+        .rules-table th,.rules-table td{padding:.5rem;border-bottom:1px solid var(--border-light)}
+        .rules-table select,.rules-table input{width:100%}
+        .btn-small{padding:.4rem 1rem;font-size:.8rem}
+        .panel-header{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem}
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="daily_report.html">Daily Report</a>
+        <a href="strategy_builder.html" class="active">Strategy Builder</a>
+    </nav>
+
+    <div class="builder-container">
+        <h2>Strategy Builder</h2>
+
+        <!-- Strategy selection / new -->
+        <div style="margin-bottom:1rem;display:flex;gap:1rem;align-items:center;">
+            <label for="strategySelect">Strategy:</label>
+            <select id="strategySelect" style="min-width:260px;"></select>
+            <button id="delStrategyBtn" class="btn btn-secondary btn-small" style="display:none;">Delete</button>
+        </div>
+
+        <!-- BUY rules -->
+        <div class="panel-header"><h3>Buy Conditions</h3><button id="addBuyRule" class="btn btn-primary btn-small">Add Rule</button></div>
+        <table class="rules-table" id="buyRulesTable">
+            <thead>
+                <tr><th>Link</th><th>Indicator</th><th>Param</th><th>Operator</th><th>Target</th><th>Value</th><th></th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <svg id="buyLogic" width="100%" height="200"></svg>
+
+        <!-- SELL rules -->
+        <div class="panel-header"><h3>Sell Conditions</h3><button id="addSellRule" class="btn btn-primary btn-small">Add Rule</button></div>
+        <table class="rules-table" id="sellRulesTable">
+            <thead>
+                <tr><th>Link</th><th>Indicator</th><th>Param</th><th>Operator</th><th>Target</th><th>Value</th><th></th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <svg id="sellLogic" width="100%" height="200"></svg>
+
+        <button id="saveStrategyBtn" class="btn btn-primary">Save Strategy</button>
+        <span id="statusMsg" style="margin-left:1rem;color:var(--primary-green);"></span>
+    </div>
+
+    <!-- Ticker selector and preview chart -->
+    <div class="builder-container" style="margin-top:2rem;">
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+            <label for="tickerDropdown">Ticker:</label>
+            <select id="tickerDropdown" style="min-width:220px;"></select>
+        </div>
+        <div id="builderChart" style="height:650px;width:100%;max-width:100%;"></div>
+    </div>
+
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/drag-panes.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/annotations-advanced.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/price-indicator.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/full-screen.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/stock-tools.js"></script>
+    <script src="https://code.highcharts.com/stock/indicators/indicators-all.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <link rel="stylesheet" href="https://code.highcharts.com/css/stocktools/gui.css">
+    <link rel="stylesheet" href="https://code.highcharts.com/css/annotations/popup.css">
+
+    <script src="strategy_builder.js"></script>
+</body>
+</html> 

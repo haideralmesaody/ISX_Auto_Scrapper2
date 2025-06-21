@@ -105,7 +105,7 @@ function renderReport(data) {
     if (!container) return;
 
     const topCardsHtml = `
-        <section class="report-cards">
+        <section class="report-cards pagebreak-after">
             ${buildTopCard('Top 5 by Volume', data.top_volume, 'chart-volume', 'volume')}
             ${buildTopCard('Top 5 by Value', data.top_value, 'chart-value', 'value')}
             ${buildTopCard('Top 5 Gainers', data.top_gain, 'chart-gainers', 'none')}

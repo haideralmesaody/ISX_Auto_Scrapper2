@@ -3,6 +3,7 @@ package server
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"net/http"
 	"os"
 	"strconv"
@@ -18,6 +19,8 @@ import (
 	"isx-auto-scrapper/internal/scraper"
 	"isx-auto-scrapper/internal/strategies"
 )
+
+const userStrategiesPath = "strategies_user.json"
 
 // WebServer handles HTTP requests for the dashboard
 type WebServer struct {
@@ -53,6 +56,7 @@ func (ws *WebServer) Start() error {
 	mux.HandleFunc("/api/liquidity", ws.handleLiquidity)
 	mux.HandleFunc("/api/daily_report", ws.handleDailyReport)
 	mux.HandleFunc("/api/daily_report_excel", ws.handleDailyReportExcel)
+	mux.HandleFunc("/api/user_strategies", ws.handleUserStrategies)
 
 	// CORS middleware
 	corsHandler := func(h http.Handler) http.Handler {
@@ -474,6 +478,34 @@ func (ws *WebServer) handleDailyReportExcel(w http.ResponseWriter, r *http.Reque
 	w.Header().Set("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 	w.Header().Set("Content-Disposition", "attachment; filename=\"daily_report.xlsx\"")
 	http.ServeFile(w, r, tmp)
+}
+
+// handleUserStrategies supports GET (fetch JSON) and POST (overwrite) of user-defined strategies
+func (ws *WebServer) handleUserStrategies(w http.ResponseWriter, r *http.Request) {
+	switch r.Method {
+	case "GET":
+		b, err := os.ReadFile(userStrategiesPath)
+		if err != nil || len(b) == 0 {
+			b = []byte("[]")
+		}
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(b)
+	case "POST":
+		body, _ := io.ReadAll(r.Body)
+		defer r.Body.Close()
+		// validate JSON is array
+		var tmp []interface{}
+		if err := json.Unmarshal(body, &tmp); err != nil {
+			http.Error(w, "bad json", http.StatusBadRequest)
+			return
+		}
+		// pretty write
+		pretty, _ := json.MarshalIndent(tmp, "", "  ")
+		_ = os.WriteFile(userStrategiesPath, pretty, 0644)
+		w.WriteHeader(http.StatusNoContent)
+	default:
+		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+	}
 }
 
 // Data loading helpers
