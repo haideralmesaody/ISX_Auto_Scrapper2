@@ -20,7 +20,6 @@ import (
 type Strategies struct {
 	logger *common.Logger
 	config StrategyConfig
-	custom []StrategyDefinition // user defined strategies
 }
 
 // NewStrategies creates a new Strategies instance
@@ -29,11 +28,9 @@ func NewStrategies() *Strategies {
 	if err != nil {
 		cfg = defaultStrategyConfig
 	}
-	_ = loadUserStrategies("strategies_user.json")
 	return &Strategies{
 		logger: common.NewLogger(),
 		config: cfg,
-		custom: userStrategies,
 	}
 }
 
@@ -302,23 +299,6 @@ func (s *Strategies) applyTradingStrategies(data []*indicators.StockDataWithIndi
 	s.applyOBVStrategy(strategyData)
 	s.applyEMA5PSARStrategy(strategyData)
 	s.applyRollingStdStrategies(strategyData)
-
-	// Apply any custom RSI-based strategies (prototype)
-	for _, cs := range s.custom {
-		if len(cs.BuyRules) == 0 || len(cs.SellRules) == 0 {
-			continue
-		}
-		if !strings.HasPrefix(cs.BuyRules[0].Indicator, "RSI") {
-			continue // only RSI for now
-		}
-
-		// prepare RSI slice
-		var rsiVals []float64
-		for _, sd := range strategyData {
-			rsiVals = append(rsiVals, sd.RSI14.InexactFloat64())
-		}
-		applyCustomRSI(strategyData, rsiVals, cs)
-	}
 
 	return strategyData, nil
 }
